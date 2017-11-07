@@ -1,0 +1,580 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
+		04BE920C1FB1583900A35523 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE920B1FB1583900A35523 /* ViewController.swift */; };
+		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
+		04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */; };
+		04BE92141FB1583900A35523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE92131FB1583900A35523 /* Assets.xcassets */; };
+		04BE92171FB1583900A35523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE92151FB1583900A35523 /* LaunchScreen.storyboard */; };
+		04BE92221FB1583900A35523 /* talkTekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92211FB1583900A35523 /* talkTekTests.swift */; };
+		04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE922C1FB1583900A35523 /* talkTekUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		04BE921E1FB1583900A35523 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04BE91FE1FB1583900A35523 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04BE92051FB1583900A35523;
+			remoteInfo = talkTek;
+		};
+		04BE92291FB1583900A35523 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 04BE91FE1FB1583900A35523 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 04BE92051FB1583900A35523;
+			remoteInfo = talkTek;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		04BE920B1FB1583900A35523 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04BE920E1FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		04BE92111FB1583900A35523 /* talkTek.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talkTek.xcdatamodel; sourceTree = "<group>"; };
+		04BE92131FB1583900A35523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		04BE92161FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		04BE92181FB1583900A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04BE921D1FB1583900A35523 /* talkTekTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talkTekTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04BE92211FB1583900A35523 /* talkTekTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkTekTests.swift; sourceTree = "<group>"; };
+		04BE92231FB1583900A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04BE92281FB1583900A35523 /* talkTekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talkTekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		04BE922C1FB1583900A35523 /* talkTekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkTekUITests.swift; sourceTree = "<group>"; };
+		04BE922E1FB1583A00A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		04BE92031FB1583900A35523 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04BE921A1FB1583900A35523 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04BE92251FB1583900A35523 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		04BE91FD1FB1583900A35523 = {
+			isa = PBXGroup;
+			children = (
+				04BE92081FB1583900A35523 /* talkTek */,
+				04BE92201FB1583900A35523 /* talkTekTests */,
+				04BE922B1FB1583900A35523 /* talkTekUITests */,
+				04BE92071FB1583900A35523 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		04BE92071FB1583900A35523 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				04BE92061FB1583900A35523 /* talkTek.app */,
+				04BE921D1FB1583900A35523 /* talkTekTests.xctest */,
+				04BE92281FB1583900A35523 /* talkTekUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		04BE92081FB1583900A35523 /* talkTek */ = {
+			isa = PBXGroup;
+			children = (
+				04BE92091FB1583900A35523 /* AppDelegate.swift */,
+				04BE920B1FB1583900A35523 /* ViewController.swift */,
+				04BE920D1FB1583900A35523 /* Main.storyboard */,
+				04BE92131FB1583900A35523 /* Assets.xcassets */,
+				04BE92151FB1583900A35523 /* LaunchScreen.storyboard */,
+				04BE92181FB1583900A35523 /* Info.plist */,
+				04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */,
+			);
+			path = talkTek;
+			sourceTree = "<group>";
+		};
+		04BE92201FB1583900A35523 /* talkTekTests */ = {
+			isa = PBXGroup;
+			children = (
+				04BE92211FB1583900A35523 /* talkTekTests.swift */,
+				04BE92231FB1583900A35523 /* Info.plist */,
+			);
+			path = talkTekTests;
+			sourceTree = "<group>";
+		};
+		04BE922B1FB1583900A35523 /* talkTekUITests */ = {
+			isa = PBXGroup;
+			children = (
+				04BE922C1FB1583900A35523 /* talkTekUITests.swift */,
+				04BE922E1FB1583A00A35523 /* Info.plist */,
+			);
+			path = talkTekUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		04BE92051FB1583900A35523 /* talkTek */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04BE92311FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTek" */;
+			buildPhases = (
+				04BE92021FB1583900A35523 /* Sources */,
+				04BE92031FB1583900A35523 /* Frameworks */,
+				04BE92041FB1583900A35523 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = talkTek;
+			productName = talkTek;
+			productReference = 04BE92061FB1583900A35523 /* talkTek.app */;
+			productType = "com.apple.product-type.application";
+		};
+		04BE921C1FB1583900A35523 /* talkTekTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04BE92341FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTekTests" */;
+			buildPhases = (
+				04BE92191FB1583900A35523 /* Sources */,
+				04BE921A1FB1583900A35523 /* Frameworks */,
+				04BE921B1FB1583900A35523 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04BE921F1FB1583900A35523 /* PBXTargetDependency */,
+			);
+			name = talkTekTests;
+			productName = talkTekTests;
+			productReference = 04BE921D1FB1583900A35523 /* talkTekTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		04BE92271FB1583900A35523 /* talkTekUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04BE92371FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTekUITests" */;
+			buildPhases = (
+				04BE92241FB1583900A35523 /* Sources */,
+				04BE92251FB1583900A35523 /* Frameworks */,
+				04BE92261FB1583900A35523 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				04BE922A1FB1583900A35523 /* PBXTargetDependency */,
+			);
+			name = talkTekUITests;
+			productName = talkTekUITests;
+			productReference = 04BE92281FB1583900A35523 /* talkTekUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		04BE91FE1FB1583900A35523 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Talktek Inc.";
+				TargetAttributes = {
+					04BE92051FB1583900A35523 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+					};
+					04BE921C1FB1583900A35523 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04BE92051FB1583900A35523;
+					};
+					04BE92271FB1583900A35523 = {
+						CreatedOnToolsVersion = 9.0.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 04BE92051FB1583900A35523;
+					};
+				};
+			};
+			buildConfigurationList = 04BE92011FB1583900A35523 /* Build configuration list for PBXProject "talkTek" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 04BE91FD1FB1583900A35523;
+			productRefGroup = 04BE92071FB1583900A35523 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				04BE92051FB1583900A35523 /* talkTek */,
+				04BE921C1FB1583900A35523 /* talkTekTests */,
+				04BE92271FB1583900A35523 /* talkTekUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		04BE92041FB1583900A35523 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BE92171FB1583900A35523 /* LaunchScreen.storyboard in Resources */,
+				04BE92141FB1583900A35523 /* Assets.xcassets in Resources */,
+				04BE920F1FB1583900A35523 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04BE921B1FB1583900A35523 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04BE92261FB1583900A35523 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		04BE92021FB1583900A35523 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
+				04BE920C1FB1583900A35523 /* ViewController.swift in Sources */,
+				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04BE92191FB1583900A35523 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BE92221FB1583900A35523 /* talkTekTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		04BE92241FB1583900A35523 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		04BE921F1FB1583900A35523 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04BE92051FB1583900A35523 /* talkTek */;
+			targetProxy = 04BE921E1FB1583900A35523 /* PBXContainerItemProxy */;
+		};
+		04BE922A1FB1583900A35523 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 04BE92051FB1583900A35523 /* talkTek */;
+			targetProxy = 04BE92291FB1583900A35523 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		04BE920D1FB1583900A35523 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04BE920E1FB1583900A35523 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		04BE92151FB1583900A35523 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				04BE92161FB1583900A35523 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		04BE922F1FB1583A00A35523 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		04BE92301FB1583A00A35523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		04BE92321FB1583A00A35523 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
+				INFOPLIST_FILE = talkTek/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.talkTek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		04BE92331FB1583A00A35523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
+				INFOPLIST_FILE = talkTek/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.talkTek;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		04BE92351FB1583A00A35523 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
+				INFOPLIST_FILE = talkTekTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.talkTekTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talkTek.app/talkTek";
+			};
+			name = Debug;
+		};
+		04BE92361FB1583A00A35523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
+				INFOPLIST_FILE = talkTekTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.talkTekTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/talkTek.app/talkTek";
+			};
+			name = Release;
+		};
+		04BE92381FB1583A00A35523 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
+				INFOPLIST_FILE = talkTekUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.talkTekUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = talkTek;
+			};
+			name = Debug;
+		};
+		04BE92391FB1583A00A35523 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VJGEDW5SA9;
+				INFOPLIST_FILE = talkTekUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.talkTekUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = talkTek;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04BE92011FB1583900A35523 /* Build configuration list for PBXProject "talkTek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BE922F1FB1583A00A35523 /* Debug */,
+				04BE92301FB1583A00A35523 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04BE92311FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTek" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BE92321FB1583A00A35523 /* Debug */,
+				04BE92331FB1583A00A35523 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04BE92341FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTekTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BE92351FB1583A00A35523 /* Debug */,
+				04BE92361FB1583A00A35523 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		04BE92371FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTekUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				04BE92381FB1583A00A35523 /* Debug */,
+				04BE92391FB1583A00A35523 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				04BE92111FB1583900A35523 /* talkTek.xcdatamodel */,
+			);
+			currentVersion = 04BE92111FB1583900A35523 /* talkTek.xcdatamodel */;
+			path = talkTek.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 04BE91FE1FB1583900A35523 /* Project object */;
+}
