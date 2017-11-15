@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
-		04BE920C1FB1583900A35523 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE920B1FB1583900A35523 /* ViewController.swift */; };
 		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
 		04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */; };
 		04BE92141FB1583900A35523 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04BE92131FB1583900A35523 /* Assets.xcassets */; };
@@ -38,7 +37,6 @@
 /* Begin PBXFileReference section */
 		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		04BE920B1FB1583900A35523 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04BE920E1FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04BE92111FB1583900A35523 /* talkTek.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = talkTek.xcdatamodel; sourceTree = "<group>"; };
 		04BE92131FB1583900A35523 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			isa = PBXGroup;
 			children = (
 				04BE92091FB1583900A35523 /* AppDelegate.swift */,
-				04BE920B1FB1583900A35523 /* ViewController.swift */,
 				04BE920D1FB1583900A35523 /* Main.storyboard */,
 				04BE92131FB1583900A35523 /* Assets.xcassets */,
 				04BE92151FB1583900A35523 /* LaunchScreen.storyboard */,
@@ -267,7 +264,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
-				04BE920C1FB1583900A35523 /* ViewController.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
