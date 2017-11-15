@@ -15,6 +15,7 @@
 		04BE92171FB1583900A35523 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE92151FB1583900A35523 /* LaunchScreen.storyboard */; };
 		04BE92221FB1583900A35523 /* talkTekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92211FB1583900A35523 /* talkTekTests.swift */; };
 		04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE922C1FB1583900A35523 /* talkTekUITests.swift */; };
+		04C40F0A1FB167ED0032912C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C40F091FB167EC0032912C /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		04BE92281FB1583900A35523 /* talkTekUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = talkTekUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE922C1FB1583900A35523 /* talkTekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkTekUITests.swift; sourceTree = "<group>"; };
 		04BE922E1FB1583A00A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04C40F091FB167EC0032912C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				04BE92131FB1583900A35523 /* Assets.xcassets */,
 				04BE92151FB1583900A35523 /* LaunchScreen.storyboard */,
 				04BE92181FB1583900A35523 /* Info.plist */,
+				04C40F091FB167EC0032912C /* GoogleService-Info.plist */,
 				04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */,
 			);
 			path = talkTek;
@@ -236,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04BE92171FB1583900A35523 /* LaunchScreen.storyboard in Resources */,
+				04C40F0A1FB167ED0032912C /* GoogleService-Info.plist in Resources */,
 				04BE92141FB1583900A35523 /* Assets.xcassets in Resources */,
 				04BE920F1FB1583900A35523 /* Main.storyboard in Resources */,
 			);
@@ -433,11 +437,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VJGEDW5SA9;
 				INFOPLIST_FILE = talkTek/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.talkTek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,11 +453,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VJGEDW5SA9;
 				INFOPLIST_FILE = talkTek/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.talkTek;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
