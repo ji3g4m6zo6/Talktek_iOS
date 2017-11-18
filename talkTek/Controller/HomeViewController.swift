@@ -16,7 +16,6 @@ class HomeViewController: UIViewController {
     navigationController?.navigationBar.prefersLargeTitles = true
     searchImplement()
     segmentedControl.addUnderlineForSelectedSegment()
-    segmentedControl.tintColor = UIColor.tealish()
 
   }
   
@@ -32,6 +31,9 @@ class HomeViewController: UIViewController {
   }
   
   
+  @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
+    segmentedControl.changeUnderlinePosition()
+  }
   /*
    // MARK: - Navigation
    

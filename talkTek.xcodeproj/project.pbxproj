@@ -29,6 +29,7 @@
 		0478E6151FC0322900DD0169 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6021FC0322900DD0169 /* UIAlertControllerExtension.swift */; };
 		0478E6161FC0322900DD0169 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6031FC0322900DD0169 /* DictionaryExtension.swift */; };
 		0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */; };
+		0478E61A1FC06B9F00DD0169 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6191FC06B9F00DD0169 /* PayViewController.swift */; };
 		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
 		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
 		04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */; };
@@ -82,6 +83,7 @@
 		0478E6021FC0322900DD0169 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		0478E6031FC0322900DD0169 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtension.swift; path = ../../../../iosTest/iosTest/Extensions/DictionaryExtension.swift; sourceTree = "<group>"; };
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
+		0478E6191FC06B9F00DD0169 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
 		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE920E1FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				0478E5EE1FC0225700DD0169 /* HomeViewController.swift */,
+				0478E6191FC06B9F00DD0169 /* PayViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				0478E6121FC0322900DD0169 /* NSObejctExtension.swift in Sources */,
 				0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */,
 				0478E6091FC0322900DD0169 /* Queue.swift in Sources */,
+				0478E61A1FC06B9F00DD0169 /* PayViewController.swift in Sources */,
 				0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */,
 				0478E60C1FC0322900DD0169 /* UIColorExtension.swift in Sources */,
 				0478E60E1FC0322900DD0169 /* NumberExtension.swift in Sources */,
