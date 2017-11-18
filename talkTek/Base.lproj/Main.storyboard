@@ -9,21 +9,47 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home View Controller-->
+        <!--首頁-->
         <scene sceneID="rSz-Vd-Crd">
             <objects>
                 <viewController id="5H3-0L-hRA" customClass="HomeViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bzm-yy-H1S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qb9-YJ-xER">
+                                <rect key="frame" x="0.0" y="113" width="375" height="515"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="mMs-dv-45t" kind="embed" id="lzD-8R-eno"/>
+                                </connections>
+                            </containerView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xdV-xZ-mQg">
+                                <rect key="frame" x="25" y="84" width="150" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="YJy-bL-6jK"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="付費小獎"/>
+                                    <segment title="免費膠囊"/>
+                                </segments>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="xdV-xZ-mQg" firstAttribute="top" secondItem="94v-8h-1Bn" secondAttribute="top" constant="20" id="5HO-SI-Ost"/>
+                            <constraint firstItem="xdV-xZ-mQg" firstAttribute="leading" secondItem="94v-8h-1Bn" secondAttribute="leading" constant="25" id="vPV-rX-raH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="94v-8h-1Bn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Hq0-a7-EFQ"/>
+                    <navigationItem key="navigationItem" title="首頁" id="Hq0-a7-EFQ"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="xdV-xZ-mQg" id="bvb-An-hr1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljr-qM-s0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-1016"/>
+            <point key="canvasLocation" x="536.79999999999995" y="-1016.0419790104949"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="LHt-84-ftp">
@@ -133,6 +159,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mvk-P7-qz6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-151" y="824"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bWy-8e-yPG">
+            <objects>
+                <viewController id="mMs-dv-45t" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8Y7-qG-aX6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="515"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="fPe-FY-04B"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Aer-c6-Zev" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="34" y="-1754"/>
         </scene>
     </scenes>
 </document>
