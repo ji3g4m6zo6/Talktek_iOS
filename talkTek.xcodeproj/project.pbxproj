@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		046D9BA01FBD2C1600ECDF07 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 046D9B9F1FBD2C1600ECDF07 /* .gitignore */; };
+		0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5EE1FC0225700DD0169 /* HomeViewController.swift */; };
 		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
 		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
 		04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */; };
@@ -16,6 +17,9 @@
 		04BE92221FB1583900A35523 /* talkTekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92211FB1583900A35523 /* talkTekTests.swift */; };
 		04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE922C1FB1583900A35523 /* talkTekUITests.swift */; };
 		04C40F0A1FB167ED0032912C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C40F091FB167EC0032912C /* GoogleService-Info.plist */; };
+		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
+		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
+		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		046D9B9F1FBD2C1600ECDF07 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		0478E5EE1FC0225700DD0169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE920E1FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +56,15 @@
 		04BE922C1FB1583900A35523 /* talkTekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkTekUITests.swift; sourceTree = "<group>"; };
 		04BE922E1FB1583A00A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C40F091FB167EC0032912C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0777E54F7301F178A78F49CD /* Pods_talkTek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		256E2B690F6191AA47E176C5 /* Pods-talkTekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests.release.xcconfig"; sourceTree = "<group>"; };
+		5A93F75103A64BCA51FBD5D1 /* Pods-talkTekUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekUITests/Pods-talkTekUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		5C0F768EEA965821B02376D5 /* Pods-talkTekUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekUITests/Pods-talkTekUITests.release.xcconfig"; sourceTree = "<group>"; };
+		77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTekTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7D46998E4577BE8B8D2DB676 /* Pods-talkTekTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9DB2051EA337037B25D69905 /* Pods-talkTek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.release.xcconfig"; sourceTree = "<group>"; };
+		E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,12 +88,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0478E5EC1FC0217300DD0169 /* Supporting File */ = {
+			isa = PBXGroup;
+			children = (
+				04BE92091FB1583900A35523 /* AppDelegate.swift */,
+				04BE92131FB1583900A35523 /* Assets.xcassets */,
+				04BE92151FB1583900A35523 /* LaunchScreen.storyboard */,
+				04C40F091FB167EC0032912C /* GoogleService-Info.plist */,
+			);
+			path = "Supporting File";
+			sourceTree = "<group>";
+		};
+		0478E5ED1FC0224000DD0169 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0478E5EE1FC0225700DD0169 /* HomeViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		04BE91FD1FB1583900A35523 = {
 			isa = PBXGroup;
 			children = (
@@ -86,6 +122,8 @@
 				04BE92201FB1583900A35523 /* talkTekTests */,
 				04BE922B1FB1583900A35523 /* talkTekUITests */,
 				04BE92071FB1583900A35523 /* Products */,
+				4636A252B7A8A6FADCA14B60 /* Pods */,
+				E5B8E35493391EBF73AF0773 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,12 +140,10 @@
 		04BE92081FB1583900A35523 /* talkTek */ = {
 			isa = PBXGroup;
 			children = (
-				04BE92091FB1583900A35523 /* AppDelegate.swift */,
+				0478E5EC1FC0217300DD0169 /* Supporting File */,
+				0478E5ED1FC0224000DD0169 /* Controller */,
 				04BE920D1FB1583900A35523 /* Main.storyboard */,
-				04BE92131FB1583900A35523 /* Assets.xcassets */,
-				04BE92151FB1583900A35523 /* LaunchScreen.storyboard */,
 				04BE92181FB1583900A35523 /* Info.plist */,
-				04C40F091FB167EC0032912C /* GoogleService-Info.plist */,
 				04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */,
 			);
 			path = talkTek;
@@ -131,6 +167,29 @@
 			path = talkTekUITests;
 			sourceTree = "<group>";
 		};
+		4636A252B7A8A6FADCA14B60 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */,
+				9DB2051EA337037B25D69905 /* Pods-talkTek.release.xcconfig */,
+				7D46998E4577BE8B8D2DB676 /* Pods-talkTekTests.debug.xcconfig */,
+				256E2B690F6191AA47E176C5 /* Pods-talkTekTests.release.xcconfig */,
+				5A93F75103A64BCA51FBD5D1 /* Pods-talkTekUITests.debug.xcconfig */,
+				5C0F768EEA965821B02376D5 /* Pods-talkTekUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E5B8E35493391EBF73AF0773 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0777E54F7301F178A78F49CD /* Pods_talkTek.framework */,
+				77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */,
+				1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -138,9 +197,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04BE92311FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTek" */;
 			buildPhases = (
+				CA53FEE2CA4A96F328DD09A8 /* [CP] Check Pods Manifest.lock */,
 				04BE92021FB1583900A35523 /* Sources */,
 				04BE92031FB1583900A35523 /* Frameworks */,
 				04BE92041FB1583900A35523 /* Resources */,
+				16DC4837A6A99C2BF6D49763 /* [CP] Embed Pods Frameworks */,
+				983B480015B37200C745FDF3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -155,9 +217,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04BE92341FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTekTests" */;
 			buildPhases = (
+				832FAC0F07807DA7B7F901A1 /* [CP] Check Pods Manifest.lock */,
 				04BE92191FB1583900A35523 /* Sources */,
 				04BE921A1FB1583900A35523 /* Frameworks */,
 				04BE921B1FB1583900A35523 /* Resources */,
+				4F421EC70ABCD047C115FF04 /* [CP] Embed Pods Frameworks */,
+				FAD84436C58416FE4EBF3B1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -173,9 +238,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04BE92371FB1583A00A35523 /* Build configuration list for PBXNativeTarget "talkTekUITests" */;
 			buildPhases = (
+				284DB73366A7947E1817AC24 /* [CP] Check Pods Manifest.lock */,
 				04BE92241FB1583900A35523 /* Sources */,
 				04BE92251FB1583900A35523 /* Frameworks */,
 				04BE92261FB1583900A35523 /* Resources */,
+				F8971EAFB8EF395C50040535 /* [CP] Embed Pods Frameworks */,
+				02DAA92F4BA14DE4F91945AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,6 +330,162 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		02DAA92F4BA14DE4F91945AE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekUITests/Pods-talkTekUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		16DC4837A6A99C2BF6D49763 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-talkTek/Pods-talkTek-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTek/Pods-talkTek-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		284DB73366A7947E1817AC24 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-talkTekUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4F421EC70ABCD047C115FF04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		832FAC0F07807DA7B7F901A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-talkTekTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		983B480015B37200C745FDF3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTek/Pods-talkTek-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CA53FEE2CA4A96F328DD09A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-talkTek-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8971EAFB8EF395C50040535 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekUITests/Pods-talkTekUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FAD84436C58416FE4EBF3B1D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		04BE92021FB1583900A35523 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -269,6 +493,7 @@
 			files = (
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
+				0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +657,7 @@
 		};
 		04BE92321FB1583A00A35523 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -448,6 +674,7 @@
 		};
 		04BE92331FB1583A00A35523 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DB2051EA337037B25D69905 /* Pods-talkTek.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -464,6 +691,7 @@
 		};
 		04BE92351FB1583A00A35523 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D46998E4577BE8B8D2DB676 /* Pods-talkTekTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -481,6 +709,7 @@
 		};
 		04BE92361FB1583A00A35523 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 256E2B690F6191AA47E176C5 /* Pods-talkTekTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -498,6 +727,7 @@
 		};
 		04BE92381FB1583A00A35523 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5A93F75103A64BCA51FBD5D1 /* Pods-talkTekUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +744,7 @@
 		};
 		04BE92391FB1583A00A35523 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C0F768EEA965821B02376D5 /* Pods-talkTekUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
