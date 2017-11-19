@@ -272,6 +272,13 @@
                                             <constraint firstItem="f0S-uQ-xbC" firstAttribute="top" secondItem="aDW-qA-4WS" secondAttribute="top" id="n81-gQ-EeC"/>
                                         </constraints>
                                         <size key="customSize" width="160" height="190"/>
+                                        <connections>
+                                            <outlet property="Author_Label" destination="eyw-Bx-PBm" id="4LV-26-2w7"/>
+                                            <outlet property="HowManyPeople_Label" destination="v2V-8h-A8P" id="B55-Pc-Vyy"/>
+                                            <outlet property="Price_Label" destination="PXT-oV-ncA" id="Fe1-3a-ROf"/>
+                                            <outlet property="Topic_ImageView" destination="f0S-uQ-xbC" id="vvo-Sp-9mI"/>
+                                            <outlet property="Topic_Label" destination="DaU-FY-NmB" id="TD9-TU-cZt"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="headersection" id="sid-6Q-yWO">
