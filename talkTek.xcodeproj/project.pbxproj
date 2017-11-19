@@ -30,6 +30,8 @@
 		0478E6161FC0322900DD0169 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6031FC0322900DD0169 /* DictionaryExtension.swift */; };
 		0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */; };
 		0478E61A1FC06B9F00DD0169 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6191FC06B9F00DD0169 /* PayViewController.swift */; };
+		0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */; };
+		0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */; };
 		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
 		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
 		04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */; };
@@ -84,6 +86,8 @@
 		0478E6031FC0322900DD0169 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtension.swift; path = ../../../../iosTest/iosTest/Extensions/DictionaryExtension.swift; sourceTree = "<group>"; };
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
 		0478E6191FC06B9F00DD0169 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
+		0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = talkTek/View/UIImageViewExtension.swift; sourceTree = SOURCE_ROOT; };
 		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE920E1FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 				0478E5F71FC0322800DD0169 /* UIViewControllerExtension.swift */,
 				0478E5FC1FC0322800DD0169 /* UIViewExtension.swift */,
 				0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */,
+				0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -188,6 +193,7 @@
 		0478E61B1FC1712B00DD0169 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -580,6 +586,7 @@
 				0478E6141FC0322900DD0169 /* CollectionExtension.swift in Sources */,
 				0478E6061FC0322900DD0169 /* DateExtension.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
+				0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
 				0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */,
 				0478E60B1FC0322900DD0169 /* UIApplicationExtension.swift in Sources */,
@@ -593,6 +600,7 @@
 				0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */,
 				0478E60C1FC0322900DD0169 /* UIColorExtension.swift in Sources */,
 				0478E60E1FC0322900DD0169 /* NumberExtension.swift in Sources */,
+				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
 				0478E60D1FC0322900DD0169 /* UITableViewExtensios.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
