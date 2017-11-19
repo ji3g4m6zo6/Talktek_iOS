@@ -18,9 +18,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qb9-YJ-xER">
-                                <rect key="frame" x="0.0" y="132" width="375" height="535"/>
+                                <rect key="frame" x="0.0" y="132" width="375" height="486"/>
                                 <connections>
-                                    <segue destination="mMs-dv-45t" kind="embed" id="lzD-8R-eno"/>
+                                    <segue destination="mMs-dv-45t" kind="embed" identifier="PaySegue" id="lzD-8R-eno"/>
                                 </connections>
                             </containerView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="xdV-xZ-mQg">
@@ -29,27 +29,39 @@
                                     <constraint firstAttribute="width" constant="150" id="YJy-bL-6jK"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="付費小獎"/>
+                                    <segment title="付費小講"/>
                                     <segment title="免費膠囊"/>
                                 </segments>
                                 <connections>
                                     <action selector="segmentedControlDidChange:" destination="5H3-0L-hRA" eventType="valueChanged" id="SGi-9v-dus"/>
                                 </connections>
                             </segmentedControl>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eCi-v6-Q13">
+                                <rect key="frame" x="0.0" y="132" width="375" height="486"/>
+                                <connections>
+                                    <segue destination="oHJ-IG-2ia" kind="embed" id="Tke-Nf-4Sj"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qb9-YJ-xER" firstAttribute="trailing" secondItem="94v-8h-1Bn" secondAttribute="trailing" id="1XV-ZX-n8Y"/>
+                            <constraint firstItem="qb9-YJ-xER" firstAttribute="trailing" secondItem="94v-8h-1Bn" secondAttribute="trailing" id="5As-wZ-ZOi"/>
                             <constraint firstItem="xdV-xZ-mQg" firstAttribute="top" secondItem="94v-8h-1Bn" secondAttribute="top" constant="20" id="5HO-SI-Ost"/>
-                            <constraint firstItem="qb9-YJ-xER" firstAttribute="leading" secondItem="94v-8h-1Bn" secondAttribute="leading" id="5hg-ZS-wax"/>
-                            <constraint firstItem="qb9-YJ-xER" firstAttribute="top" secondItem="xdV-xZ-mQg" secondAttribute="bottom" constant="20" id="Xz2-BM-AV3"/>
-                            <constraint firstAttribute="bottom" secondItem="qb9-YJ-xER" secondAttribute="bottom" id="qqU-89-z7t"/>
+                            <constraint firstItem="qb9-YJ-xER" firstAttribute="leading" secondItem="94v-8h-1Bn" secondAttribute="leading" id="Aqh-uz-0qz"/>
+                            <constraint firstItem="eCi-v6-Q13" firstAttribute="leading" secondItem="94v-8h-1Bn" secondAttribute="leading" id="dmp-wv-JwM"/>
+                            <constraint firstItem="eCi-v6-Q13" firstAttribute="top" secondItem="xdV-xZ-mQg" secondAttribute="bottom" constant="20" id="gf6-4U-CXO"/>
+                            <constraint firstItem="eCi-v6-Q13" firstAttribute="bottom" secondItem="94v-8h-1Bn" secondAttribute="bottom" id="oKv-6b-Wkr"/>
+                            <constraint firstItem="eCi-v6-Q13" firstAttribute="trailing" secondItem="94v-8h-1Bn" secondAttribute="trailing" id="pZB-pc-QU7"/>
+                            <constraint firstItem="qb9-YJ-xER" firstAttribute="bottom" secondItem="94v-8h-1Bn" secondAttribute="bottom" id="q7T-mm-bZS"/>
                             <constraint firstItem="xdV-xZ-mQg" firstAttribute="leading" secondItem="94v-8h-1Bn" secondAttribute="leading" constant="25" id="vPV-rX-raH"/>
+                            <constraint firstItem="qb9-YJ-xER" firstAttribute="top" secondItem="xdV-xZ-mQg" secondAttribute="bottom" constant="20" id="xV6-Ca-zkZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="94v-8h-1Bn"/>
                     </view>
                     <navigationItem key="navigationItem" title="首頁" id="Hq0-a7-EFQ"/>
                     <connections>
+                        <outlet property="FreeContainerView" destination="eCi-v6-Q13" id="k4J-2s-ahJ"/>
+                        <outlet property="PayContainerView" destination="qb9-YJ-xER" id="N6d-OK-jvj"/>
                         <outlet property="segmentedControl" destination="xdV-xZ-mQg" id="bvb-An-hr1"/>
                     </connections>
                 </viewController>
@@ -120,6 +132,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="abi-9N-HjF">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="5H3-0L-hRA" kind="relationship" relationship="rootViewController" id="jEv-IJ-Ddg"/>
                     </connections>
@@ -171,11 +186,11 @@
             <objects>
                 <viewController id="mMs-dv-45t" customClass="PayViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Y7-qG-aX6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="535"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="486"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AGh-sZ-r17">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="535"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="486"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="0vb-pZ-XHk">
                                     <size key="itemSize" width="160" height="190"/>
@@ -184,7 +199,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="aDW-qA-4WS">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="aDW-qA-4WS">
                                         <rect key="frame" x="0.0" y="33" width="160" height="190"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -303,6 +318,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Aer-c6-Zev" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="-1754.5727136431785"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hyH-WZ-vaR">
+            <objects>
+                <viewController id="oHJ-IG-2ia" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZVe-ug-LyV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="486"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!!!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awz-A8-x6m">
+                                <rect key="frame" x="87.5" y="225" width="200" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="awz-A8-x6m" firstAttribute="centerX" secondItem="ZVe-ug-LyV" secondAttribute="centerX" id="OcH-Qa-aTt"/>
+                            <constraint firstItem="awz-A8-x6m" firstAttribute="centerY" secondItem="ZVe-ug-LyV" secondAttribute="centerY" id="dCe-76-mmp"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TU4-dJ-nKS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-1755"/>
         </scene>
     </scenes>
 </document>

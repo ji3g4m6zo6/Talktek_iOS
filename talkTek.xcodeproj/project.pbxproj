@@ -185,6 +185,13 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		0478E61B1FC1712B00DD0169 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		04BE91FD1FB1583900A35523 = {
 			isa = PBXGroup;
 			children = (
@@ -212,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				0478E5EC1FC0217300DD0169 /* Supporting File */,
+				0478E61B1FC1712B00DD0169 /* View */,
 				0478E5ED1FC0224000DD0169 /* Controller */,
 				04BE920D1FB1583900A35523 /* Main.storyboard */,
 				04BE92181FB1583900A35523 /* Info.plist */,
