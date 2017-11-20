@@ -10,8 +10,7 @@ import UIKit
 
 class HomeViewController: UIViewController {
   
-  @IBOutlet weak var PayContainerView: UIView!
-  @IBOutlet weak var FreeContainerView: UIView!
+  
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -19,8 +18,7 @@ class HomeViewController: UIViewController {
     searchImplement()
     segmentedControl.addUnderlineForSelectedSegment()
 
-    PayContainerView.isHidden = false
-    FreeContainerView.isHidden = true
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -37,15 +35,7 @@ class HomeViewController: UIViewController {
   
   @IBAction func segmentedControlDidChange(_ sender: UISegmentedControl) {
     segmentedControl.changeUnderlinePosition()
-    switch segmentedControl.selectedSegmentIndex{
-    case 0:
-      PayContainerView.isHidden = false
-      FreeContainerView.isHidden = true
-    case 1:
-      PayContainerView.isHidden = true
-      FreeContainerView.isHidden = false
-    default: fatalError()
-    }
+    
   }
   /*
    // MARK: - Navigation
