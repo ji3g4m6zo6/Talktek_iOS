@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0425ADA51FC2FB51008165F1 /* PayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADA41FC2FB51008165F1 /* PayViewController.swift */; };
+		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
+		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
 		046D9BA01FBD2C1600ECDF07 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 046D9B9F1FBD2C1600ECDF07 /* .gitignore */; };
 		0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5EE1FC0225700DD0169 /* HomeViewController.swift */; };
 		0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F11FC0322700DD0169 /* UIImageExtension.swift */; };
@@ -63,7 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0425ADA41FC2FB51008165F1 /* PayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayViewController.swift; sourceTree = "<group>"; };
+		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
+		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
 		046D9B9F1FBD2C1600ECDF07 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0478E5EE1FC0225700DD0169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0478E5F11FC0322700DD0169 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIImageExtension.swift; sourceTree = "<group>"; };
@@ -141,6 +143,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0425ADA61FC2FE4B008165F1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0478E5EC1FC0217300DD0169 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
@@ -157,7 +166,8 @@
 			isa = PBXGroup;
 			children = (
 				0478E5EE1FC0225700DD0169 /* HomeViewController.swift */,
-				0425ADA41FC2FB51008165F1 /* PayViewController.swift */,
+				0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */,
+				0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -225,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				0478E5EC1FC0217300DD0169 /* Supporting File */,
+				0425ADA61FC2FE4B008165F1 /* Model */,
 				0478E61B1FC1712B00DD0169 /* View */,
 				0478E5ED1FC0224000DD0169 /* Controller */,
 				04BE920D1FB1583900A35523 /* Main.storyboard */,
@@ -576,8 +587,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */,
 				0478E60F1FC0322900DD0169 /* UIViewExtension.swift in Sources */,
-				0425ADA51FC2FB51008165F1 /* PayViewController.swift in Sources */,
 				0478E6051FC0322900DD0169 /* ArrayExtension.swift in Sources */,
 				0478E6081FC0322900DD0169 /* SwiftyJSONExtension.swift in Sources */,
 				0478E60A1FC0322900DD0169 /* UIViewControllerExtension.swift in Sources */,
@@ -586,6 +597,7 @@
 				0478E6151FC0322900DD0169 /* UIAlertControllerExtension.swift in Sources */,
 				0478E6141FC0322900DD0169 /* CollectionExtension.swift in Sources */,
 				0478E6061FC0322900DD0169 /* DateExtension.swift in Sources */,
+				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
 				0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
