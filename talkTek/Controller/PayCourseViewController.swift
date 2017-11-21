@@ -18,7 +18,6 @@ class PayCourseViewController: UIViewController {
     tableView.dataSource = self
     tableView.delegate = self
     
-    //tableView.rowHeight = 150
   }
   
   override func didReceiveMemoryWarning() {
@@ -44,5 +43,9 @@ extension PayCourseViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PayCategoryCell
     return cell
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 190
   }
 }

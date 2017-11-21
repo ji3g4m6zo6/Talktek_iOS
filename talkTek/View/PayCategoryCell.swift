@@ -28,7 +28,7 @@ extension PayCategoryCell: UICollectionViewDataSource, UICollectionViewDelegate,
     return 12
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "courseCell", for: indexPath) as! TestCollectionViewCell
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "courseCell", for: indexPath) as! PayCollectionViewCell
     return cell
   }
   
