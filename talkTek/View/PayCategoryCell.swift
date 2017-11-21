@@ -31,5 +31,8 @@ extension PayCategoryCell: UICollectionViewDataSource, UICollectionViewDelegate,
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "courseCell", for: indexPath) as! PayCollectionViewCell
     return cell
   }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 160, height: 190)
+  }
   
 }
