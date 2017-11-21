@@ -22,7 +22,7 @@ class PayCategoryCell: UITableViewCell {
     }
 
 }
-/*
+
 extension PayCategoryCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 12
@@ -32,4 +32,4 @@ extension PayCategoryCell: UICollectionViewDataSource, UICollectionViewDelegate,
     return cell
   }
   
-}*/
+}
