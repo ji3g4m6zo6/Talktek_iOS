@@ -22,3 +22,14 @@ class PayCategoryCell: UITableViewCell {
     }
 
 }
+/*
+extension PayCategoryCell: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return 12
+  }
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "courseCell", for: indexPath) as! TestCollectionViewCell
+    return cell
+  }
+  
+}*/

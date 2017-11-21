@@ -10,12 +10,15 @@ import UIKit
 
 class PayCourseViewController: UIViewController {
   
+  
   @IBOutlet weak var tableView: UITableView!
   var categories = ["Action", "Drama", "Science Fiction", "Kids", "Horror"]
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
     tableView.delegate = self
+    
+    //tableView.rowHeight = 150
   }
   
   override func didReceiveMemoryWarning() {

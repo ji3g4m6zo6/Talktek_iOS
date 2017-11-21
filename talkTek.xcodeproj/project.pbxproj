@@ -10,6 +10,7 @@
 		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
 		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
 		04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */; };
+		044F0B4A1FC429A400E98E45 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */; };
 		046D9BA01FBD2C1600ECDF07 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 046D9B9F1FBD2C1600ECDF07 /* .gitignore */; };
 		0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5EE1FC0225700DD0169 /* HomeViewController.swift */; };
 		0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F11FC0322700DD0169 /* UIImageExtension.swift */; };
@@ -68,6 +69,7 @@
 		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
 		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
 		04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
+		044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		046D9B9F1FBD2C1600ECDF07 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0478E5EE1FC0225700DD0169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0478E5F11FC0322700DD0169 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIImageExtension.swift; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			children = (
 				0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */,
 				04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */,
+				044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				0478E6091FC0322900DD0169 /* Queue.swift in Sources */,
 				0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */,
 				0478E60C1FC0322900DD0169 /* UIColorExtension.swift in Sources */,
+				044F0B4A1FC429A400E98E45 /* TestCollectionViewCell.swift in Sources */,
 				0478E60E1FC0322900DD0169 /* NumberExtension.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
 				0478E60D1FC0322900DD0169 /* UITableViewExtensios.swift in Sources */,
