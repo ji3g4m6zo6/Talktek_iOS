@@ -46,20 +46,33 @@
             </objects>
             <point key="canvasLocation" x="536.79999999999995" y="-1016.0419790104949"/>
         </scene>
-        <!--View Controller-->
+        <!--Course Detail View Controller-->
         <scene sceneID="vL6-Mv-aQx">
             <objects>
-                <viewController id="Ce4-6R-E40" sceneMemberID="viewController">
+                <viewController id="Ce4-6R-E40" customClass="CourseDetailViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HPM-1g-MXR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="msh-WE-erA">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Tex-KD-TyG" firstAttribute="bottom" secondItem="msh-WE-erA" secondAttribute="bottom" id="4Ve-zb-smB"/>
+                            <constraint firstItem="Tex-KD-TyG" firstAttribute="trailing" secondItem="msh-WE-erA" secondAttribute="trailing" id="DnQ-YO-hOh"/>
+                            <constraint firstItem="msh-WE-erA" firstAttribute="top" secondItem="HPM-1g-MXR" secondAttribute="top" id="RBa-Lf-nOc"/>
+                            <constraint firstItem="msh-WE-erA" firstAttribute="leading" secondItem="Tex-KD-TyG" secondAttribute="leading" id="X4P-B6-M6r"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Tex-KD-TyG"/>
                     </view>
+                    <size key="freeformSize" width="375" height="1500"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WbQ-C6-J3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1358" y="-1001"/>
+            <point key="canvasLocation" x="1455" y="-1380"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="LHt-84-ftp">
