@@ -226,6 +226,9 @@
                                                 <constraint firstItem="hN1-1R-yEa" firstAttribute="leading" secondItem="wVf-7h-DeY" secondAttribute="leading" constant="15" id="qQf-6N-AG0"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="courseInfo_Label" destination="hN1-1R-yEa" id="uhg-4O-qF0"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="239" id="Rz9-6T-LVp" customClass="TeacherInfoTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="565" width="355" height="239"/>
@@ -288,6 +291,11 @@
                                                 <constraint firstItem="6Mt-MU-SEn" firstAttribute="top" secondItem="XnX-JZ-14G" secondAttribute="top" constant="71" id="xSI-Ab-6bF"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="teacherIntro_Label" destination="beU-He-yVG" id="kfA-rU-TDz"/>
+                                            <outlet property="teacherName_Label" destination="6Mt-MU-SEn" id="boL-wa-scR"/>
+                                            <outlet property="teacherPic_ImageView" destination="if6-9z-RPv" id="WOI-bO-Srh"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="546" id="bpP-n7-fk8" customClass="CoursesTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="804" width="355" height="546"/>
@@ -413,6 +421,9 @@
                                                 <constraint firstItem="X8A-iA-z9d" firstAttribute="top" secondItem="uc1-dy-YjV" secondAttribute="top" constant="15" id="lE8-jw-s5h"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="course_TableView" destination="8yr-2A-Mal" id="hd6-1f-xHr"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
