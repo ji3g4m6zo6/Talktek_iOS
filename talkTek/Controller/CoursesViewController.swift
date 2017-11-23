@@ -63,8 +63,8 @@ class CoursesViewController: UIViewController {
     
     
     segmentedControl.removeAllSegments()
-    segmentedControl.insertSegment(withTitle: "課程小講", at: 0, animated: false)
-    segmentedControl.insertSegment(withTitle: "免費膠囊", at: 1, animated: false)
+    segmentedControl.insertSegment(withTitle: "已購", at: 0, animated: false)
+    segmentedControl.insertSegment(withTitle: "心願單", at: 1, animated: false)
     segmentedControl.addTarget(self, action: #selector(selectionDidChange(sender:)), for: .valueChanged)
     
     segmentedControl.selectedSegmentIndex = 0
