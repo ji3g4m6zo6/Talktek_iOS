@@ -1,38 +1,37 @@
 //
-//  HomeViewController.swift
+//  CoursesViewController.swift
 //  talkTek
 //
-//  Created by Mac on 2017/11/18.
+//  Created by Mac on 2017/11/23.
 //  Copyright © 2017年 Talktek Inc. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
-  
-  lazy var payViewController: PayCourseViewController = {
-    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    var viewController = storyboard.instantiateViewController(withIdentifier: "PayCourseViewController") as! PayCourseViewController
-    self.addViewControllerAsChildViewController(childViewController: viewController)
-    return viewController
-  }()
-  lazy var freeViewController: FreeCourseViewController = {
-    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    var viewController = storyboard.instantiateViewController(withIdentifier: "FreeCourseViewController") as! FreeCourseViewController
-    self.addViewControllerAsChildViewController(childViewController: viewController)
-    return viewController
-  }()
-  
+class CoursesViewController: UIViewController {
   
   @IBOutlet weak var segmentedControl: UISegmentedControl!
+  lazy var payViewController: CoursesBoughtViewController = {
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    var viewController = storyboard.instantiateViewController(withIdentifier: "CoursesBoughtViewController") as! CoursesBoughtViewController
+    self.addViewControllerAsChildViewController(childViewController: viewController)
+    return viewController
+  }()
+  lazy var freeViewController: CoursesHeartViewController = {
+    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+    var viewController = storyboard.instantiateViewController(withIdentifier: "CoursesHeartViewController") as! CoursesHeartViewController
+    self.addViewControllerAsChildViewController(childViewController: viewController)
+    return viewController
+  }()
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     navigationController?.navigationBar.prefersLargeTitles = true
     searchImplement()
     
     setUpView()
     segmentedControl.addUnderlineForSelectedSegment()
-    
     
   }
   
@@ -47,7 +46,7 @@ class HomeViewController: UIViewController {
     self.navigationItem.searchController = search
   }
   
-
+  
   
   private func setUpView() {
     setUpSegmentedControl()
@@ -99,5 +98,6 @@ class HomeViewController: UIViewController {
   }
   
   
+  
+  
 }
-

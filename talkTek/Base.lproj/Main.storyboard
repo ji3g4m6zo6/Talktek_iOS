@@ -589,10 +589,10 @@
             </objects>
             <point key="canvasLocation" x="2026" y="-1380"/>
         </scene>
-        <!--View Controller-->
+        <!--Courses View Controller-->
         <scene sceneID="LHt-84-ftp">
             <objects>
-                <viewController id="IEn-4q-hbl" sceneMemberID="viewController">
+                <viewController id="IEn-4q-hbl" customClass="CoursesViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KGF-b7-tJ0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -617,6 +617,9 @@
                         <viewLayoutGuide key="safeArea" id="1ra-ai-4IE"/>
                     </view>
                     <navigationItem key="navigationItem" id="8so-bF-In6"/>
+                    <connections>
+                        <outlet property="segmentedControl" destination="gWM-Yn-G4O" id="bEd-Rd-fzu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGS-2e-9N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -625,7 +628,7 @@
         <!--Courses Bought View Controller-->
         <scene sceneID="l6f-zW-3Fg">
             <objects>
-                <viewController id="SXm-IP-OqW" customClass="CoursesBoughtViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoursesBoughtViewController" id="SXm-IP-OqW" customClass="CoursesBoughtViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bpd-0D-oVC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -760,15 +763,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ryu-0O-MAY"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="z2V-rx-7cf" id="TRe-W1-FYG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xhK-j8-EgX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="536.79999999999995" y="549.17541229385313"/>
         </scene>
-        <!--View Controller-->
+        <!--Courses Heart View Controller-->
         <scene sceneID="CKC-f6-Irb">
             <objects>
-                <viewController id="afE-tq-l5D" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CoursesHeartViewController" id="afE-tq-l5D" customClass="CoursesHeartViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RW9-sN-KHz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -903,6 +909,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="08R-VP-8mh"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="mjN-BY-Tbe" id="hyP-qN-liP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ruV-UP-eLi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
