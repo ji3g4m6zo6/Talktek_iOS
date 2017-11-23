@@ -750,6 +750,13 @@
                                                 <constraint firstItem="BAx-eA-UZ6" firstAttribute="leading" secondItem="CfT-yy-Vnm" secondAttribute="trailing" id="zdj-QK-dHL"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="giveStarNumber_Label" destination="4TV-hq-9TJ" id="HwS-RW-8cR"/>
+                                            <outlet property="overview_ImageView" destination="5E9-0n-txc" id="MfT-rN-qnC"/>
+                                            <outlet property="studentNumber_Label" destination="2xo-gf-2lh" id="sPe-qT-uhX"/>
+                                            <outlet property="teacherName_Label" destination="Fbz-Pq-Lw4" id="4h3-z6-cql"/>
+                                            <outlet property="title_Label" destination="Gvq-cf-G19" id="okm-DO-of2"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -896,6 +903,13 @@
                                                 <constraint firstAttribute="trailing" secondItem="zeB-DR-VHV" secondAttribute="trailing" id="s3i-uS-uyH"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="giveStarNumber_Label" destination="hAM-qI-OKB" id="h5F-nf-1Z3"/>
+                                            <outlet property="overview_ImageView" destination="dlW-5k-QJV" id="dLQ-IN-Wnk"/>
+                                            <outlet property="studentNumber_Label" destination="zeB-DR-VHV" id="o5i-uH-tSC"/>
+                                            <outlet property="teacherName_Label" destination="olL-cK-Gc0" id="6WR-Qr-kWE"/>
+                                            <outlet property="title_Label" destination="H9n-vM-Z2f" id="EBN-NN-POf"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
