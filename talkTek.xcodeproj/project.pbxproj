@@ -16,6 +16,7 @@
 		04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AEA1FC70275004D2825 /* CoursesHeartTableViewCell.swift */; };
 		04445AED1FC7035C004D2825 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AEC1FC7035C004D2825 /* CoursesViewController.swift */; };
 		04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */; };
+		04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */; };
 		044F0B4A1FC429A400E98E45 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */; };
 		044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */; };
 		044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */; };
@@ -86,6 +87,7 @@
 		04445AEA1FC70275004D2825 /* CoursesHeartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesHeartTableViewCell.swift; sourceTree = "<group>"; };
 		04445AEC1FC7035C004D2825 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFilesTableViewCell.swift; sourceTree = "<group>"; };
+		04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSectionTableViewCell.swift; sourceTree = "<group>"; };
 		044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */,
 				044F0BC41FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift */,
 				044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */,
+				04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */,
 				04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */,
 				04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */,
 				04445AEA1FC70275004D2825 /* CoursesHeartTableViewCell.swift */,
@@ -639,6 +642,7 @@
 				0478E6151FC0322900DD0169 /* UIAlertControllerExtension.swift in Sources */,
 				0478E6141FC0322900DD0169 /* CollectionExtension.swift in Sources */,
 				0478E6061FC0322900DD0169 /* DateExtension.swift in Sources */,
+				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
 				044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */,
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
