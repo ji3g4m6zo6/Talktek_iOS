@@ -31,6 +31,7 @@ class CourseDetailViewController: UIViewController {
   
   
   
+  
 }
 extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource{
   func numberOfSections(in tableView: UITableView) -> Int {

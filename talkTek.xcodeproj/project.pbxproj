@@ -55,6 +55,7 @@
 		04BE92221FB1583900A35523 /* talkTekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92211FB1583900A35523 /* talkTekTests.swift */; };
 		04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE922C1FB1583900A35523 /* talkTekUITests.swift */; };
 		04C40F0A1FB167ED0032912C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C40F091FB167EC0032912C /* GoogleService-Info.plist */; };
+		04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */; };
 		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
 		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
@@ -132,6 +133,7 @@
 		04BE922C1FB1583900A35523 /* talkTekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkTekUITests.swift; sourceTree = "<group>"; };
 		04BE922E1FB1583A00A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C40F091FB167EC0032912C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		0777E54F7301F178A78F49CD /* Pods_talkTek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		256E2B690F6191AA47E176C5 /* Pods-talkTekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 				04445AEC1FC7035C004D2825 /* CoursesViewController.swift */,
 				04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */,
 				04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */,
+				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				0478E6051FC0322900DD0169 /* ArrayExtension.swift in Sources */,
 				0478E6081FC0322900DD0169 /* SwiftyJSONExtension.swift in Sources */,
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
+				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
 				0478E60A1FC0322900DD0169 /* UIViewControllerExtension.swift in Sources */,
 				0478E6131FC0322900DD0169 /* UICollectionViewExtension.swift in Sources */,
 				044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */,
