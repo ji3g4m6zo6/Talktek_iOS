@@ -993,7 +993,7 @@
             </objects>
             <point key="canvasLocation" x="1532" y="548.27586206896558"/>
         </scene>
-        <!--Setting View Controller-->
+        <!--設置-->
         <scene sceneID="Nqj-Sg-GKK">
             <objects>
                 <viewController id="z8p-TC-9MY" customClass="SettingViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
@@ -1052,7 +1052,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o9C-Dq-daZ"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eY5-1p-yYK"/>
+                    <navigationItem key="navigationItem" title="設置" id="eY5-1p-yYK">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="5C8-Ei-0Lk">
+                            <connections>
+                                <segue destination="XVY-GP-UPd" kind="show" id="Z2g-tP-uJS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdL-21-xoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1067,20 +1073,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVr-PO-2WQ">
-                                <rect key="frame" x="10" y="35" width="355" height="321"/>
+                                <rect key="frame" x="10" y="79" width="355" height="263"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vFo-sa-6Ge">
                                         <rect key="frame" x="122" y="60" width="110" height="110"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="110" id="1IZ-so-cm2"/>
-                                            <constraint firstAttribute="height" constant="110" id="wxX-yx-au1"/>
+                                            <constraint firstAttribute="width" constant="110" id="JuR-vv-FDK"/>
+                                            <constraint firstAttribute="height" constant="110" id="Ydw-wV-bct"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vincent. Wang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVu-aE-kPf">
-                                        <rect key="frame" x="27" y="200" width="300" height="33"/>
+                                        <rect key="frame" x="27" y="200" width="300" height="29"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="300" id="FWQ-s2-MLJ"/>
-                                            <constraint firstAttribute="height" constant="33" id="UUO-Fn-Ysx"/>
+                                            <constraint firstAttribute="width" constant="300" id="Qi8-0W-3HD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
@@ -1089,16 +1094,15 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstItem="CVu-aE-kPf" firstAttribute="top" secondItem="vFo-sa-6Ge" secondAttribute="bottom" constant="30" id="4IP-Pf-jNF"/>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="263" id="DzI-om-rWk"/>
-                                    <constraint firstItem="vFo-sa-6Ge" firstAttribute="top" secondItem="BVr-PO-2WQ" secondAttribute="top" constant="60" id="Krv-2Z-R9J"/>
-                                    <constraint firstItem="vFo-sa-6Ge" firstAttribute="centerX" secondItem="BVr-PO-2WQ" secondAttribute="centerX" id="SzW-BQ-Zy4"/>
-                                    <constraint firstAttribute="height" constant="321" id="WSt-1t-KOp"/>
-                                    <constraint firstItem="CVu-aE-kPf" firstAttribute="centerX" secondItem="BVr-PO-2WQ" secondAttribute="centerX" id="vwz-dz-EPv"/>
+                                    <constraint firstAttribute="height" constant="263" id="PhE-0e-7nx"/>
+                                    <constraint firstItem="vFo-sa-6Ge" firstAttribute="centerX" secondItem="BVr-PO-2WQ" secondAttribute="centerX" id="Q2K-rf-o6g"/>
+                                    <constraint firstItem="CVu-aE-kPf" firstAttribute="top" secondItem="vFo-sa-6Ge" secondAttribute="bottom" constant="30" id="eA3-9j-EcR"/>
+                                    <constraint firstItem="vFo-sa-6Ge" firstAttribute="top" secondItem="BVr-PO-2WQ" secondAttribute="top" constant="60" id="ebh-zg-Mgp"/>
+                                    <constraint firstItem="CVu-aE-kPf" firstAttribute="centerX" secondItem="BVr-PO-2WQ" secondAttribute="centerX" id="vQb-TL-XQw"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dq-xy-KYt">
-                                <rect key="frame" x="10" y="371" width="355" height="163"/>
+                                <rect key="frame" x="10" y="357" width="355" height="163"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfn-a4-Hga">
                                         <rect key="frame" x="0.0" y="40" width="355" height="1"/>
@@ -1233,12 +1237,12 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BVr-PO-2WQ" firstAttribute="top" secondItem="9Qm-q4-oFw" secondAttribute="top" constant="15" id="BSp-5K-3A6"/>
                             <constraint firstItem="9Qm-q4-oFw" firstAttribute="trailing" secondItem="5dq-xy-KYt" secondAttribute="trailing" constant="10" id="GFO-rd-dfK"/>
+                            <constraint firstItem="BVr-PO-2WQ" firstAttribute="top" secondItem="9Qm-q4-oFw" secondAttribute="top" constant="15" id="HNq-df-H69"/>
+                            <constraint firstItem="BVr-PO-2WQ" firstAttribute="leading" secondItem="9Qm-q4-oFw" secondAttribute="leading" constant="10" id="IPz-aj-qXp"/>
                             <constraint firstItem="5dq-xy-KYt" firstAttribute="leading" secondItem="9Qm-q4-oFw" secondAttribute="leading" constant="10" id="SiJ-xZ-vxh"/>
-                            <constraint firstItem="BVr-PO-2WQ" firstAttribute="leading" secondItem="9Qm-q4-oFw" secondAttribute="leading" constant="10" id="TEP-54-83C"/>
-                            <constraint firstItem="5dq-xy-KYt" firstAttribute="top" secondItem="BVr-PO-2WQ" secondAttribute="bottom" constant="15" id="WPz-kI-xsf"/>
-                            <constraint firstItem="9Qm-q4-oFw" firstAttribute="trailing" secondItem="BVr-PO-2WQ" secondAttribute="trailing" constant="10" id="XbA-AZ-qJ5"/>
+                            <constraint firstItem="5dq-xy-KYt" firstAttribute="top" secondItem="BVr-PO-2WQ" secondAttribute="bottom" constant="15" id="Zc8-IW-Daz"/>
+                            <constraint firstItem="9Qm-q4-oFw" firstAttribute="trailing" secondItem="BVr-PO-2WQ" secondAttribute="trailing" constant="10" id="wMP-dv-1Rl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9Qm-q4-oFw"/>
                     </view>
