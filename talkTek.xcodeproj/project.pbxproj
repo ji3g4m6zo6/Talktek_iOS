@@ -10,6 +10,14 @@
 		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
 		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
 		04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */; };
+		04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */; };
+		04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */; };
+		04402E7F1FCDA31A00EC95EE /* PointsCenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E7E1FCDA31A00EC95EE /* PointsCenterViewController.swift */; };
+		04402E811FCDA33000EC95EE /* BecomeLecturerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E801FCDA33000EC95EE /* BecomeLecturerViewController.swift */; };
+		04402E831FCDA33E00EC95EE /* SuggestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E821FCDA33E00EC95EE /* SuggestionViewController.swift */; };
+		04402E851FCDA4EA00EC95EE /* PersonalizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E841FCDA4EA00EC95EE /* PersonalizedViewController.swift */; };
+		04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E861FCDA4FB00EC95EE /* AboutViewController.swift */; };
+		04402E891FCDA50B00EC95EE /* LawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E881FCDA50B00EC95EE /* LawViewController.swift */; };
 		04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */; };
 		04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */; };
 		04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */; };
@@ -82,6 +90,14 @@
 		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
 		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
 		04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
+		04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEditViewController.swift; sourceTree = "<group>"; };
+		04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
+		04402E7E1FCDA31A00EC95EE /* PointsCenterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsCenterViewController.swift; sourceTree = "<group>"; };
+		04402E801FCDA33000EC95EE /* BecomeLecturerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeLecturerViewController.swift; sourceTree = "<group>"; };
+		04402E821FCDA33E00EC95EE /* SuggestionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuggestionViewController.swift; sourceTree = "<group>"; };
+		04402E841FCDA4EA00EC95EE /* PersonalizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedViewController.swift; sourceTree = "<group>"; };
+		04402E861FCDA4FB00EC95EE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
+		04402E881FCDA50B00EC95EE /* LawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawViewController.swift; sourceTree = "<group>"; };
 		04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesBoughtViewController.swift; sourceTree = "<group>"; };
 		04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesHeartViewController.swift; sourceTree = "<group>"; };
 		04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesBoughtTableViewCell.swift; sourceTree = "<group>"; };
@@ -180,6 +196,22 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		04402E7B1FCDA2BF00EC95EE /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
+				04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */,
+				04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */,
+				04402E7E1FCDA31A00EC95EE /* PointsCenterViewController.swift */,
+				04402E801FCDA33000EC95EE /* BecomeLecturerViewController.swift */,
+				04402E821FCDA33E00EC95EE /* SuggestionViewController.swift */,
+				04402E841FCDA4EA00EC95EE /* PersonalizedViewController.swift */,
+				04402E861FCDA4FB00EC95EE /* AboutViewController.swift */,
+				04402E881FCDA50B00EC95EE /* LawViewController.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
 		0478E5EC1FC0217300DD0169 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,7 +234,7 @@
 				04445AEC1FC7035C004D2825 /* CoursesViewController.swift */,
 				04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */,
 				04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */,
-				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
+				04402E7B1FCDA2BF00EC95EE /* Setting */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -633,9 +665,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */,
+				04402E891FCDA50B00EC95EE /* LawViewController.swift in Sources */,
 				0478E60F1FC0322900DD0169 /* UIViewExtension.swift in Sources */,
 				0478E6051FC0322900DD0169 /* ArrayExtension.swift in Sources */,
 				0478E6081FC0322900DD0169 /* SwiftyJSONExtension.swift in Sources */,
+				04402E851FCDA4EA00EC95EE /* PersonalizedViewController.swift in Sources */,
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
 				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
 				0478E60A1FC0322900DD0169 /* UIViewControllerExtension.swift in Sources */,
@@ -648,11 +682,13 @@
 				0478E6061FC0322900DD0169 /* DateExtension.swift in Sources */,
 				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
 				044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */,
+				04402E831FCDA33E00EC95EE /* SuggestionViewController.swift in Sources */,
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
 				0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
 				0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */,
+				04402E7F1FCDA31A00EC95EE /* PointsCenterViewController.swift in Sources */,
 				0478E60B1FC0322900DD0169 /* UIApplicationExtension.swift in Sources */,
 				044F0BC71FC5D7E200E98E45 /* CoursesTableViewCell.swift in Sources */,
 				0478E6071FC0322900DD0169 /* UILabelExtension.swift in Sources */,
@@ -660,10 +696,13 @@
 				044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */,
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,
 				0478E6101FC0322900DD0169 /* SDWebImageExtension.swift in Sources */,
+				04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */,
 				0478E6111FC0322900DD0169 /* DataExtension.swift in Sources */,
+				04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */,
 				0478E6121FC0322900DD0169 /* NSObejctExtension.swift in Sources */,
 				04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */,
 				0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */,
+				04402E811FCDA33000EC95EE /* BecomeLecturerViewController.swift in Sources */,
 				04445AED1FC7035C004D2825 /* CoursesViewController.swift in Sources */,
 				044F0BC31FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift in Sources */,
 				0478E6091FC0322900DD0169 /* Queue.swift in Sources */,
@@ -671,6 +710,7 @@
 				0478E60C1FC0322900DD0169 /* UIColorExtension.swift in Sources */,
 				044F0B4A1FC429A400E98E45 /* TestCollectionViewCell.swift in Sources */,
 				04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */,
+				04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */,
 				0478E60E1FC0322900DD0169 /* NumberExtension.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
 				0478E60D1FC0322900DD0169 /* UITableViewExtensios.swift in Sources */,
