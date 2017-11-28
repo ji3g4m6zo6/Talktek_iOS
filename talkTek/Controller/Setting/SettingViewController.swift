@@ -10,11 +10,17 @@ import UIKit
 
 class SettingViewController: UIViewController {
   
-  @IBOutlet weak var PersonalFile_View: UIView!
+  var list = ["點數中心","成為講師","意見反饋","個人化設定","優惠碼","關於"]
+  @IBOutlet weak var tableView: UITableView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    tableView.delegate = self
+    tableView.dataSource = self
     
-    // Do any additional setup after loading the view.
+    navigationController?.navigationBar.prefersLargeTitles = true
+
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -23,5 +29,23 @@ class SettingViewController: UIViewController {
   }
   
   
+  
+}
+extension SettingViewController: UITableViewDelegate, UITableViewDataSource
+{
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return list.count
+  }
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! SettingMainTableViewCell
+    cell.settingTitle_Label.text = list[indexPath.row]
+    return cell
+  }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 40
+  }
   
 }
