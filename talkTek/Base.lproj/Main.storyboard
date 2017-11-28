@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="B1x-Io-Rfr">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kKY-Gt-Ubh">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -998,13 +998,13 @@
             <objects>
                 <viewController id="z8p-TC-9MY" customClass="SettingViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YgA-Z7-xdi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-nc-nuH">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uLr-nc-nuH" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                 <rect key="frame" x="10" y="79" width="355" height="321"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ng1-9w-cpv">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ng1-9w-cpv">
                                         <rect key="frame" x="122" y="60" width="110" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="110" id="h4v-dL-31c"/>
@@ -1031,6 +1031,11 @@
                                             <color key="titleColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At2-u0-yFU">
+                                        <rect key="frame" x="204" y="142" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="O"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -1042,11 +1047,43 @@
                                     <constraint firstItem="GDf-QA-Byt" firstAttribute="centerX" secondItem="uLr-nc-nuH" secondAttribute="centerX" id="wsq-PN-6zi"/>
                                     <constraint firstItem="ng1-9w-cpv" firstAttribute="top" secondItem="uLr-nc-nuH" secondAttribute="top" constant="60" id="zJr-XT-bMN"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rp5-yW-qxU" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
+                                <rect key="frame" x="10" y="415" width="355" height="245"/>
+                                <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="245" id="kEy-w3-mP7"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Rp5-yW-qxU" firstAttribute="leading" secondItem="o9C-Dq-daZ" secondAttribute="leading" constant="10" id="IfQ-Dh-lfH"/>
+                            <constraint firstItem="o9C-Dq-daZ" firstAttribute="trailing" secondItem="Rp5-yW-qxU" secondAttribute="trailing" constant="10" id="NwY-0m-LCM"/>
                             <constraint firstItem="uLr-nc-nuH" firstAttribute="leading" secondItem="o9C-Dq-daZ" secondAttribute="leading" constant="10" id="OMn-U3-74U"/>
+                            <constraint firstItem="Rp5-yW-qxU" firstAttribute="top" secondItem="uLr-nc-nuH" secondAttribute="bottom" constant="15" id="lmb-X5-0bO"/>
                             <constraint firstItem="o9C-Dq-daZ" firstAttribute="trailing" secondItem="uLr-nc-nuH" secondAttribute="trailing" constant="10" id="mpG-s0-eVL"/>
                             <constraint firstItem="uLr-nc-nuH" firstAttribute="top" secondItem="o9C-Dq-daZ" secondAttribute="top" constant="15" id="tbV-Li-sVL"/>
                         </constraints>
@@ -1059,10 +1096,14 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <size key="freeformSize" width="375" height="900"/>
+                    <connections>
+                        <outlet property="PersonalFile_View" destination="uLr-nc-nuH" id="Ct7-tA-NSK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdL-21-xoB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="536.79999999999995" y="1333.5832083958021"/>
+            <point key="canvasLocation" x="536.79999999999995" y="1437.481259370315"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Pw0-xV-lL7">
@@ -1386,7 +1427,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwz-yl-mDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="2149"/>
+            <point key="canvasLocation" x="537" y="2227"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="U1C-3l-U6f">
@@ -1493,7 +1534,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zr-iC-nFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1231" y="2150"/>
+            <point key="canvasLocation" x="1214" y="2227"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="EoI-yY-kd3">
