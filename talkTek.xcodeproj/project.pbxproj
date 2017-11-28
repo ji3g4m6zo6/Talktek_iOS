@@ -18,6 +18,7 @@
 		04402E851FCDA4EA00EC95EE /* PersonalizedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E841FCDA4EA00EC95EE /* PersonalizedViewController.swift */; };
 		04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E861FCDA4FB00EC95EE /* AboutViewController.swift */; };
 		04402E891FCDA50B00EC95EE /* LawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E881FCDA50B00EC95EE /* LawViewController.swift */; };
+		04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */; };
 		04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */; };
 		04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */; };
 		04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */; };
@@ -25,7 +26,6 @@
 		04445AED1FC7035C004D2825 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AEC1FC7035C004D2825 /* CoursesViewController.swift */; };
 		04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */; };
 		04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */; };
-		044F0B4A1FC429A400E98E45 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */; };
 		044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */; };
 		044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */; };
 		044F0BC31FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */; };
@@ -98,6 +98,7 @@
 		04402E841FCDA4EA00EC95EE /* PersonalizedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalizedViewController.swift; sourceTree = "<group>"; };
 		04402E861FCDA4FB00EC95EE /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		04402E881FCDA50B00EC95EE /* LawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LawViewController.swift; sourceTree = "<group>"; };
+		04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMainTableViewCell.swift; sourceTree = "<group>"; };
 		04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesBoughtViewController.swift; sourceTree = "<group>"; };
 		04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesHeartViewController.swift; sourceTree = "<group>"; };
 		04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesBoughtTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,7 +106,6 @@
 		04445AEC1FC7035C004D2825 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFilesTableViewCell.swift; sourceTree = "<group>"; };
 		04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSectionTableViewCell.swift; sourceTree = "<group>"; };
-		044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
 		044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewCell.swift; sourceTree = "<group>"; };
@@ -212,6 +212,39 @@
 			path = Setting;
 			sourceTree = "<group>";
 		};
+		04402E8C1FCDAF1F00EC95EE /* CourseDetail */ = {
+			isa = PBXGroup;
+			children = (
+				044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */,
+				044F0BC41FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift */,
+				044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */,
+				04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */,
+				04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */,
+			);
+			path = CourseDetail;
+			sourceTree = "<group>";
+		};
+		04402E8E1FCDB02500EC95EE /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				04445AEC1FC7035C004D2825 /* CoursesViewController.swift */,
+				04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */,
+				04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		04402E8F1FCDB03200EC95EE /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0478E5EE1FC0225700DD0169 /* HomeViewController.swift */,
+				0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */,
+				0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */,
+				044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		0478E5EC1FC0217300DD0169 /* Supporting File */ = {
 			isa = PBXGroup;
 			children = (
@@ -227,13 +260,8 @@
 		0478E5ED1FC0224000DD0169 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0478E5EE1FC0225700DD0169 /* HomeViewController.swift */,
-				0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */,
-				0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */,
-				044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */,
-				04445AEC1FC7035C004D2825 /* CoursesViewController.swift */,
-				04445AE41FC6FFB5004D2825 /* CoursesBoughtViewController.swift */,
-				04445AE61FC6FFCF004D2825 /* CoursesHeartViewController.swift */,
+				04402E8F1FCDB03200EC95EE /* Home */,
+				04402E8E1FCDB02500EC95EE /* Courses */,
 				04402E7B1FCDA2BF00EC95EE /* Setting */,
 			);
 			path = Controller;
@@ -272,15 +300,11 @@
 			children = (
 				0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */,
 				04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */,
-				044F0B491FC429A400E98E45 /* TestCollectionViewCell.swift */,
 				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
-				044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */,
-				044F0BC41FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift */,
-				044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */,
-				04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */,
-				04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */,
+				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
 				04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */,
 				04445AEA1FC70275004D2825 /* CoursesHeartTableViewCell.swift */,
+				04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -708,10 +732,10 @@
 				0478E6091FC0322900DD0169 /* Queue.swift in Sources */,
 				0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */,
 				0478E60C1FC0322900DD0169 /* UIColorExtension.swift in Sources */,
-				044F0B4A1FC429A400E98E45 /* TestCollectionViewCell.swift in Sources */,
 				04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */,
 				04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */,
 				0478E60E1FC0322900DD0169 /* NumberExtension.swift in Sources */,
+				04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
 				0478E60D1FC0322900DD0169 /* UITableViewExtensios.swift in Sources */,
 			);
