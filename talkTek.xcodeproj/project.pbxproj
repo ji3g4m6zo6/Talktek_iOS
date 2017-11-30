@@ -63,6 +63,7 @@
 		04BE92221FB1583900A35523 /* talkTekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92211FB1583900A35523 /* talkTekTests.swift */; };
 		04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE922C1FB1583900A35523 /* talkTekUITests.swift */; };
 		04C40F0A1FB167ED0032912C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C40F091FB167EC0032912C /* GoogleService-Info.plist */; };
+		04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */; };
 		04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */; };
 		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
@@ -149,6 +150,7 @@
 		04BE922C1FB1583900A35523 /* talkTekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkTekUITests.swift; sourceTree = "<group>"; };
 		04BE922E1FB1583A00A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C40F091FB167EC0032912C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogInViewController.swift; sourceTree = "<group>"; };
 		04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		0777E54F7301F178A78F49CD /* Pods_talkTek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -263,6 +265,7 @@
 				04402E8F1FCDB03200EC95EE /* Home */,
 				04402E8E1FCDB02500EC95EE /* Courses */,
 				04402E7B1FCDA2BF00EC95EE /* Setting */,
+				04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -550,6 +553,9 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-talkTek/Pods-talkTek-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -557,6 +563,9 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -726,6 +735,7 @@
 				0478E6121FC0322900DD0169 /* NSObejctExtension.swift in Sources */,
 				04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */,
 				0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */,
+				04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */,
 				04402E811FCDA33000EC95EE /* BecomeLecturerViewController.swift in Sources */,
 				04445AED1FC7035C004D2825 /* CoursesViewController.swift in Sources */,
 				044F0BC31FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift in Sources */,
