@@ -9,18 +9,59 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
+import FirebaseAuth
+import FirebaseDatabase
 
-class MainLogInViewController: UIViewController {
+class MainLogInViewController: UIViewController, GIDSignInDelegate {
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    // Do any additional setup after loading the view.
+    
+    // Initialize sign-in
+    GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+    GIDSignIn.sharedInstance().delegate = self
+    
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  func listenToState(){
+    Auth.auth()?.addStateDidChangeListener() { (auth, user) in
+      if user != nil{
+        self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
+        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+      }
+      else
+      {
+        self.fbLogin.readPermissions = ["public_profile", "email"]
+        self.fbLogin.delegate = self
+        self.fbLogin.isHidden = false
+      }
+    }
+  }
+  
+  @IBAction func googleLogin(sender: UIButton){
+    
+  }
+  func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
+    // ...
+    if let error = error {
+      // ...
+      print(error.localizedDescription)
+      return
+    }
+    
+    guard let authentication = user.authentication else { return }
+    let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
+    Auth.auth().signIn(with: credential){(user, error) in
+      print("Sign In to Firebase")
+      
+    }
+    // ...
   }
   
   @IBAction func facebookLogin(sender: UIButton) {
