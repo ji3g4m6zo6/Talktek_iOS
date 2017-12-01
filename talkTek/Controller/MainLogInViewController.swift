@@ -30,7 +30,7 @@ class MainLogInViewController: UIViewController, GIDSignInDelegate {
   }
   
   func listenToState(){
-    Auth.auth()?.addStateDidChangeListener() { (auth, user) in
+    Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
         self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
         NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
