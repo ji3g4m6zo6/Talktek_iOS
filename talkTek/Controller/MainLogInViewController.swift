@@ -12,11 +12,17 @@ import FBSDKLoginKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class MainLogInViewController: UIViewController, GIDSignInDelegate {
+class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
+  
+  
+ 
+  @IBOutlet weak var facebook_Button: FBSDKLoginButton!
+  var databaseRef: DatabaseReference!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    listenToState()
     
     // Initialize sign-in
     GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -32,21 +38,20 @@ class MainLogInViewController: UIViewController, GIDSignInDelegate {
   func listenToState(){
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
-        self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
-        NVActivityIndicatorPresenter.sharedInstance.stopAnimating()
+        self.dismiss(animated: true, completion: nil)
+        //self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
       }
       else
       {
-        self.fbLogin.readPermissions = ["public_profile", "email"]
-        self.fbLogin.delegate = self
-        self.fbLogin.isHidden = false
+        self.facebook_Button.readPermissions = ["public_profile", "email"]
+        self.facebook_Button.delegate = self
+        self.facebook_Button.isHidden = false
       }
     }
   }
   
-  @IBAction func googleLogin(sender: UIButton){
-    
-  }
+
+  // Google
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
     // ...
     if let error = error {
@@ -58,50 +63,90 @@ class MainLogInViewController: UIViewController, GIDSignInDelegate {
     guard let authentication = user.authentication else { return }
     let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
     Auth.auth().signIn(with: credential){(user, error) in
-      print("Sign In to Firebase")
+      print("Google Sign In to Firebase")
       
     }
     // ...
   }
   
-  @IBAction func facebookLogin(sender: UIButton) {
-    let fbLoginManager = FBSDKLoginManager()
-    fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
-      if let error = error {
-        print("Failed to login: \(error.localizedDescription)")
-        return
+  
+  // Facebook
+  func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    print("user has log in fb")
+    
+    self.facebook_Button.isHidden = true
+    
+    if (error != nil)
+    {
+      print(error.localizedDescription)
+      self.facebook_Button.isHidden = false
+    }
+    else if(result.isCancelled)
+    {
+      print("facebook cancelled is pressed")
+      self.facebook_Button.isHidden = false
+    }
+    else
+    {
+      let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+      Auth.auth().signIn(with: credential) { (user, error) in
+        print("user has log into firebase")
+        self.databaseRef = Database.database().reference()
+        self.databaseRef.child("Users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+          let snapshot = snapshot.value as? NSDictionary
+          if(snapshot == nil)
+          {
+            self.databaseRef.child("Users").child(user!.uid).setValue(["name" : user?.displayName, "email": user?.email])
+          }
+        })
       }
-      
-      guard let accessToken = FBSDKAccessToken.current() else {
-        print("Failed to get access token")
-        return
-      }
-      
-      let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
-      
-      // Perform login by calling Firebase APIs
-      Auth.auth().signIn(with: credential, completion: { (user, error) in
-        if let error = error {
-          print("Login error: \(error.localizedDescription)")
-          let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
-          let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-          alertController.addAction(okayAction)
-          self.present(alertController, animated: true, completion: nil)
-          
-          return
-        }
-        
-        // Present the main view
-        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
-          UIApplication.shared.keyWindow?.rootViewController = viewController
-          self.dismiss(animated: true, completion: nil)
-        }
-        
-      })
-      
+    }
+//    let fbLoginManager = FBSDKLoginManager()
+//    fbLoginManager.logIn(withReadPermissions: ["public_profile", "email"], from: self) { (result, error) in
+//      if let error = error {
+//        print("Facebook Failed to login: \(error.localizedDescription)")
+//        return
+//      }
+//
+//      guard let accessToken = FBSDKAccessToken.current() else {
+//        print("Facebook Failed to get access token")
+//        return
+//      }
+//
+//      let credential = FacebookAuthProvider.credential(withAccessToken: accessToken.tokenString)
+//
+//      // Perform login by calling Firebase APIs
+//      Auth.auth().signIn(with: credential, completion: { (user, error) in
+//        if let error = error {
+//          print("Login error: \(error.localizedDescription)")
+//          let alertController = UIAlertController(title: "Login Error", message: error.localizedDescription, preferredStyle: .alert)
+//          let okayAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+//          alertController.addAction(okayAction)
+//          self.present(alertController, animated: true, completion: nil)
+//
+//          return
+//        }
+//
+//        self.dismiss(animated: true, completion: nil)
+//
+//        // Present the main view
+////        if let viewController = self.storyboard?.instantiateViewController(withIdentifier: "MainView") {
+////          UIApplication.shared.keyWindow?.rootViewController = viewController
+////          self.dismiss(animated: true, completion: nil)
+////        }
+//
+//      })
+//
     }
   }
   
+  func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+    print("user has log out")
+  }
   
+  @IBAction func LogIn_Button_Tapped(_ sender: UIButton) {
+    
+    self.dismiss(animated: true, completion: nil  )
+  }
   
 }

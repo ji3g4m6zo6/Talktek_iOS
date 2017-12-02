@@ -56,6 +56,9 @@
 		0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */; };
 		0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */; };
 		0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */; };
+		048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D351FD1B209002A2E93 /* IAPService.swift */; };
+		048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D371FD1B276002A2E93 /* IAPProduct.swift */; };
+		048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */; };
 		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
 		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
 		04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */; };
@@ -139,6 +142,10 @@
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
 		0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
 		0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = talkTek/View/UIImageViewExtension.swift; sourceTree = SOURCE_ROOT; };
+		048D0D331FD1AE4E002A2E93 /* talkTek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = talkTek.entitlements; sourceTree = "<group>"; };
+		048D0D351FD1B209002A2E93 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
+		048D0D371FD1B276002A2E93 /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
+		048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMainViewController.swift; sourceTree = "<group>"; };
 		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE920E1FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -213,6 +220,7 @@
 				04402E841FCDA4EA00EC95EE /* PersonalizedViewController.swift */,
 				04402E861FCDA4FB00EC95EE /* AboutViewController.swift */,
 				04402E881FCDA50B00EC95EE /* LawViewController.swift */,
+				048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -317,6 +325,15 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		048D0D341FD1B1EC002A2E93 /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				048D0D351FD1B209002A2E93 /* IAPService.swift */,
+				048D0D371FD1B276002A2E93 /* IAPProduct.swift */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		04BE91FD1FB1583900A35523 = {
 			isa = PBXGroup;
 			children = (
@@ -343,10 +360,12 @@
 		04BE92081FB1583900A35523 /* talkTek */ = {
 			isa = PBXGroup;
 			children = (
+				048D0D331FD1AE4E002A2E93 /* talkTek.entitlements */,
 				0478E5EC1FC0217300DD0169 /* Supporting File */,
 				04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */,
 				04BE92181FB1583900A35523 /* Info.plist */,
 				04BE920D1FB1583900A35523 /* Main.storyboard */,
+				048D0D341FD1B1EC002A2E93 /* Others */,
 				0425ADA61FC2FE4B008165F1 /* Model */,
 				0478E61B1FC1712B00DD0169 /* View */,
 				0478E5ED1FC0224000DD0169 /* Controller */,
@@ -474,6 +493,14 @@
 						CreatedOnToolsVersion = 9.0.1;
 						LastSwiftMigration = 0910;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.ApplePay = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 0;
+							};
+						};
 					};
 					04BE921C1FB1583900A35523 = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -714,6 +741,7 @@
 				0478E6051FC0322900DD0169 /* ArrayExtension.swift in Sources */,
 				0478E6081FC0322900DD0169 /* SwiftyJSONExtension.swift in Sources */,
 				04402E851FCDA4EA00EC95EE /* PersonalizedViewController.swift in Sources */,
+				048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */,
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
 				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
 				0478E60A1FC0322900DD0169 /* UIViewControllerExtension.swift in Sources */,
@@ -725,6 +753,8 @@
 				0478E6141FC0322900DD0169 /* CollectionExtension.swift in Sources */,
 				0478E6061FC0322900DD0169 /* DateExtension.swift in Sources */,
 				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
+				048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */,
+				048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */,
 				044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */,
 				04402E831FCDA33E00EC95EE /* SuggestionViewController.swift in Sources */,
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
@@ -927,6 +957,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = talkTek/talkTek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LPN95EDSG4;
 				INFOPLIST_FILE = talkTek/Info.plist;
@@ -947,6 +978,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = talkTek/talkTek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LPN95EDSG4;
 				INFOPLIST_FILE = talkTek/Info.plist;

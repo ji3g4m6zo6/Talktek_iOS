@@ -33,6 +33,8 @@ class HomeViewController: UIViewController {
     setUpView()
     segmentedControl.addUnderlineForSelectedSegment()
     
+    let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
+    self.present(LogInVC, animated: true, completion: nil)
     
   }
   
