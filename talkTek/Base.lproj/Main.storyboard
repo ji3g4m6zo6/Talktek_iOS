@@ -2613,6 +2613,9 @@
                                                 <constraint firstItem="oRy-m1-9tO" firstAttribute="leading" secondItem="8DN-Mv-04J" secondAttribute="leading" id="vkD-vc-qT5"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="oRy-m1-9tO" id="WOj-1Y-pup"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

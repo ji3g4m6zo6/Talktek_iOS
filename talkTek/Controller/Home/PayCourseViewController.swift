@@ -12,7 +12,6 @@ class PayCourseViewController: UIViewController {
   
   
   @IBOutlet weak var tableView: UITableView!
-  var categories = ["Action", "Drama", "Science Fiction", "Kids", "Horror"]
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.dataSource = self
@@ -30,12 +29,12 @@ class PayCourseViewController: UIViewController {
 
 extension PayCourseViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSections(in tableView: UITableView) -> Int {
-    return categories.count
+    return 1
   }
   
-  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return categories[section]
-  }
+//  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//    return categories[section]
+//  }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return 1
@@ -46,6 +45,6 @@ extension PayCourseViewController: UITableViewDataSource, UITableViewDelegate {
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 190
+    return 253
   }
 }

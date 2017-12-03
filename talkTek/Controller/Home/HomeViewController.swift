@@ -27,8 +27,9 @@ class HomeViewController: UIViewController {
   @IBOutlet weak var segmentedControl: UISegmentedControl!
   override func viewDidLoad() {
     super.viewDidLoad()
-    navigationController?.navigationBar.prefersLargeTitles = true
-    searchImplement()
+    // 之後再加
+    //navigationController?.navigationBar.prefersLargeTitles = true
+    //searchImplement()
     
     setUpView()
     segmentedControl.addUnderlineForSelectedSegment()

@@ -70,6 +70,7 @@
 		04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */; };
 		04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */; };
 		04E1004B1FD311270007D4E3 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004A1FD311270007D4E3 /* Setting.swift */; };
+		04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004C1FD3EF0A0007D4E3 /* Home.swift */; };
 		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
 		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
@@ -164,6 +165,7 @@
 		04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogInViewController.swift; sourceTree = "<group>"; };
 		04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04E1004A1FD311270007D4E3 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
+		04E1004C1FD3EF0A0007D4E3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0777E54F7301F178A78F49CD /* Pods_talkTek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		256E2B690F6191AA47E176C5 /* Pods-talkTekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		0425ADA61FC2FE4B008165F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				04E1004C1FD3EF0A0007D4E3 /* Home.swift */,
 				04E1004A1FD311270007D4E3 /* Setting.swift */,
 			);
 			path = Model;
@@ -766,6 +769,7 @@
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
 				0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */,
 				04402E7F1FCDA31A00EC95EE /* PointsCenterViewController.swift in Sources */,
+				04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */,
 				0478E60B1FC0322900DD0169 /* UIApplicationExtension.swift in Sources */,
 				044F0BC71FC5D7E200E98E45 /* CoursesTableViewCell.swift in Sources */,
 				0478E6071FC0322900DD0169 /* UILabelExtension.swift in Sources */,

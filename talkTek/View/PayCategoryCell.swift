@@ -10,7 +10,8 @@ import UIKit
 
 class PayCategoryCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  @IBOutlet weak var collectionView: UICollectionView!
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
