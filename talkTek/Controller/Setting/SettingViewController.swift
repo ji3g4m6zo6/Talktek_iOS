@@ -7,9 +7,19 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseDatabase
+
 
 class SettingViewController: UIViewController {
   
+  @IBOutlet weak var profile_ImageView: UIImageView!
+  
+  @IBOutlet weak var name_Label: UILabel!
+  
+  var databaseRef: DatabaseReference!
+  var userID = ""
   var list = ["點數中心","成為講師","意見反饋","個人化設定","優惠碼","關於"]
   @IBOutlet weak var tableView: UITableView!
   
@@ -19,14 +29,34 @@ class SettingViewController: UIViewController {
     tableView.dataSource = self
     
     navigationController?.navigationBar.prefersLargeTitles = true
-
     
+    
+    userID = Auth.auth().currentUser!.uid
+    databaseRef = Database.database().reference()
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  func fetchData(){
+    self.databaseRef.child("Users/\(self.userID)").observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: AnyObject]{
+        print("dictionary is \(dictionary)")
+        let user = User()
+        user.name = dictionary["name"] as? String ?? ""
+        user.account = dictionary["account"] as? String ?? ""
+        
+        self.name_Label.text = user.name
+        
+        
+        
+      }
+      
+    }
+
+  }
+  
   
   
   
