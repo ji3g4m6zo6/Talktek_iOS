@@ -8,6 +8,8 @@
 
 import Foundation
 
+
+
 class Course: NSObject{
   
   var authorDescription: String?
@@ -20,6 +22,7 @@ class Course: NSObject{
   var studentNumber: String?
   var title: String?
   
+  
 }
 
 class CoursesOfEachCategory: NSObject {
@@ -30,7 +33,9 @@ class CoursesOfEachCategory: NSObject {
   var Price: String?
   var Topic: String?
   var TopicImage: String?
-  var course: [Course] = []
+  let course: [Course] = []
+  
+  
   
 }
 
@@ -39,6 +44,8 @@ class CourseCategory: NSObject {
   
   var keyName: String?
   var presentName: String?
+  let coursesOfEachCategory: [CoursesOfEachCategory] = []
+  
   
 }
 
