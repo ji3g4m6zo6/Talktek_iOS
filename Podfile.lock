@@ -70,6 +70,7 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - ObjectMapper (2.2.9)
 
 DEPENDENCIES:
   - Bolts
@@ -80,6 +81,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - GoogleSignIn
+  - ObjectMapper (~> 2.2)
 
 SPEC CHECKSUMS:
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
@@ -98,7 +100,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: ebaa1f79a5366922c1735f1566901f50beba23b7
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  ObjectMapper: 63cfe41bc6f8e7c8f44344c49901b8ae7de14c52
 
-PODFILE CHECKSUM: 06b1ff69a2d82ac3a0bb7fe2b0d7ffc823f90d0b
+PODFILE CHECKSUM: 269c44b96f287154be3e0cd8bc2560c3217855e0
 
 COCOAPODS: 1.3.1

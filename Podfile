@@ -19,6 +19,9 @@ target 'talkTek' do
 # Pods for Google
   pod 'GoogleSignIn'
 
+# Pods for ObjectMapper
+pod 'ObjectMapper', '~> 2.2'
+
 
   target 'talkTekTests' do
     inherit! :search_paths

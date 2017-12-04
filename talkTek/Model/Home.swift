@@ -7,10 +7,12 @@
 //
 
 import Foundation
+import ObjectMapper
 
 
-
-class Course: NSObject{
+class Course: Mappable{
+  
+  
   
   var authorDescription: String?
   var authorImage: String?
@@ -22,9 +24,32 @@ class Course: NSObject{
   var studentNumber: String?
   var title: String?
   
+  convenience required init?(map: Map) {
+    self.init()
+  }
+  
+  func mapping(map: Map) {
+    authorDescription   <- map["authorDescription"]
+    authorImage         <- map["authorImage"]
+    authorName          <- map["authorName"]
+    courseDescription   <- map["courseDescription"]
+    hour                <- map["hour"]
+    overViewImage       <- map["overViewImage"]
+    score               <- map["score"]
+    studentNumber       <- map["studentNumber"]
+    title               <- map["title"]
+  }
   
 }
 
+struct CourseCategory {
+  
+  var keyName: String?
+  var presentName: String?
+  
+}
+
+/*
 class CoursesOfEachCategory: NSObject {
   
   var Author: String?
@@ -40,13 +65,6 @@ class CoursesOfEachCategory: NSObject {
 }
 
 
-class CourseCategory: NSObject {
-  
-  var keyName: String?
-  var presentName: String?
-  let coursesOfEachCategory: [CoursesOfEachCategory] = []
-  
-  
-}
 
+*/
 

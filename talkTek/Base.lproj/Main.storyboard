@@ -2593,8 +2593,8 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="09P-NQ-9t6" id="ukJ-if-RfM"/>
-                                                        <outlet property="delegate" destination="09P-NQ-9t6" id="Wsv-sv-Qam"/>
+                                                        <outlet property="dataSource" destination="f0P-ey-pWX" id="5JW-iS-EIf"/>
+                                                        <outlet property="delegate" destination="f0P-ey-pWX" id="ZsP-0n-SYh"/>
                                                     </connections>
                                                 </collectionView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="最新課程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sWt-P8-kzt">
@@ -2615,6 +2615,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="collectionView" destination="oRy-m1-9tO" id="WOj-1Y-pup"/>
+                                            <outlet property="topic_Label" destination="sWt-P8-kzt" id="iN9-dE-ZmI"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
