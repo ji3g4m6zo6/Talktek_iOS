@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import FirebaseDatabase
-import ObjectMapper
 
 class PayCourseViewController: UIViewController {
   
@@ -29,57 +28,23 @@ class PayCourseViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  var courseCategoryArray = [CourseCategory]()
-  var courseArray = [Course]()
-  var arrayCourse = [Array<Course>]()
+
+  var courseCategory_Array = [CourseCategory]()
+  var homeCourses_Array = [HomeCourses]()
   
-  var root = [String]()
   func fetchData(){
     // Get the number and root of collectionview
-    self.databaseRef.child("CourseCategory").observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: AnyObject]{
+    self.databaseRef.child("CourseCategory").child("最新課程").observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: String]{
         print("dictionary is \(dictionary)")
         
-        let courseCategory = CourseCategory()
-        
-        
-        courseCategory.keyName = dictionary["keyName"] as? String ?? ""
-        courseCategory.presentName = dictionary["presentName"] as? String ?? ""
-        
-        //self.root.append(courseCategory.keyName!)
-        
-        //self.courseCategoryArray.append(courseCategory)
-
         
         
         
       }
       
-      //self.fetchDetail(key: self.root)
     }
     
-  }
-  func fetchDetail(key: Array<String>){
-    for eachRoot in key{
-      self.databaseRef.child(eachRoot).observe(.childAdded, with: { (snapshot) in
-        if let dictionary = snapshot.value as? [String: AnyObject]{
-          print("Detail is \(dictionary)")
-          let course = Course()
-          
-          course.title = dictionary["title"] as? String ?? ""
-          print("course title is \(course.title ?? "")")
-          
-          self.arrayCourse.append(self.courseArray)
-          print("wtf??? \(self.arrayCourse)")
-          
-          DispatchQueue.main.async {
-            self.tableView.reloadData()
-          }
-          
-        }
-        
-      })
-    }
   }
   
   
