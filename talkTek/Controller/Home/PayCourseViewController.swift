@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 
+
 class PayCourseViewController: UIViewController {
   
   var databaseRef: DatabaseReference!
@@ -29,8 +30,10 @@ class PayCourseViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
 
-  var courseCategory_Array = [CourseCategory]()
+  var courseCategory_Array = ["最新課程"]
+  //[CourseCategory]()
   var homeCourses_Array = [HomeCourses]()
+  
   
   func fetchData(){
     // Get the number and root of collectionview
@@ -38,8 +41,18 @@ class PayCourseViewController: UIViewController {
       if let dictionary = snapshot.value as? [String: String]{
         print("dictionary is \(dictionary)")
         
+        let homeCourses = HomeCourses()
+        homeCourses.overViewImage = dictionary["overViewImage"]
+        homeCourses.authorName = dictionary["authorName"]
+        homeCourses.title = dictionary["title"]
+        homeCourses.price = dictionary["price"]
+        homeCourses.studentNumber = dictionary["studentNumber"]
         
+        self.homeCourses_Array.append(homeCourses)
         
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
         
       }
       
@@ -55,17 +68,13 @@ extension PayCourseViewController: UITableViewDataSource, UITableViewDelegate {
     return 1
   }
   
-//  func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//    return categories[section]
-//  }
-  
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return courseCategoryArray.count
+    return 10//courseCategory_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PayCategoryCell
-    cell.topic_Label.text = courseCategoryArray[indexPath.row].presentName
-    
+    cell.topic_Label.text = courseCategory_Array[indexPath.row].presentName
+    cell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
     return cell
   }
   
@@ -76,10 +85,13 @@ extension PayCourseViewController: UITableViewDataSource, UITableViewDelegate {
 
 extension PayCourseViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return 12 //coursesOfEachCategory!.course.count
+    return homeCourses_Array.count //coursesOfEachCategory!.course.count
   }
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "courseCell", for: indexPath) as! PayCollectionViewCell
+    if let overviewUrl = homeCourses_Array[collectionView.tag].overViewImage{
+      
+    }
     
     //    if let coursesOfEachCategory = coursesOfEachCategory{
     //      cell.Topic_Label.text = coursesOfEachCategory.course[indexPath.row].title

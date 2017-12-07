@@ -16,6 +16,7 @@ class HomeCourses: NSObject {
   var courseDescription: String?
   var hour: String?
   var overViewImage: String?
+  var price: String?
   var score: String?
   var studentNumber: String?
   var title: String?
