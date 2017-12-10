@@ -10,6 +10,8 @@ import UIKit
 
 class CourseDetailViewController: UIViewController {
   
+  var detailToGet = HomeCourses()
+  
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case main = 0

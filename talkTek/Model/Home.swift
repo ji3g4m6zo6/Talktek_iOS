@@ -22,6 +22,4 @@ class HomeCourses: NSObject {
   var title: String?
   
 }
-class CourseCategory: NSObject {
-  var category: String?
-}
+

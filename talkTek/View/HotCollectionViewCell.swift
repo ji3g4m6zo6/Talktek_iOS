@@ -24,5 +24,12 @@ class HotCollectionViewCell: UICollectionViewCell {
   
   @IBOutlet weak var peopleBought_Label: UILabel!
   
+  override func layoutSubviews() {
+    author_ImageView.layer.cornerRadius = author_ImageView.bounds.height / 2
+    author_ImageView.layer.borderWidth = 2.0
+    author_ImageView.layer.borderColor = UIColor.white.cgColor
+    author_ImageView.clipsToBounds = true
+  }
+  
   
 }
