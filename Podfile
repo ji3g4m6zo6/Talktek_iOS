@@ -6,22 +6,29 @@ target 'talkTek' do
   use_frameworks!
 
 # Pods for talkTek
+
+# Firebase
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
 
-# Pods for Facebook
+# Facebook
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
 
-# Pods for Google
+# Google
   pod 'GoogleSignIn'
 
-# Pods for ObjectMapper
+# ObjectMapper
 pod 'ObjectMapper', '~> 2.2'
 
+# XLPagerTabStrip
+pod 'XLPagerTabStrip', '~> 8.0'
+
+# Kingfisher
+pod 'Kingfisher', '~> 4.0'
 
   target 'talkTekTests' do
     inherit! :search_paths

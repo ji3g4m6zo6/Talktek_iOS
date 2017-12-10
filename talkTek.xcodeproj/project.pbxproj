@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		041E3CAB1FDBBA970035E3A4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CAA1FDBBA970035E3A4 /* UIColorExtension.swift */; };
+		041E3CAD1FDBBB590035E3A4 /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CAC1FDBBB590035E3A4 /* NumberExtension.swift */; };
+		041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */; };
+		041E3CB21FDBE8DF0035E3A4 /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */; };
+		041E3CB41FDC1B9E0035E3A4 /* HotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */; };
 		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
 		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
 		04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */; };
@@ -34,25 +39,6 @@
 		044F0BC71FC5D7E200E98E45 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */; };
 		046D9BA01FBD2C1600ECDF07 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 046D9B9F1FBD2C1600ECDF07 /* .gitignore */; };
 		0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5EE1FC0225700DD0169 /* HomeViewController.swift */; };
-		0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F11FC0322700DD0169 /* UIImageExtension.swift */; };
-		0478E6051FC0322900DD0169 /* ArrayExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F21FC0322700DD0169 /* ArrayExtension.swift */; };
-		0478E6061FC0322900DD0169 /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F31FC0322700DD0169 /* DateExtension.swift */; };
-		0478E6071FC0322900DD0169 /* UILabelExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F41FC0322700DD0169 /* UILabelExtension.swift */; };
-		0478E6081FC0322900DD0169 /* SwiftyJSONExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F51FC0322700DD0169 /* SwiftyJSONExtension.swift */; };
-		0478E6091FC0322900DD0169 /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F61FC0322800DD0169 /* Queue.swift */; };
-		0478E60A1FC0322900DD0169 /* UIViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F71FC0322800DD0169 /* UIViewControllerExtension.swift */; };
-		0478E60B1FC0322900DD0169 /* UIApplicationExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F81FC0322800DD0169 /* UIApplicationExtension.swift */; };
-		0478E60C1FC0322900DD0169 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5F91FC0322800DD0169 /* UIColorExtension.swift */; };
-		0478E60D1FC0322900DD0169 /* UITableViewExtensios.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5FA1FC0322800DD0169 /* UITableViewExtensios.swift */; };
-		0478E60E1FC0322900DD0169 /* NumberExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5FB1FC0322800DD0169 /* NumberExtension.swift */; };
-		0478E60F1FC0322900DD0169 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5FC1FC0322800DD0169 /* UIViewExtension.swift */; };
-		0478E6101FC0322900DD0169 /* SDWebImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5FD1FC0322900DD0169 /* SDWebImageExtension.swift */; };
-		0478E6111FC0322900DD0169 /* DataExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5FE1FC0322900DD0169 /* DataExtension.swift */; };
-		0478E6121FC0322900DD0169 /* NSObejctExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5FF1FC0322900DD0169 /* NSObejctExtension.swift */; };
-		0478E6131FC0322900DD0169 /* UICollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6001FC0322900DD0169 /* UICollectionViewExtension.swift */; };
-		0478E6141FC0322900DD0169 /* CollectionExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6011FC0322900DD0169 /* CollectionExtension.swift */; };
-		0478E6151FC0322900DD0169 /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6021FC0322900DD0169 /* UIAlertControllerExtension.swift */; };
-		0478E6161FC0322900DD0169 /* DictionaryExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6031FC0322900DD0169 /* DictionaryExtension.swift */; };
 		0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */; };
 		0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */; };
 		0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */; };
@@ -94,6 +80,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		041E3CAA1FDBBA970035E3A4 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		041E3CAC1FDBBB590035E3A4 /* NumberExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberExtension.swift; sourceTree = "<group>"; };
+		041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
+		041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
+		041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotCollectionViewCell.swift; sourceTree = "<group>"; };
 		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
 		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
 		04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
@@ -122,25 +113,6 @@
 		044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
 		046D9B9F1FBD2C1600ECDF07 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0478E5EE1FC0225700DD0169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		0478E5F11FC0322700DD0169 /* UIImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIImageExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIImageExtension.swift; sourceTree = "<group>"; };
-		0478E5F21FC0322700DD0169 /* ArrayExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ArrayExtension.swift; path = ../../../../iosTest/iosTest/Extensions/ArrayExtension.swift; sourceTree = "<group>"; };
-		0478E5F31FC0322700DD0169 /* DateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = ../../../../iosTest/iosTest/Extensions/DateExtension.swift; sourceTree = "<group>"; };
-		0478E5F41FC0322700DD0169 /* UILabelExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UILabelExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UILabelExtension.swift; sourceTree = "<group>"; };
-		0478E5F51FC0322700DD0169 /* SwiftyJSONExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSONExtension.swift; path = ../../../../iosTest/iosTest/Extensions/SwiftyJSONExtension.swift; sourceTree = "<group>"; };
-		0478E5F61FC0322800DD0169 /* Queue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Queue.swift; path = ../../../../iosTest/iosTest/Extensions/Queue.swift; sourceTree = "<group>"; };
-		0478E5F71FC0322800DD0169 /* UIViewControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIViewControllerExtension.swift; sourceTree = "<group>"; };
-		0478E5F81FC0322800DD0169 /* UIApplicationExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIApplicationExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIApplicationExtension.swift; sourceTree = "<group>"; };
-		0478E5F91FC0322800DD0169 /* UIColorExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIColorExtension.swift; sourceTree = "<group>"; };
-		0478E5FA1FC0322800DD0169 /* UITableViewExtensios.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UITableViewExtensios.swift; path = ../../../../iosTest/iosTest/Extensions/UITableViewExtensios.swift; sourceTree = "<group>"; };
-		0478E5FB1FC0322800DD0169 /* NumberExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NumberExtension.swift; path = ../../../../iosTest/iosTest/Extensions/NumberExtension.swift; sourceTree = "<group>"; };
-		0478E5FC1FC0322800DD0169 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIViewExtension.swift; sourceTree = "<group>"; };
-		0478E5FD1FC0322900DD0169 /* SDWebImageExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SDWebImageExtension.swift; path = ../../../../iosTest/iosTest/Extensions/SDWebImageExtension.swift; sourceTree = "<group>"; };
-		0478E5FE1FC0322900DD0169 /* DataExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataExtension.swift; path = ../../../../iosTest/iosTest/Extensions/DataExtension.swift; sourceTree = "<group>"; };
-		0478E5FF1FC0322900DD0169 /* NSObejctExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NSObejctExtension.swift; path = ../../../../iosTest/iosTest/Extensions/NSObejctExtension.swift; sourceTree = "<group>"; };
-		0478E6001FC0322900DD0169 /* UICollectionViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UICollectionViewExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UICollectionViewExtension.swift; sourceTree = "<group>"; };
-		0478E6011FC0322900DD0169 /* CollectionExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionExtension.swift; path = ../../../../iosTest/iosTest/Extensions/CollectionExtension.swift; sourceTree = "<group>"; };
-		0478E6021FC0322900DD0169 /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIAlertControllerExtension.swift; path = ../../../../iosTest/iosTest/Extensions/UIAlertControllerExtension.swift; sourceTree = "<group>"; };
-		0478E6031FC0322900DD0169 /* DictionaryExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DictionaryExtension.swift; path = ../../../../iosTest/iosTest/Extensions/DictionaryExtension.swift; sourceTree = "<group>"; };
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
 		0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
 		0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = talkTek/View/UIImageViewExtension.swift; sourceTree = SOURCE_ROOT; };
@@ -205,6 +177,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		041E3CAE1FDBD7120035E3A4 /* Pay and Free */ = {
+			isa = PBXGroup;
+			children = (
+				0478E5EE1FC0225700DD0169 /* HomeViewController.swift */,
+				0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */,
+				0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */,
+			);
+			path = "Pay and Free";
+			sourceTree = "<group>";
+		};
+		041E3CB51FDC1BB30035E3A4 /* Pay and Free */ = {
+			isa = PBXGroup;
+			children = (
+				0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */,
+				04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */,
+			);
+			path = "Pay and Free";
+			sourceTree = "<group>";
+		};
 		0425ADA61FC2FE4B008165F1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,10 +247,10 @@
 		04402E8F1FCDB03200EC95EE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				0478E5EE1FC0225700DD0169 /* HomeViewController.swift */,
-				0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */,
-				0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */,
+				041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */,
+				041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */,
 				044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */,
+				041E3CAE1FDBD7120035E3A4 /* Pay and Free */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -290,25 +281,8 @@
 		0478E5F01FC0320400DD0169 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				0478E5F21FC0322700DD0169 /* ArrayExtension.swift */,
-				0478E6011FC0322900DD0169 /* CollectionExtension.swift */,
-				0478E5FE1FC0322900DD0169 /* DataExtension.swift */,
-				0478E5F31FC0322700DD0169 /* DateExtension.swift */,
-				0478E6031FC0322900DD0169 /* DictionaryExtension.swift */,
-				0478E5FF1FC0322900DD0169 /* NSObejctExtension.swift */,
-				0478E5FB1FC0322800DD0169 /* NumberExtension.swift */,
-				0478E5F61FC0322800DD0169 /* Queue.swift */,
-				0478E5FD1FC0322900DD0169 /* SDWebImageExtension.swift */,
-				0478E5F51FC0322700DD0169 /* SwiftyJSONExtension.swift */,
-				0478E6021FC0322900DD0169 /* UIAlertControllerExtension.swift */,
-				0478E5F81FC0322800DD0169 /* UIApplicationExtension.swift */,
-				0478E6001FC0322900DD0169 /* UICollectionViewExtension.swift */,
-				0478E5F91FC0322800DD0169 /* UIColorExtension.swift */,
-				0478E5F11FC0322700DD0169 /* UIImageExtension.swift */,
-				0478E5F41FC0322700DD0169 /* UILabelExtension.swift */,
-				0478E5FA1FC0322800DD0169 /* UITableViewExtensios.swift */,
-				0478E5F71FC0322800DD0169 /* UIViewControllerExtension.swift */,
-				0478E5FC1FC0322800DD0169 /* UIViewExtension.swift */,
+				041E3CAC1FDBBB590035E3A4 /* NumberExtension.swift */,
+				041E3CAA1FDBBA970035E3A4 /* UIColorExtension.swift */,
 				0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */,
 				0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */,
 				044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */,
@@ -320,8 +294,8 @@
 		0478E61B1FC1712B00DD0169 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */,
-				04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */,
+				041E3CB51FDC1BB30035E3A4 /* Pay and Free */,
+				041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */,
 				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
 				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
 				04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */,
@@ -598,7 +572,9 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -610,7 +586,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -745,61 +723,47 @@
 			files = (
 				0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */,
 				04402E891FCDA50B00EC95EE /* LawViewController.swift in Sources */,
-				0478E60F1FC0322900DD0169 /* UIViewExtension.swift in Sources */,
-				0478E6051FC0322900DD0169 /* ArrayExtension.swift in Sources */,
-				0478E6081FC0322900DD0169 /* SwiftyJSONExtension.swift in Sources */,
 				04402E851FCDA4EA00EC95EE /* PersonalizedViewController.swift in Sources */,
 				048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */,
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
 				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
-				0478E60A1FC0322900DD0169 /* UIViewControllerExtension.swift in Sources */,
-				0478E6131FC0322900DD0169 /* UICollectionViewExtension.swift in Sources */,
 				044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */,
-				0478E6161FC0322900DD0169 /* DictionaryExtension.swift in Sources */,
 				04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */,
-				0478E6151FC0322900DD0169 /* UIAlertControllerExtension.swift in Sources */,
-				0478E6141FC0322900DD0169 /* CollectionExtension.swift in Sources */,
-				0478E6061FC0322900DD0169 /* DateExtension.swift in Sources */,
 				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
 				048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */,
 				048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */,
 				044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */,
+				041E3CB41FDC1B9E0035E3A4 /* HotCollectionViewCell.swift in Sources */,
 				04402E831FCDA33E00EC95EE /* SuggestionViewController.swift in Sources */,
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
+				041E3CAD1FDBBB590035E3A4 /* NumberExtension.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
 				0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
+				041E3CB21FDBE8DF0035E3A4 /* HotViewController.swift in Sources */,
 				0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */,
 				04402E7F1FCDA31A00EC95EE /* PointsCenterViewController.swift in Sources */,
 				04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */,
-				0478E60B1FC0322900DD0169 /* UIApplicationExtension.swift in Sources */,
 				044F0BC71FC5D7E200E98E45 /* CoursesTableViewCell.swift in Sources */,
-				0478E6071FC0322900DD0169 /* UILabelExtension.swift in Sources */,
 				04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */,
+				041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */,
 				044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */,
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,
-				0478E6101FC0322900DD0169 /* SDWebImageExtension.swift in Sources */,
 				04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */,
-				0478E6111FC0322900DD0169 /* DataExtension.swift in Sources */,
 				04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */,
-				0478E6121FC0322900DD0169 /* NSObejctExtension.swift in Sources */,
 				04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */,
 				0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */,
 				04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */,
 				04402E811FCDA33000EC95EE /* BecomeLecturerViewController.swift in Sources */,
 				04445AED1FC7035C004D2825 /* CoursesViewController.swift in Sources */,
 				044F0BC31FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift in Sources */,
-				0478E6091FC0322900DD0169 /* Queue.swift in Sources */,
+				041E3CAB1FDBBA970035E3A4 /* UIColorExtension.swift in Sources */,
 				04E1004B1FD311270007D4E3 /* Setting.swift in Sources */,
 				044EB21E1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m in Sources */,
-				0478E6041FC0322900DD0169 /* UIImageExtension.swift in Sources */,
-				0478E60C1FC0322900DD0169 /* UIColorExtension.swift in Sources */,
 				04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */,
 				04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */,
-				0478E60E1FC0322900DD0169 /* NumberExtension.swift in Sources */,
 				04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
-				0478E60D1FC0322900DD0169 /* UITableViewExtensios.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

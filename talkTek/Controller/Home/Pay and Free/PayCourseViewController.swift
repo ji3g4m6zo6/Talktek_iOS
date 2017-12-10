@@ -73,7 +73,6 @@ extension PayCourseViewController: UITableViewDataSource, UITableViewDelegate {
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PayCategoryCell
-    cell.topic_Label.text = courseCategory_Array[indexPath.row].presentName
     cell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
     return cell
   }
