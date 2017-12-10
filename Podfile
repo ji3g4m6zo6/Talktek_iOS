@@ -30,6 +30,9 @@ pod 'XLPagerTabStrip', '~> 8.0'
 # Kingfisher
 pod 'Kingfisher', '~> 4.0'
 
+# PandoraPlayer
+pod 'PandoraPlayer'
+
   target 'talkTekTests' do
     inherit! :search_paths
     # Pods for testing

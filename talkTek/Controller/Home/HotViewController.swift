@@ -62,7 +62,8 @@ class HotViewController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierCourseDetail"{
-      let destinationViewController = segue.destination as! CourseDetailViewController
+      let nav = segue.destination as! UINavigationController
+      let destinationViewController = nav.topViewController as! CourseDetailViewController
       destinationViewController.detailToGet = self.homeCouresToPass
     }
   }
@@ -149,3 +150,9 @@ extension HotViewController: UICollectionViewDelegateFlowLayout{
     return CGSize(width: 160, height: 190)
   }
 }
+/*
+extension HotViewController{
+  @IBAction func backFromCourseDetail(_ segue: UIStoryboardSegue) {
+  }
+
+}*/
