@@ -24,14 +24,12 @@ target 'talkTek' do
 # ObjectMapper
 pod 'ObjectMapper', '~> 2.2'
 
-# XLPagerTabStrip
-pod 'XLPagerTabStrip', '~> 8.0'
-
 # Kingfisher
 pod 'Kingfisher', '~> 4.0'
 
-# PandoraPlayer
-pod 'PandoraPlayer'
+# Sound
+pod 'SwiftySound'
+
 
   target 'talkTekTests' do
     inherit! :search_paths

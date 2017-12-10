@@ -14,7 +14,6 @@ import FirebaseDatabase
 
 class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
   
-  
  
   @IBOutlet weak var facebook_Button: FBSDKLoginButton!
   var databaseRef: DatabaseReference!

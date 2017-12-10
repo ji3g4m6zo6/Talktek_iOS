@@ -12,6 +12,7 @@
 		041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */; };
 		041E3CB21FDBE8DF0035E3A4 /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */; };
 		041E3CB41FDC1B9E0035E3A4 /* HotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */; };
+		041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */; };
 		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
 		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
 		04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */; };
@@ -85,6 +86,7 @@
 		041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeParentViewController.swift; sourceTree = "<group>"; };
 		041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
 		041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotCollectionViewCell.swift; sourceTree = "<group>"; };
+		041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
 		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
 		04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		04402E7B1FCDA2BF00EC95EE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */,
 				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
 				04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */,
 				04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */,
@@ -273,7 +276,7 @@
 				04402E8F1FCDB03200EC95EE /* Home */,
 				04402E8E1FCDB02500EC95EE /* Courses */,
 				04402E7B1FCDA2BF00EC95EE /* Setting */,
-				04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */,
+				041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -566,8 +569,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-talkTek/Pods-talkTek-frameworks.sh",
-				"${PODS_ROOT}/AudioKit/iOS/AudioKit.framework",
-				"${PODS_ROOT}/AudioKit/iOS/AudioKitUI.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -576,15 +577,12 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PandoraPlayer/PandoraPlayer.framework",
-				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftySound/SwiftySound.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AudioKitUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -593,8 +591,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PandoraPlayer.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftySound.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -736,6 +733,7 @@
 				044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */,
 				04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */,
 				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
+				041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */,
 				048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */,
 				048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */,
 				044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */,
