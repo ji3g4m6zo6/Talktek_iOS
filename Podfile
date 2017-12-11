@@ -27,8 +27,7 @@ pod 'ObjectMapper', '~> 2.2'
 # Kingfisher
 pod 'Kingfisher', '~> 4.0'
 
-# Sound
-pod 'SwiftySound'
+# AudioPlayer
 
 
   target 'talkTekTests' do
