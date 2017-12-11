@@ -12,9 +12,9 @@ import FBSDKLoginKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate, GIDSignInDelegate {
+class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   
- 
+ //, GIDSignInUIDelegate, GIDSignInDelegate
   @IBOutlet weak var facebook_Button: FBSDKLoginButton!
   var databaseRef: DatabaseReference!
   
@@ -24,9 +24,9 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSi
     listenToState()
     
     // Initialize sign-in
-    GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
+   /* GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     GIDSignIn.sharedInstance().delegate = self
-    
+    */
   }
   
   override func didReceiveMemoryWarning() {
@@ -49,7 +49,7 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSi
     }
   }
   
-
+/*
   // Google
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
     // ...
@@ -84,7 +84,7 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSi
     try! Auth.auth().signOut()
     
   }
-  
+  */
   
   // Facebook
   func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -130,8 +130,15 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSi
   }
   
   @IBAction func LogIn_Button_Tapped(_ sender: UIButton) {
-    
-    self.dismiss(animated: true, completion: nil  )
+    performSegue(withIdentifier: "identifierLogIn", sender: self)
+  }
+  @IBAction func SignUp_Button_Tapped(_ sender: UIButton) {
+    performSegue(withIdentifier: "identifierSignUp", sender: self)
+  }
+}
+extension MainLogInViewController{
+  @IBAction func backFromCourseDetail(_ segue: UIStoryboardSegue) {
   }
   
 }
+

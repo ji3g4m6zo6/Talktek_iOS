@@ -150,9 +150,9 @@ extension HotViewController: UICollectionViewDelegateFlowLayout{
     return CGSize(width: 160, height: 190)
   }
 }
-/*
+
 extension HotViewController{
   @IBAction func backFromCourseDetail(_ segue: UIStoryboardSegue) {
   }
 
-}*/
+}

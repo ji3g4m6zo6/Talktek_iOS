@@ -15,6 +15,8 @@
 		041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */; };
 		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
 		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
+		04297B581FDEB2D10096E928 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B571FDEB2D10096E928 /* LogInViewController.swift */; };
+		04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B591FDEB2DF0096E928 /* SignUpViewController.swift */; };
 		04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */; };
 		04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */; };
 		04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */; };
@@ -89,6 +91,8 @@
 		041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
 		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
+		04297B571FDEB2D10096E928 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		04297B591FDEB2DF0096E928 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
 		04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEditViewController.swift; sourceTree = "<group>"; };
 		04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 			isa = PBXGroup;
 			children = (
 				04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */,
+				04297B571FDEB2D10096E928 /* LogInViewController.swift */,
+				04297B591FDEB2DF0096E928 /* SignUpViewController.swift */,
 				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
 				04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */,
 				04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */,
@@ -728,6 +734,7 @@
 				048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */,
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
 				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
+				04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */,
 				044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */,
 				04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */,
 				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
@@ -760,6 +767,7 @@
 				04445AED1FC7035C004D2825 /* CoursesViewController.swift in Sources */,
 				044F0BC31FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift in Sources */,
 				041E3CAB1FDBBA970035E3A4 /* UIColorExtension.swift in Sources */,
+				04297B581FDEB2D10096E928 /* LogInViewController.swift in Sources */,
 				04E1004B1FD311270007D4E3 /* Setting.swift in Sources */,
 				044EB21E1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m in Sources */,
 				04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */,

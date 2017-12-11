@@ -13,6 +13,8 @@ class HomeParentViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
+    self.present(LogInVC, animated: true, completion: nil)
     // Do any additional setup after loading the view.
   }
   

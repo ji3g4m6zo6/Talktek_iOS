@@ -24,6 +24,7 @@ class CourseDetailViewController: UIViewController {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
+    print(detailToGet.title ?? "")
   }
   
   override func didReceiveMemoryWarning() {
