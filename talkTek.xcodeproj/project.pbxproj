@@ -15,6 +15,7 @@
 		041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */; };
 		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
 		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
+		04294FCE1FE1573900CB4FCA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */; };
 		04297B581FDEB2D10096E928 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B571FDEB2D10096E928 /* LogInViewController.swift */; };
 		04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B591FDEB2DF0096E928 /* SignUpViewController.swift */; };
 		04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */; };
@@ -57,6 +58,7 @@
 		04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE922C1FB1583900A35523 /* talkTekUITests.swift */; };
 		04C40F0A1FB167ED0032912C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C40F091FB167EC0032912C /* GoogleService-Info.plist */; };
 		04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */; };
+		04CFAF381FDECC1E00A94EF6 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFAF371FDECC1D00A94EF6 /* ForgotPasswordViewController.swift */; };
 		04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */; };
 		04E1004B1FD311270007D4E3 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004A1FD311270007D4E3 /* Setting.swift */; };
 		04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004C1FD3EF0A0007D4E3 /* Home.swift */; };
@@ -91,6 +93,7 @@
 		041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
 		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
+		04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		04297B571FDEB2D10096E928 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		04297B591FDEB2DF0096E928 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
@@ -141,6 +144,7 @@
 		04BE922E1FB1583A00A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C40F091FB167EC0032912C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogInViewController.swift; sourceTree = "<group>"; };
+		04CFAF371FDECC1D00A94EF6 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		04E1004A1FD311270007D4E3 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		04E1004C1FD3EF0A0007D4E3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
@@ -214,9 +218,7 @@
 		04402E7B1FCDA2BF00EC95EE /* Setting */ = {
 			isa = PBXGroup;
 			children = (
-				04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */,
-				04297B571FDEB2D10096E928 /* LogInViewController.swift */,
-				04297B591FDEB2DF0096E928 /* SignUpViewController.swift */,
+				04CFAF361FDECA6500A94EF6 /* LogIn */,
 				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
 				04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */,
 				04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */,
@@ -294,6 +296,7 @@
 				041E3CAA1FDBBA970035E3A4 /* UIColorExtension.swift */,
 				0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */,
 				0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */,
+				04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */,
 				044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */,
 				044EB21C1FD05DC300CE1EBB /* talkTek-Bridging-Header.h */,
 			);
@@ -378,6 +381,17 @@
 				04BE922E1FB1583A00A35523 /* Info.plist */,
 			);
 			path = talkTekUITests;
+			sourceTree = "<group>";
+		};
+		04CFAF361FDECA6500A94EF6 /* LogIn */ = {
+			isa = PBXGroup;
+			children = (
+				04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */,
+				04297B571FDEB2D10096E928 /* LogInViewController.swift */,
+				04297B591FDEB2DF0096E928 /* SignUpViewController.swift */,
+				04CFAF371FDECC1D00A94EF6 /* ForgotPasswordViewController.swift */,
+			);
+			path = LogIn;
 			sourceTree = "<group>";
 		};
 		4636A252B7A8A6FADCA14B60 /* Pods */ = {
@@ -576,26 +590,36 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-talkTek/Pods-talkTek-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
+				"${BUILT_PRODUCTS_DIR}/DatePickerCell/DatePickerCell.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
+				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DatePickerCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -744,6 +768,7 @@
 				044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */,
 				041E3CB41FDC1B9E0035E3A4 /* HotCollectionViewCell.swift in Sources */,
 				04402E831FCDA33E00EC95EE /* SuggestionViewController.swift in Sources */,
+				04CFAF381FDECC1E00A94EF6 /* ForgotPasswordViewController.swift in Sources */,
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
 				041E3CAD1FDBBB590035E3A4 /* NumberExtension.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
@@ -774,6 +799,7 @@
 				04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */,
 				04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
+				04294FCE1FE1573900CB4FCA /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

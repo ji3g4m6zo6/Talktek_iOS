@@ -27,7 +27,21 @@ pod 'ObjectMapper', '~> 2.2'
 # Kingfisher
 pod 'Kingfisher', '~> 4.0'
 
-# AudioPlayer
+# Keyboard not hide textfield
+pod 'IQKeyboardManagerSwift'
+
+# TextFieldEffect
+pod 'TextFieldEffects'
+
+# XLPager
+pod 'XLPagerTabStrip', '~> 8.0'
+
+# Stars
+pod 'Cosmos', '~> 12.0'
+
+# Date Picker
+pod 'DatePickerCell', '~> 1.0'
+
 
 
   target 'talkTekTests' do

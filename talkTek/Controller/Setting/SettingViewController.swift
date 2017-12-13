@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FBSDKLoginKit
 
 
 class SettingViewController: UIViewController {
@@ -20,19 +21,22 @@ class SettingViewController: UIViewController {
   
   var databaseRef: DatabaseReference!
   var userID = ""
-  var list = ["點數中心","成為講師","意見反饋","個人化設定","優惠碼","關於"]
+  var list = ["點數中心", "成為講師","意見反饋", "優惠碼", "關於"]
   @IBOutlet weak var tableView: UITableView!
+  
+  
+  @IBOutlet weak var LogIn_LogOut: UIButton!
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
     
-    navigationController?.navigationBar.prefersLargeTitles = true
-    
-    
+   
     userID = Auth.auth().currentUser!.uid
-    databaseRef = Database.database().reference()
+
+    fetchData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -40,6 +44,7 @@ class SettingViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   func fetchData(){
+    self.databaseRef = Database.database().reference()
     self.databaseRef.child("Users/\(self.userID)").observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")
@@ -56,7 +61,29 @@ class SettingViewController: UIViewController {
     }
 
   }
+
+  @IBAction func LogIn_LogOut(_ sender: UIButton) {
+    FBSDKLoginManager().logOut()
+    do{
+      try Auth.auth().signOut()
+      self.databaseRef = Database.database().reference()
+      self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
+      
+      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
+      self.present(LogInVC, animated: true, completion: nil)
+    }catch let logOutError {
+      
+      print(logOutError)
+      
+    }
+    
+    
+
+  }
   
+  @IBAction func cameraOrImage(_ sender: UIButton) {
+    
+  }
   
   
   
@@ -81,11 +108,12 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource
       performSegue(withIdentifier: "lecturer", sender: self)
     } else if indexPath.row == 2{
       performSegue(withIdentifier: "suggestion", sender: self)
-    } else if indexPath.row == 3{
-      performSegue(withIdentifier: "personal", sender: self)
-    } else if indexPath.row == 4{
+    } //else if indexPath.row == 3{
+      //performSegue(withIdentifier: "personal", sender: self)
+    //}
+       else if indexPath.row == 3{
       performSegue(withIdentifier: "coupon", sender: self)
-    } else if indexPath.row == 5{
+    } else if indexPath.row == 4{
       performSegue(withIdentifier: "about", sender: self)
     } else{
       print("WTF happened!!!")

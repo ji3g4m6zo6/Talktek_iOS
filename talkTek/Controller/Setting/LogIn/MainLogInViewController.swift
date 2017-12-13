@@ -22,7 +22,6 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
     super.viewDidLoad()
     
     listenToState()
-    
     // Initialize sign-in
    /* GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     GIDSignIn.sharedInstance().delegate = self
@@ -37,6 +36,10 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   func listenToState(){
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
+        print("Freakin user id is \(user?.uid ?? "") ")
+        self.self.databaseRef = Database.database().reference()
+
+        self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
         self.dismiss(animated: true, completion: nil)
         //self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
       }
@@ -106,6 +109,8 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
     else
     {
       let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+      
+      
       Auth.auth().signIn(with: credential) { (user, error) in
         print("Facebook user has log into firebase")
         self.databaseRef = Database.database().reference()
@@ -113,7 +118,7 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
           let snapshot = snapshot.value as? NSDictionary
           if(snapshot == nil)
           {
-            self.databaseRef.child("Users").child(user!.uid).setValue(["name" : user?.displayName, "account": user?.email])
+            self.databaseRef.child("Users").child(user!.uid).setValue(["name" : user?.displayName, "account": user?.email, "profileImageUrl": "", "birthday": "", "gender": ""])
             
             
           }
@@ -135,6 +140,27 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   @IBAction func SignUp_Button_Tapped(_ sender: UIButton) {
     performSegue(withIdentifier: "identifierSignUp", sender: self)
   }
+  
+  @IBAction func Later_Button_Tapped(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+//    Auth.auth().signInAnonymously() { (user, error) in
+//      if error != nil {
+//
+//        print(error?.localizedDescription as Any)
+//        return
+//      }else{
+//
+////        let userDefaults = UserDefaults.standard
+////        let isAnonymous = user!.isAnonymous  // true
+////        let uid = user!.uid
+//
+//        //self.performSegue(withIdentifier: "identifierHome", sender: self)
+//
+//
+//      }
+//    }
+  }
+  
 }
 extension MainLogInViewController{
   @IBAction func backFromCourseDetail(_ segue: UIStoryboardSegue) {

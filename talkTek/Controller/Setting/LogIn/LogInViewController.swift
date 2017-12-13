@@ -17,6 +17,7 @@ class LogInViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
   }
   
@@ -36,7 +37,7 @@ class LogInViewController: UIViewController {
   }
   
   @IBAction func Back_Button_Tapped(_ sender: UIButton) {
-    
+    self.dismiss(animated: true, completion: nil)
   }
   
   func signInFirebaseWithEmail(email: String, password: String){
@@ -48,9 +49,9 @@ class LogInViewController: UIViewController {
         print(error?.localizedDescription as Any)
         return
       }else{
-        //self.performSegue(withIdentifier: "identifierHome", sender: self)
+        self.performSegue(withIdentifier: "identifierHome", sender: self)
 
-        self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
       }
       
     })
@@ -67,5 +68,17 @@ class LogInViewController: UIViewController {
    // Pass the selected object to the new view controller.
    }
    */
+  
+}
+
+extension LogInViewController {
+  
+  func hideKeyboardWhenTappedAround(){
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    view.addGestureRecognizer(tap)
+  }
+  @objc func dismissKeyboard() {
+    view.endEditing(true)
+  }
   
 }

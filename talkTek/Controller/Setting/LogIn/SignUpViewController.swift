@@ -17,7 +17,7 @@ class SignUpViewController: UIViewController {
   @IBOutlet weak var password_TextField: UITextField!
   override func viewDidLoad() {
     super.viewDidLoad()
-    
+    self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
   }
   
@@ -34,6 +34,7 @@ class SignUpViewController: UIViewController {
   }
   
   @IBAction func Back_Button_Tapped(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
   }
   
   
@@ -51,7 +52,7 @@ class SignUpViewController: UIViewController {
         return
       }
       
-      let values = ["name": name as AnyObject, "email": email as AnyObject, "profileImageUrl": "" as AnyObject] as [String: AnyObject]
+      let values = ["name": name as AnyObject, "email": email as AnyObject, "profileImageUrl": "" as AnyObject, "birthday": "" as AnyObject, "gender": "" as AnyObject] as [String: AnyObject]
       
       let ref = Database.database().reference()
       
@@ -81,8 +82,7 @@ class SignUpViewController: UIViewController {
     
     let alertController = UIAlertController(title: "恭喜您註冊成功！", message: "請至信箱查收註冊驗證信。", preferredStyle: UIAlertControllerStyle.alert)
     let ok = UIAlertAction(title: "確認", style: UIAlertActionStyle.default, handler: {(action) -> Void in
-      //The (withIdentifier: "VC2") is the Storyboard Segue identifier.
-      self.performSegue(withIdentifier: "identifierMain", sender: self)
+      self.dismiss(animated: true, completion: nil)
     })
     
     alertController.addAction(ok)
@@ -98,5 +98,17 @@ class SignUpViewController: UIViewController {
    // Pass the selected object to the new view controller.
    }
    */
+  
+}
+
+extension SignUpViewController {
+  
+  func hideKeyboardWhenTappedAround(){
+    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+    view.addGestureRecognizer(tap)
+  }
+  @objc func dismissKeyboard() {
+    view.endEditing(true)
+  }
   
 }
