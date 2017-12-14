@@ -29,6 +29,7 @@ class SettingEditViewController: UIViewController {
   @IBAction func cameraOrImage(_ sender: UIButton) {
   }
   
+  
   let gender = ["男", "女", "其他"]
   override func viewDidLoad() {
     super.viewDidLoad()
