@@ -18,6 +18,12 @@ extension UIColor {
     let b = 179.0 / 255.0
     return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
   }
+  class func borderGray() -> UIColor {
+    let r = 233.0 / 255.0
+    let g = 233.0 / 255.0
+    let b = 233.0 / 255.0
+    return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
+  }
   
   class func randomColor() -> UIColor {
     let r = (Int.random() % 256).double / 255.0
