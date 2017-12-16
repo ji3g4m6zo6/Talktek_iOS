@@ -14,6 +14,8 @@ class CoursesBoughtTableViewCell: UITableViewCell {
   
   @IBOutlet weak var title_Label: UILabel!
   
+  @IBOutlet weak var author_ImageView: UIImageView!
+  
   @IBOutlet weak var teacherName_Label: UILabel!
   
   @IBOutlet weak var studentNumber_Label: UILabel!
@@ -28,6 +30,13 @@ class CoursesBoughtTableViewCell: UITableViewCell {
     super.setSelected(selected, animated: animated)
     
     // Configure the view for the selected state
+  }
+  
+  override func layoutSubviews() {
+    author_ImageView.layer.cornerRadius = author_ImageView.bounds.height / 2
+    author_ImageView.layer.borderWidth = 2.0
+    author_ImageView.layer.borderColor = UIColor.white.cgColor
+    author_ImageView.clipsToBounds = true
   }
   
 }

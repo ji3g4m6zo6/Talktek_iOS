@@ -13,6 +13,8 @@ class CoursesHeartTableViewCell: UITableViewCell {
   
   @IBOutlet weak var title_Label: UILabel!
   
+  @IBOutlet weak var author_ImageView: UIImageView!
+  
   @IBOutlet weak var teacherName_Label: UILabel!
   
   @IBOutlet weak var studentNumber_Label: UILabel!

@@ -41,6 +41,7 @@
 		044F0BC31FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */; };
 		044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC41FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift */; };
 		044F0BC71FC5D7E200E98E45 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */; };
+		0468EA1B1FE4D3D600F9460B /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468EA1A1FE4D3D600F9460B /* Courses.swift */; };
 		046D9BA01FBD2C1600ECDF07 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 046D9B9F1FBD2C1600ECDF07 /* .gitignore */; };
 		0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5EE1FC0225700DD0169 /* HomeViewController.swift */; };
 		0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */; };
@@ -120,6 +121,7 @@
 		044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseInfoTableViewCell.swift; sourceTree = "<group>"; };
 		044F0BC41FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherInfoTableViewCell.swift; sourceTree = "<group>"; };
 		044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
+		0468EA1A1FE4D3D600F9460B /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		046D9B9F1FBD2C1600ECDF07 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		0478E5EE1FC0225700DD0169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				04E1004C1FD3EF0A0007D4E3 /* Home.swift */,
+				0468EA1A1FE4D3D600F9460B /* Courses.swift */,
 				04E1004A1FD311270007D4E3 /* Setting.swift */,
 			);
 			path = Model;
@@ -796,6 +799,7 @@
 				04E1004B1FD311270007D4E3 /* Setting.swift in Sources */,
 				044EB21E1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m in Sources */,
 				04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */,
+				0468EA1B1FE4D3D600F9460B /* Courses.swift in Sources */,
 				04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */,
 				04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
