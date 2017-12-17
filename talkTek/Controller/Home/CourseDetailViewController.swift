@@ -12,6 +12,16 @@ class CourseDetailViewController: UIViewController {
   
   var detailToGet = HomeCourses()
   
+  @IBOutlet weak var buy_View: UIView!
+  
+  @IBOutlet weak var buy_Button: UIButton!
+  
+  @IBAction func buy_Button_Tapped(_ sender: UIButton) {
+  }
+  
+  @IBOutlet weak var cost_Label: UILabel!
+  
+  
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case main = 0

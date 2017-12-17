@@ -47,6 +47,8 @@
 		0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */; };
 		0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */; };
 		0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */; };
+		047B1D221FE6AA7300853740 /* AudioListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B1D211FE6AA7300853740 /* AudioListViewController.swift */; };
+		047B1D241FE6AB1000853740 /* AudioListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */; };
 		048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D351FD1B209002A2E93 /* IAPService.swift */; };
 		048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D371FD1B276002A2E93 /* IAPProduct.swift */; };
 		048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */; };
@@ -127,6 +129,8 @@
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
 		0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
 		0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = talkTek/View/UIImageViewExtension.swift; sourceTree = SOURCE_ROOT; };
+		047B1D211FE6AA7300853740 /* AudioListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListViewController.swift; sourceTree = "<group>"; };
+		047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListTableViewCell.swift; sourceTree = "<group>"; };
 		048D0D331FD1AE4E002A2E93 /* talkTek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = talkTek.entitlements; sourceTree = "<group>"; };
 		048D0D351FD1B209002A2E93 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		048D0D371FD1B276002A2E93 /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
@@ -225,13 +229,13 @@
 				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
 				04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */,
 				04402E7E1FCDA31A00EC95EE /* PointsCenterViewController.swift */,
+				048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */,
 				04402E801FCDA33000EC95EE /* BecomeLecturerViewController.swift */,
 				04402E821FCDA33E00EC95EE /* SuggestionViewController.swift */,
 				04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */,
 				04402E841FCDA4EA00EC95EE /* PersonalizedViewController.swift */,
 				04402E861FCDA4FB00EC95EE /* AboutViewController.swift */,
 				04402E881FCDA50B00EC95EE /* LawViewController.swift */,
-				048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -287,6 +291,7 @@
 				04402E8F1FCDB03200EC95EE /* Home */,
 				04402E8E1FCDB02500EC95EE /* Courses */,
 				04402E7B1FCDA2BF00EC95EE /* Setting */,
+				047B1D211FE6AA7300853740 /* AudioListViewController.swift */,
 				041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */,
 			);
 			path = Controller;
@@ -316,6 +321,7 @@
 				04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */,
 				04445AEA1FC70275004D2825 /* CoursesHeartTableViewCell.swift */,
 				04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */,
+				047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -774,9 +780,11 @@
 				04CFAF381FDECC1E00A94EF6 /* ForgotPasswordViewController.swift in Sources */,
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
 				041E3CAD1FDBBB590035E3A4 /* NumberExtension.swift in Sources */,
+				047B1D221FE6AA7300853740 /* AudioListViewController.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
 				0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
+				047B1D241FE6AB1000853740 /* AudioListTableViewCell.swift in Sources */,
 				041E3CB21FDBE8DF0035E3A4 /* HotViewController.swift in Sources */,
 				0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */,
 				04402E7F1FCDA31A00EC95EE /* PointsCenterViewController.swift in Sources */,

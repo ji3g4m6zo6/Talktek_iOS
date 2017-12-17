@@ -21,6 +21,11 @@ class PointsCenterViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  @IBAction func bought_Button_Tapped(_ sender: UIButton) {
+  }
+  
+  @IBAction func purchase_Button_Tapped(_ sender: UIButton) {
+  }
   
   /*
    // MARK: - Navigation

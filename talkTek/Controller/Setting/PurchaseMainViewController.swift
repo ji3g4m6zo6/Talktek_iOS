@@ -7,13 +7,20 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class PurchaseMainViewController: UIViewController {
-  
+  var databaseRef: DatabaseReference!
+  var userID = ""
+  @IBOutlet weak var points_Label: UILabel!
   override func viewDidLoad() {
     super.viewDidLoad()
     IAPService.shared.getProducts()
-    
+    userID = Auth.auth().currentUser!.uid
+
+    fetchData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -24,7 +31,22 @@ class PurchaseMainViewController: UIViewController {
   @IBAction func testBuy(_ sender: UIButton) {
     IAPService.shared.purchase(product: .testPoints)
   }
-  
+  func fetchData(){
+    self.databaseRef = Database.database().reference()
+    self.databaseRef.child("Money/\(self.userID)").observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: AnyObject]{
+        print("dictionary is \(dictionary)")
+        
+        let money = dictionary["money"] as? String ?? ""
+        
+        self.points_Label.text = ("\(money)點")
+        
+        
+        
+      }
+      
+    }
+  }
   
   /*
    // MARK: - Navigation
