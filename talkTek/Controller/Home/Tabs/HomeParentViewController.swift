@@ -11,26 +11,25 @@ import XLPagerTabStrip
 
 
 class HomeParentViewController: ButtonBarPagerTabStripViewController {
-  let tabBarColor = UIColor.tealish()
-  let NavColor = UIColor.tealish()
   
+  let tealish = UIColor.tealish()
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    settings.style.buttonBarBackgroundColor = NavColor
-    settings.style.buttonBarItemBackgroundColor = NavColor
-    settings.style.selectedBarBackgroundColor = tabBarColor
+    settings.style.buttonBarBackgroundColor = .white
+    settings.style.buttonBarItemBackgroundColor = .white
+    settings.style.selectedBarBackgroundColor = UIColor.tealish()
     settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
     settings.style.selectedBarHeight = 1.0
     settings.style.buttonBarMinimumLineSpacing = 0
-    settings.style.buttonBarItemTitleColor = .black
+    settings.style.buttonBarItemTitleColor = UIColor.tealish()
     settings.style.buttonBarItemsShouldFillAvailiableWidth = true
     settings.style.buttonBarLeftContentInset = 0
     settings.style.buttonBarRightContentInset = 0
     changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
       guard changeCurrentIndex == true else { return }
-      oldCell?.label.textColor = .black
-      newCell?.label.textColor = self?.tabBarColor
+      oldCell?.label.textColor = UIColor.lightGray
+      newCell?.label.textColor = self?.tealish
     }
     /*
      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController

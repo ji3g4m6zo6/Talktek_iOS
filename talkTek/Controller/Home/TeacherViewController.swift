@@ -75,4 +75,16 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
       fatalError()
     }
   }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      return 352
+    case DetailViewSection.description.rawValue:
+      return 204
+    case DetailViewSection.courses.rawValue:
+      return 468
+    default:
+      fatalError()
+    }
+  }
 }
