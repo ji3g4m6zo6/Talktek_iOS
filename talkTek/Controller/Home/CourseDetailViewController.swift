@@ -101,4 +101,17 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       fatalError()
     }
   }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue: break
+      
+    case DetailViewSection.courseInfo.rawValue: break
+      
+    case DetailViewSection.teacherInfo.rawValue:
+      performSegue(withIdentifier: "identifierTeacher", sender: self)
+    case DetailViewSection.courses.rawValue: break
+      
+    default: fatalError()
+    }
+  }
 }

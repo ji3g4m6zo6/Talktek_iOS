@@ -10,8 +10,14 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import Kingfisher
+import XLPagerTabStrip
 
-class HotViewController: UIViewController {
+class HotViewController: UIViewController, IndicatorInfoProvider {
+  
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "熱門")
+  }
+  
   var databaseRef: DatabaseReference!
   @IBOutlet weak var collectionView: UICollectionView!
   override func viewDidLoad() {

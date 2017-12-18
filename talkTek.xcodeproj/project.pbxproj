@@ -35,6 +35,13 @@
 		04445AED1FC7035C004D2825 /* CoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AEC1FC7035C004D2825 /* CoursesViewController.swift */; };
 		04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */; };
 		04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */; };
+		04475E8E1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04475E8D1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift */; };
+		04475E911FE7EA0400F28478 /* TeacherDescriptionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04475E901FE7EA0400F28478 /* TeacherDescriptionTableViewCell.swift */; };
+		04475E931FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04475E921FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift */; };
+		04475E951FE7EA7200F28478 /* TeacherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04475E941FE7EA7200F28478 /* TeacherViewController.swift */; };
+		04475E971FE7F21900F28478 /* ProfessionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04475E961FE7F21900F28478 /* ProfessionalViewController.swift */; };
+		04475E991FE7F22C00F28478 /* LifeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04475E981FE7F22C00F28478 /* LifeViewController.swift */; };
+		04475E9B1FE7F23700F28478 /* OthersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04475E9A1FE7F23700F28478 /* OthersViewController.swift */; };
 		044EB21E1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */; };
 		044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */; };
 		044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */; };
@@ -116,6 +123,13 @@
 		04445AEC1FC7035C004D2825 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		04445AEE1FC713E7004D2825 /* AudioFilesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioFilesTableViewCell.swift; sourceTree = "<group>"; };
 		04445AF01FC71453004D2825 /* AudioSectionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioSectionTableViewCell.swift; sourceTree = "<group>"; };
+		04475E8D1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherMainTableViewCell.swift; sourceTree = "<group>"; };
+		04475E901FE7EA0400F28478 /* TeacherDescriptionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherDescriptionTableViewCell.swift; sourceTree = "<group>"; };
+		04475E921FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoursesTableViewCell.swift; sourceTree = "<group>"; };
+		04475E941FE7EA7200F28478 /* TeacherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherViewController.swift; sourceTree = "<group>"; };
+		04475E961FE7F21900F28478 /* ProfessionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionalViewController.swift; sourceTree = "<group>"; };
+		04475E981FE7F22C00F28478 /* LifeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeViewController.swift; sourceTree = "<group>"; };
+		04475E9A1FE7F23700F28478 /* OthersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersViewController.swift; sourceTree = "<group>"; };
 		044EB21C1FD05DC300CE1EBB /* talkTek-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "talkTek-Bridging-Header.h"; sourceTree = "<group>"; };
 		044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "Appdelegate + GoogleSignIn.m"; sourceTree = "<group>"; };
 		044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -265,12 +279,63 @@
 		04402E8F1FCDB03200EC95EE /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */,
-				041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */,
+				04475E9C1FE7F24000F28478 /* Tabs */,
 				044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */,
+				04475E941FE7EA7200F28478 /* TeacherViewController.swift */,
 				041E3CAE1FDBD7120035E3A4 /* Pay and Free */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		04475E8A1FE7E97100F28478 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */,
+				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
+				041E3CB51FDC1BB30035E3A4 /* Pay and Free */,
+				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
+				04475E8F1FE7E9F100F28478 /* Teacher */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		04475E8B1FE7E9AA00F28478 /* Courses */ = {
+			isa = PBXGroup;
+			children = (
+				04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */,
+				04445AEA1FC70275004D2825 /* CoursesHeartTableViewCell.swift */,
+			);
+			path = Courses;
+			sourceTree = "<group>";
+		};
+		04475E8C1FE7E9C200F28478 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		04475E8F1FE7E9F100F28478 /* Teacher */ = {
+			isa = PBXGroup;
+			children = (
+				04475E8D1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift */,
+				04475E901FE7EA0400F28478 /* TeacherDescriptionTableViewCell.swift */,
+				04475E921FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift */,
+			);
+			path = Teacher;
+			sourceTree = "<group>";
+		};
+		04475E9C1FE7F24000F28478 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */,
+				041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */,
+				04475E961FE7F21900F28478 /* ProfessionalViewController.swift */,
+				04475E981FE7F22C00F28478 /* LifeViewController.swift */,
+				04475E9A1FE7F23700F28478 /* OthersViewController.swift */,
+			);
+			path = Tabs;
 			sourceTree = "<group>";
 		};
 		0478E5EC1FC0217300DD0169 /* Supporting File */ = {
@@ -314,13 +379,9 @@
 		0478E61B1FC1712B00DD0169 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				041E3CB51FDC1BB30035E3A4 /* Pay and Free */,
-				041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */,
-				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
-				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
-				04445AE81FC7021A004D2825 /* CoursesBoughtTableViewCell.swift */,
-				04445AEA1FC70275004D2825 /* CoursesHeartTableViewCell.swift */,
-				04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */,
+				04475E8A1FE7E97100F28478 /* Home */,
+				04475E8B1FE7E9AA00F28478 /* Courses */,
+				04475E8C1FE7E9C200F28478 /* Setting */,
 				047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */,
 			);
 			path = View;
@@ -770,9 +831,12 @@
 				04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */,
 				044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */,
 				04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */,
+				04475E8E1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift in Sources */,
 				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
 				041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */,
 				048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */,
+				04475E931FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift in Sources */,
+				04475E971FE7F21900F28478 /* ProfessionalViewController.swift in Sources */,
 				048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */,
 				044F0B4E1FC46CB600E98E45 /* CourseDetailViewController.swift in Sources */,
 				041E3CB41FDC1B9E0035E3A4 /* HotCollectionViewCell.swift in Sources */,
@@ -781,6 +845,7 @@
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
 				041E3CAD1FDBBB590035E3A4 /* NumberExtension.swift in Sources */,
 				047B1D221FE6AA7300853740 /* AudioListViewController.swift in Sources */,
+				04475E991FE7F22C00F28478 /* LifeViewController.swift in Sources */,
 				04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */,
 				0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
@@ -796,7 +861,9 @@
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,
 				04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */,
 				04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */,
+				04475E951FE7EA7200F28478 /* TeacherViewController.swift in Sources */,
 				04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */,
+				04475E9B1FE7F23700F28478 /* OthersViewController.swift in Sources */,
 				0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */,
 				04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */,
 				04402E811FCDA33000EC95EE /* BecomeLecturerViewController.swift in Sources */,
@@ -807,6 +874,7 @@
 				04E1004B1FD311270007D4E3 /* Setting.swift in Sources */,
 				044EB21E1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m in Sources */,
 				04445AE51FC6FFB5004D2825 /* CoursesBoughtViewController.swift in Sources */,
+				04475E911FE7EA0400F28478 /* TeacherDescriptionTableViewCell.swift in Sources */,
 				0468EA1B1FE4D3D600F9460B /* Courses.swift in Sources */,
 				04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */,
 				04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */,
