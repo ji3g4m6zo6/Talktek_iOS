@@ -42,8 +42,11 @@ pod 'Cosmos', '~> 12.0'
 # Date Picker
 pod 'DatePickerCell', '~> 1.0'
 
+# Alert
+pod 'PopupDialog', '~> 0.6'
 
-
+# In-App Purchase
+pod 'SwiftyStoreKit'
 
 
   target 'talkTekTests' do

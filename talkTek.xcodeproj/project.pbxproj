@@ -70,6 +70,10 @@
 		04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */; };
 		04CFAF381FDECC1E00A94EF6 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFAF371FDECC1D00A94EF6 /* ForgotPasswordViewController.swift */; };
 		04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */; };
+		04DD589C1FE933D6009944D2 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DD589B1FE933D6009944D2 /* StoreKit.framework */; };
+		04DD58A41FEA723B009944D2 /* ProfessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */; };
+		04DD58A61FEA724C009944D2 /* LifeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */; };
+		04DD58A81FEA7258009944D2 /* OthersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */; };
 		04E1004B1FD311270007D4E3 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004A1FD311270007D4E3 /* Setting.swift */; };
 		04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004C1FD3EF0A0007D4E3 /* Home.swift */; };
 		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
@@ -166,6 +170,10 @@
 		04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogInViewController.swift; sourceTree = "<group>"; };
 		04CFAF371FDECC1D00A94EF6 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		04DD589B1FE933D6009944D2 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionCollectionViewCell.swift; sourceTree = "<group>"; };
+		04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCollectionViewCell.swift; sourceTree = "<group>"; };
+		04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersCollectionViewCell.swift; sourceTree = "<group>"; };
 		04E1004A1FD311270007D4E3 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		04E1004C1FD3EF0A0007D4E3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0777E54F7301F178A78F49CD /* Pods_talkTek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */,
+				04DD589C1FE933D6009944D2 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,6 +229,7 @@
 		041E3CB51FDC1BB30035E3A4 /* Pay and Free */ = {
 			isa = PBXGroup;
 			children = (
+				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
 				0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */,
 				04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */,
 			);
@@ -291,7 +301,10 @@
 			isa = PBXGroup;
 			children = (
 				041E3CB31FDC1B9E0035E3A4 /* HotCollectionViewCell.swift */,
-				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
+				04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */,
+				04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */,
+				04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */,
+				04475E8B1FE7E9AA00F28478 /* Courses */,
 				041E3CB51FDC1BB30035E3A4 /* Pay and Free */,
 				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
 				04475E8F1FE7E9F100F28478 /* Teacher */,
@@ -380,7 +393,6 @@
 			isa = PBXGroup;
 			children = (
 				04475E8A1FE7E97100F28478 /* Home */,
-				04475E8B1FE7E9AA00F28478 /* Courses */,
 				04475E8C1FE7E9C200F28478 /* Setting */,
 				047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */,
 			);
@@ -480,6 +492,7 @@
 		E5B8E35493391EBF73AF0773 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				04DD589B1FE933D6009944D2 /* StoreKit.framework */,
 				0777E54F7301F178A78F49CD /* Pods_talkTek.framework */,
 				77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */,
 				1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */,
@@ -568,10 +581,10 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplePay = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.InAppPurchase = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -670,6 +683,8 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PopupDialog/PopupDialog.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyStoreKit/SwiftyStoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/TextFieldEffects/TextFieldEffects.framework",
 				"${BUILT_PRODUCTS_DIR}/XLPagerTabStrip/XLPagerTabStrip.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
@@ -688,6 +703,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PopupDialog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyStoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TextFieldEffects.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XLPagerTabStrip.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -825,6 +842,7 @@
 				0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */,
 				04402E891FCDA50B00EC95EE /* LawViewController.swift in Sources */,
 				04402E851FCDA4EA00EC95EE /* PersonalizedViewController.swift in Sources */,
+				04DD58A81FEA7258009944D2 /* OthersCollectionViewCell.swift in Sources */,
 				048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */,
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
 				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
@@ -858,11 +876,13 @@
 				04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */,
 				041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */,
 				044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */,
+				04DD58A41FEA723B009944D2 /* ProfessionCollectionViewCell.swift in Sources */,
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,
 				04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */,
 				04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */,
 				04475E951FE7EA7200F28478 /* TeacherViewController.swift in Sources */,
 				04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */,
+				04DD58A61FEA724C009944D2 /* LifeCollectionViewCell.swift in Sources */,
 				04475E9B1FE7F23700F28478 /* OthersViewController.swift in Sources */,
 				0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */,
 				04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */,
@@ -1047,7 +1067,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = talkTek/talkTek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LPN95EDSG4;
 				INFOPLIST_FILE = talkTek/Info.plist;
@@ -1068,7 +1087,6 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = talkTek/talkTek.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LPN95EDSG4;
 				INFOPLIST_FILE = talkTek/Info.plist;

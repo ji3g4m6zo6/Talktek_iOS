@@ -23,7 +23,9 @@ class CoursesBoughtViewController: UIViewController {
     
     tableView.tableFooterView = UIView()
     
-    userID = Auth.auth().currentUser!.uid
+    guard let uid = Auth.auth().currentUser?.uid else { return }
+    userID = uid
+
     fetchData()
 
   }

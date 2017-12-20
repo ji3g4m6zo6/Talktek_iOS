@@ -67,9 +67,8 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "identifierCourseDetail"{
-      let nav = segue.destination as! UINavigationController
-      let destinationViewController = nav.topViewController as! CourseDetailViewController
+    if segue.identifier == "identifierDetail"{
+      let destinationViewController = segue.destination as! CourseDetailViewController
       destinationViewController.detailToGet = self.homeCouresToPass
     }
   }
@@ -110,7 +109,7 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     homeCouresToPass = homeCourses_Array[indexPath.item]
-    performSegue(withIdentifier: "identifierCourseDetail", sender: self)
+    performSegue(withIdentifier: "identifierDetail", sender: self)
   }
 }
 
@@ -157,8 +156,4 @@ extension HotViewController: UICollectionViewDelegateFlowLayout{
   }
 }
 
-extension HotViewController{
-  @IBAction func backFromCourseDetail(_ segue: UIStoryboardSegue) {
-  }
 
-}

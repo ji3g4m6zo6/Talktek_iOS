@@ -21,7 +21,7 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    listenToState()
+    //listenToState()
     // Initialize sign-in
    /* GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     GIDSignIn.sharedInstance().delegate = self
@@ -36,6 +36,8 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   func listenToState(){
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(user?.uid, forKey: "uid")
         print("Freakin user id is \(user?.uid ?? "") ")
         self.self.databaseRef = Database.database().reference()
 

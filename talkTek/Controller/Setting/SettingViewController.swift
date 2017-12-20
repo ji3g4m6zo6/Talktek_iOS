@@ -34,8 +34,8 @@ class SettingViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
-   
-    userID = Auth.auth().currentUser!.uid
+    guard let uid = Auth.auth().currentUser?.uid else { return }
+    userID = uid
 
     fetchData()
   }
