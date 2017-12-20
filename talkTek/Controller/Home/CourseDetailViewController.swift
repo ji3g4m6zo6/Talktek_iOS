@@ -90,13 +90,13 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
-      return 347.0
+      return 357.0
     case DetailViewSection.courseInfo.rawValue:
-      return 190.0
+      return 200.0
     case DetailViewSection.teacherInfo.rawValue:
-      return 239.0
+      return 249.0
     case DetailViewSection.courses.rawValue:
-      return 546.0
+      return 591.0
     default:
       fatalError()
     }

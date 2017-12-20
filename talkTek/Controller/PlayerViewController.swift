@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import AVFoundation
 
 class PlayerViewController: UIViewController {
   
+  var player:AVPlayer?
+  var playerItem:AVPlayerItem?
+  var playButton:UIButton?
   override func viewDidLoad() {
     super.viewDidLoad()
     

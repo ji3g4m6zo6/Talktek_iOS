@@ -74,6 +74,7 @@
 		04DD58A41FEA723B009944D2 /* ProfessionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */; };
 		04DD58A61FEA724C009944D2 /* LifeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */; };
 		04DD58A81FEA7258009944D2 /* OthersCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */; };
+		04DD58AA1FEAC296009944D2 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A91FEAC296009944D2 /* HistoryTableViewCell.swift */; };
 		04E1004B1FD311270007D4E3 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004A1FD311270007D4E3 /* Setting.swift */; };
 		04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004C1FD3EF0A0007D4E3 /* Home.swift */; };
 		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
@@ -174,6 +175,7 @@
 		04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfessionCollectionViewCell.swift; sourceTree = "<group>"; };
 		04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LifeCollectionViewCell.swift; sourceTree = "<group>"; };
 		04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OthersCollectionViewCell.swift; sourceTree = "<group>"; };
+		04DD58A91FEAC296009944D2 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		04E1004A1FD311270007D4E3 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		04E1004C1FD3EF0A0007D4E3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0777E54F7301F178A78F49CD /* Pods_talkTek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -304,7 +306,6 @@
 				04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */,
 				04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */,
 				04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */,
-				04475E8B1FE7E9AA00F28478 /* Courses */,
 				041E3CB51FDC1BB30035E3A4 /* Pay and Free */,
 				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
 				04475E8F1FE7E9F100F28478 /* Teacher */,
@@ -325,6 +326,7 @@
 			isa = PBXGroup;
 			children = (
 				04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */,
+				04DD58A91FEAC296009944D2 /* HistoryTableViewCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -393,6 +395,7 @@
 			isa = PBXGroup;
 			children = (
 				04475E8A1FE7E97100F28478 /* Home */,
+				04475E8B1FE7E9AA00F28478 /* Courses */,
 				04475E8C1FE7E9C200F28478 /* Setting */,
 				047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */,
 			);
@@ -847,6 +850,7 @@
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
 				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
 				04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */,
+				04DD58AA1FEAC296009944D2 /* HistoryTableViewCell.swift in Sources */,
 				044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */,
 				04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */,
 				04475E8E1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift in Sources */,
