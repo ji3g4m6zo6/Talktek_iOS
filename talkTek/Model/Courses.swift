@@ -20,7 +20,7 @@ class BoughtCourses: NSObject {
   var score: String?
   var studentNumber: String?
   var title: String?
-  
+  var courseId: String?
 }
 
 class HeartCourses: NSObject {

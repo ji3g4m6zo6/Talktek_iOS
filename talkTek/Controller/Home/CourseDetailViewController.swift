@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CourseDetailViewController: UIViewController {
   
@@ -42,7 +43,11 @@ class CourseDetailViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierPlayer"{
+      
+    }
+  }
   
   
 }
@@ -68,16 +73,27 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "main", for: indexPath) as! MainTableViewCell
-      
-      
+      cell.courseHour_Label.text = detailToGet.hour
+      if let iconUrl = detailToGet.overViewImage{
+        let url = URL(string: iconUrl)
+        cell.overview_ImageView.kf.setImage(with: url)
+      }
+      cell.title_Label.text = detailToGet.title
+    
       return cell
     case DetailViewSection.courseInfo.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "courseInfo", for: indexPath) as! CourseInfoTableViewCell
-     
+      cell.courseInfo_Label.text = detailToGet.courseDescription
       
       return cell
     case DetailViewSection.teacherInfo.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "teacherInfo", for: indexPath) as! TeacherInfoTableViewCell
+      cell.teacherName_Label.text = detailToGet.authorName
+      cell.teacherIntro_Label.text = detailToGet.authorDescription
+      if let iconUrl = detailToGet.authorImage{
+        let url = URL(string: iconUrl)
+        cell.teacherPic_ImageView.kf.setImage(with: url)
+      }
       
       return cell
     case DetailViewSection.courses.rawValue:
@@ -109,7 +125,9 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       
     case DetailViewSection.teacherInfo.rawValue:
       performSegue(withIdentifier: "identifierTeacher", sender: self)
-    case DetailViewSection.courses.rawValue: break
+    case DetailViewSection.courses.rawValue:
+      performSegue(withIdentifier: "identifierPlayer", sender: self)
+
       
     default: fatalError()
     }

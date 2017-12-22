@@ -21,7 +21,7 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    //listenToState()
+    listenToState()
     // Initialize sign-in
    /* GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     GIDSignIn.sharedInstance().delegate = self
@@ -42,7 +42,8 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
         self.self.databaseRef = Database.database().reference()
 
         self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
-        self.dismiss(animated: true, completion: nil)
+        self.performSegue(withIdentifier: "identifierTab", sender: self)
+        //self.dismiss(animated: true, completion: nil)
         //self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
       }
       else
@@ -116,6 +117,9 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
       Auth.auth().signIn(with: credential) { (user, error) in
         print("Facebook user has log into firebase")
         self.databaseRef = Database.database().reference()
+        
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(user?.uid, forKey: "uid")
         self.databaseRef.child("Users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
           let snapshot = snapshot.value as? NSDictionary
           if(snapshot == nil)
@@ -125,7 +129,8 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
             
           }
         })
-        self.dismiss(animated: true, completion: nil )
+        //self.dismiss(animated: true, completion: nil )
+        self.performSegue(withIdentifier: "identifierTab", sender: self)
 
       }
     }

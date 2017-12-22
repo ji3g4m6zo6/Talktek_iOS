@@ -31,7 +31,7 @@ class TeacherViewController: UIViewController {
   enum DetailViewSection: Int{
     case main = 0
     case description = 1
-    case courses = 2
+    //case courses = 2
   }
   /*
    // MARK: - Navigation
@@ -54,8 +54,8 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
       return 1
     case DetailViewSection.description.rawValue:
       return 1
-    case DetailViewSection.courses.rawValue:
-      return 1
+//    case DetailViewSection.courses.rawValue:
+//      return 1
     default: fatalError()
     }
     
@@ -68,9 +68,9 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
     case DetailViewSection.description.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! TeacherDescriptionTableViewCell
       return cell
-    case DetailViewSection.courses.rawValue:
-      let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
-      return cell
+//    case DetailViewSection.courses.rawValue:
+//      let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
+//      return cell
     default:
       fatalError()
     }
@@ -80,9 +80,9 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
     case DetailViewSection.main.rawValue:
       return 352
     case DetailViewSection.description.rawValue:
-      return 204
-    case DetailViewSection.courses.rawValue:
-      return 468
+      return 500
+//    case DetailViewSection.courses.rawValue:
+//      return 468
     default:
       fatalError()
     }

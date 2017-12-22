@@ -59,6 +59,7 @@
 		048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D351FD1B209002A2E93 /* IAPService.swift */; };
 		048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D371FD1B276002A2E93 /* IAPProduct.swift */; };
 		048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */; };
+		04ACB8F61FECCC3900105056 /* AudioHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACB8F51FECCC3900105056 /* AudioHeaderTableViewCell.swift */; };
 		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
 		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
 		04BE92121FB1583900A35523 /* talkTek.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92101FB1583900A35523 /* talkTek.xcdatamodeld */; };
@@ -154,6 +155,7 @@
 		048D0D351FD1B209002A2E93 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		048D0D371FD1B276002A2E93 /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMainViewController.swift; sourceTree = "<group>"; };
+		04ACB8F51FECCC3900105056 /* AudioHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04BE920E1FB1583900A35523 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -231,7 +233,6 @@
 		041E3CB51FDC1BB30035E3A4 /* Pay and Free */ = {
 			isa = PBXGroup;
 			children = (
-				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
 				0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */,
 				04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */,
 			);
@@ -269,6 +270,7 @@
 		04402E8C1FCDAF1F00EC95EE /* CourseDetail */ = {
 			isa = PBXGroup;
 			children = (
+				044F0BC01FC5D7A700E98E45 /* MainTableViewCell.swift */,
 				044F0BC21FC5D7BA00E98E45 /* CourseInfoTableViewCell.swift */,
 				044F0BC41FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift */,
 				044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */,
@@ -397,7 +399,7 @@
 				04475E8A1FE7E97100F28478 /* Home */,
 				04475E8B1FE7E9AA00F28478 /* Courses */,
 				04475E8C1FE7E9C200F28478 /* Setting */,
-				047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */,
+				04ACB8F41FECCC1B00105056 /* Player */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -409,6 +411,15 @@
 				048D0D371FD1B276002A2E93 /* IAPProduct.swift */,
 			);
 			path = Others;
+			sourceTree = "<group>";
+		};
+		04ACB8F41FECCC1B00105056 /* Player */ = {
+			isa = PBXGroup;
+			children = (
+				047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */,
+				04ACB8F51FECCC3900105056 /* AudioHeaderTableViewCell.swift */,
+			);
+			path = Player;
 			sourceTree = "<group>";
 		};
 		04BE91FD1FB1583900A35523 = {
@@ -880,6 +891,7 @@
 				04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */,
 				041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */,
 				044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */,
+				04ACB8F61FECCC3900105056 /* AudioHeaderTableViewCell.swift in Sources */,
 				04DD58A41FEA723B009944D2 /* ProfessionCollectionViewCell.swift in Sources */,
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,
 				04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */,

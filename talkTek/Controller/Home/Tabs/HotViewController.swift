@@ -54,6 +54,8 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
         homeCourses.score = dictionary["score"]
         homeCourses.studentNumber = dictionary["studentNumber"]
         homeCourses.title = dictionary["title"]
+        homeCourses.courseId = dictionary["courseId"]
+
         
         
         

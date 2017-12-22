@@ -15,6 +15,7 @@ class CoursesBoughtViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   var databaseRef: DatabaseReference!
   var userID = ""
+  var idToPass = ""
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -34,37 +35,46 @@ class CoursesBoughtViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  var boughtCourses_Array = [BoughtCourses]()
-  var boughtCouresToPass = BoughtCourses()
+  var homeCourses_Array = [HomeCourses]()
+  var homeCouresToPass = HomeCourses()
   func fetchData(){
-    self.databaseRef = Database.database().reference()
-    self.databaseRef.child("BoughtCourses/\(self.userID)").observe(.childAdded) { (snapshot) in
+    // Get the number and root of collectionview
+    self.databaseRef.child("BoughtCourses").child(userID).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: String]{
         print("dictionary is \(dictionary)")
         
-        let boughtCourses = BoughtCourses()
-        boughtCourses.authorDescription = dictionary["authorDescription"]
-        boughtCourses.authorImage = dictionary["authorImage"]
-        boughtCourses.authorName = dictionary["authorName"]
-        boughtCourses.courseDescription = dictionary["courseDescription"]
-        boughtCourses.hour = dictionary["hour"]
-        boughtCourses.overViewImage = dictionary["overViewImage"]
-        boughtCourses.price = dictionary["price"]
-        boughtCourses.score = dictionary["score"]
-        boughtCourses.studentNumber = dictionary["studentNumber"]
-        boughtCourses.title = dictionary["title"]
+        let homeCourses = HomeCourses()
         
-        self.boughtCourses_Array.append(boughtCourses)
+        homeCourses.authorDescription = dictionary["authorDescription"]
+        homeCourses.authorImage = dictionary["authorImage"]
+        homeCourses.authorName = dictionary["authorName"]
+        homeCourses.courseDescription = dictionary["courseDescription"]
+        homeCourses.hour = dictionary["hour"]
+        homeCourses.overViewImage = dictionary["overViewImage"]
+        homeCourses.price = dictionary["price"]
+        homeCourses.score = dictionary["score"]
+        homeCourses.studentNumber = dictionary["studentNumber"]
+        homeCourses.title = dictionary["title"]
+        homeCourses.courseId = dictionary["courseId"]
+        
+        
+        
+        
+        self.homeCourses_Array.append(homeCourses)
+        
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
-        
       }
-      
     }
   }
   
-  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierDetail"{
+      let destinationViewController = segue.destination as! CourseDetailViewController
+      destinationViewController.detailToGet = self.homeCouresToPass
+    }
+  }
 }
 extension CoursesBoughtViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,25 +82,29 @@ extension CoursesBoughtViewController: UITableViewDataSource, UITableViewDelegat
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return boughtCourses_Array.count
+    return homeCourses_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CoursesBoughtTableViewCell
     
-    if let overviewUrl = boughtCourses_Array[indexPath.row].overViewImage{
+    if let overviewUrl = homeCourses_Array[indexPath.row].overViewImage{
       let url = URL(string: overviewUrl)
       cell.overview_ImageView.kf.setImage(with: url)
     }
     
-    if let authorUrl = boughtCourses_Array[indexPath.row].authorImage{
+    if let authorUrl = homeCourses_Array[indexPath.row].authorImage{
       let url = URL(string: authorUrl)
       cell.author_ImageView.kf.setImage(with: url)
     }
     
-    cell.title_Label.text = boughtCourses_Array[indexPath.row].title
-    cell.teacherName_Label.text = boughtCourses_Array[indexPath.row].authorName
+    cell.title_Label.text = homeCourses_Array[indexPath.row].title
+    cell.teacherName_Label.text = homeCourses_Array[indexPath.row].authorName
     
     return cell
+  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    homeCouresToPass = homeCourses_Array[indexPath.item]
+    performSegue(withIdentifier: "identifierDetail", sender: self)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

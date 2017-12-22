@@ -20,6 +20,17 @@ class HomeCourses: NSObject {
   var score: String?
   var studentNumber: String?
   var title: String?
+  var courseId: String?
+}
+
+
+class AudioItem: NSObject{
+  
+  var Audio: String?
+  var Number: String?
+  var Time: String?
+  var Title: String?
+  var Section: String?
   
 }
 

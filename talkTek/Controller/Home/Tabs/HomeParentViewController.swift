@@ -20,7 +20,8 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    listenToState()
+    //listenToState()
+    userFirstLogIn()
     
     settings.style.buttonBarBackgroundColor = .white
     settings.style.buttonBarItemBackgroundColor = .white
@@ -48,11 +49,57 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     // Dispose of any resources that can be recreated.
   }
   var databaseRef: DatabaseReference!
+  var getCoupon = ""
+  func userFirstLogIn(){
+    let userDefaults = UserDefaults.standard
+    self.getCoupon = userDefaults.string(forKey: "getCoupon") ?? "0"
+    
+    if self.getCoupon == "0"{
+      self.alert()
+      userDefaults.set("1", forKey: "getCoupon")
+    }
+      
+      
 
+
+  }
+  func alert(){
+    let title = "恭喜您獲得早鳥票免費體驗優惠券！"
+    let message = "您已獲得無限點數，現在購買任何課程皆不用費用。"
+    //let image = UIImage(named: "pexels-photo-103290")
+    
+    // Create the dialog
+    let popup = PopupDialog(title: title, message: message)
+    //, image: image)
+    
+    // Create buttons
+    let buttonOne = CancelButton(title: "YEAH 太好了！") {
+      print("You confirmed.")
+    }
+    
+    // This button will not the dismiss the dialog
+    //      let buttonTwo = DefaultButton(title: "ADMIRE CAR", dismissOnTap: false) {
+    //        print("What a beauty!")
+    //      }
+    //
+    //      let buttonThree = DefaultButton(title: "BUY CAR", height: 60) {
+    //        print("Ah, maybe next time :)")
+    //      }
+    
+    // Add buttons to dialog
+    // Alternatively, you can use popup.addButton(buttonOne)
+    // to add a single button
+    popup.addButtons([buttonOne])
+    
+    //popup.addButtons([buttonOne, buttonTwo, buttonThree])
+    
+    // Present dialog
+    self.present(popup, animated: true, completion: nil)
+  }
   func listenToState(){
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
-        alert()
+        //alert()
         let userDefaults = UserDefaults.standard
         userDefaults.set(user?.uid, forKey: "uid")
         print("Freakin user id is \(user?.uid ?? "") ")
@@ -60,7 +107,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
         
         self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
       } else {
-        alert()
+        //alert()
 //        let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
 //        self.present(LogInVC, animated: true, completion: nil)
 //      }
@@ -68,36 +115,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     }
   }
   
-    func alert(){
-      let title = "THIS IS THE DIALOG TITLE"
-      let message = "This is the message section of the popup dialog default view"
-      let image = UIImage(named: "pexels-photo-103290")
-      
-      // Create the dialog
-      let popup = PopupDialog(title: title, message: message, image: image)
-      
-      // Create buttons
-      let buttonOne = CancelButton(title: "CANCEL") {
-        print("You canceled the car dialog.")
-      }
-      
-      // This button will not the dismiss the dialog
-      let buttonTwo = DefaultButton(title: "ADMIRE CAR", dismissOnTap: false) {
-        print("What a beauty!")
-      }
-      
-      let buttonThree = DefaultButton(title: "BUY CAR", height: 60) {
-        print("Ah, maybe next time :)")
-      }
-      
-      // Add buttons to dialog
-      // Alternatively, you can use popup.addButton(buttonOne)
-      // to add a single button
-      popup.addButtons([buttonOne, buttonTwo, buttonThree])
-      
-      // Present dialog
-      self.present(popup, animated: true, completion: nil)
-    }
+    
   }
   
   override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
