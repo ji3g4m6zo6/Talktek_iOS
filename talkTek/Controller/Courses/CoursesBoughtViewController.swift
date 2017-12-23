@@ -27,6 +27,8 @@ class CoursesBoughtViewController: UIViewController {
     guard let uid = Auth.auth().currentUser?.uid else { return }
     userID = uid
 
+    databaseRef = Database.database().reference()
+
     fetchData()
 
   }

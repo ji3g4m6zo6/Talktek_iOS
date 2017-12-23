@@ -45,7 +45,7 @@ class AudioListViewController: UIViewController {
   func fetchData(){
     // Get the number and root of collectionview
     
-    self.databaseRef.child(idToGet).observe(.childAdded) { (snapshot) in
+    self.databaseRef.child("VideoPlayer").child(idToGet).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: String]{
         let audioItem = AudioItem()
         
@@ -86,7 +86,8 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AudioListTableViewCell
-    
+    cell.topic_Label.text = audioItem_Array[indexPath.row].Title
+    cell.time_Label.text = audioItem_Array[indexPath.row].Time
     return cell
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

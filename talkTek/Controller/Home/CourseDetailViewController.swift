@@ -8,6 +8,9 @@
 
 import UIKit
 import Kingfisher
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class CourseDetailViewController: UIViewController {
   
@@ -18,11 +21,26 @@ class CourseDetailViewController: UIViewController {
   @IBOutlet weak var buy_Button: UIButton!
   
   @IBAction func buy_Button_Tapped(_ sender: UIButton) {
+    buy()
   }
+  var myMoney = "0"
+  var audioItem_Array = [AudioItem]()
+  func buy(){
+    
+  }
+  func money(){
+    self.databaseRef.child("Money").child(userID).child("money").observeSingleEvent(of: .value) { (snapshot) in
+      if let money = snapshot.value as? String{
+        self.myMoney = money
+      }
+    }
+  }
+  
   
   @IBOutlet weak var cost_Label: UILabel!
   
-  
+  var databaseRef: DatabaseReference!
+
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case main = 0
@@ -30,12 +48,19 @@ class CourseDetailViewController: UIViewController {
     case teacherInfo = 2
     case courses = 3
   }
-  
+  var userID = ""
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
     tableView.dataSource = self
     print(detailToGet.title ?? "")
+    
+    databaseRef = Database.database().reference()
+    guard let uid = Auth.auth().currentUser?.uid else { return }
+    userID = uid
+    
+    money()
+
   }
   
   override func didReceiveMemoryWarning() {
@@ -45,7 +70,8 @@ class CourseDetailViewController: UIViewController {
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierPlayer"{
-      
+      let destination = segue.destination as! AudioListViewController
+      destination.idToGet = detailToGet.courseId!
     }
   }
   
@@ -98,7 +124,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       return cell
     case DetailViewSection.courses.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "courses", for: indexPath) as! CoursesTableViewCell
-      
+      cell.setDatasource(courseId: detailToGet.courseId!)
       return cell
     default: fatalError()
     }

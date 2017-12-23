@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Kingfisher
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class CoursesTableViewCell: UITableViewCell {
-  
+
   @IBOutlet weak var course_TableView: UITableView!
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -21,6 +25,32 @@ class CoursesTableViewCell: UITableViewCell {
     
     // Configure the view for the selected state
   }
+  
+  func setDatasource(courseId: String){
+    video(courseId: courseId)
+  }
+  var audioItem_Array = [AudioItem]()
+
+  func video(courseId: String){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    databaseRef.child("VideoPlayer").child(courseId).observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: String]{
+        let audioItem = AudioItem()
+        audioItem.Audio = dictionary["Audio"]
+        audioItem.Number = dictionary["Number"]
+        audioItem.Section = dictionary["Section"]
+        audioItem.Time = dictionary["Time"]
+        audioItem.Title = dictionary["Title"]
+        
+        self.audioItem_Array.append(audioItem)
+        
+        DispatchQueue.main.async {
+          self.course_TableView.reloadData()
+        }
+      }
+    }
+  }
 
 }
 extension CoursesTableViewCell: UITableViewDataSource, UITableViewDelegate{
@@ -29,12 +59,12 @@ extension CoursesTableViewCell: UITableViewDataSource, UITableViewDelegate{
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return 3
+    return audioItem_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "audioFiles", for: indexPath) as! AudioFilesTableViewCell
-    cell.topic_Label.text = ""
-    cell.title_Label.text = ""
+    cell.topic_Label.text = audioItem_Array[indexPath.row].Title
+    cell.time_Label.text = audioItem_Array[indexPath.row].Time
     return cell
   }
   

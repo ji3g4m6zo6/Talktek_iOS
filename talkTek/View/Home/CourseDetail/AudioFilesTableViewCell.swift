@@ -10,8 +10,10 @@ import UIKit
 
 class AudioFilesTableViewCell: UITableViewCell {
   
+  
+  
   @IBOutlet weak var topic_Label: UILabel!
-  @IBOutlet weak var title_Label: UILabel!
+  @IBOutlet weak var time_Label: UILabel!
   
   override func awakeFromNib() {
     super.awakeFromNib()

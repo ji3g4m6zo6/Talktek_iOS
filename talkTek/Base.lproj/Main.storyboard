@@ -576,7 +576,7 @@
                                                         </button>
                                                         <tableView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-2A-Mal">
                                                             <rect key="frame" x="20" y="76" width="315" height="408.5"/>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                                             <prototypes>
                                                                 <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioFiles" rowHeight="57" id="77k-Cx-z8d" customClass="AudioFilesTableViewCell" customModule="talkTek" customModuleProvider="target">
                                                                     <rect key="frame" x="0.0" y="28" width="315" height="57"/>
@@ -620,7 +620,7 @@
                                                                         </constraints>
                                                                     </tableViewCellContentView>
                                                                     <connections>
-                                                                        <outlet property="title_Label" destination="i5B-SZ-30s" id="AIJ-ed-WrU"/>
+                                                                        <outlet property="time_Label" destination="i5B-SZ-30s" id="aPr-cd-77a"/>
                                                                         <outlet property="topic_Label" destination="XiT-Cb-dHi" id="SxS-eu-4AO"/>
                                                                     </connections>
                                                                 </tableViewCell>
@@ -1251,35 +1251,35 @@
                                                     <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="iXK-RJ-vDp">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iXK-RJ-vDp">
                                                     <rect key="frame" x="170" y="78.5" width="12" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12" id="39b-KJ-NB6"/>
                                                         <constraint firstAttribute="height" constant="12" id="YNr-nm-tHC"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="RcG-Mo-Pl1">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RcG-Mo-Pl1">
                                                     <rect key="frame" x="182" y="78.5" width="12" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="6oX-WB-sVb"/>
                                                         <constraint firstAttribute="width" constant="12" id="bGS-BJ-k54"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Sez-BN-Ft1">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Sez-BN-Ft1">
                                                     <rect key="frame" x="194" y="78.5" width="12" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12" id="Fom-Wb-wSu"/>
                                                         <constraint firstAttribute="height" constant="12" id="nPF-WE-lh1"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="CfT-yy-Vnm">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CfT-yy-Vnm">
                                                     <rect key="frame" x="206" y="78.5" width="12" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="12" id="Beg-3e-vCz"/>
                                                         <constraint firstAttribute="width" constant="12" id="QDZ-Mr-LAE"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TestIcon" translatesAutoresizingMaskIntoConstraints="NO" id="BAx-eA-UZ6">
+                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BAx-eA-UZ6">
                                                     <rect key="frame" x="218" y="78.5" width="12" height="12"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="12" id="JNC-XO-CM1"/>
@@ -2543,15 +2543,15 @@
                                             <outlet property="time_Label" destination="12K-Xl-A0U" id="97K-nG-Jb9"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="descriptionCell" rowHeight="500" id="k05-fh-kez" customClass="TeacherDescriptionTableViewCell" customModule="talkTek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="380" width="375" height="500"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="descriptionCell" rowHeight="204" id="k05-fh-kez" customClass="TeacherDescriptionTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="380" width="375" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k05-fh-kez" id="FUB-6f-AsB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="499.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJa-QL-H3W" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="5" width="355" height="489.5"/>
+                                                    <rect key="frame" x="10" y="5" width="355" height="193.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="講師資訊" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FXS-q4-UxG">
                                                             <rect key="frame" x="143" y="15" width="69.5" height="21"/>
@@ -2567,7 +2567,7 @@
                                                             </constraints>
                                                         </view>
                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="F5p-tJ-KdH">
-                                                            <rect key="frame" x="15" y="67" width="325" height="383.5"/>
+                                                            <rect key="frame" x="15" y="67" width="325" height="87.5"/>
                                                             <string key="text">台大心研所畢，彰師大諮商輔導所博士生，筆名
 海苔熊，是一種結合可愛與可口的動物，和哲學
 哲學雞蛋糕的老闆朱家安與泛科學前總編陸子鈞
@@ -2576,7 +2576,7 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                         </textView>
                                                         <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-mF-2az">
-                                                            <rect key="frame" x="167" y="455.5" width="21" height="22"/>
+                                                            <rect key="frame" x="167" y="159.5" width="21" height="22"/>
                                                             <state key="normal" image="IQButtonBarArrowDown.png"/>
                                                         </button>
                                                     </subviews>
@@ -2618,6 +2618,87 @@
                                         <connections>
                                             <outlet property="description_TextView" destination="F5p-tJ-KdH" id="ZVH-JI-le6"/>
                                         </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="coursesCell" rowHeight="478" id="KXN-1E-yTK" customClass="TeacherCoursesTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="584" width="375" height="478"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KXN-1E-yTK" id="che-bR-Pak">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="477.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFU-cN-hGW" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
+                                                    <rect key="frame" x="10" y="5" width="355" height="467.5"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已開課程" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kCq-ps-vzL">
+                                                            <rect key="frame" x="143" y="15" width="69.5" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CDz-tW-iAf">
+                                                            <rect key="frame" x="0.0" y="51" width="355" height="1"/>
+                                                            <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="1" id="fTe-UP-ef3"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPR-eW-ELN">
+                                                            <rect key="frame" x="148.5" y="426.5" width="58" height="29"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <state key="normal" title="查看全部">
+                                                                <color key="titleColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                        </button>
+                                                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="suq-3c-mk1">
+                                                            <rect key="frame" x="15" y="67" width="325" height="344.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <prototypes>
+                                                                <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Dgk-7V-VLB">
+                                                                    <rect key="frame" x="0.0" y="28" width="325" height="44"/>
+                                                                    <autoresizingMask key="autoresizingMask"/>
+                                                                    <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dgk-7V-VLB" id="3BF-ve-jfs">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="325" height="43.5"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                    </tableViewCellContentView>
+                                                                </tableViewCell>
+                                                            </prototypes>
+                                                        </tableView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="WPR-eW-ELN" secondAttribute="bottom" constant="12" id="3wx-SP-ujP"/>
+                                                        <constraint firstItem="suq-3c-mk1" firstAttribute="top" secondItem="CDz-tW-iAf" secondAttribute="bottom" constant="15" id="LTu-X3-Txf"/>
+                                                        <constraint firstItem="CDz-tW-iAf" firstAttribute="top" secondItem="kCq-ps-vzL" secondAttribute="bottom" constant="15" id="bYX-xf-nTc"/>
+                                                        <constraint firstItem="kCq-ps-vzL" firstAttribute="top" secondItem="iFU-cN-hGW" secondAttribute="top" constant="15" id="cO3-c2-nXG"/>
+                                                        <constraint firstAttribute="trailing" secondItem="suq-3c-mk1" secondAttribute="trailing" constant="15" id="j4V-No-0cK"/>
+                                                        <constraint firstItem="suq-3c-mk1" firstAttribute="leading" secondItem="iFU-cN-hGW" secondAttribute="leading" constant="15" id="nA9-QT-lXJ"/>
+                                                        <constraint firstItem="WPR-eW-ELN" firstAttribute="top" secondItem="suq-3c-mk1" secondAttribute="bottom" constant="15" id="tVW-RS-PFl"/>
+                                                        <constraint firstItem="kCq-ps-vzL" firstAttribute="centerX" secondItem="iFU-cN-hGW" secondAttribute="centerX" id="tgl-5m-TIK"/>
+                                                        <constraint firstItem="WPR-eW-ELN" firstAttribute="centerX" secondItem="iFU-cN-hGW" secondAttribute="centerX" id="yqo-Iy-OIE"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                                            <real key="value" value="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                                            <size key="value" width="0.0" height="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="iFU-cN-hGW" firstAttribute="top" secondItem="che-bR-Pak" secondAttribute="top" constant="5" id="2KQ-jw-6yY"/>
+                                                <constraint firstAttribute="bottom" secondItem="iFU-cN-hGW" secondAttribute="bottom" constant="5" id="SnY-Iu-7wu"/>
+                                                <constraint firstAttribute="trailing" secondItem="iFU-cN-hGW" secondAttribute="trailing" constant="10" id="Wfc-af-bOf"/>
+                                                <constraint firstItem="iFU-cN-hGW" firstAttribute="leading" secondItem="che-bR-Pak" secondAttribute="leading" constant="10" id="Y8W-yK-I7Q"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -4197,7 +4278,7 @@
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoA-pe-Sru">
                                                     <rect key="frame" x="132" y="6" width="20" height="22"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="心願"/>
+                                                    <state key="normal" image="播放器_收藏"/>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bUJ-Y6-aH4">
                                                     <rect key="frame" x="0.0" y="71" width="37" height="37"/>
@@ -4311,6 +4392,7 @@
         <image name="播放器_前一首" width="20" height="20"/>
         <image name="播放器_往前15秒" width="25" height="25"/>
         <image name="播放器_往後15秒" width="25" height="25"/>
+        <image name="播放器_收藏" width="20" height="20"/>
         <image name="相機" width="16" height="16"/>
         <image name="編輯" width="20" height="20"/>
         <image name="課程 人數" width="24" height="24"/>
