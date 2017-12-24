@@ -42,6 +42,7 @@ class CoursesTableViewCell: UITableViewCell {
         audioItem.Section = dictionary["Section"]
         audioItem.Time = dictionary["Time"]
         audioItem.Title = dictionary["Title"]
+        audioItem.Topic = dictionary["Topic"]
         
         self.audioItem_Array.append(audioItem)
         

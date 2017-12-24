@@ -25,5 +25,10 @@ class TeacherInfoTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+  override func layoutSubviews() {
+    teacherPic_ImageView.layer.cornerRadius = teacherPic_ImageView.bounds.height / 2
+    teacherPic_ImageView.layer.borderWidth = 2.0
+    teacherPic_ImageView.layer.borderColor = UIColor.white.cgColor
+    teacherPic_ImageView.clipsToBounds = true
+  }
 }

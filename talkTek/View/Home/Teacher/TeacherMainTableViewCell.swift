@@ -23,7 +23,12 @@ class TeacherMainTableViewCell: UITableViewCell {
   
   
   
-  
+  override func layoutSubviews() {
+    teacher_ImageView.layer.cornerRadius = teacher_ImageView.bounds.height / 2
+    teacher_ImageView.layer.borderWidth = 2.0
+    teacher_ImageView.layer.borderColor = UIColor.white.cgColor
+    teacher_ImageView.clipsToBounds = true
+  }
   
   override func awakeFromNib() {
     super.awakeFromNib()

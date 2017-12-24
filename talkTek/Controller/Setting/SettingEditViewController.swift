@@ -13,6 +13,7 @@ import FirebaseAuth
 
 class SettingEditViewController: UIViewController {
   
+  var username = ""
   
   @IBOutlet weak var account_TextField: UITextField!
   
@@ -38,7 +39,10 @@ class SettingEditViewController: UIViewController {
     pickerView.delegate = self
     
     userID = Auth.auth().currentUser!.uid
-
+    let userDefaults = UserDefaults.standard
+    self.username = userDefaults.string(forKey: "name") ?? "未登入"
+    name_Label.text = self.username
+    
     self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
   }
@@ -59,7 +63,7 @@ class SettingEditViewController: UIViewController {
         user.name = dictionary["name"] as? String ?? ""
         user.account = dictionary["account"] as? String ?? ""
         
-        self.name_Label.text = user.name
+        //self.name_Label.text = user.name
         
         
         

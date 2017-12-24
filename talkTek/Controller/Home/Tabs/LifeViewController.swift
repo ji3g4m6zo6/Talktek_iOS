@@ -56,7 +56,8 @@ class LifeViewController: UIViewController, IndicatorInfoProvider {
         homeCourses.score = dictionary["score"]
         homeCourses.studentNumber = dictionary["studentNumber"]
         homeCourses.title = dictionary["title"]
-        
+        homeCourses.courseId = dictionary["courseId"]
+        homeCourses.teacherID = dictionary["teacherID"]
         
         
         self.homeCourses_Array.append(homeCourses)

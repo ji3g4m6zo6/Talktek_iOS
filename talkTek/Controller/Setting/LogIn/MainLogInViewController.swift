@@ -36,8 +36,7 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   func listenToState(){
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(user?.uid, forKey: "uid")
+        
         print("Freakin user id is \(user?.uid ?? "") ")
         self.self.databaseRef = Database.database().reference()
 
@@ -120,10 +119,13 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         let userDefaults = UserDefaults.standard
         userDefaults.set(user?.uid, forKey: "uid")
+        
         self.databaseRef.child("Users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
           let snapshot = snapshot.value as? NSDictionary
           if(snapshot == nil)
           {
+           
+            userDefaults.set(user?.displayName, forKey: "name")
             self.databaseRef.child("Users").child(user!.uid).setValue(["name" : user?.displayName, "account": user?.email, "profileImageUrl": "", "birthday": "", "gender": ""])
             
             

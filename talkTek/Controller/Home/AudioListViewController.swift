@@ -15,10 +15,11 @@ import FirebaseDatabase
 class AudioListViewController: UIViewController {
   // https://drive.google.com/open?id=0B6OE35YKfCt3dFZRNzMxdVdHRzA
   
-  var data = [""]
   var idToGet = ""
   var audioItem = AudioItem()
   var audioItem_Array = [AudioItem]()
+  
+  var thisSong = 0
   
   
   var databaseRef: DatabaseReference!
@@ -54,7 +55,7 @@ class AudioListViewController: UIViewController {
         audioItem.Time = dictionary["Time"]
         audioItem.Title = dictionary["Title"]
         audioItem.Section = dictionary["Section"]
-        
+        audioItem.Topic = dictionary["Topic"]
         self.audioItem_Array.append(audioItem)
         
         DispatchQueue.main.async {
@@ -66,15 +67,19 @@ class AudioListViewController: UIViewController {
 
   }
   
-  /*
+  
    // MARK: - Navigation
    
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+    if segue.identifier == "identifierPlayer"{
+      let destination = segue.destination as! PlayerViewController
+      destination.audioData = audioItem_Array
+      destination.thisSong = self.thisSong
+    }
+    
+  }
+  
   
 }
 extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
@@ -93,6 +98,7 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 57
   }
+  
 //  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 //    let header = tableView.dequeueReusableCell(withIdentifier: "headerCell") as! AudioHeaderTableViewCell
 //    header.title_Label.text = ""
@@ -103,6 +109,7 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
 //  }
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    self.thisSong = indexPath.row
     performSegue(withIdentifier: "identifierPlayer", sender: self)
   }
   

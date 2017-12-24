@@ -58,7 +58,7 @@ class CoursesBoughtViewController: UIViewController {
         homeCourses.studentNumber = dictionary["studentNumber"]
         homeCourses.title = dictionary["title"]
         homeCourses.courseId = dictionary["courseId"]
-        
+        homeCourses.teacherID = dictionary["teacherID"]
         
         
         

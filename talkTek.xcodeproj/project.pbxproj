@@ -18,6 +18,7 @@
 		04294FCE1FE1573900CB4FCA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */; };
 		04297B581FDEB2D10096E928 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B571FDEB2D10096E928 /* LogInViewController.swift */; };
 		04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B591FDEB2DF0096E928 /* SignUpViewController.swift */; };
+		042B48A31FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B48A21FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift */; };
 		04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */; };
 		04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */; };
 		04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */; };
@@ -112,6 +113,7 @@
 		04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		04297B571FDEB2D10096E928 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		04297B591FDEB2DF0096E928 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		042B48A21FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoursesItemsTableViewCell.swift; sourceTree = "<group>"; };
 		04337D9D1FC41888001DBF88 /* PayCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCategoryCell.swift; sourceTree = "<group>"; };
 		04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingEditViewController.swift; sourceTree = "<group>"; };
 		04402E7C1FCDA2D400EC95EE /* CouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponViewController.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				04475E8D1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift */,
 				04475E901FE7EA0400F28478 /* TeacherDescriptionTableViewCell.swift */,
 				04475E921FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift */,
+				042B48A21FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift */,
 			);
 			path = Teacher;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */,
 				041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */,
 				044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */,
+				042B48A31FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift in Sources */,
 				04ACB8F61FECCC3900105056 /* AudioHeaderTableViewCell.swift in Sources */,
 				04DD58A41FEA723B009944D2 /* ProfessionCollectionViewCell.swift in Sources */,
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,

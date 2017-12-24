@@ -21,6 +21,7 @@ class SettingViewController: UIViewController {
   @IBOutlet weak var name_Label: UILabel!
   
   var databaseRef: DatabaseReference!
+  var username = ""
   var userID = ""
   var list = ["點數中心", "成為講師","意見反饋", "優惠碼", "關於"]
   @IBOutlet weak var tableView: UITableView!
@@ -36,14 +37,17 @@ class SettingViewController: UIViewController {
     
     guard let uid = Auth.auth().currentUser?.uid else { return }
     userID = uid
-
-    fetchData()
+    let userDefaults = UserDefaults.standard
+    self.username = userDefaults.string(forKey: "name") ?? "未登入"
+    name_Label.text = self.username
+    //fetchData()
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
   func fetchData(){
     self.databaseRef = Database.database().reference()
     self.databaseRef.child("Users/\(self.userID)").observe(.childAdded) { (snapshot) in
