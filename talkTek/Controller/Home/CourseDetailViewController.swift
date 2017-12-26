@@ -15,17 +15,32 @@ import FirebaseAuth
 class CourseDetailViewController: UIViewController {
   
   var detailToGet = HomeCourses()
-  
+  var uid = ""
   @IBOutlet weak var buy_View: UIView!
   
   @IBOutlet weak var buy_Button: UIButton!
   
   @IBAction func buy_Button_Tapped(_ sender: UIButton) {
-    buy()
+    if uid != "guest"{
+      buy()
+    } else {
+      //Alert Not logged in yet
+    }
   }
   var myMoney = "0"
+  var courseId = ""
   var audioItem_Array = [AudioItem]()
   func buy(){
+    
+    let moneyInt = Int(myMoney)
+    if let courseMoneyString = detailToGet.price{
+      let courseMoneyInt = Int(courseMoneyString)
+      if moneyInt! >= courseMoneyInt!{
+        databaseRef.child("BoughtCourses").child(self.uid).child(courseId).setValue(detailToGet)
+      } else {
+        //Alert not enough money
+      }
+    }
     
   }
   func money(){
@@ -38,9 +53,25 @@ class CourseDetailViewController: UIViewController {
   
   
   @IBOutlet weak var cost_Label: UILabel!
-  
+  var array_CourseID = [String]()
   var databaseRef: DatabaseReference!
-
+  func usersCourses(){
+    databaseRef.child("BoughtCourses").child(self.uid).observe(.childAdded) { (snapshot) in
+      for child in snapshot.children{
+        let snap = child as! DataSnapshot
+        self.array_CourseID.append(snap.key)
+      }
+      self.boughtOrNot()
+    }
+  }
+  func boughtOrNot(){
+    for i in array_CourseID{
+      if i == detailToGet.courseId{
+        buy_View.isHidden = true
+      }
+    }
+  }
+  
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case main = 0
@@ -56,16 +87,24 @@ class CourseDetailViewController: UIViewController {
     print(detailToGet.title ?? "")
     
     databaseRef = Database.database().reference()
-    guard let uid = Auth.auth().currentUser?.uid else { return }
-    userID = uid
+    let userDefaults = UserDefaults.standard
+    uid = userDefaults.string(forKey: "uid") ?? "guest"
+    
+    courseId = detailToGet.courseId!
     
     money()
-
+    usersCourses()
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    if let index = self.tableView.indexPathForSelectedRow{
+      self.tableView.deselectRow(at: index, animated: true)
+    }
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

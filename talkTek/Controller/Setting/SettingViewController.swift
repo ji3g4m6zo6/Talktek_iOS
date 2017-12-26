@@ -38,9 +38,10 @@ class SettingViewController: UIViewController {
     guard let uid = Auth.auth().currentUser?.uid else { return }
     userID = uid
     let userDefaults = UserDefaults.standard
-    self.username = userDefaults.string(forKey: "name") ?? "未登入"
+    self.username = userDefaults.string(forKey: "name") ?? "guest"
+    
     name_Label.text = self.username
-    //fetchData()
+    fetchData()
   }
   
   override func didReceiveMemoryWarning() {
