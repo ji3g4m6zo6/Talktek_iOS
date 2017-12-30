@@ -40,6 +40,7 @@ class CoursesViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  
   func searchImplement(){
     let search = UISearchController(searchResultsController: nil)
     search.searchResultsUpdater = self as? UISearchResultsUpdating

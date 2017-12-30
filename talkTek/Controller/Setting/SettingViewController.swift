@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-
+import FBSDKLoginKit
 
 class SettingViewController: UIViewController {
   
@@ -40,12 +40,17 @@ class SettingViewController: UIViewController {
     self.username = userDefaults.string(forKey: "username") ?? "guest"
     
     name_Label.text = self.username
-    fetchData()
+    //fetchData()
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    if let index = self.tableView.indexPathForSelectedRow{
+      self.tableView.deselectRow(at: index, animated: true)
+    }
   }
   
   func fetchData(){
@@ -70,19 +75,19 @@ class SettingViewController: UIViewController {
   }
 
   @IBAction func LogIn_LogOut(_ sender: UIButton) {
-//    FBSDKLoginManager().logOut()
-//    do{
-//      try Auth.auth().signOut()
-//      self.databaseRef = Database.database().reference()
-//      self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
-//
-//      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
-//      self.present(LogInVC, animated: true, completion: nil)
-//    }catch let logOutError {
-//
-//      print(logOutError)
-//
-//    }
+    FBSDKLoginManager().logOut()
+    do{
+      try Auth.auth().signOut()
+      self.databaseRef = Database.database().reference()
+      self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
+
+      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
+      self.present(LogInVC, animated: true, completion: nil)
+    }catch let logOutError {
+
+      print("Error is \(logOutError)")
+
+    }
     
   }
   

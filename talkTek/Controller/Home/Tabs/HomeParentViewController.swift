@@ -40,6 +40,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     }
     
     
+    
     /*
      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
      self.present(LogInVC, animated: true, completion: nil)*/
@@ -109,7 +110,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
         
         self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
         
-        
+        self.databaseRef.child("Money").child((user?.uid)!).child("money").setValue("100000")
         self.databaseRef.child("Users").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
           if let dictionary = snapshot.value as? [String: AnyObject]{
             let username = dictionary["name"] as? String ?? ""

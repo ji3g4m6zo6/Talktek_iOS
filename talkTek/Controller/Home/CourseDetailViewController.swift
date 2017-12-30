@@ -111,11 +111,14 @@ class CourseDetailViewController: UIViewController {
     if segue.identifier == "identifierPlayer"{
       let destination = segue.destination as! AudioListViewController
       destination.idToGet = detailToGet.courseId!
+    } else if segue.identifier == "identifierTeacher"{
+      let destination = segue.destination as! TeacherViewController
+      destination.idToGet = detailToGet.teacherID!
     }
   }
   
-  
 }
+
 extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource{
   func numberOfSections(in tableView: UITableView) -> Int {
     return 4

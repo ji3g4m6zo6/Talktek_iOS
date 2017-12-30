@@ -37,6 +37,11 @@ class CoursesBoughtViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  override func viewWillAppear(_ animated: Bool) {
+    if let index = self.tableView.indexPathForSelectedRow{
+      self.tableView.deselectRow(at: index, animated: true)
+    }
+  }
   var homeCourses_Array = [HomeCourses]()
   var homeCouresToPass = HomeCourses()
   func fetchData(){

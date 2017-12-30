@@ -1584,7 +1584,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="O"/>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-B9-kRA" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-B9-kRA" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="204" y="74" width="88" height="32"/>
                                         <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>

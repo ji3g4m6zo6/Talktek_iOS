@@ -12,6 +12,7 @@ class TeacherViewController: UIViewController {
   
   
   @IBOutlet weak var tableView: UITableView!
+  var idToGet = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -27,7 +28,11 @@ class TeacherViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
+  override func viewWillAppear(_ animated: Bool) {
+    if let index = self.tableView.indexPathForSelectedRow{
+      self.tableView.deselectRow(at: index, animated: true)
+    }
+  }
   enum DetailViewSection: Int{
     case main = 0
     case description = 1
@@ -70,6 +75,7 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
       return cell
     case DetailViewSection.courses.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
+      cell.setDatasource(teacherId: idToGet)
       return cell
     default:
       fatalError()

@@ -42,6 +42,11 @@ class AudioListViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  override func viewWillAppear(_ animated: Bool) {
+    if let index = self.tableView.indexPathForSelectedRow{
+      self.tableView.deselectRow(at: index, animated: true)
+    }
+  }
   
   func fetchData(){
     // Get the number and root of collectionview
