@@ -11,7 +11,6 @@ import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseStorage
-import FBSDKLoginKit
 
 
 class SettingViewController: UIViewController {
@@ -35,10 +34,10 @@ class SettingViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
-    guard let uid = Auth.auth().currentUser?.uid else { return }
-    userID = uid
+    
     let userDefaults = UserDefaults.standard
-    self.username = userDefaults.string(forKey: "name") ?? "guest"
+    self.userID = userDefaults.string(forKey: "username") ?? ""
+    self.username = userDefaults.string(forKey: "username") ?? "guest"
     
     name_Label.text = self.username
     fetchData()
@@ -71,22 +70,20 @@ class SettingViewController: UIViewController {
   }
 
   @IBAction func LogIn_LogOut(_ sender: UIButton) {
-    FBSDKLoginManager().logOut()
-    do{
-      try Auth.auth().signOut()
-      self.databaseRef = Database.database().reference()
-      self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
-      
-      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
-      self.present(LogInVC, animated: true, completion: nil)
-    }catch let logOutError {
-      
-      print(logOutError)
-      
-    }
+//    FBSDKLoginManager().logOut()
+//    do{
+//      try Auth.auth().signOut()
+//      self.databaseRef = Database.database().reference()
+//      self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
+//
+//      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
+//      self.present(LogInVC, animated: true, completion: nil)
+//    }catch let logOutError {
+//
+//      print(logOutError)
+//
+//    }
     
-    
-
   }
   
   @IBAction func cameraOrImage(_ sender: UIButton) {
