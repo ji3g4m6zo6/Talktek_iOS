@@ -94,7 +94,6 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     // to add a single button
     popup.addButtons([buttonOne])
     
-    //popup.addButtons([buttonOne, buttonTwo, buttonThree])
     
     // Present dialog
     self.present(popup, animated: true, completion: nil)
