@@ -77,6 +77,11 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     
     // Create buttons
     let buttonOne = CancelButton(title: "YEAH 太好了！") {
+      let userDefaults = UserDefaults.standard
+      guard let uid = userDefaults.value(forKey: "uid") else { return }
+      let uidString = String(describing: uid)
+ self.databaseRef.child("Money").child(uidString).child("money").setValue("100000000")
+
       print("You confirmed.")
     }
     
@@ -109,7 +114,9 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
         
         self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
         
-        self.databaseRef.child("Money").child((user?.uid)!).child("money").setValue("100000")
+        self.databaseRef.child("Money").child((user?.uid)!).child("money").setValue("100000000")
+        
+        //self.databaseRef.child("BoughtCourses").child((user?.uid)!)
         self.databaseRef.child("Users").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in
           if let dictionary = snapshot.value as? [String: AnyObject]{
             let username = dictionary["name"] as? String ?? ""

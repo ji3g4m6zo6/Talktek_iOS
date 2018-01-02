@@ -27,6 +27,17 @@ class CourseDetailViewController: UIViewController {
       //Alert Not logged in yet
     }
   }
+  
+  func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+      do {
+        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+    return nil
+  }
   var myMoney = "0"
   var courseId = ""
   var audioItem_Array = [AudioItem]()
@@ -36,7 +47,17 @@ class CourseDetailViewController: UIViewController {
     if let courseMoneyString = detailToGet.price{
       let courseMoneyInt = Int(courseMoneyString)
       if moneyInt! >= courseMoneyInt!{
-        databaseRef.child("BoughtCourses").child(self.uid).child(courseId).setValue(detailToGet)
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try? jsonEncoder.encode(detailToGet)
+        let json = String(data: jsonData!, encoding: String.Encoding.utf8)
+     
+        let result = convertToDictionary(text: json!)
+        databaseRef.child("BoughtCourses").child(self.uid).child(courseId).setValue(result)
+        let moneyLeft = String(moneyInt! - courseMoneyInt!)
+        self.myMoney = moneyLeft
+      self.databaseRef.child("Money").child(self.uid).child("money").setValue(self.myMoney)
+
+        
       } else {
         //Alert not enough money
       }
@@ -44,7 +65,7 @@ class CourseDetailViewController: UIViewController {
     
   }
   func money(){
-    self.databaseRef.child("Money").child(userID).child("money").observeSingleEvent(of: .value) { (snapshot) in
+    self.databaseRef.child("Money").child(uid).child("money").observeSingleEvent(of: .value) { (snapshot) in
       if let money = snapshot.value as? String{
         self.myMoney = money
       }
@@ -56,12 +77,21 @@ class CourseDetailViewController: UIViewController {
   var array_CourseID = [String]()
   var databaseRef: DatabaseReference!
   func usersCourses(){
-    databaseRef.child("BoughtCourses").child(self.uid).observe(.childAdded) { (snapshot) in
-      for child in snapshot.children{
-        let snap = child as! DataSnapshot
-        self.array_CourseID.append(snap.key)
+    databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(self.uid){
+        self.databaseRef.child("BoughtCourses").child(self.uid).observe(.value) { (snapshot) in
+          for child in snapshot.children{
+            let snap = child as! DataSnapshot
+            self.array_CourseID.append(snap.key)
+            
+          }
+          print("array_CourseID is \(self.array_CourseID)")
+          self.boughtOrNot()
+        }
+      } else {
+        print("Hasn't bought anything yet")
       }
-      self.boughtOrNot()
+      
     }
   }
   func boughtOrNot(){
@@ -79,7 +109,6 @@ class CourseDetailViewController: UIViewController {
     case teacherInfo = 2
     case courses = 3
   }
-  var userID = ""
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
@@ -88,8 +117,8 @@ class CourseDetailViewController: UIViewController {
     
     databaseRef = Database.database().reference()
     let userDefaults = UserDefaults.standard
-    uid = userDefaults.string(forKey: "uid") ?? "guest"
-    
+    uid = userDefaults.string(forKey: "uid") ?? ""
+    print("uid is \(uid)")
     courseId = detailToGet.courseId!
     
     money()

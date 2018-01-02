@@ -44,7 +44,9 @@ class PurchaseMainViewController: UIViewController {
         
         return
     }
-    userID = uid
+    let userDefaults = UserDefaults.standard
+    userID = userDefaults.string(forKey: "uid") ?? ""
+
     
     fetchData()
   }
@@ -78,11 +80,11 @@ class PurchaseMainViewController: UIViewController {
   
   func fetchData(){
     self.databaseRef = Database.database().reference()
-    self.databaseRef.child("Money/\(self.userID)").observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: AnyObject]{
+    self.databaseRef.child("Money/\(self.userID)").observe(.value) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: String]{
         print("dictionary is \(dictionary)")
         
-        let money = dictionary["money"] as? String ?? ""
+        let money = dictionary["money"] ?? ""
         
         self.points_Label.text = ("\(money)點")
         

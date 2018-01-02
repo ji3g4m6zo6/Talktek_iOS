@@ -36,11 +36,11 @@ class SettingViewController: UIViewController {
     
     
     let userDefaults = UserDefaults.standard
-    self.userID = userDefaults.string(forKey: "username") ?? ""
+    self.userID = userDefaults.string(forKey: "uid") ?? ""
     self.username = userDefaults.string(forKey: "username") ?? "guest"
     
-    name_Label.text = self.username
-    //fetchData()
+    //name_Label.text = self.username
+    fetchData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -53,26 +53,73 @@ class SettingViewController: UIViewController {
     }
   }
   
+  @IBAction func cancelViewController(_ segue: UIStoryboardSegue) {
+  }
+  @IBAction func saveDetail(_ segue: UIStoryboardSegue) {
+    fetchData()
+  }
+  var user = User()
   func fetchData(){
     self.databaseRef = Database.database().reference()
     self.databaseRef.child("Users/\(self.userID)").observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")
-        let user = User()
-        user.name = dictionary["name"] as? String ?? ""
-        user.account = dictionary["account"] as? String ?? ""
         
-        self.name_Label.text = user.name
-        if let imageUrl = user.profileImageUrl{
-          let url = URL(string: imageUrl)
+        let user = User()
+        guard let name = dictionary["name"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("name").setValue("")
+          return
+        }
+        guard let account = dictionary["account"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("account").setValue("")
+          return
+        }
+        
+        guard let birthday = dictionary["birthday"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("birthday").setValue("")
+          return
+        }
+        
+        guard let gender = dictionary["gender"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("gender").setValue("")
+          return
+        }
+        
+        guard let profileImageUrl = dictionary["profileImageUrl"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("profileImageUrl").setValue("")
+          return
+        }
+        
+        user.name = name as? String
+        user.account = account as? String
+        user.birthday = birthday as? String
+        user.gender = gender as? String
+        user.profileImageUrl = profileImageUrl as? String
+        
+        if user.name != ""{
+          self.name_Label.text = user.name
+        } else {
+          self.name_Label.text = "嗨你好:)"
+        }
+
+        if user.profileImageUrl != ""{
+          let url = URL(string: user.profileImageUrl!)
           self.profile_ImageView.kf.setImage(with: url)
         }
         
+        self.user = user
       }
       
     }
 
   }
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierEdit"{
+      let destination = segue.destination as! SettingEditViewController
+      destination.user = self.user
+    }
+  }
+  
 
   @IBAction func LogIn_LogOut(_ sender: UIButton) {
     FBSDKLoginManager().logOut()
@@ -144,6 +191,8 @@ class SettingViewController: UIViewController {
     present(imagePickerAlertController, animated: true, completion: nil)
     
   }
+  
+  
   
   
   

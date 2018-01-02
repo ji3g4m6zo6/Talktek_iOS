@@ -13,7 +13,6 @@ import FirebaseAuth
 
 class SettingEditViewController: UIViewController {
   
-  var username = ""
   
   @IBOutlet weak var account_TextField: UITextField!
   
@@ -28,8 +27,9 @@ class SettingEditViewController: UIViewController {
   @IBOutlet weak var name_Label: UILabel!
   
   @IBAction func cameraOrImage(_ sender: UIButton) {
+    camera()
   }
-  
+  var user = User()
   
   let gender = ["男", "女", "其他"]
   override func viewDidLoad() {
@@ -38,11 +38,38 @@ class SettingEditViewController: UIViewController {
     let pickerView = UIPickerView()
     pickerView.delegate = self
     
-    userID = Auth.auth().currentUser!.uid
     let userDefaults = UserDefaults.standard
-    self.username = userDefaults.string(forKey: "name") ?? "未登入"
-    name_Label.text = self.username
+    userID = userDefaults.string(forKey: "uid") ?? ""
     
+    if user.name != ""{
+      name_Label.text = user.name
+    } else {
+      name_Label.text = "嗨你好:)"
+    }
+    
+    if user.account == ""{
+      account_TextField.text = "無"
+    } else {
+      account_TextField.text = user.account
+    }
+    
+    if user.name == ""{
+      nickName_TextField.text = "無"
+    } else {
+      nickName_TextField.text = user.name
+    }
+    
+    if user.birthday == ""{
+      birthday_TextField.text = "無"
+    } else {
+      birthday_TextField.text = user.birthday
+    }
+    
+    if user.gender == ""{
+      gender_TextField.text = "無"
+    } else {
+      gender_TextField.text = user.gender
+    }
     self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
   }
@@ -54,22 +81,8 @@ class SettingEditViewController: UIViewController {
   var databaseRef: DatabaseReference!
   var userID = ""
 
-  func fetchData(){
-    self.databaseRef = Database.database().reference()
-    self.databaseRef.child("Users/\(self.userID)").observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: AnyObject]{
-        print("dictionary is \(dictionary)")
-        let user = User()
-        user.name = dictionary["name"] as? String ?? ""
-        user.account = dictionary["account"] as? String ?? ""
-        
-        //self.name_Label.text = user.name
-        
-        
-        
-      }
-      
-    }
+  @IBAction func comfirm_Button_Tapped(_ sender: UIBarButtonItem) {
+    
   }
   
   let datePickerView = UIDatePicker()
@@ -128,6 +141,58 @@ class SettingEditViewController: UIViewController {
     
   }
   
+  
+  
+  func camera(){
+    // 建立一個 UIImagePickerController 的實體
+    let imagePickerController = UIImagePickerController()
+    
+    // 委任代理
+    imagePickerController.delegate = self
+    
+    // 建立一個 UIAlertController 的實體
+    // 設定 UIAlertController 的標題與樣式為 動作清單 (actionSheet)
+    let imagePickerAlertController = UIAlertController(title: "上傳圖片", message: "請選擇要上傳的圖片", preferredStyle: .actionSheet)
+    
+    // 建立三個 UIAlertAction 的實體
+    // 新增 UIAlertAction 在 UIAlertController actionSheet 的 動作 (action) 與標題
+    let imageFromLibAction = UIAlertAction(title: "照片圖庫", style: .default) { (Void) in
+      
+      // 判斷是否可以從照片圖庫取得照片來源
+      if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+        
+        // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.photoLibrary)，並 present UIImagePickerController
+        imagePickerController.sourceType = .photoLibrary
+        self.present(imagePickerController, animated: true, completion: nil)
+      }
+    }
+    let imageFromCameraAction = UIAlertAction(title: "相機", style: .default) { (Void) in
+      
+      // 判斷是否可以從相機取得照片來源
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        
+        // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.camera)，並 present UIImagePickerController
+        imagePickerController.sourceType = .camera
+        self.present(imagePickerController, animated: true, completion: nil)
+      }
+    }
+    
+    // 新增一個取消動作，讓使用者可以跳出 UIAlertController
+    let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (Void) in
+      
+      imagePickerAlertController.dismiss(animated: true, completion: nil)
+    }
+    
+    // 將上面三個 UIAlertAction 動作加入 UIAlertController
+    imagePickerAlertController.addAction(imageFromLibAction)
+    imagePickerAlertController.addAction(imageFromCameraAction)
+    imagePickerAlertController.addAction(cancelAction)
+    
+    // 當使用者按下 uploadBtnAction 時會 present 剛剛建立好的三個 UIAlertAction 動作與
+    present(imagePickerAlertController, animated: true, completion: nil)
+    
+  }
+  
   /*
    // MARK: - Navigation
    
@@ -164,5 +229,85 @@ extension SettingEditViewController: UIPickerViewDataSource, UIPickerViewDelegat
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     gender_TextField.text = gender[row]
   }
+}
+
+
+
+extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  
+  func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+    
+    
+    
+    var selectedImageFromPicker: UIImage?
+    
+    // 取得從 UIImagePickerController 選擇的檔案
+    if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+      
+      selectedImageFromPicker = pickedImage
+    }
+    
+    // 可以自動產生一組獨一無二的 ID 號碼，方便等一下上傳圖片的命名
+    let uniqueString = NSUUID().uuidString
+    
+    
+    if let user = Auth.auth().currentUser {
+      userID = user.uid
+      
+      
+      // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
+      if let selectedImage = selectedImageFromPicker {
+        
+        
+        let storageRef = Storage.storage().reference().child("\(uniqueString).png")
+        
+        if let uploadData = UIImagePNGRepresentation(selectedImage) {
+          // 這行就是 FirebaseStorage 關鍵的存取方法。
+          storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
+            
+            if error != nil {
+              
+              // 若有接收到錯誤，我們就直接印在 Console 就好，在這邊就不另外做處理。
+              print("Error: \(error!.localizedDescription)")
+              return
+            }
+            
+            // 連結取得方式就是：data?.downloadURL()?.absoluteString。
+            if let uploadImageUrl = data?.downloadURL()?.absoluteString {
+              
+              // 我們可以 print 出來看看這個連結事不是我們剛剛所上傳的照片。
+              print("Photo Url: \(uploadImageUrl)")
+              
+              
+              // 存放在database
+              let databaseRef = Database.database().reference(withPath: "ID/\(self.userID)/Profile/Photo")
+              
+              databaseRef.setValue(uploadImageUrl, withCompletionBlock: { (error, dataRef) in
+                
+                if error != nil {
+                  
+                  print("Database Error: \(error!.localizedDescription)")
+                }
+                else {
+                  
+                  print("圖片已儲存")
+                }
+                
+              })
+              
+              
+            }
+          })
+        }
+      }
+      dismiss(animated: true, completion: nil)
+      
+      
+    }//uid
+    
+    
+  }
+  
+  
 }
 

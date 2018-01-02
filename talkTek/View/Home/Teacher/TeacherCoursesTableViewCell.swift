@@ -56,7 +56,7 @@ class TeacherCoursesTableViewCell: UITableViewCell {
         
         
         self.homeCourses_Array.append(homeCourses)
-        
+        print("homeCourses_Array is \(self.homeCourses_Array)")
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
@@ -64,4 +64,45 @@ class TeacherCoursesTableViewCell: UITableViewCell {
     }
   }
   
+}
+
+extension TeacherCoursesTableViewCell: UITableViewDataSource, UITableViewDelegate{
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return homeCourses_Array.count
+  }
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! TeacherCoursesItemsTableViewCell
+    if let overviewUrl = homeCourses_Array[indexPath.row].overViewImage{
+      let url = URL(string: overviewUrl)
+      cell.overview_ImageView.kf.setImage(with: url)
+    }
+    
+    if let authorUrl = homeCourses_Array[indexPath.row].authorImage{
+      let url = URL(string: authorUrl)
+      cell.author_ImageView.kf.setImage(with: url)
+    }
+    
+    cell.courseTitle_Label.text = homeCourses_Array[indexPath.row].title
+    cell.authorName_Label.text = homeCourses_Array[indexPath.row].authorName
+    
+    
+    return cell
+  }
+  
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 109
+  }
+  
+  //  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+  //    let cell = tableView.dequeueReusableCell(withIdentifier: "audioSection") as! AudioSectionTableViewCell
+  //    cell.setUpCell(title: categories[section])
+  //    return cell
+  //  }
+  //  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+  //    return 49
+  //  }
 }
