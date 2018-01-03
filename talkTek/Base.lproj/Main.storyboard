@@ -701,14 +701,14 @@
                                             <action selector="buy_Button_Tapped:" destination="Ce4-6R-E40" eventType="touchUpInside" id="M13-hf-yEO"/>
                                         </connections>
                                     </button>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="HtY-Df-IRy">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="HtY-Df-IRy">
                                         <rect key="frame" x="10" y="29" width="15" height="15"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="15" id="163-6B-e1h"/>
                                             <constraint firstAttribute="width" constant="15" id="7zG-yV-tjC"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="150點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5Z-vM-WXo">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="150點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5Z-vM-WXo">
                                         <rect key="frame" x="26" y="28" width="33" height="17"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="17" id="Gkl-q4-Lbj"/>
@@ -722,6 +722,10 @@
                                 <constraints>
                                     <constraint firstItem="O5Z-vM-WXo" firstAttribute="leading" secondItem="HtY-Df-IRy" secondAttribute="trailing" constant="1" id="AKp-gb-y1J"/>
                                     <constraint firstAttribute="height" constant="50" id="Bxw-dq-Ywt"/>
+                                    <constraint firstItem="HtY-Df-IRy" firstAttribute="leading" secondItem="vXz-WV-ib8" secondAttribute="leading" constant="10" id="FfA-ms-03d"/>
+                                    <constraint firstAttribute="bottom" secondItem="HtY-Df-IRy" secondAttribute="bottom" constant="6" id="JFF-tY-rIJ"/>
+                                    <constraint firstItem="O5Z-vM-WXo" firstAttribute="leading" secondItem="HtY-Df-IRy" secondAttribute="trailing" constant="1" id="lYG-SX-dzA"/>
+                                    <constraint firstItem="O5Z-vM-WXo" firstAttribute="centerY" secondItem="HtY-Df-IRy" secondAttribute="centerY" id="yEf-qZ-ZGN"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1578,7 +1582,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="O"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-B9-kRA" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-B9-kRA" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="204" y="74" width="88" height="32"/>
                                         <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>

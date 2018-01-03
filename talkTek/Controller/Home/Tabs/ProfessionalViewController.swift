@@ -113,7 +113,8 @@ extension ProfessionalViewController: UICollectionViewDelegate, UICollectionView
       let url = URL(string: authorUrl)
       cell.author_ImageView.kf.setImage(with: url)
     }
-    
+    cell.title_Label.text = homeCourses_Array[indexPath.item].title
+
     return cell
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

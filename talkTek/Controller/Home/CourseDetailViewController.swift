@@ -47,6 +47,9 @@ class CourseDetailViewController: UIViewController {
     if let courseMoneyString = detailToGet.price{
       let courseMoneyInt = Int(courseMoneyString)
       if moneyInt! >= courseMoneyInt!{
+        
+        
+        
         let jsonEncoder = JSONEncoder()
         let jsonData = try? jsonEncoder.encode(detailToGet)
         let json = String(data: jsonData!, encoding: String.Encoding.utf8)
@@ -56,7 +59,10 @@ class CourseDetailViewController: UIViewController {
         let moneyLeft = String(moneyInt! - courseMoneyInt!)
         self.myMoney = moneyLeft
       self.databaseRef.child("Money").child(self.uid).child("money").setValue(self.myMoney)
-
+        
+        // ALERT Success
+        self.buy_View.isHidden = true
+        
         
       } else {
         //Alert not enough money
