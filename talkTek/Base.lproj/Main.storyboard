@@ -3098,9 +3098,11 @@
                         <outlet property="description_TextView" destination="eu6-67-jbF" id="NVC-g5-dmA"/>
                         <outlet property="email_TextField" destination="CBc-Hd-wbc" id="dUX-5x-sKK"/>
                         <outlet property="name_TextField" destination="hdz-aG-c9J" id="oOS-WQ-z67"/>
+                        <segue destination="vZD-Q1-OJi" kind="unwind" identifier="identifierBack" unwindAction="BackToSettingWithSegue:" id="1JM-o9-vqp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bwz-yl-mDi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="vZD-Q1-OJi" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1492" y="2239"/>
         </scene>
@@ -3313,9 +3315,11 @@
                     </view>
                     <connections>
                         <outlet property="coupon_TextField" destination="wMg-sY-Ms3" id="kDb-2W-i6P"/>
+                        <segue destination="XGZ-MR-X0z" kind="unwind" identifier="identifierBack" unwindAction="BackToSettingWithSegue:" id="lfp-L8-08t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swe-pP-HlO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="XGZ-MR-X0z" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2970.4000000000001" y="2243.9280359820091"/>
         </scene>
@@ -3579,9 +3583,11 @@
                         <outlet property="email_TextField" destination="k02-LP-nPD" id="jYF-eX-o9t"/>
                         <outlet property="name_TextField" destination="Jxf-wV-f9S" id="xXw-zp-lzo"/>
                         <outlet property="topic_TextField" destination="Gay-z3-tLP" id="LZN-Jh-ngG"/>
+                        <segue destination="J2C-6b-fHG" kind="unwind" identifier="identifierBack" unwindAction="BackToSettingWithSegue:" id="JJ1-9S-XkO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1zr-iC-nFS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="J2C-6b-fHG" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="669.60000000000002" y="2239.4302848575712"/>
         </scene>

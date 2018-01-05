@@ -137,6 +137,8 @@ class SettingViewController: UIViewController {
     }
     
   }
+  @IBAction func BackToSetting( segue:UIStoryboardSegue ) { }
+  
   
   @IBAction func cameraOrImage(_ sender: UIButton) {
     camera()

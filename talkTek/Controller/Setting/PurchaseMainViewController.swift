@@ -36,14 +36,7 @@ class PurchaseMainViewController: UIViewController {
         print("Error: \(result.error ?? "" as! Error)")
       }
     }
-    guard let uid = Auth.auth().currentUser?.uid
-      else {
-        
-        let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
-        self.present(LogInVC, animated: true, completion: nil)
-        
-        return
-    }
+
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
 

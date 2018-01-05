@@ -61,7 +61,15 @@ class CouponViewController: UIViewController {
             let json = String(data: jsonData!, encoding: String.Encoding.utf8)
             
             let result = self.convertToDictionary(text: json!)
-            databaseRef.child("BoughtCourses").child(self.uid).child(i).setValue(result)
+            databaseRef.child("BoughtCourses").child(self.uid).child(i).setValue(result, withCompletionBlock: { (error, ref) in
+              if error != nil {
+                self.alertError()
+              } else {
+                self.alertSuccess()
+              }
+            })
+            
+            
           }
         })
         
@@ -84,16 +92,34 @@ class CouponViewController: UIViewController {
   func fetchData(){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
-    if coupon_TextField.text != ""{
-      databaseRef.child("AllCourses").observe(.value, with: { (snapshot) in
-        for child in snapshot.children{
-          let snap = child as! DataSnapshot
-          self.array_CourseID.append(snap.key)
-        }
-      })
-    }
+    databaseRef.child("AllCourses").observe(.value, with: { (snapshot) in
+      for child in snapshot.children{
+        let snap = child as! DataSnapshot
+        self.array_CourseID.append(snap.key)
+        print("key is \(snap.key)")
+      }
+    })
   }
   
+  func alertError(){
+    let alertController = UIAlertController(title: "選課錯誤", message: "請確認優惠碼無誤", preferredStyle: UIAlertControllerStyle.alert)
+    
+    alertController.addAction(UIAlertAction(title: "確認", style: UIAlertActionStyle.default,handler: nil))
+    
+    self.present(alertController, animated: true, completion: nil)
+  }
+  
+  func alertSuccess(){
+    let alert = UIAlertController(title: "選課成功", message: "請至課程清單查看", preferredStyle: .alert)
+    
+    let confirm = UIAlertAction(title: "確認", style: .default) { (action) in
+      self.performSegue(withIdentifier: "identifierBack", sender: self)
+    }
+    alert.addAction(confirm)
+    
+    
+    self.present(alert, animated: true)
+  }
   /*
    // MARK: - Navigation
    

@@ -69,40 +69,26 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
           print(error?.localizedDescription ?? "Failed to update value")
         } else {
           print("Success update newValue to database")
-          self.successfulAlert()
+          self.alertSuccess()
         }
       })
     } else {
-      bottomAlert()
+      alertError()
     }
   }
   
-  func successfulAlert() {
-    // 建立一個提示框
-    let alertController = UIAlertController(
-      title: "成功上傳",
-      message: "TalkTek會儘速與您聯絡。",
-      preferredStyle: .alert)
+  func alertSuccess() {
+    let alert = UIAlertController(title: "上傳成功", message: "非常感謝您的建議，若有需要Talktek會儘速與您聯絡。", preferredStyle: .alert)
     
-    // 建立[確認]按鈕
-    let okAction = UIAlertAction(
-      title: "確認",
-      style: .default,
-      handler: {
-        (action: UIAlertAction!) -> Void in
-        print("按下確認後，閉包裡的動作")
-        self.navigationController?.popViewController(animated: true)
-
-    })
-    alertController.addAction(okAction)
+    let confirm = UIAlertAction(title: "確認", style: .default) { (action) in
+      self.performSegue(withIdentifier: "identifierBack", sender: self)
+    }
+    alert.addAction(confirm)
     
-    // 顯示提示框
-    self.present(
-      alertController,
-      animated: true,
-      completion: nil)
+    
+    self.present(alert, animated: true)
   }
-  func bottomAlert() {
+  func alertError() {
     // 建立一個提示框
     let alertController = UIAlertController(
       title: "資料不足",
@@ -129,6 +115,8 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
       animated: true,
       completion: nil)
   }
+  
+  
   
 }
 extension SuggestionViewController {
