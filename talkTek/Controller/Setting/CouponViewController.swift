@@ -35,6 +35,37 @@ class CouponViewController: UIViewController {
   }
   var array_CourseID = [String]()
   @IBAction func Send_Button_Tapped(_ sender: UIButton) {
+    if coupon_TextField.text != ""{
+      self.sendCoupon(coupon: coupon_TextField.text!)
+    } else {
+      self.alertNotEnoughInfo()
+    }
+    
+  }
+  
+  func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+      do {
+        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+    return nil
+  }
+  func fetchData(){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    databaseRef.child("AllCourses").observe(.value, with: { (snapshot) in
+      for child in snapshot.children{
+        let snap = child as! DataSnapshot
+        self.array_CourseID.append(snap.key)
+        print("key is \(snap.key)")
+      }
+    })
+  }
+  
+  func sendCoupon(coupon: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
     for i in array_CourseID{
@@ -69,36 +100,11 @@ class CouponViewController: UIViewController {
               }
             })
             
-            
           }
         })
         
-        
       }
     }
-    
-  }
-  
-  func convertToDictionary(text: String) -> [String: Any]? {
-    if let data = text.data(using: .utf8) {
-      do {
-        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-      } catch {
-        print(error.localizedDescription)
-      }
-    }
-    return nil
-  }
-  func fetchData(){
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-    databaseRef.child("AllCourses").observe(.value, with: { (snapshot) in
-      for child in snapshot.children{
-        let snap = child as! DataSnapshot
-        self.array_CourseID.append(snap.key)
-        print("key is \(snap.key)")
-      }
-    })
   }
   
   func alertError(){
@@ -119,6 +125,14 @@ class CouponViewController: UIViewController {
     
     
     self.present(alert, animated: true)
+  }
+  
+  func alertNotEnoughInfo(){
+    let alertController = UIAlertController(title: "所有欄位均須填寫", message: "", preferredStyle: UIAlertControllerStyle.alert)
+    
+    alertController.addAction(UIAlertAction(title: "確認", style: UIAlertActionStyle.default,handler: nil))
+    
+    self.present(alertController, animated: true, completion: nil)
   }
   /*
    // MARK: - Navigation

@@ -54,7 +54,7 @@ class TeacherCoursesTableViewCell: UITableViewCell {
         homeCourses.teacherID = dictionary["teacherID"]
         
         
-        
+        print("homecourses is \(homeCourses.title ?? "")")
         self.homeCourses_Array.append(homeCourses)
         print("homeCourses_Array is \(self.homeCourses_Array)")
         DispatchQueue.main.async {
