@@ -48,6 +48,9 @@ pod 'PopupDialog', '~> 0.6'
 # In-App Purchase
 pod 'SwiftyStoreKit'
 
+# Pull To Refresh
+pod "ESPullToRefresh"
+
 
   target 'talkTekTests' do
     inherit! :search_paths

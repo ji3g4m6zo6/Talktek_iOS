@@ -11,6 +11,8 @@ import Firebase
 import FirebaseDatabase
 import Kingfisher
 import XLPagerTabStrip
+import ESPullToRefresh
+
 
 class HotViewController: UIViewController, IndicatorInfoProvider {
   
@@ -25,8 +27,14 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     collectionView.dataSource = self
     collectionView.delegate = self
     
+
     databaseRef = Database.database().reference()
     fetchData()
+    collectionView.es.addPullToRefresh {
+      [unowned self] in
+      self.homeCourses_Array.removeAll()
+      self.fetchData()
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -64,6 +72,8 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
         DispatchQueue.main.async {
           self.collectionView.reloadData()
         }
+        self.collectionView.es.stopPullToRefresh()
+
       }
     }
   }

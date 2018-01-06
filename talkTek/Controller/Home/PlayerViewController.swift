@@ -73,13 +73,6 @@ class PlayerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    
-    // Do any additional setup after loading the view.
-  }
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(true)
-    
     topic_Label.text = audioData[thisSong].Topic
     title_Label.text = audioData[thisSong].Title
     
@@ -93,16 +86,23 @@ class PlayerViewController: UIViewController {
     player = AVPlayer(playerItem: playerItem)
     
     //player = AVPlayer(playerItem: playerItem)
-    slider_UISlider.minimumValue = 0
-    if let timeString = audioData[thisSong].Time{
-      self.totalTime_Label.text = timeString
-      let duration : CMTime = playerItem!.asset.duration
-      let seconds : Float64 = CMTimeGetSeconds(duration)
-      let timeFloat = Float64(seconds)
-      slider_UISlider.maximumValue = Float(timeFloat)
-      print("time is \(timeFloat)")
-    }
-    slider_UISlider.isContinuous = true
+//    slider_UISlider.minimumValue = 0
+//    if let timeString = audioData[thisSong].Time{
+//      self.totalTime_Label.text = timeString
+//      let duration : CMTime = playerItem!.asset.duration
+//      let seconds : Float64 = CMTimeGetSeconds(duration)
+//      let timeFloat = Float64(seconds)
+//      slider_UISlider.maximumValue = Float(timeFloat)
+//      print("time is \(timeFloat)")
+//    }
+//    slider_UISlider.isContinuous = true
+    
+    // Do any additional setup after loading the view.
+  }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    
+    
     
     
     
@@ -111,6 +111,7 @@ class PlayerViewController: UIViewController {
     guard let playerItem = object as? AVPlayerItem else { return }
     if keyPath == "loadedTimeRanges"{
       // 缓冲进度 暂时不处理
+      print("loaded time ranges \(keyPath ?? "")")
     }else if keyPath == "status"{
       // 监听状态改变
       if playerItem.status == AVPlayerItemStatus.readyToPlay{

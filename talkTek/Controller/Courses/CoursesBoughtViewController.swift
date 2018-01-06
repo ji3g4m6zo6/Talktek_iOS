@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import ESPullToRefresh
+
 
 class CoursesBoughtViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
@@ -30,6 +32,11 @@ class CoursesBoughtViewController: UIViewController {
     databaseRef = Database.database().reference()
 
     fetchData()
+    tableView.es.addPullToRefresh {
+      [unowned self] in
+      self.homeCourses_Array.removeAll()
+      self.fetchData()
+    }
 
   }
   
@@ -72,6 +79,7 @@ class CoursesBoughtViewController: UIViewController {
         DispatchQueue.main.async {
           self.tableView.reloadData()
         }
+        self.tableView.es.stopPullToRefresh()
       }
     }
   }
