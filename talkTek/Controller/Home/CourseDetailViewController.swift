@@ -148,6 +148,7 @@ class CourseDetailViewController: UIViewController {
       destination.idToGet = detailToGet.courseId!
     } else if segue.identifier == "identifierTeacher"{
       let destination = segue.destination as! TeacherViewController
+      destination.courseToGet = detailToGet
       destination.idToGet = detailToGet.teacherID!
     }
   }
@@ -209,7 +210,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
-      return 357.0
+      return 362.0
     case DetailViewSection.courseInfo.rawValue:
       return 200.0
     case DetailViewSection.teacherInfo.rawValue:

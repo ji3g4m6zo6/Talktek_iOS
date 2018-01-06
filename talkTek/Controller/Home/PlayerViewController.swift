@@ -15,6 +15,9 @@ class PlayerViewController: UIViewController {
   var thisSong = 0
   var audioStuffed = false
 
+  @IBAction func PlayerToBottom_Button_Tapped(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+  }
   
   var player: AVPlayer!
   var playerItem: AVPlayerItem!

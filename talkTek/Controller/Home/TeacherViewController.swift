@@ -13,6 +13,7 @@ class TeacherViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   var idToGet = ""
+  var courseToGet = HomeCourses()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -69,9 +70,16 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "mainCell", for: indexPath) as! TeacherMainTableViewCell
+      cell.time_Label.text = courseToGet.hour
+      if let iconUrl = courseToGet.authorImage{
+        let url = URL(string: iconUrl)
+        cell.teacher_ImageView.kf.setImage(with: url)
+      }
+      cell.teacher_Label.text = courseToGet.authorName
       return cell
     case DetailViewSection.description.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! TeacherDescriptionTableViewCell
+      cell.description_TextView.text = courseToGet.authorDescription
       return cell
     case DetailViewSection.courses.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
