@@ -22,6 +22,9 @@ class PlayerViewController: UIViewController {
   var player: AVPlayer!
   var playerItem: AVPlayerItem!
   
+  var link:CADisplayLink!
+
+  
   @IBOutlet weak var overview_ImageView: UIImageView!
   @IBOutlet weak var topic_Label: UILabel!
   @IBOutlet weak var title_Label: UILabel!
@@ -30,22 +33,21 @@ class PlayerViewController: UIViewController {
   @IBOutlet weak var totalTime_Label: UILabel!
   @IBOutlet weak var currenttime_Label: UILabel!
   
+  @IBOutlet weak var progress_UIProguress: UIProgressView!
   @IBOutlet weak var slider_UISlider: UISlider!
   @IBAction func playpause_Button_Tapped(_ sender: UIButton) {
-    
-    
-    
-    if audioStuffed == true && player?.rate == 0
-    {
-      player!.play()
-      playpause_Button.setImage(UIImage(named: "暫停"), for: .normal)
-    } else if audioStuffed == true && player?.rate == 1{
-      player!.pause()
-      playpause_Button.setImage(UIImage(named: "播放"), for: .normal)
+    if selected == -1 {
+      player.pause()
+      selected += 1
+    } else {
+      if self.player.status == .readyToPlay{
+        player.play()
+        selected = -1
+      }
     }
     
   }
-  
+  var selected = -1
   func playThis(thisOne: String)
   {
     
@@ -66,13 +68,58 @@ class PlayerViewController: UIViewController {
   }
   
   @IBAction func speeddown_Button_Tapped(_ sender: UIButton) {
+    
   }
 
   @IBAction func slider_Tapped(_ sender: UISlider) {
+    if self.player.status == .readyToPlay{
+      let duration = slider_UISlider.value * Float(CMTimeGetSeconds(self.player.currentItem!.duration))
+      let seekTime = CMTimeMake(Int64(duration), 1)
+      self.player.seek(to: seekTime)
+    }
   }
   
-  
-  
+  func availableDurationWithplayerItem()->TimeInterval{
+    guard let loadedTimeRanges = player?.currentItem?.loadedTimeRanges, let first = loadedTimeRanges.first else { fatalError() }
+    let timeRange = first.timeRangeValue
+    let startSeconds = CMTimeGetSeconds(timeRange.start)
+    let durationSecound = CMTimeGetSeconds(timeRange.duration)
+    let result = startSeconds + durationSecound
+    return result
+  }
+  @objc func update(){
+//    //暂停的时候
+//    if !self.playerView.playing{
+//      return
+//    }
+    
+    let currentTime = CMTimeGetSeconds(self.player.currentTime())
+    let totalTime   = TimeInterval(playerItem.duration.value) / TimeInterval(playerItem.duration.timescale)
+    
+    let currentTimeStr = formatPlayTime(secounds: currentTime)
+    let totalTimeStr   = formatPlayTime(secounds: totalTime)
+    
+    self.currenttime_Label.text = currentTimeStr
+    self.totalTime_Label.text = totalTimeStr
+    
+    
+    self.slider_UISlider.value = Float(currentTime/totalTime)
+//    // 滑动不在滑动的时候
+//    if !self.playerView.sliding{
+//      // 播放进度
+//      self.playerView.slider.value = Float(currentTime/totalTime)
+//    }
+    
+    
+  }
+  func formatPlayTime(secounds:TimeInterval)->String{
+    if secounds.isNaN{
+      return "00:00"
+    }
+    let Min = Int(secounds / 60)
+    let Sec = Int(secounds.truncatingRemainder(dividingBy: 60))
+    return String(format: "%02d:%02d", Min, Sec)
+  }
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -88,37 +135,34 @@ class PlayerViewController: UIViewController {
     
     player = AVPlayer(playerItem: playerItem)
     
-    //player = AVPlayer(playerItem: playerItem)
-//    slider_UISlider.minimumValue = 0
-//    if let timeString = audioData[thisSong].Time{
-//      self.totalTime_Label.text = timeString
-//      let duration : CMTime = playerItem!.asset.duration
-//      let seconds : Float64 = CMTimeGetSeconds(duration)
-//      let timeFloat = Float64(seconds)
-//      slider_UISlider.maximumValue = Float(timeFloat)
-//      print("time is \(timeFloat)")
-//    }
-//    slider_UISlider.isContinuous = true
+    slider_UISlider.minimumValue = 0
+    slider_UISlider.maximumValue = 1
+    slider_UISlider.value = 0
+
     
+    self.link = CADisplayLink(target: self, selector: #selector(update))
+    self.link.add(to: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
+
     // Do any additional setup after loading the view.
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     
     
-    
-    
-    
   }
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     guard let playerItem = object as? AVPlayerItem else { return }
     if keyPath == "loadedTimeRanges"{
-      // 缓冲进度 暂时不处理
-      print("loaded time ranges \(keyPath ?? "")")
-    }else if keyPath == "status"{
-      // 监听状态改变
+      // 緩衝進度
+      let loadedTime = availableDurationWithplayerItem()
+      let totalTime = CMTimeGetSeconds(playerItem.duration)
+      let percent = loadedTime/totalTime
+      self.progress_UIProguress.progress = Float(percent)
+      
+    } else if keyPath == "status"{
+      // 監聽狀態改變
       if playerItem.status == AVPlayerItemStatus.readyToPlay{
-        // 只有在这个状态下才能播放
+        // 只有readyToPlay狀態，才能播放
         self.player.play()
       }else{
         print("加載異常")

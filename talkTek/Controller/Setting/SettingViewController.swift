@@ -120,7 +120,11 @@ class SettingViewController: UIViewController {
     }
   }
   
-
+  @IBOutlet weak var Edit_Button: UIBarButtonItem!
+  @IBAction func Edit_Button_Tapped(_ sender: UIBarButtonItem) {
+    performSegue(withIdentifier: "identifierEdit", sender: self)
+  }
+  
   @IBAction func LogIn_LogOut(_ sender: UIButton) {
     FBSDKLoginManager().logOut()
     do{
