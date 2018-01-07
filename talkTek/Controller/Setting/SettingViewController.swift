@@ -37,9 +37,13 @@ class SettingViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     self.userID = userDefaults.string(forKey: "uid") ?? ""
-    self.username = userDefaults.string(forKey: "username") ?? "guest"
+    self.username = userDefaults.string(forKey: "username") ?? ""
     
-    //name_Label.text = self.username
+    if username != "" {
+      name_Label.text = self.username
+    } else {
+      name_Label.text = username
+    }
     fetchData()
   }
   
@@ -61,7 +65,7 @@ class SettingViewController: UIViewController {
   var user = User()
   func fetchData(){
     self.databaseRef = Database.database().reference()
-    self.databaseRef.child("Users/\(self.userID)").observe(.childAdded) { (snapshot) in
+    self.databaseRef.child("Users/\(self.userID)").observe(.value) { (snapshot) in
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")
         
@@ -287,7 +291,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
               
               
               // 存放在database
-              let databaseRef = Database.database().reference(withPath: "ID/\(self.userID)/Profile/Photo")
+              let databaseRef = Database.database().reference(withPath: "Users/\(self.userID)/profileImageUrl")
               
               databaseRef.setValue(uploadImageUrl, withCompletionBlock: { (error, dataRef) in
                 

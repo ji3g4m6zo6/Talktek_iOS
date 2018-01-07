@@ -40,16 +40,23 @@ class SettingEditViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
+    username = userDefaults.string(forKey: "name") ?? ""
     
-    if user.name != ""{
+    if username != ""{
       name_Label.text = user.name
     } else {
       name_Label.text = "嗨你好:)"
     }
+//    if user.name != ""{
+//      name_Label.text = user.name
+//    } else {
+//      name_Label.text = "嗨你好:)"
+//    }
     
     if user.account == ""{
       account_TextField.text = "無"
     } else {
+      print("user account is \(user.account ?? "")")
       account_TextField.text = user.account
     }
     
@@ -80,11 +87,30 @@ class SettingEditViewController: UIViewController {
   }
   var databaseRef: DatabaseReference!
   var userID = ""
-
-  @IBAction func comfirm_Button_Tapped(_ sender: UIBarButtonItem) {
-    
-  }
+  var username = ""
   
+  @IBAction func comfirm_Button_Tapped(_ sender: UIBarButtonItem) {
+    let parameter = ["name": nickName_TextField.text ?? "", "account": account_TextField.text ?? "", "birthday": birthday_TextField.text ?? "", "gender": gender_TextField.text ?? ""]
+    databaseRef.child("User/\(self.userID)").setValue(parameter) { (error, databaseRef) in
+      if error != nil {
+        print(error?.localizedDescription ?? "Failed to update value")
+      } else {
+        print("Success update newValue to database")
+        self.alertSuccess()
+      }
+    }
+  }
+  func alertSuccess(){
+    let alert = UIAlertController(title: "上傳成功", message: "", preferredStyle: .alert)
+    
+    let confirm = UIAlertAction(title: "確認", style: .default) { (action) in
+      self.performSegue(withIdentifier: "identifierBack", sender: self)
+    }
+    alert.addAction(confirm)
+    
+    
+    self.present(alert, animated: true)
+  }
   let datePickerView = UIDatePicker()
 
   @IBAction func date_TextField_Tapped(_ sender: UITextField) {
@@ -280,7 +306,7 @@ extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigati
               
               
               // 存放在database
-              let databaseRef = Database.database().reference(withPath: "ID/\(self.userID)/Profile/Photo")
+              let databaseRef = Database.database().reference(withPath: "Users/\(self.userID)/profileImageUrl")
               
               databaseRef.setValue(uploadImageUrl, withCompletionBlock: { (error, dataRef) in
                 
