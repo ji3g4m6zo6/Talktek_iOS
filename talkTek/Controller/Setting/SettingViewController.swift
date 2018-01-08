@@ -34,6 +34,12 @@ class SettingViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
+    Edit_Button.width = 0
+    
+    profile_ImageView.layer.cornerRadius = profile_ImageView.bounds.height / 2
+    profile_ImageView.layer.borderWidth = 2.0
+    profile_ImageView.layer.borderColor = UIColor.white.cgColor
+    profile_ImageView.clipsToBounds = true
     
     let userDefaults = UserDefaults.standard
     self.userID = userDefaults.string(forKey: "uid") ?? ""

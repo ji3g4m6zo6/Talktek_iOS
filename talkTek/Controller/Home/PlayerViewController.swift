@@ -8,12 +8,13 @@
 
 import UIKit
 import AVFoundation
+import FirebaseStorage
+import FirebaseDatabase
 
 class PlayerViewController: UIViewController {
   
   var audioData = [AudioItem]()
   var thisSong = 0
-  var audioStuffed = false
 
   @IBAction func PlayerToBottom_Button_Tapped(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
@@ -38,10 +39,12 @@ class PlayerViewController: UIViewController {
   @IBAction func playpause_Button_Tapped(_ sender: UIButton) {
     if selected == -1 {
       player.pause()
+      playpause_Button.setImage(UIImage(named: "暫停"), for: .normal)
       selected += 1
     } else {
       if self.player.status == .readyToPlay{
         player.play()
+        playpause_Button.setImage(UIImage(named: "播放"), for: .normal)
         selected = -1
       }
     }
@@ -56,11 +59,17 @@ class PlayerViewController: UIViewController {
   }
   
   @IBAction func next_Button_Tapped(_ sender: UIButton) {
-    
+    if thisSong < audioData.count-1 {
+      thisSong += 1
+      letsPlay(thisSongIndex: thisSong)
+    }
   }
 
   @IBAction func previous_Button_Tapped(_ sender: UIButton) {
-    
+    if thisSong != 0 {
+      thisSong -= 1
+      letsPlay(thisSongIndex: thisSong)
+    }
   }
 
   @IBAction func speedup_Button_Tapped(_ sender: UIButton) {
@@ -123,6 +132,8 @@ class PlayerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    
+    
     topic_Label.text = audioData[thisSong].Topic
     title_Label.text = audioData[thisSong].Title
     
@@ -148,7 +159,28 @@ class PlayerViewController: UIViewController {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     
+  }
+  
+  func letsPlay(thisSongIndex: Int){
     
+    topic_Label.text = audioData[thisSongIndex].Topic
+    title_Label.text = audioData[thisSongIndex].Title
+
+    playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
+    playerItem.removeObserver(self, forKeyPath: "status")
+    
+    guard let url = URL(string: audioData[thisSongIndex].Audio!) else { fatalError("連接錯誤") }
+    
+    playerItem = AVPlayerItem(url: url)
+    playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: NSKeyValueObservingOptions.new, context: nil)
+    playerItem.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
+    
+    player = AVPlayer(playerItem: playerItem)
+    
+    slider_UISlider.minimumValue = 0
+    slider_UISlider.maximumValue = 1
+    slider_UISlider.value = 0
+
   }
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     guard let playerItem = object as? AVPlayerItem else { return }
@@ -175,7 +207,9 @@ class PlayerViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-  
+  override func viewWillDisappear(_ animated: Bool) {
+    player.pause()
+  }
  
   deinit {
     playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")

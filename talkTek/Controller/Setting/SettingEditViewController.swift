@@ -38,6 +38,12 @@ class SettingEditViewController: UIViewController {
     let pickerView = UIPickerView()
     pickerView.delegate = self
     
+    
+    overview_ImageView.layer.cornerRadius = overview_ImageView.bounds.height / 2
+    overview_ImageView.layer.borderWidth = 2.0
+    overview_ImageView.layer.borderColor = UIColor.white.cgColor
+    overview_ImageView.clipsToBounds = true
+    
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
     username = userDefaults.string(forKey: "name") ?? ""
