@@ -31,11 +31,9 @@ class AudioListViewController: UIViewController {
     tableView.delegate = self
     tableView.tableFooterView = UIView()
     
-    
     databaseRef = Database.database().reference()
     fetchData()
-
-    // Do any additional setup after loading the view.
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -50,8 +48,7 @@ class AudioListViewController: UIViewController {
   
   func fetchData(){
     // Get the number and root of collectionview
-    
-    self.databaseRef.child("VideoPlayer").child(idToGet).observe(.childAdded) { (snapshot) in
+        self.databaseRef.child("VideoPlayer").child(idToGet).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: String]{
         let audioItem = AudioItem()
         
@@ -73,10 +70,10 @@ class AudioListViewController: UIViewController {
   }
   
   
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+  // MARK: - Navigation
+  
+  // In a storyboard-based application, you will often want to do a little preparation before navigation
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierPlayer"{
       let destination = segue.destination as! PlayerViewController
       destination.audioData = audioItem_Array

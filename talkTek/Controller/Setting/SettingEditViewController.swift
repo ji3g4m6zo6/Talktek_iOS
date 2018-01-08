@@ -52,32 +52,46 @@ class SettingEditViewController: UIViewController {
 //    } else {
 //      name_Label.text = "嗨你好:)"
 //    }
-    
-    if user.account == ""{
-      account_TextField.text = "無"
+    if user.account == nil{
+      account_TextField.placeholder = "請填寫帳號"
     } else {
-      print("user account is \(user.account ?? "")")
-      account_TextField.text = user.account
+      if user.account == ""{
+        account_TextField.placeholder = "請填寫帳號"
+      } else {
+        account_TextField.text = user.account
+      }
     }
     
-    if user.name == ""{
-      nickName_TextField.text = "無"
+    if user.name == nil {
+      nickName_TextField.placeholder = "請填寫暱稱"
     } else {
-      nickName_TextField.text = user.name
+      if user.name == ""{
+        nickName_TextField.placeholder = "請填寫暱稱"
+      } else {
+        nickName_TextField.text = user.name
+      }
     }
     
-    if user.birthday == ""{
-      birthday_TextField.text = "無"
+    if user.birthday == nil {
+      birthday_TextField.placeholder = "請填寫生日"
     } else {
-      birthday_TextField.text = user.birthday
+      if user.birthday == ""{
+        birthday_TextField.placeholder = "請填寫生日"
+      } else {
+        birthday_TextField.text = user.birthday
+      }
     }
     
-    if user.gender == ""{
-      gender_TextField.text = "無"
+    if user.gender == nil {
+      gender_TextField.placeholder = "請填寫性別"
     } else {
-      gender_TextField.text = user.gender
+      if user.gender == ""{
+        gender_TextField.placeholder = "請填寫性別"
+      } else {
+        gender_TextField.text = user.gender
+      }
     }
-    self.hideKeyboardWhenTappedAround()
+    
     // Do any additional setup after loading the view.
   }
   
