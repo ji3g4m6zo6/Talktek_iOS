@@ -39,12 +39,12 @@ class PlayerViewController: UIViewController {
   @IBAction func playpause_Button_Tapped(_ sender: UIButton) {
     if selected == -1 {
       player.pause()
-      playpause_Button.setImage(UIImage(named: "暫停"), for: .normal)
+      playpause_Button.setImage(UIImage(named: "播放"), for: .normal)
       selected += 1
     } else {
       if self.player.status == .readyToPlay{
         player.play()
-        playpause_Button.setImage(UIImage(named: "播放"), for: .normal)
+        playpause_Button.setImage(UIImage(named: "暫停"), for: .normal)
         selected = -1
       }
     }

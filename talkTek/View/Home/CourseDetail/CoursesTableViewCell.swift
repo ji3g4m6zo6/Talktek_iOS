@@ -34,7 +34,7 @@ class CoursesTableViewCell: UITableViewCell {
   func video(courseId: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
-    databaseRef.child("VideoPlayer").child(courseId).observe(.childAdded) { (snapshot) in
+    databaseRef.child("AudioPlayer").child(courseId).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: String]{
         let audioItem = AudioItem()
         audioItem.Audio = dictionary["Audio"]

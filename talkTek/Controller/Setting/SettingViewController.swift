@@ -109,7 +109,7 @@ class SettingViewController: UIViewController {
         if user.name != ""{
           self.name_Label.text = user.name
         } else {
-          self.name_Label.text = "嗨你好:)"
+          self.name_Label.text = ""
         }
 
         if user.profileImageUrl != ""{

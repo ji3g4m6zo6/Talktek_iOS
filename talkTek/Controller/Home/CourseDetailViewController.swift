@@ -127,6 +127,7 @@ class CourseDetailViewController: UIViewController {
     print("uid is \(uid)")
     courseId = detailToGet.courseId!
     
+
     money()
     usersCourses()
   }

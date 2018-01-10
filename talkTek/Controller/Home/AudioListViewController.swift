@@ -48,7 +48,7 @@ class AudioListViewController: UIViewController {
   
   func fetchData(){
     // Get the number and root of collectionview
-        self.databaseRef.child("VideoPlayer").child(idToGet).observe(.childAdded) { (snapshot) in
+        self.databaseRef.child("AudioPlayer").child(idToGet).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: String]{
         let audioItem = AudioItem()
         
