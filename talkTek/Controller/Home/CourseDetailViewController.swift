@@ -211,7 +211,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
-      return 357
+      return UITableViewAutomaticDimension
     case DetailViewSection.courseInfo.rawValue:
       return 200.0
     case DetailViewSection.teacherInfo.rawValue:
@@ -222,7 +222,20 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       fatalError()
     }
   }
-  
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      return 367.0
+    case DetailViewSection.courseInfo.rawValue:
+      return 0
+    case DetailViewSection.teacherInfo.rawValue:
+      return 0
+    case DetailViewSection.courses.rawValue:
+      return 0
+    default:
+      fatalError()
+    }
+  }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch indexPath.section {
     case DetailViewSection.main.rawValue: break

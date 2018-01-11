@@ -24,7 +24,12 @@ class ProfessionCollectionViewCell: UICollectionViewCell {
   
   @IBOutlet weak var peopleBought_Label: UILabel!
   
+  @IBOutlet weak var moneyIcon_ImageView: UIImageView!
   override func layoutSubviews() {
+    
+    moneyIcon_ImageView.tintColor = UIColor.moneyYellow()
+
+    
     author_ImageView.layer.cornerRadius = author_ImageView.bounds.height / 2
     author_ImageView.layer.borderWidth = 2.0
     author_ImageView.layer.borderColor = UIColor.white.cgColor

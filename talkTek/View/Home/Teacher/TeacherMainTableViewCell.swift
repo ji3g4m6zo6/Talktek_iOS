@@ -18,12 +18,22 @@ class TeacherMainTableViewCell: UITableViewCell {
   
   @IBOutlet weak var time_Label: UILabel!
   
+  @IBOutlet weak var peopleIcon_ImageView: UIImageView!
+  
+  @IBOutlet weak var starIcon_ImageView: UIImageView!
+  
+  @IBOutlet weak var clockIcon_ImageView: UIImageView!
   
   
   
   
   
   override func layoutSubviews() {
+   
+    peopleIcon_ImageView.tintColor = UIColor.tealish()
+    starIcon_ImageView.tintColor = UIColor.tealish()
+    clockIcon_ImageView.tintColor = UIColor.tealish()
+    
     teacher_ImageView.layer.cornerRadius = teacher_ImageView.bounds.height / 2
     teacher_ImageView.layer.borderWidth = 2.0
     teacher_ImageView.layer.borderColor = UIColor.white.cgColor

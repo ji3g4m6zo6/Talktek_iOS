@@ -30,7 +30,26 @@ extension UIColor {
     let b = 248.0 / 255.0
     return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
   }
+  class func audioPlayGray() -> UIColor {
+    let r = 151.0 / 255.0
+    let g = 151.0 / 255.0
+    let b = 151.0 / 255.0
+    return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
+  }
   
+  class func cameraGray() -> UIColor {
+    let r = 173.0 / 255.0
+    let g = 173.0 / 255.0
+    let b = 173.0 / 255.0
+    return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
+  }
+  
+  class func moneyYellow() -> UIColor {
+    let r = 250.0 / 255.0
+    let g = 191.0 / 255.0
+    let b = 47.0 / 255.0
+    return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
+  }
   
   class func randomColor() -> UIColor {
     let r = (Int.random() % 256).double / 255.0

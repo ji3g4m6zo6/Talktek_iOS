@@ -25,6 +25,7 @@ class SettingViewController: UIViewController {
   var list = ["點數中心", "成為講師","意見反饋", "優惠碼", "關於"]
   @IBOutlet weak var tableView: UITableView!
   
+  @IBOutlet weak var cameraIcon_Button: UIButton!
   
   @IBOutlet weak var LogIn_LogOut: UIButton!
   
@@ -36,6 +37,8 @@ class SettingViewController: UIViewController {
     
     Edit_Button.width = 0
     
+    cameraIcon_Button.tintColor = UIColor.audioPlayGray()
+   cameraIcon_Button.layer.cornerRadius = cameraIcon_Button.bounds.height / 2
     profile_ImageView.layer.cornerRadius = profile_ImageView.bounds.height / 2
     profile_ImageView.layer.borderWidth = 2.0
     profile_ImageView.layer.borderColor = UIColor.white.cgColor

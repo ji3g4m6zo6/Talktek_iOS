@@ -20,6 +20,18 @@ class MainTableViewCell: UITableViewCell {
   
   @IBOutlet weak var courseHour_Label: UILabel!
   
+  
+  @IBOutlet weak var peopleIcon_ImageView: UIImageView!
+  
+  @IBOutlet weak var starIcon_ImageView: UIImageView!
+  
+  @IBOutlet weak var clockIcon_ImageView: UIImageView!
+  override func layoutSubviews() {
+    peopleIcon_ImageView.tintColor = UIColor.tealish()
+    starIcon_ImageView.tintColor = UIColor.tealish()
+    clockIcon_ImageView.tintColor = UIColor.tealish()
+    
+  }
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
@@ -30,5 +42,7 @@ class MainTableViewCell: UITableViewCell {
     
     // Configure the view for the selected state
   }
+  
+  
   
 }
