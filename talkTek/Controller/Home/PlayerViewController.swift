@@ -30,7 +30,11 @@ class PlayerViewController: UIViewController {
   @IBOutlet weak var topic_Label: UILabel!
   @IBOutlet weak var title_Label: UILabel!
   @IBOutlet weak var playpause_Button: UIButton!
-  
+  @IBOutlet weak var previous_Button: UIButton!
+  @IBOutlet weak var next_Button: UIButton!
+  @IBOutlet weak var slow_Button: UIButton!
+  @IBOutlet weak var speed_Button: UIButton!
+
   @IBOutlet weak var totalTime_Label: UILabel!
   @IBOutlet weak var currenttime_Label: UILabel!
   
@@ -132,6 +136,11 @@ class PlayerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    slow_Button.tintColor = UIColor.white
+    previous_Button.tintColor = UIColor.white
+    playpause_Button.tintColor = UIColor.white
+    next_Button.tintColor = UIColor.white
+    speed_Button.tintColor = UIColor.white
     
     
     topic_Label.text = audioData[thisSong].Topic
