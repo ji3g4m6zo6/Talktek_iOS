@@ -13,6 +13,11 @@ class TeacherDescriptionTableViewCell: UITableViewCell {
   
   @IBOutlet weak var description_TextView: UITextView!
   
+  @IBOutlet weak var expand_Button: UIButton!
+  
+  override func layoutSubviews() {
+    expand_Button.tintColor = UIColor.tealish()
+  }
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

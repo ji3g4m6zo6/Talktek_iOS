@@ -29,6 +29,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     IQKeyboardManager.sharedManager().enable = true
 
+    UINavigationBar.appearance().tintColor = UIColor(red: 35/255, green: 31/255, blue: 32/255, alpha: 1.0)
+    UINavigationBar.appearance().barTintColor = UIColor.white
+    UINavigationBar.appearance().shadowImage = UIImage()
+    UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    
+    UITabBar.appearance().tintColor = UIColor.tealish()
+    UITabBar.appearance().barTintColor = UIColor.white
+
     return true
   }
   

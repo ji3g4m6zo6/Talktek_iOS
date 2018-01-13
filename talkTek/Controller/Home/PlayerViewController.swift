@@ -16,6 +16,7 @@ class PlayerViewController: UIViewController {
   var audioData = [AudioItem]()
   var thisSong = 0
 
+  @IBOutlet weak var playerToBottom_Button: UIButton!
   @IBAction func PlayerToBottom_Button_Tapped(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
   }
@@ -141,7 +142,7 @@ class PlayerViewController: UIViewController {
     playpause_Button.tintColor = UIColor.white
     next_Button.tintColor = UIColor.white
     speed_Button.tintColor = UIColor.white
-    
+    playerToBottom_Button.tintColor = UIColor.white
     
     topic_Label.text = audioData[thisSong].Topic
     title_Label.text = audioData[thisSong].Title

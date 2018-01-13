@@ -51,6 +51,7 @@
 		044F0BC71FC5D7E200E98E45 /* CoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */; };
 		0468EA1B1FE4D3D600F9460B /* Courses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0468EA1A1FE4D3D600F9460B /* Courses.swift */; };
 		046D9BA01FBD2C1600ECDF07 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 046D9B9F1FBD2C1600ECDF07 /* .gitignore */; };
+		046F3FA3200A0872009C46F5 /* MainTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F3FA2200A0872009C46F5 /* MainTabBar.swift */; };
 		0478E5EF1FC0225700DD0169 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E5EE1FC0225700DD0169 /* HomeViewController.swift */; };
 		0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */; };
 		0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */; };
@@ -147,6 +148,7 @@
 		044F0BC61FC5D7E200E98E45 /* CoursesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesTableViewCell.swift; sourceTree = "<group>"; };
 		0468EA1A1FE4D3D600F9460B /* Courses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Courses.swift; sourceTree = "<group>"; };
 		046D9B9F1FBD2C1600ECDF07 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		046F3FA2200A0872009C46F5 /* MainTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBar.swift; sourceTree = "<group>"; };
 		0478E5EE1FC0225700DD0169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
 		0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 		0478E5ED1FC0224000DD0169 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				046F3FA2200A0872009C46F5 /* MainTabBar.swift */,
 				04402E8F1FCDB03200EC95EE /* Home */,
 				04402E8E1FCDB02500EC95EE /* Courses */,
 				04402E7B1FCDA2BF00EC95EE /* Setting */,
@@ -899,6 +902,7 @@
 				04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */,
 				041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */,
 				044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */,
+				046F3FA3200A0872009C46F5 /* MainTabBar.swift in Sources */,
 				042B48A31FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift in Sources */,
 				04ACB8F61FECCC3900105056 /* AudioHeaderTableViewCell.swift in Sources */,
 				04DD58A41FEA723B009944D2 /* ProfessionCollectionViewCell.swift in Sources */,
