@@ -29,6 +29,28 @@ class CourseDetailViewController: UIViewController {
       //Alert Not logged in yet
     }
   }
+  /*func calculateHeight(textView:UITextView, data: String) -> CGRect {
+    
+    var newFrame:CGRect!
+    
+    // I was using the HTML content here. If your content is not HTML you can just pass the stringValue to your textView
+    do {
+      let attr = try NSAttributedString(data: data)
+      //let attr = try NSAttributedString(data: data)
+      textView.attributedText = attr
+      
+    }catch {
+      //Handle Exceptions
+    }
+    
+    let fixedWidth = textView.frame.size.width
+    textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+    let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+    newFrame = textView.frame
+    newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+    print("height \(newFrame.height)")
+    return newFrame
+  }*/
   
   func convertToDictionary(text: String) -> [String: Any]? {
     if let data = text.data(using: .utf8) {
@@ -192,6 +214,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       let cell = tableView.dequeueReusableCell(withIdentifier: "courseInfo", for: indexPath) as! CourseInfoTableViewCell
       cell.courseInfo_Label.text = detailToGet.courseDescription
       
+      
       return cell
     case DetailViewSection.teacherInfo.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "teacherInfo", for: indexPath) as! TeacherInfoTableViewCell
@@ -215,13 +238,16 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     case DetailViewSection.main.rawValue: break
       
     case DetailViewSection.courseInfo.rawValue:
-      if selectedRowIndex == indexPath.row {
+      if selectedRowIndex == indexPath.section {
         selectedRowIndex = -1
       } else {
-        selectedRowIndex = indexPath.row
+        selectedRowIndex = indexPath.section
       }
-      tableView.reloadSections([DetailViewSection.courseInfo.rawValue], with: .automatic)
-
+      
+      //tableView.reloadSections([DetailViewSection.courseInfo.rawValue], with: .fade)
+     //tableView.reloadData()
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+      
     case DetailViewSection.teacherInfo.rawValue:
       performSegue(withIdentifier: "identifierTeacher", sender: self)
     case DetailViewSection.courses.rawValue:
@@ -237,11 +263,11 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     case DetailViewSection.main.rawValue:
       return UITableViewAutomaticDimension
     case DetailViewSection.courseInfo.rawValue:
-      if indexPath.row == selectedRowIndex {
+      //return UITableViewAutomaticDimension
+      if indexPath.section == selectedRowIndex {
         return UITableViewAutomaticDimension //Expanded
       }
       return 200.0 //Not expanded
-      //return 200.0
     case DetailViewSection.teacherInfo.rawValue:
       return 249.0
     case DetailViewSection.courses.rawValue:
@@ -255,11 +281,11 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     case DetailViewSection.main.rawValue:
       return 367.0
     case DetailViewSection.courseInfo.rawValue:
-      if indexPath.row == selectedRowIndex {
+      //return 400
+      if indexPath.section == selectedRowIndex {
         return 400 //Expanded
       }
       return 0 //Not expanded
-      //return 0
     case DetailViewSection.teacherInfo.rawValue:
       return 0
     case DetailViewSection.courses.rawValue:
