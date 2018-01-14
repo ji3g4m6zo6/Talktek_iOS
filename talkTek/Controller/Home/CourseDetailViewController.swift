@@ -14,10 +14,12 @@ import FirebaseAuth
 
 class CourseDetailViewController: UIViewController {
   
+  var selectedRowIndex = -1
+
   var detailToGet = HomeCourses()
   var uid = ""
-  @IBOutlet weak var buy_View: UIView!
   
+  @IBOutlet weak var buy_View: UIView!
   @IBOutlet weak var buy_Button: UIButton!
   
   @IBAction func buy_Button_Tapped(_ sender: UIButton) {
@@ -208,12 +210,38 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     default: fatalError()
     }
   }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue: break
+      
+    case DetailViewSection.courseInfo.rawValue:
+      if selectedRowIndex == indexPath.row {
+        selectedRowIndex = -1
+      } else {
+        selectedRowIndex = indexPath.row
+      }
+      tableView.reloadSections([DetailViewSection.courseInfo.rawValue], with: .automatic)
+
+    case DetailViewSection.teacherInfo.rawValue:
+      performSegue(withIdentifier: "identifierTeacher", sender: self)
+    case DetailViewSection.courses.rawValue:
+      performSegue(withIdentifier: "identifierPlayer", sender: self)
+
+      
+    default: fatalError()
+    }
+  }
+  
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
       return UITableViewAutomaticDimension
     case DetailViewSection.courseInfo.rawValue:
-      return 200.0
+      if indexPath.row == selectedRowIndex {
+        return UITableViewAutomaticDimension //Expanded
+      }
+      return 200.0 //Not expanded
+      //return 200.0
     case DetailViewSection.teacherInfo.rawValue:
       return 249.0
     case DetailViewSection.courses.rawValue:
@@ -227,28 +255,17 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     case DetailViewSection.main.rawValue:
       return 367.0
     case DetailViewSection.courseInfo.rawValue:
-      return 0
+      if indexPath.row == selectedRowIndex {
+        return 400 //Expanded
+      }
+      return 0 //Not expanded
+      //return 0
     case DetailViewSection.teacherInfo.rawValue:
       return 0
     case DetailViewSection.courses.rawValue:
       return 0
     default:
       fatalError()
-    }
-  }
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    switch indexPath.section {
-    case DetailViewSection.main.rawValue: break
-      
-    case DetailViewSection.courseInfo.rawValue: break
-      
-    case DetailViewSection.teacherInfo.rawValue:
-      performSegue(withIdentifier: "identifierTeacher", sender: self)
-    case DetailViewSection.courses.rawValue:
-      performSegue(withIdentifier: "identifierPlayer", sender: self)
-
-      
-    default: fatalError()
     }
   }
 }
