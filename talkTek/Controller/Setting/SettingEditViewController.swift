@@ -250,17 +250,7 @@ class SettingEditViewController: UIViewController {
    */
   
 }
-extension SettingEditViewController {
-  
-  func hideKeyboardWhenTappedAround(){
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-    view.addGestureRecognizer(tap)
-  }
-  @objc func dismissKeyboard() {
-    view.endEditing(true)
-  }
-  
-}
+
 
 extension SettingEditViewController: UIPickerViewDataSource, UIPickerViewDelegate {
   func numberOfComponents(in pickerView: UIPickerView) -> Int {

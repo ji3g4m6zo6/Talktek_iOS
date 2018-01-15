@@ -17,7 +17,6 @@ class SignUpViewController: UIViewController {
   @IBOutlet weak var password_TextField: UITextField!
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
   }
   
@@ -101,14 +100,3 @@ class SignUpViewController: UIViewController {
   
 }
 
-extension SignUpViewController {
-  
-  func hideKeyboardWhenTappedAround(){
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-    view.addGestureRecognizer(tap)
-  }
-  @objc func dismissKeyboard() {
-    view.endEditing(true)
-  }
-  
-}

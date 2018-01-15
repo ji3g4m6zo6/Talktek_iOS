@@ -11,7 +11,7 @@ import UIKit
 class TeacherDescriptionTableViewCell: UITableViewCell {
   
   
-  @IBOutlet weak var description_TextView: UITextView!
+  @IBOutlet weak var description_Label: UILabel!
   
   @IBOutlet weak var expand_Button: UIButton!
   

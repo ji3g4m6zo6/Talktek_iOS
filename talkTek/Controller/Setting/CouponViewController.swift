@@ -25,7 +25,6 @@ class CouponViewController: UIViewController {
     
     fetchData()
     
-    self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
   }
   var uid = ""
@@ -143,16 +142,5 @@ class CouponViewController: UIViewController {
    // Pass the selected object to the new view controller.
    }
    */
-  
-}
-extension CouponViewController {
-  
-  func hideKeyboardWhenTappedAround(){
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-    view.addGestureRecognizer(tap)
-  }
-  @objc func dismissKeyboard() {
-    view.endEditing(true)
-  }
   
 }

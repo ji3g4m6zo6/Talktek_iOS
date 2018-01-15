@@ -11,8 +11,30 @@ import Firebase
 import FBSDKLoginKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseAuthUI
+import FirebaseFacebookAuthUI
 
-class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
+class MainLogInViewController: UIViewController, FUIAuthDelegate {
+  func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
+    if error != nil {
+      //Problem signing in
+      logIn()
+    }else {
+      //User is in! Here is where we code after signing in
+      
+    }
+  }
+
+//  func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
+//    if error != nil {
+//      //Problem signing in
+//      logIn()
+//    }else {
+//      //User is in! Here is where we code after signing in
+//
+//    }
+//  }
+  
   
  //, GIDSignInUIDelegate, GIDSignInDelegate
   @IBOutlet weak var facebook_Button: FBSDKLoginButton!
@@ -21,7 +43,7 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    listenToState()
+    checkLoggedIn()
     // Initialize sign-in
    /* GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     GIDSignIn.sharedInstance().delegate = self
@@ -33,28 +55,36 @@ class MainLogInViewController: UIViewController, FBSDKLoginButtonDelegate {
     // Dispose of any resources that can be recreated.
   }
   
-  func listenToState(){
+  func checkLoggedIn(){
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
-        
+        // user is logged in
         print("Freakin user id is \(user?.uid ?? "") ")
         self.self.databaseRef = Database.database().reference()
-
         self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
-        self.performSegue(withIdentifier: "identifierTab", sender: self)
         //self.dismiss(animated: true, completion: nil)
         //self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
-      }
-      else
-      {
-        self.facebook_Button.readPermissions = ["public_profile", "email"]
-        self.facebook_Button.delegate = self
-        self.facebook_Button.isHidden = false
+      } else {
+        // No user is signed in
+        self.logIn()
+        //self.facebook_Button.readPermissions = ["public_profile", "email"]
+        //self.facebook_Button.delegate = self
+        //self.facebook_Button.isHidden = false
       }
     }
   }
   
-/*
+  func logIn(){
+    let authUI = FUIAuth.defaultAuthUI()
+    let facebookProvider = FUIFacebookAuth()
+    authUI?.delegate = self
+    authUI?.providers = [facebookProvider]
+    
+    self.performSegue(withIdentifier: "identifierTab", sender: self)
+
+  }
+  
+  /*
   // Google
   func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error?) {
     // ...

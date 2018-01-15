@@ -2611,39 +2611,41 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZk-Vd-EdE">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZk-Vd-EdE">
                                                             <rect key="frame" x="0.0" y="51" width="355" height="1"/>
                                                             <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="1" id="hP3-Jd-3ea"/>
                                                                 <constraint firstAttribute="height" constant="1" id="zBx-SO-uBR"/>
                                                             </constraints>
                                                         </view>
-                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F5p-tJ-KdH">
-                                                            <rect key="frame" x="15" y="67" width="325" height="87.5"/>
-                                                            <string key="text">台大心研所畢，彰師大諮商輔導所博士生，筆名
-海苔熊，是一種結合可愛與可口的動物，和哲學
-哲學雞蛋糕的老闆朱家安與泛科學前總編陸子鈞
-有著複雜的三角關係。目前為泛科學、女人迷...</string>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                        </textView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-mF-2az">
-                                                            <rect key="frame" x="170" y="159.5" width="15" height="22"/>
+                                                            <rect key="frame" x="170" y="166.5" width="15" height="15"/>
                                                             <color key="tintColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" image="往下"/>
                                                         </button>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="台大心研所畢，彰師大諮商輔導所博士生，筆名海苔熊，是一種結合可愛與可口的動物，和哲學雞蛋糕..." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NDt-QE-hZ1">
+                                                            <rect key="frame" x="15" y="67" width="325" height="87.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
+                                                        <constraint firstItem="IZk-Vd-EdE" firstAttribute="leading" secondItem="IJa-QL-H3W" secondAttribute="leading" id="18G-ve-ty9"/>
+                                                        <constraint firstAttribute="trailing" secondItem="NDt-QE-hZ1" secondAttribute="trailing" constant="15" id="8Fl-L2-bfZ"/>
+                                                        <constraint firstItem="ppO-mF-2az" firstAttribute="top" secondItem="NDt-QE-hZ1" secondAttribute="bottom" constant="12" id="Coe-gD-AwX"/>
                                                         <constraint firstItem="FXS-q4-UxG" firstAttribute="top" secondItem="IJa-QL-H3W" secondAttribute="top" constant="15" id="Cqu-yU-FbM"/>
-                                                        <constraint firstItem="F5p-tJ-KdH" firstAttribute="top" secondItem="IZk-Vd-EdE" secondAttribute="bottom" constant="15" id="IKd-uA-aVZ"/>
-                                                        <constraint firstItem="F5p-tJ-KdH" firstAttribute="leading" secondItem="IJa-QL-H3W" secondAttribute="leading" constant="15" id="IV5-DX-N9b"/>
+                                                        <constraint firstItem="NDt-QE-hZ1" firstAttribute="top" secondItem="IZk-Vd-EdE" secondAttribute="bottom" constant="15" id="E9I-wF-eTl"/>
+                                                        <constraint firstItem="IZk-Vd-EdE" firstAttribute="top" secondItem="IJa-QL-H3W" secondAttribute="top" constant="51" id="NKf-A6-9ke"/>
                                                         <constraint firstAttribute="bottom" secondItem="ppO-mF-2az" secondAttribute="bottom" constant="12" id="U4w-TZ-ef6"/>
-                                                        <constraint firstAttribute="bottom" secondItem="F5p-tJ-KdH" secondAttribute="bottom" constant="39" id="Utd-2E-c1a"/>
                                                         <constraint firstItem="ppO-mF-2az" firstAttribute="centerX" secondItem="IJa-QL-H3W" secondAttribute="centerX" id="V9M-B0-2Nx"/>
+                                                        <constraint firstAttribute="bottom" secondItem="NDt-QE-hZ1" secondAttribute="bottom" constant="39" id="Wf4-qJ-5dZ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="IZk-Vd-EdE" secondAttribute="trailing" id="YUy-Cn-CWV"/>
                                                         <constraint firstItem="IZk-Vd-EdE" firstAttribute="top" secondItem="FXS-q4-UxG" secondAttribute="bottom" constant="15" id="hso-0u-X41"/>
                                                         <constraint firstItem="FXS-q4-UxG" firstAttribute="centerX" secondItem="IJa-QL-H3W" secondAttribute="centerX" id="nBy-8L-Zt7"/>
-                                                        <constraint firstAttribute="trailing" secondItem="F5p-tJ-KdH" secondAttribute="trailing" constant="15" id="piO-1d-t73"/>
+                                                        <constraint firstItem="NDt-QE-hZ1" firstAttribute="leading" secondItem="IJa-QL-H3W" secondAttribute="leading" constant="15" id="u1g-7J-D1s"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
@@ -2669,7 +2671,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="description_TextView" destination="F5p-tJ-KdH" id="ZVH-JI-le6"/>
+                                            <outlet property="description_Label" destination="NDt-QE-hZ1" id="tH2-ES-XQ3"/>
                                             <outlet property="expand_Button" destination="ppO-mF-2az" id="Q9s-Qq-fRt"/>
                                         </connections>
                                     </tableViewCell>
@@ -4578,7 +4580,6 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="irW-5M-Rbk"/>
         <segue reference="vOA-a3-KS8"/>
         <segue reference="aZH-O9-L6d"/>
     </inferredMetricsTieBreakers>

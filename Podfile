@@ -13,6 +13,9 @@ target 'talkTek' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
 
+# Firebase/Facebook UI
+  pod 'FirebaseUI/Facebook'
+
 # Facebook
   pod 'Bolts'
   pod 'FBSDKCoreKit'

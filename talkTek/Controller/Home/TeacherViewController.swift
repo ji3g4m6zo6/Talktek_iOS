@@ -10,7 +10,8 @@ import UIKit
 
 class TeacherViewController: UIViewController {
   
-  
+  var selectedRowIndex = -1
+
   @IBOutlet weak var tableView: UITableView!
   var idToGet = ""
   var courseToGet = HomeCourses()
@@ -79,7 +80,7 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
       return cell
     case DetailViewSection.description.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! TeacherDescriptionTableViewCell
-      cell.description_TextView.text = courseToGet.authorDescription
+      cell.description_Label.text = courseToGet.authorDescription
       return cell
     case DetailViewSection.courses.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
@@ -89,12 +90,47 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
       fatalError()
     }
   }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue: break
+      
+    case DetailViewSection.description.rawValue:
+      if selectedRowIndex == indexPath.section {
+        selectedRowIndex = -1
+      } else {
+        selectedRowIndex = indexPath.section
+      }
+      tableView.reloadRows(at: [indexPath], with: .automatic)
+    case DetailViewSection.courses.rawValue: break
+      
+    default:
+      fatalError()
+    }
+  }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
       return 352
     case DetailViewSection.description.rawValue:
-      return 204
+      if indexPath.section == selectedRowIndex {
+        return UITableViewAutomaticDimension //Expanded
+      }
+      return 204.0 //Not expanded
+    case DetailViewSection.courses.rawValue:
+      return 468
+    default:
+      fatalError()
+    }
+  }
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      return 352
+    case DetailViewSection.description.rawValue:
+      if indexPath.section == selectedRowIndex {
+        return 400 //Expanded
+      }
+      return 0 //Not expanded
     case DetailViewSection.courses.rawValue:
       return 468
     default:

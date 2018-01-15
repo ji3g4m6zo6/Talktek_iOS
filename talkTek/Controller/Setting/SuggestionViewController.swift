@@ -20,7 +20,6 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.hideKeyboardWhenTappedAround()
     
     name_TextField.layer.borderWidth = 1.0
     name_TextField.layer.borderColor = UIColor.borderGray().cgColor
@@ -117,16 +116,5 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
   }
   
   
-  
-}
-extension SuggestionViewController {
-  
-  func hideKeyboardWhenTappedAround(){
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-    view.addGestureRecognizer(tap)
-  }
-  @objc func dismissKeyboard() {
-    view.endEditing(true)
-  }
   
 }

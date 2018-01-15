@@ -15,7 +15,6 @@ class ForgotPasswordViewController: UIViewController {
   @IBOutlet weak var email_TextField: UITextField!
   override func viewDidLoad() {
     super.viewDidLoad()
-    self.hideKeyboardWhenTappedAround()
     // Do any additional setup after loading the view.
   }
   
@@ -72,16 +71,5 @@ class ForgotPasswordViewController: UIViewController {
    // Pass the selected object to the new view controller.
    }
    */
-  
-}
-extension ForgotPasswordViewController {
-  
-  func hideKeyboardWhenTappedAround(){
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-    view.addGestureRecognizer(tap)
-  }
-  @objc func dismissKeyboard() {
-    view.endEditing(true)
-  }
   
 }

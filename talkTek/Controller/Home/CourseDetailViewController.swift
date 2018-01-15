@@ -29,28 +29,7 @@ class CourseDetailViewController: UIViewController {
       //Alert Not logged in yet
     }
   }
-  /*func calculateHeight(textView:UITextView, data: String) -> CGRect {
-    
-    var newFrame:CGRect!
-    
-    // I was using the HTML content here. If your content is not HTML you can just pass the stringValue to your textView
-    do {
-      let attr = try NSAttributedString(data: data)
-      //let attr = try NSAttributedString(data: data)
-      textView.attributedText = attr
-      
-    }catch {
-      //Handle Exceptions
-    }
-    
-    let fixedWidth = textView.frame.size.width
-    textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-    let newSize = textView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-    newFrame = textView.frame
-    newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
-    print("height \(newFrame.height)")
-    return newFrame
-  }*/
+  
   
   func convertToDictionary(text: String) -> [String: Any]? {
     if let data = text.data(using: .utf8) {
@@ -244,8 +223,6 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
         selectedRowIndex = indexPath.section
       }
       
-      //tableView.reloadSections([DetailViewSection.courseInfo.rawValue], with: .fade)
-     //tableView.reloadData()
       tableView.reloadRows(at: [indexPath], with: .automatic)
       
     case DetailViewSection.teacherInfo.rawValue:
@@ -263,7 +240,6 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     case DetailViewSection.main.rawValue:
       return UITableViewAutomaticDimension
     case DetailViewSection.courseInfo.rawValue:
-      //return UITableViewAutomaticDimension
       if indexPath.section == selectedRowIndex {
         return UITableViewAutomaticDimension //Expanded
       }
@@ -281,7 +257,6 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     case DetailViewSection.main.rawValue:
       return 367.0
     case DetailViewSection.courseInfo.rawValue:
-      //return 400
       if indexPath.section == selectedRowIndex {
         return 400 //Expanded
       }
