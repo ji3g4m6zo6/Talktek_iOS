@@ -14,7 +14,7 @@ import FirebaseDatabase
 import FirebaseAuthUI
 import FirebaseFacebookAuthUI
 
-class MainLogInViewController: UIViewController, FUIAuthDelegate {
+class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButtonDelegate {
   func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
     if error != nil {
       //Problem signing in
@@ -38,6 +38,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate {
   
  //, GIDSignInUIDelegate, GIDSignInDelegate
   @IBOutlet weak var facebook_Button: FBSDKLoginButton!
+  
   var databaseRef: DatabaseReference!
   
   override func viewDidLoad() {
@@ -59,17 +60,22 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate {
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{
         // user is logged in
+        
+        self.facebook_Button.readPermissions = ["public_profile", "email"]
+        print("permission \(self.facebook_Button.readPermissions)")
+        
         print("Freakin user id is \(user?.uid ?? "") ")
         self.self.databaseRef = Database.database().reference()
         self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
-        //self.dismiss(animated: true, completion: nil)
-        //self.performSegue(withIdentifier: "HomeTabSegue", sender: self)
+        self.performSegue(withIdentifier: "identifierTab", sender: self)
+
       } else {
         // No user is signed in
-        self.logIn()
-        //self.facebook_Button.readPermissions = ["public_profile", "email"]
-        //self.facebook_Button.delegate = self
-        //self.facebook_Button.isHidden = false
+        //self.logIn()
+        self.facebook_Button.readPermissions = ["public_profile", "email"]
+        print("permission \(self.facebook_Button.readPermissions)")
+        self.facebook_Button.delegate = self
+        self.facebook_Button.isHidden = false
       }
     }
   }
@@ -206,4 +212,42 @@ extension MainLogInViewController{
   }
   
 }
+
+/*
+class FacebookButton: FBSDKLoginButton {
+  
+  override func updateConstraints() {
+    // deactivate height constraints added by the facebook sdk (we'll force our own instrinsic height)
+    for contraint in constraints {
+      if contraint.firstAttribute == .height, contraint.constant < standardButtonHeight {
+        // deactivate this constraint
+        contraint.isActive = false
+      }
+    }
+    super.updateConstraints()
+  }
+  
+  override var intrinsicContentSize: CGSize {
+    return CGSize(width: UIViewNoIntrinsicMetric, height: standardButtonHeight)
+  }
+  
+  override func imageRect(forContentRect contentRect: CGRect) -> CGRect {
+    let logoSize: CGFloat = 24.0
+    let centerY = contentRect.midY
+    let y: CGFloat = centerY - (logoSize / 2.0)
+    return CGRect(x: y, y: y, width: logoSize, height: logoSize)
+  }
+  
+  override func titleRect(forContentRect contentRect: CGRect) -> CGRect {
+    if isHidden || bounds.isEmpty {
+      return .zero
+    }
+    
+    let imageRect = self.imageRect(forContentRect: contentRect)
+    let titleX = imageRect.maxX
+    let titleRect = CGRect(x: titleX, y: 0, width: contentRect.width - titleX - titleX, height: contentRect.height)
+    return titleRect
+  }
+  
+}*/
 
