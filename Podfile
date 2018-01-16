@@ -26,7 +26,7 @@ target 'talkTek' do
   pod 'GoogleSignIn'
 
 # ObjectMapper
-pod 'ObjectMapper', '~> 2.2'
+pod 'ObjectMapper', '~> 3.1'
 
 # Kingfisher
 pod 'Kingfisher', '~> 4.0'

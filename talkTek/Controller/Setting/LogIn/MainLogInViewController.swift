@@ -249,5 +249,5 @@ class FacebookButton: FBSDKLoginButton {
     return titleRect
   }
   
-}*/
-
+}
+*/
