@@ -139,7 +139,7 @@ class PlayerViewController: UIViewController {
     
     slow_Button.tintColor = UIColor.white
     previous_Button.tintColor = UIColor.white
-    playpause_Button.tintColor = UIColor.tealish()
+    playpause_Button.tintColor = UIColor.white
     next_Button.tintColor = UIColor.white
     speed_Button.tintColor = UIColor.white
     playerToBottom_Button.tintColor = UIColor.white
