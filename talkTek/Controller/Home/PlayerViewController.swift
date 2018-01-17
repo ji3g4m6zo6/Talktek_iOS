@@ -44,12 +44,12 @@ class PlayerViewController: UIViewController {
   @IBAction func playpause_Button_Tapped(_ sender: UIButton) {
     if selected == -1 {
       player.pause()
-      playpause_Button.setImage(UIImage(named: "播放"), for: .normal)
+      playpause_Button.setImage(UIImage(named: "播放(大)"), for: .normal)
       selected += 1
     } else {
       if self.player.status == .readyToPlay{
         player.play()
-        playpause_Button.setImage(UIImage(named: "暫停"), for: .normal)
+        playpause_Button.setImage(UIImage(named: "暫停(大)"), for: .normal)
         selected = -1
       }
     }
@@ -139,7 +139,7 @@ class PlayerViewController: UIViewController {
     
     slow_Button.tintColor = UIColor.white
     previous_Button.tintColor = UIColor.white
-    playpause_Button.tintColor = UIColor.white
+    playpause_Button.tintColor = UIColor.tealish()
     next_Button.tintColor = UIColor.white
     speed_Button.tintColor = UIColor.white
     playerToBottom_Button.tintColor = UIColor.white
@@ -159,7 +159,7 @@ class PlayerViewController: UIViewController {
     slider_UISlider.minimumValue = 0
     slider_UISlider.maximumValue = 1
     slider_UISlider.value = 0
-
+    slider_UISlider.setThumbImage(UIImage(named: "播放條"), for: .normal)
     
     self.link = CADisplayLink(target: self, selector: #selector(update))
     self.link.add(to: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
@@ -206,6 +206,7 @@ class PlayerViewController: UIViewController {
       if playerItem.status == AVPlayerItemStatus.readyToPlay{
         // 只有readyToPlay狀態，才能播放
         self.player.play()
+        playpause_Button.setImage(UIImage(named: "暫停(大)"), for: .normal)
       }else{
         print("加載異常")
       }

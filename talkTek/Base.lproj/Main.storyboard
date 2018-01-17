@@ -386,7 +386,7 @@
                                                     <rect key="frame" x="10" y="5" width="355" height="189.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="scJ-aG-T1y">
-                                                            <rect key="frame" x="170" y="162.5" width="15" height="22"/>
+                                                            <rect key="frame" x="167.5" y="162.5" width="20" height="22"/>
                                                             <color key="tintColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" image="往下">
                                                                 <color key="titleColor" red="0.12156862745098039" green="0.74901960784313726" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2409,7 +2409,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PMf-Cz-lll">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PMf-Cz-lll">
                                 <rect key="frame" x="0.0" y="20" width="375" height="1180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
@@ -2417,7 +2417,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="352"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7vg-3n-Eo7" id="WbW-5V-XvG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="351.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="352"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pqB-3S-yJb" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
@@ -2612,7 +2612,7 @@
                                         <rect key="frame" x="0.0" y="380" width="375" height="204"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="k05-fh-kez" id="FUB-6f-AsB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="203.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IJa-QL-H3W" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
@@ -2633,7 +2633,7 @@
                                                             </constraints>
                                                         </view>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-mF-2az">
-                                                            <rect key="frame" x="170" y="166.5" width="15" height="15"/>
+                                                            <rect key="frame" x="167.5" y="166.5" width="20" height="15"/>
                                                             <color key="tintColor" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <state key="normal" image="往下"/>
                                                         </button>
@@ -2692,7 +2692,7 @@
                                         <rect key="frame" x="0.0" y="584" width="375" height="478"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KXN-1E-yTK" id="che-bR-Pak">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="477.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="478"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iFU-cN-hGW" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
@@ -2885,7 +2885,7 @@
                                     <constraint firstAttribute="width" constant="50" id="GSr-sa-IGf"/>
                                     <constraint firstAttribute="height" constant="50" id="g4b-Sj-auu"/>
                                 </constraints>
-                                <state key="normal" image="播放"/>
+                                <state key="normal" image="播放(大)"/>
                                 <connections>
                                     <action selector="playpause_Button_Tapped:" destination="IAP-L2-xR2" eventType="touchUpInside" id="5Hc-cA-Ljr"/>
                                 </connections>
@@ -2948,10 +2948,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjE-HR-6hd">
-                                <rect key="frame" x="25" y="38.5" width="25" height="25"/>
+                                <rect key="frame" x="25" y="36" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="25" id="Vwb-2d-MJB"/>
-                                    <constraint firstAttribute="width" constant="25" id="tHP-PH-lHQ"/>
+                                    <constraint firstAttribute="height" constant="20" id="Vwb-2d-MJB"/>
+                                    <constraint firstAttribute="width" constant="20" id="tHP-PH-lHQ"/>
                                 </constraints>
                                 <state key="normal" image="往下"/>
                                 <connections>
@@ -2992,7 +2992,7 @@
                             <constraint firstItem="loi-A3-4d2" firstAttribute="centerY" secondItem="pEO-ov-2CG" secondAttribute="centerY" id="KBC-Gn-hnS"/>
                             <constraint firstItem="Clj-nO-n7t" firstAttribute="top" secondItem="tdK-vc-Fql" secondAttribute="bottom" constant="55.200000000000003" id="KHa-KS-j7C"/>
                             <constraint firstItem="ZDM-Ih-KF7" firstAttribute="centerY" secondItem="pEO-ov-2CG" secondAttribute="centerY" id="L8Q-U8-QWh"/>
-                            <constraint firstItem="DjE-HR-6hd" firstAttribute="top" secondItem="W9U-Ok-hs5" secondAttribute="top" constant="18.5" id="OJF-NL-jVJ"/>
+                            <constraint firstItem="DjE-HR-6hd" firstAttribute="top" secondItem="W9U-Ok-hs5" secondAttribute="top" constant="16" id="OJF-NL-jVJ"/>
                             <constraint firstItem="HEX-0J-5YP" firstAttribute="top" secondItem="loi-A3-4d2" secondAttribute="bottom" constant="25" id="QHa-cD-cuv"/>
                             <constraint firstItem="ZDM-Ih-KF7" firstAttribute="leading" secondItem="fbq-0y-41z" secondAttribute="trailing" constant="47" id="Qe4-g8-t6u"/>
                             <constraint firstItem="tdK-vc-Fql" firstAttribute="leading" secondItem="W9U-Ok-hs5" secondAttribute="leading" constant="10" id="RGg-hi-QiR"/>
@@ -4578,9 +4578,10 @@
         <image name="TestIcon" width="160" height="160"/>
         <image name="i8 第一登入頁" width="375" height="667"/>
         <image name="logo" width="240" height="320"/>
-        <image name="往下" width="15" height="15"/>
+        <image name="往下" width="20" height="20"/>
         <image name="心願" width="17" height="17"/>
         <image name="播放" width="20" height="20"/>
+        <image name="播放(大)" width="50" height="50"/>
         <image name="播放器_下一首" width="20" height="20"/>
         <image name="播放器_前一首" width="20" height="20"/>
         <image name="播放器_往前15秒" width="25" height="25"/>
