@@ -217,13 +217,17 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     case DetailViewSection.main.rawValue: break
       
     case DetailViewSection.courseInfo.rawValue:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "courseInfo", for: indexPath) as! CourseInfoTableViewCell
       if selectedRowIndex == indexPath.section {
         selectedRowIndex = -1
+        cell.expandIcon_Button.setImage(UIImage(named: "往上"), for: .normal)
       } else {
         selectedRowIndex = indexPath.section
+        cell.expandIcon_Button.setImage(UIImage(named: "往上"), for: .normal)
+
       }
-      
-      tableView.reloadRows(at: [indexPath], with: .automatic)
+      let index = IndexPath(item: 0, section: 1)
+      tableView.reloadRows(at: [index], with: .automatic)
       
     case DetailViewSection.teacherInfo.rawValue:
       performSegue(withIdentifier: "identifierTeacher", sender: self)

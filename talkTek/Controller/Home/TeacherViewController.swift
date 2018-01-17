@@ -95,12 +95,17 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
     case DetailViewSection.main.rawValue: break
       
     case DetailViewSection.description.rawValue:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "descriptionCell", for: indexPath) as! TeacherDescriptionTableViewCell
       if selectedRowIndex == indexPath.section {
         selectedRowIndex = -1
+        cell.expand_Button.setImage(UIImage(named: "往上"), for: .normal)
       } else {
         selectedRowIndex = indexPath.section
+        cell.expand_Button.setImage(UIImage(named: "往上"), for: .normal)
       }
-      tableView.reloadRows(at: [indexPath], with: .automatic)
+      let index = IndexPath(item: 0, section: 1)
+      tableView.reloadRows(at: [index], with: .automatic)
+
     case DetailViewSection.courses.rawValue: break
       
     default:
