@@ -867,7 +867,7 @@
                                     <constraint firstAttribute="width" constant="130" id="Fz0-01-J0d"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUw-Dg-GOk" customClass="FBSDKLoginButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eUw-Dg-GOk">
                                 <rect key="frame" x="25" y="459" width="325" height="50"/>
                                 <color key="backgroundColor" red="0.23137254901960785" green="0.30980392156862746" blue="0.59607843137254901" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -937,14 +937,26 @@
                                     <action selector="Later_Button_Tapped:" destination="MJm-Ue-1DI" eventType="touchUpInside" id="U1L-2y-EpI"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ic2-Ft-T5n" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
+                                <rect key="frame" x="25" y="459" width="325" height="50"/>
+                                <color key="backgroundColor" red="0.23137254900000001" green="0.30980392159999998" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <constraints>
                             <constraint firstItem="cZL-o8-rsb" firstAttribute="bottom" secondItem="YDF-yh-b1T" secondAttribute="bottom" constant="218" id="0Y4-1Y-kaj"/>
                             <constraint firstItem="GZG-19-C39" firstAttribute="trailing" secondItem="cZL-o8-rsb" secondAttribute="trailing" id="11j-cZ-jJj"/>
+                            <constraint firstItem="eUw-Dg-GOk" firstAttribute="bottom" secondItem="ic2-Ft-T5n" secondAttribute="bottom" id="AiK-uT-tYo"/>
                             <constraint firstItem="EUX-sx-OtY" firstAttribute="centerX" secondItem="TAV-4M-2h0" secondAttribute="centerX" id="Eja-hK-aXo"/>
+                            <constraint firstItem="eUw-Dg-GOk" firstAttribute="leading" secondItem="ic2-Ft-T5n" secondAttribute="leading" id="HsA-mp-BCY"/>
                             <constraint firstItem="eUw-Dg-GOk" firstAttribute="leading" secondItem="cZL-o8-rsb" secondAttribute="leading" constant="25" id="JSp-Kl-i9X"/>
                             <constraint firstItem="cZL-o8-rsb" firstAttribute="trailing" secondItem="Syb-ai-KC9" secondAttribute="trailing" constant="25" id="JT3-JY-aiB"/>
                             <constraint firstItem="cZL-o8-rsb" firstAttribute="bottom" secondItem="BbP-WW-FD3" secondAttribute="bottom" constant="98" id="JjF-iF-XR3"/>
+                            <constraint firstItem="eUw-Dg-GOk" firstAttribute="top" secondItem="ic2-Ft-T5n" secondAttribute="top" id="KUx-bA-Swu"/>
                             <constraint firstItem="cZL-o8-rsb" firstAttribute="trailing" secondItem="eUw-Dg-GOk" secondAttribute="trailing" constant="25" id="KX3-PE-bEg"/>
                             <constraint firstItem="cZL-o8-rsb" firstAttribute="bottom" secondItem="Syb-ai-KC9" secondAttribute="bottom" constant="218" id="QqP-0n-uOp"/>
                             <constraint firstItem="GZG-19-C39" firstAttribute="top" secondItem="TAV-4M-2h0" secondAttribute="top" id="WOT-lk-Bk2"/>
@@ -956,12 +968,13 @@
                             <constraint firstItem="cZL-o8-rsb" firstAttribute="bottom" secondItem="rJk-ab-nb0" secondAttribute="bottom" constant="68" id="rM2-Ub-0qb"/>
                             <constraint firstItem="cZL-o8-rsb" firstAttribute="trailing" secondItem="BbP-WW-FD3" secondAttribute="trailing" constant="25" id="w6j-Gj-SHU"/>
                             <constraint firstItem="GZG-19-C39" firstAttribute="bottom" secondItem="cZL-o8-rsb" secondAttribute="bottom" id="whx-Vh-CTS"/>
+                            <constraint firstItem="eUw-Dg-GOk" firstAttribute="trailing" secondItem="ic2-Ft-T5n" secondAttribute="trailing" id="wmE-GL-TWb"/>
                             <constraint firstItem="rJk-ab-nb0" firstAttribute="centerX" secondItem="TAV-4M-2h0" secondAttribute="centerX" id="xcS-VR-xzY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cZL-o8-rsb"/>
                     </view>
                     <connections>
-                        <outlet property="facebook_Button" destination="eUw-Dg-GOk" id="jbj-cQ-KoX"/>
+                        <outlet property="facebook_View" destination="ic2-Ft-T5n" id="W8k-EL-1YB"/>
                         <segue destination="FxB-0D-AF7" kind="show" identifier="identifierLogIn" id="PT2-lo-bUe"/>
                         <segue destination="Buo-Er-AcS" kind="show" identifier="identifierSignUp" id="ROq-cp-tzG"/>
                         <segue destination="B1x-Io-Rfr" kind="presentation" identifier="identifierTab" id="vOA-a3-KS8"/>

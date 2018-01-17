@@ -13,6 +13,7 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseAuthUI
 import FirebaseFacebookAuthUI
+import SnapKit
 
 class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButtonDelegate {
   func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
@@ -35,14 +36,19 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
 //    }
 //  }
   
-  
  //, GIDSignInUIDelegate, GIDSignInDelegate
-  @IBOutlet weak var facebook_Button: FBSDKLoginButton!
+  let facebook_Button = FacebookButton()
   
+  @IBOutlet weak var facebook_View: UIView!
   var databaseRef: DatabaseReference!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    facebook_View.addSubview(facebook_Button)
+    facebook_Button.snp.makeConstraints { (make) in
+      make.top.left.right.bottom.equalTo(facebook_View)
+    }
     
     checkLoggedIn()
     // Initialize sign-in
@@ -213,9 +219,9 @@ extension MainLogInViewController{
   
 }
 
-/*
+
 class FacebookButton: FBSDKLoginButton {
-  
+  let standardButtonHeight: CGFloat = 50.0
   override func updateConstraints() {
     // deactivate height constraints added by the facebook sdk (we'll force our own instrinsic height)
     for contraint in constraints {
@@ -250,4 +256,4 @@ class FacebookButton: FBSDKLoginButton {
   }
   
 }
-*/
+
