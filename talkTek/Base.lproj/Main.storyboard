@@ -1669,14 +1669,14 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rp5-yW-qxU" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
-                                <rect key="frame" x="10" y="234" width="355" height="200"/>
+                                <rect key="frame" x="10" y="234" width="355" height="164"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G1Z-1B-FhK">
-                                        <rect key="frame" x="5" y="5" width="345" height="190"/>
+                                        <rect key="frame" x="5" y="5" width="345" height="154"/>
                                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="separatorColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="40" id="nwN-Ho-tyG" customClass="SettingMainTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="40" id="nwN-Ho-tyG" customClass="SettingMainTableViewCell" customModule="talkTek" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="345" height="40"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nwN-Ho-tyG" id="xa0-3G-reA">
@@ -1714,7 +1714,7 @@
                                     <constraint firstItem="G1Z-1B-FhK" firstAttribute="leading" secondItem="Rp5-yW-qxU" secondAttribute="leading" constant="5" id="CAo-Ky-V2T"/>
                                     <constraint firstAttribute="trailing" secondItem="G1Z-1B-FhK" secondAttribute="trailing" constant="5" id="JjD-Z7-rkJ"/>
                                     <constraint firstItem="G1Z-1B-FhK" firstAttribute="top" secondItem="Rp5-yW-qxU" secondAttribute="top" constant="5" id="bsK-d8-Nj7"/>
-                                    <constraint firstAttribute="height" constant="200" id="kEy-w3-mP7"/>
+                                    <constraint firstAttribute="height" constant="164" id="kEy-w3-mP7"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -4604,6 +4604,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="vOA-a3-KS8"/>
-        <segue reference="aZH-O9-L6d"/>
+        <segue reference="pNE-nX-8bm"/>
     </inferredMetricsTieBreakers>
 </document>

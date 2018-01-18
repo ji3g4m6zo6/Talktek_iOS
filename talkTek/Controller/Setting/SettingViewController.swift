@@ -22,7 +22,7 @@ class SettingViewController: UIViewController {
   var databaseRef: DatabaseReference!
   var username = ""
   var userID = ""
-  var list = ["點數中心", "成為講師","意見反饋", "優惠碼", "關於"]
+  var list = ["成為講師", "意見反饋", "優惠碼", "關於"]
   @IBOutlet weak var tableView: UITableView!
   
   @IBOutlet weak var cameraIcon_Button: UIButton!
@@ -230,18 +230,19 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource
     return cell
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    if indexPath.row == 0{
-      performSegue(withIdentifier: "points", sender: self)
-    } else if indexPath.row == 1{
+//    if indexPath.row == 0{
+//      performSegue(withIdentifier: "points", sender: self)
+//    } else
+      if indexPath.row == 0{
       performSegue(withIdentifier: "lecturer", sender: self)
-    } else if indexPath.row == 2{
+    } else if indexPath.row == 1{
       performSegue(withIdentifier: "suggestion", sender: self)
     } //else if indexPath.row == 3{
       //performSegue(withIdentifier: "personal", sender: self)
     //}
-       else if indexPath.row == 3{
+       else if indexPath.row == 2{
       performSegue(withIdentifier: "coupon", sender: self)
-    } else if indexPath.row == 4{
+    } else if indexPath.row == 3{
       performSegue(withIdentifier: "about", sender: self)
     } else{
       print("WTF happened!!!")
