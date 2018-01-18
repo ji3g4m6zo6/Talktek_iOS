@@ -220,12 +220,18 @@ class PlayerViewController: UIViewController {
   }
   override func viewWillDisappear(_ animated: Bool) {
     player.pause()
-  }
- 
-  deinit {
+    
     playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
     playerItem.removeObserver(self, forKeyPath: "status")
+    
   }
+ 
+  
+  
+//  deinit {
+//    playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
+//    playerItem.removeObserver(self, forKeyPath: "status")
+//  }
   
   
   /*
