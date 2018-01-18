@@ -11,6 +11,7 @@ import XLPagerTabStrip
 import Firebase
 import FirebaseDatabase
 import Kingfisher
+import ESPullToRefresh
 
 class LifeViewController: UIViewController, IndicatorInfoProvider {
   
@@ -28,6 +29,12 @@ class LifeViewController: UIViewController, IndicatorInfoProvider {
     
     databaseRef = Database.database().reference()
     fetchData()
+    
+    collectionView.es.addPullToRefresh {
+      [unowned self] in
+      self.homeCourses_Array.removeAll()
+      self.fetchData()
+    }
   }
   
   
@@ -65,6 +72,7 @@ class LifeViewController: UIViewController, IndicatorInfoProvider {
         DispatchQueue.main.async {
           self.collectionView.reloadData()
         }
+        self.collectionView.es.stopPullToRefresh()
       }
     }
   }
@@ -131,7 +139,7 @@ extension LifeViewController: UICollectionViewDelegateFlowLayout{
     return 10
   }
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 20
+    return 10
   }
   /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
    let elements_count = 15
