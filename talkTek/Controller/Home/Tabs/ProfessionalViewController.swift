@@ -27,6 +27,12 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
     
     databaseRef = Database.database().reference()
     fetchData()
+    
+    collectionView.es.addPullToRefresh {
+      [unowned self] in
+      self.homeCourses_Array.removeAll()
+      self.fetchData()
+    }
     // Do any additional setup after loading the view.
   }
   
@@ -63,6 +69,8 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
         DispatchQueue.main.async {
           self.collectionView.reloadData()
         }
+        self.collectionView.es.stopPullToRefresh()
+
       }
     }
   }
@@ -128,7 +136,7 @@ extension ProfessionalViewController: UICollectionViewDelegateFlowLayout{
     return 10
   }
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 20
+    return 10
   }
   /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
    let elements_count = 15
