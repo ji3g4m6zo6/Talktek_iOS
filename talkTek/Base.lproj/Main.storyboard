@@ -4701,7 +4701,6 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="irW-5M-Rbk"/>
         <segue reference="vOA-a3-KS8"/>
         <segue reference="aZH-O9-L6d"/>
     </inferredMetricsTieBreakers>

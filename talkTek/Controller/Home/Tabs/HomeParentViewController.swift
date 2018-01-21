@@ -46,7 +46,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
      self.present(LogInVC, animated: true, completion: nil)*/
     // Do any additional setup after loading the view.
   }
-  
+  //func //
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
