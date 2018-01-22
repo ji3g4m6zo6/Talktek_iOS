@@ -96,7 +96,9 @@ extension TeacherCoursesTableViewCell: UITableViewDataSource, UITableViewDelegat
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 109
   }
-  
+//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//  }
   //  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
   //    let cell = tableView.dequeueReusableCell(withIdentifier: "audioSection") as! AudioSectionTableViewCell
   //    cell.setUpCell(title: categories[section])
