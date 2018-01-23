@@ -42,6 +42,7 @@ class TeacherViewController: UIViewController {
       self.tableView.deselectRow(at: index, animated: true)
     }
   }
+  
   var homeCourses_Array = [HomeCourses]()
   
   func teacherCourses(teacherId: String){
@@ -137,6 +138,7 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
       case DetailViewSection.courses.rawValue:
         let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
+        cell.tableViewHeight_Constraint.constant = CGFloat(119 * homeCourses_Array.count)
         cell.tableView.reloadData()
         //cell.setDatasource(teacherId: idToGet)
         return cell
@@ -193,6 +195,7 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
     if tableView.tag == 90{
       self.detailToPass = homeCourses_Array[indexPath.row]
       self.performSegue(withIdentifier: "identifierCourse", sender: self)
+      tableView.deselectRow(at: indexPath, animated: true)
     }
     
   }
@@ -207,7 +210,7 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         }
         return 204.0 //Not expanded
       case DetailViewSection.courses.rawValue:
-        return 468
+        return 468.0 - CGFloat(119 * (3 - homeCourses_Array.count))
       default:
         fatalError()
       }
@@ -230,7 +233,7 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         }
         return 0 //Not expanded
       case DetailViewSection.courses.rawValue:
-        return 468
+        return 0.0
       default:
         fatalError()
       }

@@ -82,7 +82,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三小時學會拆解社會現象與新聞議題！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejK-MV-UIp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三小時學會拆解社會現象與新聞議題！" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejK-MV-UIp">
                                                     <rect key="frame" x="170" y="0.0" width="155" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="36" id="cq8-Jg-W5O"/>
@@ -1257,7 +1257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGS-2e-9N2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="537" y="-127"/>
+            <point key="canvasLocation" x="536.79999999999995" y="-127.28635682158921"/>
         </scene>
         <!--課程-->
         <scene sceneID="l6f-zW-3Fg">
@@ -1403,18 +1403,59 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghost" translatesAutoresizingMaskIntoConstraints="NO" id="xgj-AG-ujl">
+                                <rect key="frame" x="62" y="157" width="251" height="251"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="251" id="9rF-Hg-hqH"/>
+                                    <constraint firstAttribute="width" constant="251" id="DeP-H1-ohI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒有購買任何課程呦！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3x-9G-1Zi">
+                                <rect key="frame" x="92" y="411" width="191" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTl-P1-E0r" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
+                                <rect key="frame" x="127" y="453" width="121" height="32"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="uDh-ge-7he"/>
+                                    <constraint firstAttribute="height" constant="32" id="vKG-yn-mhh"/>
+                                </constraints>
+                                <state key="normal" title="馬上去逛">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="B1x-Io-Rfr" kind="presentation" id="ATM-aJ-JqT"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" constant="25" id="08Q-4v-hqc"/>
+                            <constraint firstItem="xgj-AG-ujl" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" constant="93" id="1tg-2d-ff8"/>
+                            <constraint firstItem="l3x-9G-1Zi" firstAttribute="top" secondItem="xgj-AG-ujl" secondAttribute="bottom" constant="3" id="2Zv-kr-6ZT"/>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="bottom" secondItem="ryu-0O-MAY" secondAttribute="bottom" id="6ZC-Zt-YVh"/>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="leading" secondItem="ryu-0O-MAY" secondAttribute="leading" constant="25" id="AIX-PS-0J0"/>
+                            <constraint firstItem="l3x-9G-1Zi" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="ETk-ny-Lyl"/>
+                            <constraint firstItem="FTl-P1-E0r" firstAttribute="top" secondItem="l3x-9G-1Zi" secondAttribute="bottom" constant="21" id="SEw-YH-Y6k"/>
+                            <constraint firstItem="xgj-AG-ujl" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="dQ4-rI-Lj7"/>
                             <constraint firstAttribute="trailing" secondItem="z2V-rx-7cf" secondAttribute="trailing" constant="25" id="gj0-jd-tk1"/>
+                            <constraint firstItem="FTl-P1-E0r" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="sJS-oR-p7v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ryu-0O-MAY"/>
                     </view>
                     <navigationItem key="navigationItem" title="課程" id="EnB-7R-qk7"/>
                     <connections>
+                        <outlet property="noCourseBought_Button" destination="FTl-P1-E0r" id="FJ7-CZ-opk"/>
+                        <outlet property="noCourseBought_ImageView" destination="xgj-AG-ujl" id="anC-GC-0fG"/>
+                        <outlet property="noCourseBought_Label" destination="l3x-9G-1Zi" id="bLF-o5-tyu"/>
                         <outlet property="tableView" destination="z2V-rx-7cf" id="TRe-W1-FYG"/>
                         <segue destination="Ce4-6R-E40" kind="show" identifier="identifierDetail" id="ots-Q2-Lei"/>
                     </connections>
@@ -2798,7 +2839,7 @@
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="三小時學會拆解社會現象與新聞議題！" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4L-t8-fe1">
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="小時學會拆解社會現象與新聞議題！" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4L-t8-fe1">
                                                                                 <rect key="frame" x="170" y="0.0" width="155" height="36"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="36" id="rsb-H2-Y9s"/>
@@ -2873,6 +2914,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="tableView" destination="suq-3c-mk1" id="HJb-aO-Y5G"/>
+                                            <outlet property="tableViewHeight_Constraint" destination="Z76-Jg-9yL" id="Eiv-t6-gsH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3917,10 +3959,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fsdahuilfhsdaouhfiasd fiudsahifbhdiuhfidus" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jee-tY-pVD">
-                                                    <rect key="frame" x="0.0" y="117" width="160" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="OSl-Wf-WvG"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="117" width="160" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4052,10 +4091,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fsdahuilfhsdaouhfiasd fiudsahifbhdiuhfidus" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xe0-54-EBC">
-                                                    <rect key="frame" x="0.0" y="117" width="160" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="y5V-Yh-TFu"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="117" width="160" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4186,11 +4222,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fsdahuilfhsdaouhfiasd fiudsahifbhdiuhfidus" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs3-6F-a3d">
-                                                    <rect key="frame" x="0.0" y="117" width="160" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="AGh-Bk-PNY"/>
-                                                    </constraints>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fsdahuilfhsdafsdahuilfhsdafsdahuilfhsdafsdahuilfhsda" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xs3-6F-a3d">
+                                                    <rect key="frame" x="0.0" y="117" width="160" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4597,10 +4630,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fsdahuilfhsdaouhfiasd fiudsahifbhdiuhfidus" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9r-x3-pbM">
-                                                    <rect key="frame" x="0.0" y="117" width="160" height="36"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="36" id="Vds-Qx-gfu"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="0.0" y="117" width="160" height="33.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -4684,6 +4714,7 @@
         <image name="Tab_設置" width="20" height="20"/>
         <image name="Tab_首頁" width="20" height="20"/>
         <image name="TestIcon" width="160" height="160"/>
+        <image name="ghost" width="500" height="500"/>
         <image name="i8 第一登入頁" width="375" height="667"/>
         <image name="logo" width="240" height="320"/>
         <image name="往下" width="20" height="20"/>
@@ -4703,7 +4734,7 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vOA-a3-KS8"/>
-        <segue reference="aZH-O9-L6d"/>
+        <segue reference="ATM-aJ-JqT"/>
+        <segue reference="ots-Q2-Lei"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -60,6 +60,7 @@ extension CoursesTableViewCell: UITableViewDataSource, UITableViewDelegate{
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("count is \(audioItem_Array.count)")
     return audioItem_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

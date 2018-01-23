@@ -15,11 +15,20 @@ import ESPullToRefresh
 
 class CoursesBoughtViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
+  
+  @IBOutlet weak var noCourseBought_ImageView: UIImageView!
+  
+  @IBOutlet weak var noCourseBought_Label: UILabel!
+  
+  @IBOutlet weak var noCourseBought_Button: UIButton!
   var databaseRef: DatabaseReference!
   var userID = ""
   var idToPass = ""
   override func viewDidLoad() {
     super.viewDidLoad()
+    noCourseBought_ImageView.isHidden = true
+    noCourseBought_Label.isHidden = true
+    noCourseBought_Button.isHidden = true
     
     tableView.dataSource = self
     tableView.delegate = self
@@ -75,6 +84,7 @@ class CoursesBoughtViewController: UIViewController {
         
         
         self.homeCourses_Array.append(homeCourses)
+        print("homecourses array \(self.homeCourses_Array)")
         
         DispatchQueue.main.async {
           self.tableView.reloadData()
@@ -82,6 +92,14 @@ class CoursesBoughtViewController: UIViewController {
         self.tableView.es.stopPullToRefresh()
       }
     }
+    if self.homeCourses_Array.isEmpty{
+      self.hideNotBoughtView()
+    }
+  }
+  func hideNotBoughtView(){
+    noCourseBought_ImageView.isHidden = false
+    noCourseBought_Label.isHidden = false
+    noCourseBought_Button.isHidden = false
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -63,7 +63,10 @@ class CourseDetailViewController: UIViewController {
         self.myMoney = moneyLeft
       self.databaseRef.child("Money").child(self.uid).child("money").setValue(self.myMoney)
         
+        
         // ALERT Success
+        self.alertSuccess()
+        self.thisCourseHasBought = true
         self.buy_View.isHidden = true
         
         
@@ -107,10 +110,11 @@ class CourseDetailViewController: UIViewController {
     for i in array_CourseID{
       if i == detailToGet.courseId{
         buy_View.isHidden = true
+        thisCourseHasBought = true
       }
     }
   }
-  
+  var thisCourseHasBought = false
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case main = 0
@@ -145,7 +149,33 @@ class CourseDetailViewController: UIViewController {
       self.tableView.deselectRow(at: index, animated: true)
     }
   }
-  
+  func alertSuccess(){
+    let alert = UIAlertController(title: "成功購買課程", message: "您現在可以進行課程。", preferredStyle: .alert)
+    
+    
+    let confirmAction = UIAlertAction(
+      title: "確定",
+      style: .cancel,
+      handler: nil)
+    alert.addAction(confirmAction)
+    
+    
+    self.present(alert, animated: true)
+  }
+  func alertNotBought(){
+    let alert = UIAlertController(title: "您尚未購買此課程", message: "", preferredStyle: .alert)
+    
+    
+    let confirmAction = UIAlertAction(
+      title: "確認",
+      style: .cancel,
+      handler: nil)
+    alert.addAction(confirmAction)
+    
+    
+    
+    self.present(alert, animated: true)
+  }
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierPlayer"{
       let destination = segue.destination as! AudioListViewController
@@ -228,11 +258,14 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       }
       let index = IndexPath(item: 0, section: 1)
       tableView.reloadRows(at: [index], with: .automatic)
-      
     case DetailViewSection.teacherInfo.rawValue:
       performSegue(withIdentifier: "identifierTeacher", sender: self)
     case DetailViewSection.courses.rawValue:
-      performSegue(withIdentifier: "identifierPlayer", sender: self)
+      if self.thisCourseHasBought == true {
+        performSegue(withIdentifier: "identifierPlayer", sender: self)
+      } else {
+        self.alertNotBought()
+      }
 
       
     default: fatalError()
