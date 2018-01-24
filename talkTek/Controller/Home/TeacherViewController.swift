@@ -138,7 +138,11 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
       case DetailViewSection.courses.rawValue:
         let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
-        cell.tableViewHeight_Constraint.constant = CGFloat(119 * homeCourses_Array.count)
+        if homeCourses_Array.count <= 3 {
+          cell.tableViewHeight_Constraint.constant = CGFloat(119 * homeCourses_Array.count)
+        } else {
+          cell.tableViewHeight_Constraint.constant = 357.0
+        }
         cell.tableView.reloadData()
         //cell.setDatasource(teacherId: idToGet)
         return cell
@@ -210,17 +214,21 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         }
         return 204.0 //Not expanded
       case DetailViewSection.courses.rawValue:
-        return 468.0 - CGFloat(119 * (3 - homeCourses_Array.count))
+        if homeCourses_Array.count <= 3 {
+          return 468.0 - CGFloat(119 * (3 - homeCourses_Array.count))
+        } else {
+          return 468
+        }
       default:
         fatalError()
       }
     }
     
     if tableView.tag == 90 {
-      return 109.0
+      return 119.0
     }
     
-    return 109
+    return 119
   }
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     if tableView.tag == 100 {

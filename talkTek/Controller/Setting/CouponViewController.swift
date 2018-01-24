@@ -55,6 +55,8 @@ class CouponViewController: UIViewController {
   func fetchData(){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
+    
+    
     databaseRef.child("AllCourses").observe(.value, with: { (snapshot) in
       for child in snapshot.children{
         let snap = child as! DataSnapshot
@@ -67,43 +69,44 @@ class CouponViewController: UIViewController {
   func sendCoupon(coupon: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
-    for i in array_CourseID{
-      if i == coupon_TextField.text!{
-        databaseRef.child("AllCourses").child(i).observe(.value, with: { (snapshot) in
-          if let dictionary = snapshot.value as? [String: String]{
-            let homeCourses = HomeCourses()
-            
-            homeCourses.authorDescription = dictionary["authorDescription"]
-            homeCourses.authorImage = dictionary["authorImage"]
-            homeCourses.authorName = dictionary["authorName"]
-            homeCourses.courseDescription = dictionary["courseDescription"]
-            homeCourses.hour = dictionary["hour"]
-            homeCourses.overViewImage = dictionary["overViewImage"]
-            homeCourses.price = dictionary["price"]
-            homeCourses.score = dictionary["score"]
-            homeCourses.studentNumber = dictionary["studentNumber"]
-            homeCourses.title = dictionary["title"]
-            homeCourses.courseId = dictionary["courseId"]
-            homeCourses.teacherID = dictionary["teacherID"]
-            
-            let jsonEncoder = JSONEncoder()
-            let jsonData = try? jsonEncoder.encode(homeCourses)
-            let json = String(data: jsonData!, encoding: String.Encoding.utf8)
-            
-            let result = self.convertToDictionary(text: json!)
-            databaseRef.child("BoughtCourses").child(self.uid).child(i).setValue(result, withCompletionBlock: { (error, ref) in
-              if error != nil {
-                self.alertError()
-              } else {
-                self.alertSuccess()
-              }
-            })
-            
-          }
-        })
-        
-      }
+    
+    if array_CourseID.contains(coupon_TextField.text!){
+      databaseRef.child("AllCourses").child(coupon_TextField.text!).observe(.value, with: { (snapshot) in
+        if let dictionary = snapshot.value as? [String: String]{
+          let homeCourses = HomeCourses()
+          
+          homeCourses.authorDescription = dictionary["authorDescription"]
+          homeCourses.authorImage = dictionary["authorImage"]
+          homeCourses.authorName = dictionary["authorName"]
+          homeCourses.courseDescription = dictionary["courseDescription"]
+          homeCourses.hour = dictionary["hour"]
+          homeCourses.overViewImage = dictionary["overViewImage"]
+          homeCourses.price = dictionary["price"]
+          homeCourses.score = dictionary["score"]
+          homeCourses.studentNumber = dictionary["studentNumber"]
+          homeCourses.title = dictionary["title"]
+          homeCourses.courseId = dictionary["courseId"]
+          homeCourses.teacherID = dictionary["teacherID"]
+          
+          let jsonEncoder = JSONEncoder()
+          let jsonData = try? jsonEncoder.encode(homeCourses)
+          let json = String(data: jsonData!, encoding: String.Encoding.utf8)
+          
+          let result = self.convertToDictionary(text: json!)
+          databaseRef.child("BoughtCourses").child(self.uid).child(self.coupon_TextField.text!).setValue(result, withCompletionBlock: { (error, ref) in
+            if error != nil {
+              // Alert network error or sth
+            } else {
+              self.alertSuccess()
+            }
+          })
+          
+        }
+      })
+    } else {
+      alertError()
     }
+    
   }
   
   func alertError(){
