@@ -1650,7 +1650,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="O"/>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-B9-kRA" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-B9-kRA" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="204" y="74" width="88" height="32"/>
                                         <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -2769,7 +2769,7 @@
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CDz-tW-iAf">
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CDz-tW-iAf">
                                                             <rect key="frame" x="0.0" y="51" width="355" height="1"/>
                                                             <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
@@ -2862,6 +2862,8 @@
                                                     <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="WPR-eW-ELN" secondAttribute="bottom" constant="12" id="3wx-SP-ujP"/>
+                                                        <constraint firstAttribute="trailing" secondItem="CDz-tW-iAf" secondAttribute="trailing" id="GcJ-U3-PlP"/>
+                                                        <constraint firstItem="CDz-tW-iAf" firstAttribute="leading" secondItem="iFU-cN-hGW" secondAttribute="leading" id="GzP-NA-Jt9"/>
                                                         <constraint firstItem="suq-3c-mk1" firstAttribute="top" secondItem="CDz-tW-iAf" secondAttribute="bottom" constant="10" id="LTu-X3-Txf"/>
                                                         <constraint firstItem="CDz-tW-iAf" firstAttribute="top" secondItem="kCq-ps-vzL" secondAttribute="bottom" constant="15" id="bYX-xf-nTc"/>
                                                         <constraint firstItem="kCq-ps-vzL" firstAttribute="top" secondItem="iFU-cN-hGW" secondAttribute="top" constant="15" id="cO3-c2-nXG"/>

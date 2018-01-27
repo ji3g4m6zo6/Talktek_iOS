@@ -25,6 +25,7 @@ class ProfessionCollectionViewCell: UICollectionViewCell {
   @IBOutlet weak var peopleBought_Label: UILabel!
   
   @IBOutlet weak var moneyIcon_ImageView: UIImageView!
+  
   override func layoutSubviews() {
     
     moneyIcon_ImageView.tintColor = UIColor.moneyYellow()
