@@ -1645,11 +1645,6 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="At2-u0-yFU">
-                                        <rect key="frame" x="204" y="142" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="O"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NXl-B9-kRA" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="204" y="74" width="88" height="32"/>
                                         <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -1658,7 +1653,7 @@
                                             <constraint firstAttribute="width" constant="88" id="zhu-fd-29H"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <state key="normal" title="登入">
+                                        <state key="normal" title="登出">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -1687,11 +1682,11 @@
                                 <constraints>
                                     <constraint firstItem="ZBk-LO-CUm" firstAttribute="top" secondItem="uLr-nc-nuH" secondAttribute="top" constant="30" id="272-sA-4nf"/>
                                     <constraint firstAttribute="height" constant="140" id="4PS-b8-O6L"/>
-                                    <constraint firstItem="NXl-B9-kRA" firstAttribute="top" secondItem="ZBk-LO-CUm" secondAttribute="bottom" constant="15" id="A5c-c7-wnc"/>
                                     <constraint firstItem="ng1-9w-cpv" firstAttribute="leading" secondItem="uLr-nc-nuH" secondAttribute="leading" constant="30" id="FPR-TM-Lhy"/>
                                     <constraint firstAttribute="bottom" secondItem="gNn-lr-Uwb" secondAttribute="bottom" constant="15" id="OOJ-hB-hqD"/>
                                     <constraint firstAttribute="trailing" secondItem="NXl-B9-kRA" secondAttribute="trailing" constant="63" id="XpK-ex-gdv"/>
                                     <constraint firstItem="gNn-lr-Uwb" firstAttribute="leading" secondItem="uLr-nc-nuH" secondAttribute="leading" constant="106" id="ZX1-G1-EqT"/>
+                                    <constraint firstAttribute="bottom" secondItem="NXl-B9-kRA" secondAttribute="bottom" constant="34" id="mLC-gX-O8Q"/>
                                     <constraint firstAttribute="trailing" secondItem="ZBk-LO-CUm" secondAttribute="trailing" constant="72" id="xY9-dn-ZhT"/>
                                     <constraint firstItem="ng1-9w-cpv" firstAttribute="centerY" secondItem="uLr-nc-nuH" secondAttribute="centerY" id="xf4-pI-ugh"/>
                                 </constraints>
@@ -1738,7 +1733,6 @@
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="往後" translatesAutoresizingMaskIntoConstraints="NO" id="Eta-Nd-yN9">
                                                             <rect key="frame" x="315" y="12.5" width="15" height="15"/>
-                                                            <color key="backgroundColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="15" id="FEy-XE-zIN"/>
                                                                 <constraint firstAttribute="width" constant="15" id="ePJ-QP-jyF"/>
@@ -1818,6 +1812,7 @@
                         <segue destination="Sv1-kt-Mge" kind="show" identifier="coupon" id="nrD-Du-n1E"/>
                         <segue destination="hy2-zd-XPA" kind="show" identifier="about" id="At2-oq-6Yl"/>
                         <segue destination="XVY-GP-UPd" kind="show" identifier="identifierEdit" id="P4o-el-mc1"/>
+                        <segue destination="MJm-Ue-1DI" kind="presentation" identifier="identifierLogIn" id="GA3-HO-MwP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YdL-21-xoB" userLabel="First Responder" sceneMemberID="firstResponder"/>

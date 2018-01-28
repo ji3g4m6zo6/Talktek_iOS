@@ -144,9 +144,10 @@ class SettingViewController: UIViewController {
       try Auth.auth().signOut()
       self.databaseRef = Database.database().reference()
       self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
-
-      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
-      self.present(LogInVC, animated: true, completion: nil)
+      performSegue(withIdentifier: "identifierLogIn", sender: self)
+//      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
+//      self.present(LogInVC, animated: true, completion: nil)
+      
     }catch let logOutError {
 
       print("Error is \(logOutError)")
