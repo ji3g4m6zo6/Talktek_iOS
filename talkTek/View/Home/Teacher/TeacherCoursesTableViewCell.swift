@@ -17,6 +17,8 @@ class TeacherCoursesTableViewCell: UITableViewCell {
   
   @IBOutlet weak var tableViewHeight_Constraint: NSLayoutConstraint!
   @IBOutlet weak var tableView: UITableView!
+  
+  @IBOutlet weak var viewMore_Button: UIButton!
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

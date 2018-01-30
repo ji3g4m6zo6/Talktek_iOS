@@ -47,16 +47,16 @@
             </objects>
             <point key="canvasLocation" x="-2762" y="-1016"/>
         </scene>
-        <!--View Controller-->
+        <!--View More View Controller-->
         <scene sceneID="Csz-OV-kOe">
             <objects>
-                <viewController id="f2S-i6-i9S" sceneMemberID="viewController">
+                <viewController id="f2S-i6-i9S" customClass="ViewMoreViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="P9V-eY-6eL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WKg-tt-L6u">
-                                <rect key="frame" x="25" y="50" width="325" height="528"/>
+                                <rect key="frame" x="25" y="50" width="325" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="109" id="YR2-ry-Ci3">
@@ -185,6 +185,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="TIx-ge-CXt"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="WKg-tt-L6u" id="C2L-bv-e3n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="93y-NZ-gng" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -199,7 +202,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="msh-WE-erA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1387"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="main" rowHeight="367" id="33X-Zp-sMF" customClass="MainTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -697,7 +700,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-WV-ib8">
-                                <rect key="frame" x="0.0" y="1401" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="1450" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeF-7x-0zT" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="117" y="5" width="248" height="40"/>
@@ -785,7 +788,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-18-ASf">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="57" id="BoL-dD-ZIj" customClass="AudioListTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -2466,7 +2469,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PMf-Cz-lll">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1087"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="352" id="7vg-3n-Eo7" customClass="TeacherMainTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -2893,6 +2896,7 @@
                                         <connections>
                                             <outlet property="tableView" destination="suq-3c-mk1" id="HJb-aO-Y5G"/>
                                             <outlet property="tableViewHeight_Constraint" destination="Z76-Jg-9yL" id="Eiv-t6-gsH"/>
+                                            <outlet property="viewMore_Button" destination="WPR-eW-ELN" id="xW6-qR-FyH"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -4714,6 +4718,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ATM-aJ-JqT"/>
-        <segue reference="lIr-OG-O1k"/>
+        <segue reference="aZH-O9-L6d"/>
     </inferredMetricsTieBreakers>
 </document>

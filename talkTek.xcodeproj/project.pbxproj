@@ -70,6 +70,7 @@
 		04BE92221FB1583900A35523 /* talkTekTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92211FB1583900A35523 /* talkTekTests.swift */; };
 		04BE922D1FB1583A00A35523 /* talkTekUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE922C1FB1583900A35523 /* talkTekUITests.swift */; };
 		04C40F0A1FB167ED0032912C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04C40F091FB167EC0032912C /* GoogleService-Info.plist */; };
+		04CC36A8201F76920032F247 /* ViewMoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CC36A7201F76920032F247 /* ViewMoreViewController.swift */; };
 		04CE1F931FD02990008E1D75 /* MainLogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */; };
 		04CFAF381FDECC1E00A94EF6 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04CFAF371FDECC1D00A94EF6 /* ForgotPasswordViewController.swift */; };
 		04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */; };
@@ -174,6 +175,7 @@
 		04BE922C1FB1583900A35523 /* talkTekUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = talkTekUITests.swift; sourceTree = "<group>"; };
 		04BE922E1FB1583A00A35523 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C40F091FB167EC0032912C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04CC36A7201F76920032F247 /* ViewMoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewMoreViewController.swift; sourceTree = "<group>"; };
 		04CE1F921FD02990008E1D75 /* MainLogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainLogInViewController.swift; sourceTree = "<group>"; };
 		04CFAF371FDECC1D00A94EF6 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
@@ -302,6 +304,7 @@
 				04475E941FE7EA7200F28478 /* TeacherViewController.swift */,
 				047B1D211FE6AA7300853740 /* AudioListViewController.swift */,
 				041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */,
+				04CC36A7201F76920032F247 /* ViewMoreViewController.swift */,
 				041E3CAE1FDBD7120035E3A4 /* Pay and Free */,
 			);
 			path = Home;
@@ -906,6 +909,7 @@
 				04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */,
 				044F0BC71FC5D7E200E98E45 /* CoursesTableViewCell.swift in Sources */,
 				04445AE91FC7021A004D2825 /* CoursesBoughtTableViewCell.swift in Sources */,
+				04CC36A8201F76920032F247 /* ViewMoreViewController.swift in Sources */,
 				041E3CB01FDBDBD40035E3A4 /* HomeParentViewController.swift in Sources */,
 				044F0BC11FC5D7A700E98E45 /* MainTableViewCell.swift in Sources */,
 				046F3FA3200A0872009C46F5 /* MainTabBar.swift in Sources */,

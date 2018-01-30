@@ -76,6 +76,9 @@ class TeacherViewController: UIViewController {
       }
     }
   }
+  @objc func viewMore_Button_Tapped(){
+    performSegue(withIdentifier: "identifierMore", sender: self)
+  }
   enum DetailViewSection: Int{
     case main = 0
     case description = 1
@@ -87,6 +90,9 @@ class TeacherViewController: UIViewController {
     if segue.identifier == "identifierCourse" {
       let destination = segue.destination as! CourseDetailViewController
       destination.detailToGet = detailToPass
+    } else if segue.identifier == "identifierMore" {
+      let destination = segue.destination as! ViewMoreViewController
+      destination.homeCourses_Array = homeCourses_Array
     }
   }
   
@@ -138,13 +144,17 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
       case DetailViewSection.courses.rawValue:
         let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
+        cell.viewMore_Button.addTarget(self, action: #selector(viewMore_Button_Tapped), for: .touchUpInside)
         if homeCourses_Array.count <= 3 {
           cell.tableViewHeight_Constraint.constant = CGFloat(119 * homeCourses_Array.count)
+          cell.viewMore_Button.isHidden = true
         } else {
           cell.tableViewHeight_Constraint.constant = 357.0
+          cell.viewMore_Button.isHidden = false
         }
+        
         cell.tableView.reloadData()
-        //cell.setDatasource(teacherId: idToGet)
+
         return cell
       default:
         fatalError()
