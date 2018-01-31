@@ -189,7 +189,10 @@ class PlayerViewController: UIViewController {
     
     slider_UISlider.minimumValue = 0
     slider_UISlider.maximumValue = 1
+    
     slider_UISlider.value = 0
+    
+    
 
   }
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -207,6 +210,16 @@ class PlayerViewController: UIViewController {
         // 只有readyToPlay狀態，才能播放
         self.player.play()
         playpause_Button.setImage(UIImage(named: "暫停(大)"), for: .normal)
+        
+        do {
+          try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .mixWithOthers)
+          print("Playback OK")
+          try AVAudioSession.sharedInstance().setActive(true)
+          print("Session is Active")
+        } catch {
+          print(error)
+        }
+        
       }else{
         print("加載異常")
       }
