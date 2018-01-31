@@ -206,14 +206,15 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
       }
     }
     let imageFromCameraAction = UIAlertAction(title: "相機", style: .default) { (Void) in
-      
       // 判斷是否可以從相機取得照片來源
       if UIImagePickerController.isSourceTypeAvailable(.camera) {
-        
-        // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.camera)，並 present UIImagePickerController
-        imagePickerController.sourceType = .camera
-        self.present(imagePickerController, animated: true, completion: nil)
+        var imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera;
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
       }
+      
     }
     
     // 新增一個取消動作，讓使用者可以跳出 UIAlertController
