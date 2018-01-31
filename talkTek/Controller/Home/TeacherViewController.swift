@@ -76,7 +76,7 @@ class TeacherViewController: UIViewController {
       }
     }
   }
-  @objc func viewMore_Button_Tapped(){
+  @objc func viewMore_Button_Tapped(sender: UIButton){
     performSegue(withIdentifier: "identifierMore", sender: self)
   }
   enum DetailViewSection: Int{
@@ -144,7 +144,6 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         return cell
       case DetailViewSection.courses.rawValue:
         let cell = tableView.dequeueReusableCell(withIdentifier: "coursesCell", for: indexPath) as! TeacherCoursesTableViewCell
-        cell.viewMore_Button.addTarget(self, action: #selector(viewMore_Button_Tapped), for: .touchUpInside)
         if homeCourses_Array.count <= 3 {
           cell.tableViewHeight_Constraint.constant = CGFloat(119 * homeCourses_Array.count)
           cell.viewMore_Button.isHidden = true
@@ -152,7 +151,8 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
           cell.tableViewHeight_Constraint.constant = 357.0
           cell.viewMore_Button.isHidden = false
         }
-        
+        cell.viewMore_Button.addTarget(self, action: #selector(viewMore_Button_Tapped(sender:)), for: .touchUpInside)
+
         cell.tableView.reloadData()
 
         return cell

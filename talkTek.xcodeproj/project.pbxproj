@@ -61,6 +61,7 @@
 		048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D351FD1B209002A2E93 /* IAPService.swift */; };
 		048D0D381FD1B276002A2E93 /* IAPProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D371FD1B276002A2E93 /* IAPProduct.swift */; };
 		048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */; };
+		049AB7F5202213E000F5C7CC /* MoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049AB7F4202213E000F5C7CC /* MoreTableViewCell.swift */; };
 		04ACB8F61FECCC3900105056 /* AudioHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04ACB8F51FECCC3900105056 /* AudioHeaderTableViewCell.swift */; };
 		04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BE92091FB1583900A35523 /* AppDelegate.swift */; };
 		04BE920F1FB1583900A35523 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04BE920D1FB1583900A35523 /* Main.storyboard */; };
@@ -160,6 +161,7 @@
 		048D0D351FD1B209002A2E93 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
 		048D0D371FD1B276002A2E93 /* IAPProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPProduct.swift; sourceTree = "<group>"; };
 		048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMainViewController.swift; sourceTree = "<group>"; };
+		049AB7F4202213E000F5C7CC /* MoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTableViewCell.swift; sourceTree = "<group>"; };
 		04ACB8F51FECCC3900105056 /* AudioHeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioHeaderTableViewCell.swift; sourceTree = "<group>"; };
 		04BE92061FB1583900A35523 /* talkTek.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = talkTek.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04BE92091FB1583900A35523 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -302,9 +304,9 @@
 				04475E9C1FE7F24000F28478 /* Tabs */,
 				044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */,
 				04475E941FE7EA7200F28478 /* TeacherViewController.swift */,
+				04CC36A7201F76920032F247 /* ViewMoreViewController.swift */,
 				047B1D211FE6AA7300853740 /* AudioListViewController.swift */,
 				041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */,
-				04CC36A7201F76920032F247 /* ViewMoreViewController.swift */,
 				041E3CAE1FDBD7120035E3A4 /* Pay and Free */,
 			);
 			path = Home;
@@ -317,6 +319,7 @@
 				04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */,
 				04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */,
 				04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */,
+				049AB7F4202213E000F5C7CC /* MoreTableViewCell.swift */,
 				041E3CB51FDC1BB30035E3A4 /* Pay and Free */,
 				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
 				04475E8F1FE7E9F100F28478 /* Teacher */,
@@ -936,6 +939,7 @@
 				04475E911FE7EA0400F28478 /* TeacherDescriptionTableViewCell.swift in Sources */,
 				0468EA1B1FE4D3D600F9460B /* Courses.swift in Sources */,
 				04402E871FCDA4FB00EC95EE /* AboutViewController.swift in Sources */,
+				049AB7F5202213E000F5C7CC /* MoreTableViewCell.swift in Sources */,
 				04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
 				04294FCE1FE1573900CB4FCA /* UIImageExtension.swift in Sources */,
