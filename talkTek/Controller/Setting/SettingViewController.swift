@@ -27,7 +27,7 @@ class SettingViewController: UIViewController {
   
   var username = ""
   var userID = ""
-  
+  var imageUrlForDeletion: String?
   // MARK: Database
   var databaseRef: DatabaseReference!
   var user = User()
@@ -208,7 +208,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
     let imageFromCameraAction = UIAlertAction(title: "相機", style: .default) { (Void) in
       // 判斷是否可以從相機取得照片來源
       if UIImagePickerController.isSourceTypeAvailable(.camera) {
-        var imagePicker = UIImagePickerController()
+        let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = .camera;
         imagePicker.allowsEditing = false
@@ -257,9 +257,9 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
       if let selectedImage = selectedImageFromPicker {
         
         
-        let storageRef = Storage.storage().reference().child("\(uniqueString).png")
+        let storageRef = Storage.storage().reference().child("\(uniqueString).jpeg")
         
-        if let uploadData = UIImagePNGRepresentation(selectedImage) {
+        if let uploadData = UIImageJPEGRepresentation(selectedImage, 1) {
           // 這行就是 FirebaseStorage 關鍵的存取方法。
           storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
             
@@ -270,12 +270,12 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
               return
             }
             
+
             // 連結取得方式就是：data?.downloadURL()?.absoluteString。
             if let uploadImageUrl = data?.downloadURL()?.absoluteString {
               
               // 我們可以 print 出來看看這個連結事不是我們剛剛所上傳的照片。
               print("Photo Url: \(uploadImageUrl)")
-              
               
               // 存放在database
               let databaseRef = Database.database().reference(withPath: "Users/\(self.userID)/profileImageUrl")
@@ -295,6 +295,9 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
               
               
             }
+            
+            
+            
           })
         }
       }
@@ -303,6 +306,16 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
       
     }//uid
     
+    guard let imageUrlForDeletion = self.imageUrlForDeletion else { return }
+    let storage = Storage.storage().reference(forURL: imageUrlForDeletion)
+    storage.delete(completion: { (error) in
+      if let error = error {
+        print(error)
+      } else {
+        // File deleted successfully
+        print("success")
+      }
+    })
     
   }
   
@@ -357,6 +370,8 @@ extension SettingViewController {
         if user.profileImageUrl != ""{
           let url = URL(string: user.profileImageUrl!)
           self.profile_ImageView.kf.setImage(with: url)
+          self.imageUrlForDeletion = user.profileImageUrl
+          print("image is \(self.imageUrlForDeletion ?? "")")
         }
         
         self.user = user
