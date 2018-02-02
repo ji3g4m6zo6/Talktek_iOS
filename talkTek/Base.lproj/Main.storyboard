@@ -2417,26 +2417,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="目前所有課程皆不需費用，您可以直接至課程列表查看已擁有課程，這項功能在後續版本才會實現哦～" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j33-p3-Rft">
-                                <rect key="frame" x="30" y="293.5" width="315" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="cZ4-we-loj"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="j33-p3-Rft" firstAttribute="leading" secondItem="avt-9f-7ts" secondAttribute="leading" constant="30" id="02N-hv-eI4"/>
                             <constraint firstItem="aOz-t2-cH4" firstAttribute="trailing" secondItem="G2V-5N-tdO" secondAttribute="trailing" constant="10" id="1iC-5x-nE5"/>
-                            <constraint firstItem="j33-p3-Rft" firstAttribute="centerY" secondItem="avt-9f-7ts" secondAttribute="centerY" id="21E-6n-mfN"/>
-                            <constraint firstItem="aOz-t2-cH4" firstAttribute="trailing" secondItem="j33-p3-Rft" secondAttribute="trailing" constant="30" id="LcG-hr-70h"/>
                             <constraint firstItem="G2V-5N-tdO" firstAttribute="leading" secondItem="aOz-t2-cH4" secondAttribute="leading" constant="10" id="PAr-Tl-9W3"/>
                             <constraint firstItem="aOz-t2-cH4" firstAttribute="bottom" secondItem="G2V-5N-tdO" secondAttribute="bottom" constant="15" id="RYA-kP-qT0"/>
                             <constraint firstItem="G2V-5N-tdO" firstAttribute="top" secondItem="aOz-t2-cH4" secondAttribute="top" constant="15" id="aDU-st-DZS"/>
-                            <constraint firstItem="j33-p3-Rft" firstAttribute="centerX" secondItem="avt-9f-7ts" secondAttribute="centerX" id="cVz-zn-RMx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="aOz-t2-cH4"/>
                     </view>
@@ -4798,6 +4785,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="ATM-aJ-JqT"/>
-        <segue reference="Abb-c2-Jn5"/>
+        <segue reference="aZH-O9-L6d"/>
     </inferredMetricsTieBreakers>
 </document>

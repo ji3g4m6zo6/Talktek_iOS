@@ -88,29 +88,47 @@ class SettingViewController: UIViewController {
   
   // MARK: Log Out Button Tapped
   @IBAction func LogIn_LogOut(_ sender: UIButton) {
+    alertConfirm()
+    
+  }
+  func alertConfirm(){
+    let alert = UIAlertController(title: "登出", message: "您確定要登出嗎？", preferredStyle: .alert)
+    
+    let confirmAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.default, handler: { (action) -> Void in
+      self.logOut()
+    })
+    alert.addAction(confirmAction)
+    
+    let cancelAction = UIAlertAction(
+      title: "取消",
+      style: .cancel,
+      handler: nil)
+    alert.addAction(cancelAction)
+    
+    
+    self.present(alert, animated: true)
+  }
+  
+  @IBAction func cameraOrImage(_ sender: UIButton) {
+    camera()
+    cameraIcon_Button.isHighlighted = true
+  }
+  func logOut(){
     FBSDKLoginManager().logOut()
     do{
       try Auth.auth().signOut()
       self.databaseRef = Database.database().reference()
       self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
       performSegue(withIdentifier: "identifierLogIn", sender: self)
-//      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
-//      self.present(LogInVC, animated: true, completion: nil)
+      //      let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
+      //      self.present(LogInVC, animated: true, completion: nil)
       
     }catch let logOutError {
-
+      
       print("Error is \(logOutError)")
-
+      
     }
-    
   }
-  
-  
-  @IBAction func cameraOrImage(_ sender: UIButton) {
-    camera()
-    cameraIcon_Button.isHighlighted = true
-  }
-  
   
   // MARK: Segue
   @IBAction func BackToSetting( segue: UIStoryboardSegue ) { }
