@@ -1676,19 +1676,22 @@
                                         <rect key="frame" x="155" y="15" width="185" height="110"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未登入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBk-LO-CUm">
-                                                <rect key="frame" x="56" y="15" width="73" height="29"/>
+                                                <rect key="frame" x="56" y="15" width="73" height="32"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="32" id="gTp-wO-oHw"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="編輯個人檔案" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tsz-fO-ZK0" customClass="DesignableLabel" customModule="talkTek" customModuleProvider="target">
-                                                <rect key="frame" x="49.5" y="59" width="86" height="17"/>
+                                                <rect key="frame" x="49.5" y="68" width="86" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AtV-Cj-McU" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="56" width="185" height="24"/>
+                                                <rect key="frame" x="0.0" y="65" width="185" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="24" id="fn6-8Z-m0e"/>
                                                 </constraints>
@@ -1706,10 +1709,10 @@
                                             </view>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="Tsz-fO-ZK0" firstAttribute="top" secondItem="ZBk-LO-CUm" secondAttribute="bottom" constant="15" id="3eb-dH-gsX"/>
                                             <constraint firstItem="Tsz-fO-ZK0" firstAttribute="centerY" secondItem="AtV-Cj-McU" secondAttribute="centerY" id="I1n-Ia-PY6"/>
                                             <constraint firstItem="AtV-Cj-McU" firstAttribute="leading" secondItem="YqP-5l-VTg" secondAttribute="leading" id="PnX-SN-23F"/>
                                             <constraint firstItem="Tsz-fO-ZK0" firstAttribute="centerX" secondItem="YqP-5l-VTg" secondAttribute="centerX" id="SOd-gb-Kkz"/>
+                                            <constraint firstItem="AtV-Cj-McU" firstAttribute="top" secondItem="YqP-5l-VTg" secondAttribute="top" constant="65" id="azZ-HU-zNI"/>
                                             <constraint firstItem="ZBk-LO-CUm" firstAttribute="top" secondItem="YqP-5l-VTg" secondAttribute="top" constant="15" id="foa-2f-yI5"/>
                                             <constraint firstAttribute="trailing" secondItem="AtV-Cj-McU" secondAttribute="trailing" id="hdk-Jc-zdI"/>
                                             <constraint firstItem="ZBk-LO-CUm" firstAttribute="centerX" secondItem="YqP-5l-VTg" secondAttribute="centerX" id="vIR-FM-gTy"/>

@@ -209,7 +209,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     // 建立一個 UIAlertController 的實體
     // 設定 UIAlertController 的標題與樣式為 動作清單 (actionSheet)
-    let imagePickerAlertController = UIAlertController(title: "上傳圖片", message: "請選擇要上傳的圖片", preferredStyle: .actionSheet)
+    let imagePickerAlertController = UIAlertController(title: "「Talk小講」想要取用你的相機", message: "「Talk小講」可讓你將照片指定為頭像。", preferredStyle: .actionSheet)
     
     // 建立三個 UIAlertAction 的實體
     // 新增 UIAlertAction 在 UIAlertController actionSheet 的 動作 (action) 與標題
