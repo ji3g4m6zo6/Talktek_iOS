@@ -32,12 +32,13 @@ class HomeCourses: NSObject, Encodable {
 class AudioItem: NSObject{
   
   var Audio: String?
-  var Number: String?
   var Time: String?
   var Topic: String?
   var Title: String?
   var Section: String?
   
+  var SectionPriority: Int?
+  var RowPriority: Int?
 }
 
 /*

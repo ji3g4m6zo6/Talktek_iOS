@@ -32,7 +32,7 @@ class AudioListViewController: UIViewController {
     tableView.tableFooterView = UIView()
     
     databaseRef = Database.database().reference()
-    fetchData()
+    //fetchData()
     
   }
   
@@ -46,28 +46,6 @@ class AudioListViewController: UIViewController {
     }
   }
   
-  func fetchData(){
-    // Get the number and root of collectionview
-        self.databaseRef.child("AudioPlayer").child(idToGet).observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: String]{
-        let audioItem = AudioItem()
-        
-        audioItem.Audio = dictionary["Audio"]
-        audioItem.Number = dictionary["Number"]
-        audioItem.Time = dictionary["Time"]
-        audioItem.Title = dictionary["Title"]
-        audioItem.Section = dictionary["Section"]
-        audioItem.Topic = dictionary["Topic"]
-        self.audioItem_Array.append(audioItem)
-        
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
-        }
-        
-      }
-    }
-
-  }
   
   
   // MARK: - Navigation

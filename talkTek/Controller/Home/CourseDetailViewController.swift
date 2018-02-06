@@ -156,14 +156,15 @@ class CourseDetailViewController: UIViewController {
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
     databaseRef.child("AudioPlayer").child(courseId).observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: String]{
+      if let dictionary = snapshot.value as? [String: Any]{
         let audioItem = AudioItem()
-        audioItem.Audio = dictionary["Audio"]
-        audioItem.Number = dictionary["Number"]
-        audioItem.Section = dictionary["Section"]
-        audioItem.Time = dictionary["Time"]
-        audioItem.Title = dictionary["Title"]
-        audioItem.Topic = dictionary["Topic"]
+        audioItem.Audio = dictionary["Audio"] as? String
+        audioItem.Section = dictionary["Section"] as? String
+        audioItem.Time = dictionary["Time"] as? String
+        audioItem.Title = dictionary["Title"] as? String
+        audioItem.Topic = dictionary["Topic"] as? String
+        audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
+        audioItem.RowPriority = dictionary["RowPriority"] as? Int
         
         self.audioItem_Array.append(audioItem)
         print("audio topic \(audioItem.Title ?? "")")
@@ -173,6 +174,12 @@ class CourseDetailViewController: UIViewController {
       }
     }
   }
+  
+  func parseJson(){
+    
+  }
+  var audioDictionary = [String: [String: String]]()
+  
   func alertSuccess(){
     let alert = UIAlertController(title: "成功購買課程", message: "您現在可以進行課程。", preferredStyle: .alert)
     
@@ -204,6 +211,7 @@ class CourseDetailViewController: UIViewController {
     if segue.identifier == "identifierPlayer"{
       let destination = segue.destination as! AudioListViewController
       destination.idToGet = detailToGet.courseId!
+      destination.audioItem_Array = audioItem_Array
     } else if segue.identifier == "identifierTeacher"{
       let destination = segue.destination as! TeacherViewController
       destination.courseToGet = detailToGet
