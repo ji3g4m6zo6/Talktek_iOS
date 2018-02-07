@@ -134,6 +134,8 @@ class CourseDetailViewController: UIViewController {
     courseId = detailToGet.courseId!
     
     fetchAudioFiles(withCourseId: courseId)
+   // fetchSectionTitle(withCourseId: courseId)
+    
     
     money()
     usersCourses()
@@ -155,7 +157,7 @@ class CourseDetailViewController: UIViewController {
   func fetchAudioFiles(withCourseId: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
-    databaseRef.child("AudioPlayer").child(courseId).observe(.childAdded) { (snapshot) in
+    databaseRef.child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: Any]{
         let audioItem = AudioItem()
         audioItem.Audio = dictionary["Audio"] as? String
@@ -166,8 +168,19 @@ class CourseDetailViewController: UIViewController {
         audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
         audioItem.RowPriority = dictionary["RowPriority"] as? Int
         
+        
         self.audioItem_Array.append(audioItem)
-        print("audio topic \(audioItem.Title ?? "")")
+        
+//        for i in 0...self.sectionCount-1{
+//          // var audioDictionary = [Int: [AudioItem]]()
+//          // [0: [AudioItem1, AudioItem2], 1: [AudioItem1]]
+//          var tempArray = [AudioItem]()
+//          if self.audioItem_Array[i].SectionPriority == i{
+//            //tempArray = audioItem //as? [AudioItem]
+//            self.audioDictionary[i] = tempArray
+//          }
+//          //self.audioDictionary[i] = audioItem
+//        }
         
         self.tableView.reloadData()
         
@@ -175,11 +188,28 @@ class CourseDetailViewController: UIViewController {
     }
   }
   
-  func parseJson(){
+  func fetchSectionTitle(withCourseId: String){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
+      if let array = snapshot.value as? [String]{
+        self.sections = array
+        self.sectionCount = array.count
+        print("lets seee \(self.sections)")
+      }
+      self.fetchAudioFiles(withCourseId: withCourseId)
+    }
     
   }
-  var audioDictionary = [String: [String: String]]()
+  var audioDictionary = [Int: [AudioItem]]()
+  // [0: [AudioItem1, AudioItem2], 1: [AudioItem1]]
+  var sections = [String]()
+  var sectionCount = 0
   
+  func sortData(){
+    
+    
+  }
   func alertSuccess(){
     let alert = UIAlertController(title: "成功購買課程", message: "您現在可以進行課程。", preferredStyle: .alert)
     
