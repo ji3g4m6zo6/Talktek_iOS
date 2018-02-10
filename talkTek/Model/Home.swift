@@ -15,13 +15,14 @@ class HomeCourses: NSObject, Encodable {
   var authorImage: String?
   var authorName: String?
   var courseDescription: String?
+  var courseId: String?
   var hour: String?
+  var onSalesPrice: String?
   var overViewImage: String?
   var price: String?
   var score: String?
   var studentNumber: String?
   var title: String?
-  var courseId: String?
   var teacherID: String?
   
   

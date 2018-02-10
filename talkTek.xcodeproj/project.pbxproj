@@ -307,7 +307,6 @@
 				04CC36A7201F76920032F247 /* ViewMoreViewController.swift */,
 				047B1D211FE6AA7300853740 /* AudioListViewController.swift */,
 				041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */,
-				041E3CAE1FDBD7120035E3A4 /* Pay and Free */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -359,6 +358,7 @@
 		04475E9C1FE7F24000F28478 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				041E3CAE1FDBD7120035E3A4 /* Pay and Free */,
 				041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */,
 				041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */,
 				04475E961FE7F21900F28478 /* ProfessionalViewController.swift */,

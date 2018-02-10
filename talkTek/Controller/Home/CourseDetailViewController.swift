@@ -21,6 +21,15 @@ class CourseDetailViewController: UIViewController {
   
   @IBOutlet weak var buy_View: UIView!
   @IBOutlet weak var buy_Button: UIButton!
+  @IBOutlet weak var mainIconImage: UIImageView!
+  @IBOutlet weak var cost_Label: UILabel!
+  @IBOutlet weak var accountIconImage: UIImageView!
+  @IBOutlet weak var account_Label: UILabel!
+  @IBOutlet weak var deletionView: UIView!
+  
+  
+  @IBOutlet weak var onlyIconImage: UIImageView!
+  @IBOutlet weak var onlyMoneyLabel: UILabel!
   
   @IBAction func buy_Button_Tapped(_ sender: UIButton) {
     if uid != "guest"{
@@ -84,7 +93,6 @@ class CourseDetailViewController: UIViewController {
   }
   
   
-  @IBOutlet weak var cost_Label: UILabel!
   var array_CourseID = [String]()
   var databaseRef: DatabaseReference!
   func usersCourses(){
@@ -123,6 +131,43 @@ class CourseDetailViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    mainIconImage.tintColor = UIColor.moneyYellow()
+    accountIconImage.tintColor = UIColor.moneyYellow()
+    onlyIconImage.tintColor = UIColor.moneyYellow()
+    
+    if let onSalesPrice = detailToGet.onSalesPrice{
+      if onSalesPrice == "-1"{
+        account_Label.isHidden = true
+        accountIconImage.isHidden = true
+        deletionView.isHidden = true
+        cost_Label.isHidden = true
+        mainIconImage.isHidden = true
+        
+        onlyIconImage.isHidden = false
+        onlyMoneyLabel.isHidden = false
+        
+        if let price = detailToGet.price {
+          onlyMoneyLabel.text = "\(price)點"
+        }
+      } else {
+        onlyIconImage.isHidden = true
+        onlyMoneyLabel.isHidden = true
+        
+        account_Label.isHidden = false
+        accountIconImage.isHidden = false
+        deletionView.isHidden = false
+        cost_Label.isHidden = false
+        mainIconImage.isHidden = false
+        
+        if let price = detailToGet.price {
+          cost_Label.text = "\(price)點"
+        }
+        account_Label.text = "\(onSalesPrice)點"
+      }
+      
+    }
+    
     tableView.delegate = self
     tableView.dataSource = self
     print(detailToGet.title ?? "")
@@ -168,6 +213,7 @@ class CourseDetailViewController: UIViewController {
         audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
         audioItem.RowPriority = dictionary["RowPriority"] as? Int
         
+
         
         self.audioItem_Array.append(audioItem)
         

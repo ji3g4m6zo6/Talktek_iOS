@@ -133,7 +133,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     }
   }
   
-  override func viewControllers(for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+  override func viewControllers (for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
     let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Hot")
     let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Pro")
     let child_3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Life")

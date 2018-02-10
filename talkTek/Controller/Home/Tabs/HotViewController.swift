@@ -64,7 +64,8 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
         homeCourses.title = dictionary["title"]
         homeCourses.courseId = dictionary["courseId"]
         homeCourses.teacherID = dictionary["teacherID"]
-        
+        homeCourses.onSalesPrice = dictionary["onSalesPrice"]
+
         
         
         self.homeCourses_Array.append(homeCourses)

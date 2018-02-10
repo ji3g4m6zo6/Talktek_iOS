@@ -752,20 +752,66 @@
                                             <constraint firstAttribute="height" constant="17" id="Gkl-q4-Lbj"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="109點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g44-kd-4E1">
+                                        <rect key="frame" x="33" y="5" width="46" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qhh-0w-Q90">
+                                        <rect key="frame" x="10" y="36" width="49" height="1"/>
+                                        <color key="backgroundColor" red="0.59215686274509804" green="0.59215686274509804" blue="0.59215686274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="WR7-Ni-qQC"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="Isf-Zo-MEe">
+                                        <rect key="frame" x="10" y="6" width="20" height="20"/>
+                                        <color key="tintColor" red="0.98039215690000003" green="0.74901960779999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="OtN-AW-9sQ"/>
+                                            <constraint firstAttribute="width" constant="20" id="lBn-Og-ngT"/>
+                                        </constraints>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="Xgu-kN-LMp">
+                                        <rect key="frame" x="10" y="15" width="20" height="20"/>
+                                        <color key="tintColor" red="0.98039215690000003" green="0.74901960779999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="FGQ-0g-hdI"/>
+                                            <constraint firstAttribute="height" constant="20" id="sZL-lr-6ul"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="109點" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdA-yD-8iE">
+                                        <rect key="frame" x="33" y="15" width="46" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="TeF-7x-0zT" firstAttribute="top" secondItem="vXz-WV-ib8" secondAttribute="top" constant="5" id="4Eg-i3-Yq3"/>
+                                    <constraint firstItem="O5Z-vM-WXo" firstAttribute="trailing" secondItem="qhh-0w-Q90" secondAttribute="trailing" id="4UF-RI-7hb"/>
+                                    <constraint firstItem="HtY-Df-IRy" firstAttribute="leading" secondItem="Isf-Zo-MEe" secondAttribute="leading" id="6Hr-Kl-BqT"/>
                                     <constraint firstItem="O5Z-vM-WXo" firstAttribute="leading" secondItem="HtY-Df-IRy" secondAttribute="trailing" constant="1" id="AKp-gb-y1J"/>
+                                    <constraint firstItem="g44-kd-4E1" firstAttribute="leading" secondItem="Isf-Zo-MEe" secondAttribute="trailing" constant="3" id="B6Y-Pb-tP6"/>
                                     <constraint firstAttribute="height" constant="50" id="Bxw-dq-Ywt"/>
+                                    <constraint firstItem="qhh-0w-Q90" firstAttribute="leading" secondItem="HtY-Df-IRy" secondAttribute="leading" id="Cio-aw-TqM"/>
+                                    <constraint firstItem="Xgu-kN-LMp" firstAttribute="leading" secondItem="vXz-WV-ib8" secondAttribute="leading" constant="10" id="FUx-do-Fv8"/>
                                     <constraint firstItem="HtY-Df-IRy" firstAttribute="leading" secondItem="vXz-WV-ib8" secondAttribute="leading" constant="10" id="FfA-ms-03d"/>
                                     <constraint firstAttribute="bottom" secondItem="HtY-Df-IRy" secondAttribute="bottom" constant="6" id="JFF-tY-rIJ"/>
+                                    <constraint firstItem="g44-kd-4E1" firstAttribute="centerY" secondItem="Isf-Zo-MEe" secondAttribute="centerY" id="MUg-8s-toU"/>
                                     <constraint firstAttribute="bottom" secondItem="TeF-7x-0zT" secondAttribute="bottom" constant="5" id="acx-8M-Lwq"/>
+                                    <constraint firstItem="O5Z-vM-WXo" firstAttribute="top" secondItem="Isf-Zo-MEe" secondAttribute="bottom" constant="2" id="c9j-ej-hhp"/>
                                     <constraint firstAttribute="trailing" secondItem="TeF-7x-0zT" secondAttribute="trailing" constant="10" id="d96-2z-RYf"/>
+                                    <constraint firstItem="qhh-0w-Q90" firstAttribute="centerY" secondItem="HtY-Df-IRy" secondAttribute="centerY" id="l5Y-id-xBC"/>
                                     <constraint firstItem="O5Z-vM-WXo" firstAttribute="leading" secondItem="HtY-Df-IRy" secondAttribute="trailing" constant="1" id="lYG-SX-dzA"/>
+                                    <constraint firstItem="gdA-yD-8iE" firstAttribute="centerY" secondItem="Xgu-kN-LMp" secondAttribute="centerY" id="mJv-Fe-9mE"/>
+                                    <constraint firstItem="Xgu-kN-LMp" firstAttribute="centerY" secondItem="vXz-WV-ib8" secondAttribute="centerY" id="qmP-Oe-mzc"/>
+                                    <constraint firstItem="gdA-yD-8iE" firstAttribute="leading" secondItem="Isf-Zo-MEe" secondAttribute="trailing" constant="3" id="xb8-SF-Z4G"/>
                                     <constraint firstItem="O5Z-vM-WXo" firstAttribute="centerY" secondItem="HtY-Df-IRy" secondAttribute="centerY" id="yEf-qZ-ZGN"/>
                                 </constraints>
                             </view>
@@ -785,9 +831,15 @@
                     <navigationItem key="navigationItem" title="課程" id="W92-Qy-pdr"/>
                     <size key="freeformSize" width="375" height="1500"/>
                     <connections>
+                        <outlet property="accountIconImage" destination="Isf-Zo-MEe" id="d0R-3c-7iY"/>
+                        <outlet property="account_Label" destination="g44-kd-4E1" id="I9K-ln-qMe"/>
                         <outlet property="buy_Button" destination="TeF-7x-0zT" id="kbF-wv-b3S"/>
                         <outlet property="buy_View" destination="vXz-WV-ib8" id="JWF-Fs-aM1"/>
                         <outlet property="cost_Label" destination="O5Z-vM-WXo" id="d8W-y8-yT5"/>
+                        <outlet property="deletionView" destination="qhh-0w-Q90" id="xgi-lA-Vro"/>
+                        <outlet property="mainIconImage" destination="HtY-Df-IRy" id="OMC-4X-Sgj"/>
+                        <outlet property="onlyIconImage" destination="Xgu-kN-LMp" id="lAd-g5-v6X"/>
+                        <outlet property="onlyMoneyLabel" destination="gdA-yD-8iE" id="gMB-bn-Vnh"/>
                         <outlet property="tableView" destination="msh-WE-erA" id="D0Q-sJ-0fD"/>
                         <segue destination="sIL-NF-UY9" kind="show" identifier="identifierTeacher" id="irW-5M-Rbk"/>
                         <segue destination="6bI-l5-Ki0" kind="show" identifier="identifierPlayer" id="b89-9h-MMo"/>
@@ -4787,6 +4839,7 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="irW-5M-Rbk"/>
         <segue reference="ATM-aJ-JqT"/>
         <segue reference="aZH-O9-L6d"/>
     </inferredMetricsTieBreakers>
