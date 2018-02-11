@@ -104,7 +104,6 @@ class CourseDetailViewController: UIViewController {
             self.array_CourseID.append(snap.key)
             
           }
-          print("array_CourseID is \(self.array_CourseID)")
           self.boughtOrNot()
         }
       } else {
@@ -178,8 +177,8 @@ class CourseDetailViewController: UIViewController {
     print("uid is \(uid)")
     courseId = detailToGet.courseId!
     
-    fetchAudioFiles(withCourseId: courseId)
-   // fetchSectionTitle(withCourseId: courseId)
+//    fetchAudioFiles(withCourseId: courseId)
+    fetchSectionTitle(withCourseId: courseId)
     
     
     money()
@@ -214,21 +213,29 @@ class CourseDetailViewController: UIViewController {
         audioItem.RowPriority = dictionary["RowPriority"] as? Int
         
 
-        
+        print("section number is \(audioItem.SectionPriority ?? 10)")
         self.audioItem_Array.append(audioItem)
         
-//        for i in 0...self.sectionCount-1{
-//          // var audioDictionary = [Int: [AudioItem]]()
-//          // [0: [AudioItem1, AudioItem2], 1: [AudioItem1]]
-//          var tempArray = [AudioItem]()
-//          if self.audioItem_Array[i].SectionPriority == i{
-//            //tempArray = audioItem //as? [AudioItem]
-//            self.audioDictionary[i] = tempArray
-//          }
-//          //self.audioDictionary[i] = audioItem
-//        }
+        //if audioItem.SectionPriority
+        for i in 0...self.sectionCount-1{
+          guard let sectionNumber = audioItem.SectionPriority else { return }
+          if i == sectionNumber {
+            if var previousInfo = self.audioDictionary[i] {
+              previousInfo.append(audioItem)
+              self.audioDictionary.updateValue(previousInfo, forKey: i)
+            } else {
+              self.audioDictionary.updateValue([audioItem], forKey: i)
+            }
+            print("dicccc \(self.audioDictionary)")
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+          }
+          
+        }
+
         
-        self.tableView.reloadData()
+        //self.tableView.reloadData()
         
       }
     }
@@ -237,13 +244,14 @@ class CourseDetailViewController: UIViewController {
   func fetchSectionTitle(withCourseId: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
+
     databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
       if let array = snapshot.value as? [String]{
         self.sections = array
         self.sectionCount = array.count
-        print("lets seee \(self.sections)")
+        self.fetchAudioFiles(withCourseId: withCourseId)
       }
-      self.fetchAudioFiles(withCourseId: withCourseId)
+
     }
     
   }
@@ -252,10 +260,7 @@ class CourseDetailViewController: UIViewController {
   var sections = [String]()
   var sectionCount = 0
   
-  func sortData(){
-    
-    
-  }
+  
   func alertSuccess(){
     let alert = UIAlertController(title: "成功購買課程", message: "您現在可以進行課程。", preferredStyle: .alert)
     
@@ -288,6 +293,8 @@ class CourseDetailViewController: UIViewController {
       let destination = segue.destination as! AudioListViewController
       destination.idToGet = detailToGet.courseId!
       destination.audioItem_Array = audioItem_Array
+      destination.audioDictionary = audioDictionary
+      destination.sections = sections
     } else if segue.identifier == "identifierTeacher"{
       let destination = segue.destination as! TeacherViewController
       destination.courseToGet = detailToGet
@@ -303,7 +310,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       return 4
     }
     if tableView.tag == 90 {
-      return 1
+      return audioDictionary.count
     }
     return 1
   }
@@ -322,8 +329,8 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       }
     }
     if tableView.tag == 90{
-      print("count is \(audioItem_Array.count)")
-      return audioItem_Array.count
+      //return audioItem_Array.count
+      return audioDictionary[section]!.count+1 /// danger!!!
     }
     return 1
     
@@ -366,10 +373,23 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       }
     }
     if tableView.tag == 90{
-      let cell = tableView.dequeueReusableCell(withIdentifier: "audioFiles", for: indexPath) as! AudioFilesTableViewCell
-      cell.topic_Label.text = audioItem_Array[indexPath.row].Title
-      cell.time_Label.text = audioItem_Array[indexPath.row].Time
-      return cell
+      if indexPath.row == 0 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "audioHeader", for: indexPath) as! AudioSectionTableViewCell
+        cell.title_Label.text = sections[indexPath.section]
+        return cell
+        
+      } else {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "audioFiles", for: indexPath) as! AudioFilesTableViewCell
+        let audioArray = audioDictionary[indexPath.section]
+        print("indexpath row is \(indexPath.row)")
+        cell.topic_Label.text = audioArray![indexPath.row-1].Title//danger
+        cell.time_Label.text = audioArray![indexPath.row-1].Time//danger
+        //  cell.topic_Label.text = audioItem_Array[indexPath.row].Title
+//        cell.time_Label.text = audioItem_Array[indexPath.row].Time
+        return cell
+      }
+      
+      
     }
     return UITableViewCell()
   }
@@ -425,9 +445,9 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       }
     }
     if tableView.tag == 90 {
-      return 57.0
+      return 68.0
     }
-    return 57.0
+    return 68.0
   }
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     if tableView.tag == 100 {

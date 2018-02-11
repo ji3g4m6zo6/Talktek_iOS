@@ -19,6 +19,9 @@ class AudioListViewController: UIViewController {
   var audioItem = AudioItem()
   var audioItem_Array = [AudioItem]()
   
+  var sections = [String]()
+  var audioDictionary = [Int: [AudioItem]]()
+  
   var thisSong = 0
   
   
@@ -64,16 +67,31 @@ class AudioListViewController: UIViewController {
 }
 extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
   func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+    //return 1
+    return audioDictionary.count
+
   }
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return audioItem_Array.count
+    //return audioItem_Array.count
+    return audioDictionary[section]!.count+1 /// danger!!!
+
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AudioListTableViewCell
-    cell.topic_Label.text = audioItem_Array[indexPath.row].Title
-    cell.time_Label.text = audioItem_Array[indexPath.row].Time
-    return cell
+    if indexPath.row == 0{
+      let cell = tableView.dequeueReusableCell(withIdentifier: "audioHeader", for: indexPath) as! AudioSectionTableViewCell
+      cell.title_Label.text = sections[indexPath.section]
+      return cell
+    } else {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AudioListTableViewCell
+      let audioArray = audioDictionary[indexPath.section]
+      print("indexpath row is \(indexPath.row)")
+      cell.topic_Label.text = audioArray![indexPath.row-1].Title//danger
+      cell.time_Label.text = audioArray![indexPath.row-1].Time//danger
+      //cell.topic_Label.text = audioItem_Array[indexPath.row].Title
+     // cell.time_Label.text = audioItem_Array[indexPath.row].Time
+      return cell
+    }
+    
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 57
