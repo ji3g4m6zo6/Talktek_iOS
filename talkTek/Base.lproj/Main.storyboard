@@ -607,7 +607,7 @@
                                                                 <color key="titleColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             </state>
                                                         </button>
-                                                        <tableView clipsSubviews="YES" userInteractionEnabled="NO" tag="90" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-2A-Mal">
+                                                        <tableView clipsSubviews="YES" tag="90" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8yr-2A-Mal">
                                                             <rect key="frame" x="0.0" y="76" width="355" height="408.5"/>
                                                             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="calibratedRGB"/>
                                                             <prototypes>
@@ -1774,7 +1774,7 @@
                                             <action selector="cameraOrImage:" destination="z8p-TC-9MY" eventType="touchUpInside" id="Fef-Xz-FdE"/>
                                         </connections>
                                     </button>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqP-5l-VTg">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YqP-5l-VTg">
                                         <rect key="frame" x="155" y="15" width="185" height="110"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未登入" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBk-LO-CUm">
@@ -1979,17 +1979,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o9C-Dq-daZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="設置" id="eY5-1p-yYK">
-                        <barButtonItem key="rightBarButtonItem" id="5C8-Ei-0Lk">
-                            <connections>
-                                <action selector="Edit_Button_Tapped:" destination="z8p-TC-9MY" id="BGJ-JN-EZH"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="設置" id="eY5-1p-yYK"/>
                     <connections>
-                        <outlet property="Edit_Button" destination="5C8-Ei-0Lk" id="0d5-0o-aei"/>
                         <outlet property="LogIn_LogOut" destination="NXl-B9-kRA" id="Tp2-Ch-19p"/>
                         <outlet property="cameraIcon_Button" destination="gNn-lr-Uwb" id="OX2-dv-bgZ"/>
+                        <outlet property="edit_View" destination="YqP-5l-VTg" id="kzD-dG-s1M"/>
                         <outlet property="name_Label" destination="ZBk-LO-CUm" id="gkc-pf-P0v"/>
                         <outlet property="profile_ImageView" destination="ng1-9w-cpv" id="sbI-Wt-nfO"/>
                         <outlet property="tableView" destination="G1Z-1B-FhK" id="feJ-2u-gm8"/>
@@ -2015,25 +2009,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVr-PO-2WQ">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BVr-PO-2WQ" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                 <rect key="frame" x="10" y="79" width="355" height="140"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="vFo-sa-6Ge">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="未登入人像" translatesAutoresizingMaskIntoConstraints="NO" id="vFo-sa-6Ge">
                                         <rect key="frame" x="30" y="15" width="110" height="110"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="110" id="5sm-t7-iip"/>
                                             <constraint firstAttribute="width" constant="110" id="fDJ-pt-pqK"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vincent. Wang" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVu-aE-kPf">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sunny. Lee" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVu-aE-kPf">
                                         <rect key="frame" x="171" y="30" width="153" height="29"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuh-QF-JW1">
-                                        <rect key="frame" x="122" y="102" width="30" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nuh-QF-JW1">
+                                        <rect key="frame" x="110" y="95" width="30" height="30"/>
+                                        <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="5CR-Sx-uqo"/>
+                                            <constraint firstAttribute="height" constant="30" id="wCN-WJ-CBC"/>
+                                        </constraints>
                                         <state key="normal" image="相機"/>
                                         <connections>
                                             <action selector="cameraOrImage:" destination="XVY-GP-UPd" eventType="touchUpInside" id="eVH-OA-RWj"/>
@@ -2042,6 +2040,8 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="Nuh-QF-JW1" firstAttribute="trailing" secondItem="vFo-sa-6Ge" secondAttribute="trailing" id="2aZ-5X-aPi"/>
+                                    <constraint firstItem="Nuh-QF-JW1" firstAttribute="bottom" secondItem="vFo-sa-6Ge" secondAttribute="bottom" id="D6c-BA-6aw"/>
                                     <constraint firstAttribute="trailing" secondItem="CVu-aE-kPf" secondAttribute="trailing" constant="31" id="Fy9-FU-JRU"/>
                                     <constraint firstItem="CVu-aE-kPf" firstAttribute="leading" secondItem="BVr-PO-2WQ" secondAttribute="leading" constant="171" id="IzT-Kn-uZ9"/>
                                     <constraint firstItem="CVu-aE-kPf" firstAttribute="top" secondItem="BVr-PO-2WQ" secondAttribute="top" constant="30" id="Or2-WW-Sln"/>
@@ -2049,8 +2049,25 @@
                                     <constraint firstItem="vFo-sa-6Ge" firstAttribute="leading" secondItem="BVr-PO-2WQ" secondAttribute="leading" constant="30" id="cEy-ua-EVm"/>
                                     <constraint firstItem="vFo-sa-6Ge" firstAttribute="centerY" secondItem="BVr-PO-2WQ" secondAttribute="centerY" id="gzs-pJ-Amz"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dq-xy-KYt">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dq-xy-KYt" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                 <rect key="frame" x="10" y="234" width="355" height="163"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfn-a4-Hga">
@@ -2185,6 +2202,23 @@
                                     <constraint firstItem="Yye-gb-CH3" firstAttribute="top" secondItem="gYI-YL-MzC" secondAttribute="bottom" constant="10" id="xiL-Tu-Y62"/>
                                     <constraint firstItem="MF0-d5-sQU" firstAttribute="leading" secondItem="5dq-xy-KYt" secondAttribute="leading" constant="15" id="xxT-a4-jvM"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.0" height="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2199,31 +2233,32 @@
                         <viewLayoutGuide key="safeArea" id="9Qm-q4-oFw"/>
                     </view>
                     <navigationItem key="navigationItem" title="個人資料編輯" id="7qM-QF-aOS">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="B1s-Ri-CcR">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="往前" id="B1s-Ri-CcR">
                             <connections>
-                                <segue destination="BpK-zD-xfJ" kind="unwind" unwindAction="cancelViewController:" id="RX9-LE-wE0"/>
+                                <segue destination="BpK-zD-xfJ" kind="unwind" unwindAction="cancelViewController:" id="ORe-ht-2BE"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="確認" id="byM-Q8-i9A">
+                        <barButtonItem key="rightBarButtonItem" title="完成" id="byM-Q8-i9A">
                             <connections>
                                 <action selector="comfirm_Button_Tapped:" destination="XVY-GP-UPd" id="9W7-Fa-Rbe"/>
-                                <segue destination="BpK-zD-xfJ" kind="unwind" identifier="identifierBack" unwindAction="saveDetail:" id="pdq-VH-Cag"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="account_TextField" destination="Veg-xh-IMl" id="O2Z-cV-bki"/>
                         <outlet property="birthday_TextField" destination="uYK-iL-qd3" id="jIF-hU-bXA"/>
+                        <outlet property="cameraIcon_Button" destination="Nuh-QF-JW1" id="EXl-ev-NUz"/>
                         <outlet property="gender_TextField" destination="YP7-LU-0Kc" id="crN-No-Egx"/>
                         <outlet property="name_Label" destination="CVu-aE-kPf" id="Kme-1t-OK3"/>
                         <outlet property="nickName_TextField" destination="Hs7-aG-PVd" id="6YT-vP-wRe"/>
-                        <outlet property="overview_ImageView" destination="vFo-sa-6Ge" id="S7u-E3-y2N"/>
+                        <outlet property="profile_ImageView" destination="vFo-sa-6Ge" id="1kb-TK-tpt"/>
+                        <segue destination="BpK-zD-xfJ" kind="unwind" identifier="identifierBack" unwindAction="saveDetail:" id="KRl-RZ-4lM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpd-5x-hlY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BpK-zD-xfJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1213.5999999999999" y="1333.5832083958021"/>
+            <point key="canvasLocation" x="1345" y="1334"/>
         </scene>
         <!--Points Center View Controller-->
         <scene sceneID="3N1-lp-Aax">
@@ -4872,6 +4907,7 @@
         <image name="i8 第一登入頁" width="375" height="667"/>
         <image name="logo" width="240" height="320"/>
         <image name="往下" width="20" height="20"/>
+        <image name="往前" width="20" height="20"/>
         <image name="往後" width="20" height="20"/>
         <image name="心願" width="17" height="17"/>
         <image name="播放" width="20" height="20"/>
@@ -4889,7 +4925,6 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="irW-5M-Rbk"/>
         <segue reference="ATM-aJ-JqT"/>
         <segue reference="aZH-O9-L6d"/>
     </inferredMetricsTieBreakers>

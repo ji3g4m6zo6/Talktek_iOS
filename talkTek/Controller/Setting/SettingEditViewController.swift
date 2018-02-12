@@ -22,42 +22,52 @@ class SettingEditViewController: UIViewController {
   
   @IBOutlet weak var gender_TextField: UITextField!
   
-  @IBOutlet weak var overview_ImageView: UIImageView!
+  @IBOutlet weak var profile_ImageView: UIImageView!
   
+  @IBOutlet weak var cameraIcon_Button: UIButton!
+
   @IBOutlet weak var name_Label: UILabel!
   
+  
+  var imageUrlForDeletion: String?
+
   @IBAction func cameraOrImage(_ sender: UIButton) {
     camera()
   }
   var user = User()
-  
+  let genderPickerView = UIPickerView()
+
   let gender = ["男", "女", "其他"]
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    let pickerView = UIPickerView()
-    pickerView.delegate = self
-    
-    
-    overview_ImageView.layer.cornerRadius = overview_ImageView.bounds.height / 2
-    overview_ImageView.layer.borderWidth = 2.0
-    overview_ImageView.layer.borderColor = UIColor.white.cgColor
-    overview_ImageView.clipsToBounds = true
+    genderPickerView.delegate = self
+    genderPickerView.dataSource = self
     
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
     username = userDefaults.string(forKey: "name") ?? ""
     
+    
+    // Circle Image
+    cameraIcon_Button.tintColor = UIColor.audioPlayGray()
+    cameraIcon_Button.layer.cornerRadius = cameraIcon_Button.bounds.height / 2
+    profile_ImageView.layer.cornerRadius = profile_ImageView.bounds.height / 2
+    profile_ImageView.layer.borderWidth = 2.0
+    profile_ImageView.layer.borderColor = UIColor.white.cgColor
+    profile_ImageView.clipsToBounds = true
+    
     if username != ""{
       name_Label.text = user.name
     } else {
-      name_Label.text = "嗨你好:)"
+      name_Label.text = ""
     }
 //    if user.name != ""{
 //      name_Label.text = user.name
 //    } else {
 //      name_Label.text = "嗨你好:)"
 //    }
+    
     if user.account == nil{
       account_TextField.placeholder = "請填寫帳號"
     } else {
@@ -98,6 +108,8 @@ class SettingEditViewController: UIViewController {
       }
     }
     
+    
+    fetchData()
     // Do any additional setup after loading the view.
   }
   
@@ -105,15 +117,19 @@ class SettingEditViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
+  
   var databaseRef: DatabaseReference!
   var userID = ""
   var username = ""
   
   @IBAction func comfirm_Button_Tapped(_ sender: UIBarButtonItem) {
     let parameter = ["name": nickName_TextField.text ?? "", "account": account_TextField.text ?? "", "birthday": birthday_TextField.text ?? "", "gender": gender_TextField.text ?? ""]
-    databaseRef.child("User/\(self.userID)").setValue(parameter) { (error, databaseRef) in
+    databaseRef.child("Users/\(self.userID)").setValue(parameter) { (error, databaseRef) in
       if error != nil {
+        
         print(error?.localizedDescription ?? "Failed to update value")
+        self.alertFailure()
       } else {
         print("Success update newValue to database")
         self.alertSuccess()
@@ -131,6 +147,25 @@ class SettingEditViewController: UIViewController {
     
     self.present(alert, animated: true)
   }
+  func alertFailure(){
+    let alert = UIAlertController(title: "上傳失敗", message: "請再試一次", preferredStyle: .alert)
+    
+    
+    let confirm = UIAlertAction(title: "確認", style: .default) { (action) in
+    }
+    alert.addAction(confirm)
+    
+    
+    self.present(alert, animated: true)
+  }
+  @IBAction func gender_TextField_Tapped(_ sender: UITextField) {
+    sender.inputView = genderPickerView
+    toolBar.barStyle = .default
+    toolBar.isTranslucent = true
+    toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
+    toolBar.sizeToFit()
+  }
+  
   let datePickerView = UIDatePicker()
 
   @IBAction func date_TextField_Tapped(_ sender: UITextField) {
@@ -174,7 +209,7 @@ class SettingEditViewController: UIViewController {
   let toolBar = UIToolbar()
 
   @objc func doneClick() {
-    
+    genderPickerView.isHidden = true
     datePickerView.isHidden = true
     self.toolBar.isHidden = true
     
@@ -182,6 +217,8 @@ class SettingEditViewController: UIViewController {
   }
   
   @objc func cancelClick() {
+    
+    genderPickerView.isHidden = true
     datePickerView.isHidden = true
     self.toolBar.isHidden = true
     
@@ -189,55 +226,6 @@ class SettingEditViewController: UIViewController {
   
   
   
-  func camera(){
-    // 建立一個 UIImagePickerController 的實體
-    let imagePickerController = UIImagePickerController()
-    
-    // 委任代理
-    imagePickerController.delegate = self
-    
-    // 建立一個 UIAlertController 的實體
-    // 設定 UIAlertController 的標題與樣式為 動作清單 (actionSheet)
-    let imagePickerAlertController = UIAlertController(title: "上傳圖片", message: "請選擇要上傳的圖片", preferredStyle: .actionSheet)
-    
-    // 建立三個 UIAlertAction 的實體
-    // 新增 UIAlertAction 在 UIAlertController actionSheet 的 動作 (action) 與標題
-    let imageFromLibAction = UIAlertAction(title: "照片圖庫", style: .default) { (Void) in
-      
-      // 判斷是否可以從照片圖庫取得照片來源
-      if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-        
-        // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.photoLibrary)，並 present UIImagePickerController
-        imagePickerController.sourceType = .photoLibrary
-        self.present(imagePickerController, animated: true, completion: nil)
-      }
-    }
-    let imageFromCameraAction = UIAlertAction(title: "相機", style: .default) { (Void) in
-      
-      // 判斷是否可以從相機取得照片來源
-      if UIImagePickerController.isSourceTypeAvailable(.camera) {
-        
-        // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.camera)，並 present UIImagePickerController
-        imagePickerController.sourceType = .camera
-        self.present(imagePickerController, animated: true, completion: nil)
-      }
-    }
-    
-    // 新增一個取消動作，讓使用者可以跳出 UIAlertController
-    let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (Void) in
-      
-      imagePickerAlertController.dismiss(animated: true, completion: nil)
-    }
-    
-    // 將上面三個 UIAlertAction 動作加入 UIAlertController
-    imagePickerAlertController.addAction(imageFromLibAction)
-    imagePickerAlertController.addAction(imageFromCameraAction)
-    imagePickerAlertController.addAction(cancelAction)
-    
-    // 當使用者按下 uploadBtnAction 時會 present 剛剛建立好的三個 UIAlertAction 動作與
-    present(imagePickerAlertController, animated: true, completion: nil)
-    
-  }
   
   /*
    // MARK: - Navigation
@@ -269,7 +257,70 @@ extension SettingEditViewController: UIPickerViewDataSource, UIPickerViewDelegat
 
 
 
+// MARK: Camera Picker
 extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+  func imageViewHandGesture(){
+    let tap =
+      UITapGestureRecognizer(
+        target:self,
+        action:#selector(camera(recognizer:)))
+    profile_ImageView.isUserInteractionEnabled = true
+    profile_ImageView.addGestureRecognizer(tap)
+  }
+  @objc func camera(recognizer: UITapGestureRecognizer) {
+    cameraOrImage(cameraIcon_Button)
+  }
+  
+  func camera(){
+    // 建立一個 UIImagePickerController 的實體
+    let imagePickerController = UIImagePickerController()
+    
+    // 委任代理
+    imagePickerController.delegate = self
+    
+    // 建立一個 UIAlertController 的實體
+    // 設定 UIAlertController 的標題與樣式為 動作清單 (actionSheet)
+    let imagePickerAlertController = UIAlertController(title: "「Talk小講」想要取用你的相機", message: "「Talk小講」可讓你將照片指定為頭像。", preferredStyle: .actionSheet)
+    
+    // 建立三個 UIAlertAction 的實體
+    // 新增 UIAlertAction 在 UIAlertController actionSheet 的 動作 (action) 與標題
+    let imageFromLibAction = UIAlertAction(title: "照片圖庫", style: .default) { (Void) in
+      
+      // 判斷是否可以從照片圖庫取得照片來源
+      if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+        
+        // 如果可以，指定 UIImagePickerController 的照片來源為 照片圖庫 (.photoLibrary)，並 present UIImagePickerController
+        imagePickerController.sourceType = .photoLibrary
+        self.present(imagePickerController, animated: true, completion: nil)
+      }
+    }
+    let imageFromCameraAction = UIAlertAction(title: "相機", style: .default) { (Void) in
+      // 判斷是否可以從相機取得照片來源
+      if UIImagePickerController.isSourceTypeAvailable(.camera) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .camera;
+        imagePicker.allowsEditing = false
+        self.present(imagePicker, animated: true, completion: nil)
+      }
+      
+    }
+    
+    // 新增一個取消動作，讓使用者可以跳出 UIAlertController
+    let cancelAction = UIAlertAction(title: "取消", style: .cancel) { (Void) in
+      
+      imagePickerAlertController.dismiss(animated: true, completion: nil)
+    }
+    
+    // 將上面三個 UIAlertAction 動作加入 UIAlertController
+    imagePickerAlertController.addAction(imageFromLibAction)
+    imagePickerAlertController.addAction(imageFromCameraAction)
+    imagePickerAlertController.addAction(cancelAction)
+    
+    // 當使用者按下 uploadBtnAction 時會 present 剛剛建立好的三個 UIAlertAction 動作與
+    present(imagePickerAlertController, animated: true, completion: nil)
+    
+  }
   
   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
     
@@ -295,9 +346,9 @@ extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigati
       if let selectedImage = selectedImageFromPicker {
         
         
-        let storageRef = Storage.storage().reference().child("\(uniqueString).png")
+        let storageRef = Storage.storage().reference().child("\(uniqueString).jpeg")
         
-        if let uploadData = UIImagePNGRepresentation(selectedImage) {
+        if let uploadData = UIImageJPEGRepresentation(selectedImage, 1) {
           // 這行就是 FirebaseStorage 關鍵的存取方法。
           storageRef.putData(uploadData, metadata: nil, completion: { (data, error) in
             
@@ -308,12 +359,12 @@ extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigati
               return
             }
             
+            
             // 連結取得方式就是：data?.downloadURL()?.absoluteString。
             if let uploadImageUrl = data?.downloadURL()?.absoluteString {
               
               // 我們可以 print 出來看看這個連結事不是我們剛剛所上傳的照片。
               print("Photo Url: \(uploadImageUrl)")
-              
               
               // 存放在database
               let databaseRef = Database.database().reference(withPath: "Users/\(self.userID)/profileImageUrl")
@@ -333,6 +384,9 @@ extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigati
               
               
             }
+            
+            
+            
           })
         }
       }
@@ -341,9 +395,80 @@ extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigati
       
     }//uid
     
+    guard let imageUrlForDeletion = self.imageUrlForDeletion else { return }
+    let storage = Storage.storage().reference(forURL: imageUrlForDeletion)
+    storage.delete(completion: { (error) in
+      if let error = error {
+        print(error)
+      } else {
+        // File deleted successfully
+        print("success")
+      }
+    })
     
   }
   
   
 }
+
+// APIs
+extension SettingEditViewController {
+  func fetchData(){
+    self.databaseRef = Database.database().reference()
+    self.databaseRef.child("Users/\(self.userID)").observe(.value) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: AnyObject]{
+        print("dictionary is \(dictionary)")
+        
+        let user = User()
+        guard let name = dictionary["name"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("name").setValue("")
+          return
+        }
+        guard let account = dictionary["account"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("account").setValue("")
+          return
+        }
+        
+        guard let birthday = dictionary["birthday"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("birthday").setValue("")
+          return
+        }
+        
+        guard let gender = dictionary["gender"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("gender").setValue("")
+          return
+        }
+        
+        guard let profileImageUrl = dictionary["profileImageUrl"] else {
+          self.databaseRef.child("Users/\(self.userID)").child("profileImageUrl").setValue("")
+          return
+        }
+        
+        user.name = name as? String
+        user.account = account as? String
+        user.birthday = birthday as? String
+        user.gender = gender as? String
+        user.profileImageUrl = profileImageUrl as? String
+        
+        if user.name != ""{
+          self.name_Label.text = user.name
+        } else {
+          self.name_Label.text = ""
+        }
+        
+        if user.profileImageUrl != ""{
+          let url = URL(string: user.profileImageUrl!)
+          self.profile_ImageView.kf.setImage(with: url)
+          self.imageUrlForDeletion = user.profileImageUrl
+          print("image is \(self.imageUrlForDeletion ?? "")")
+        }
+        
+        self.user = user
+      }
+      
+    }
+    
+  }
+}
+
 

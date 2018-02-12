@@ -131,6 +131,9 @@ class CourseDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    self.tableView.delegate = self
+    self.tableView.dataSource = self
+
     mainIconImage.tintColor = UIColor.moneyYellow()
     accountIconImage.tintColor = UIColor.moneyYellow()
     onlyIconImage.tintColor = UIColor.moneyYellow()
@@ -167,8 +170,6 @@ class CourseDetailViewController: UIViewController {
       
     }
     
-    tableView.delegate = self
-    tableView.dataSource = self
     print(detailToGet.title ?? "")
     
     databaseRef = Database.database().reference()
@@ -228,7 +229,9 @@ class CourseDetailViewController: UIViewController {
             }
             print("dicccc \(self.audioDictionary)")
             DispatchQueue.main.async {
+             
               self.tableView.reloadData()
+             
             }
           }
           
@@ -439,7 +442,8 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       case DetailViewSection.teacherInfo.rawValue:
         return 249.0
       case DetailViewSection.courses.rawValue:
-        return 591.0
+        return 700.0
+      //return 591.0
       default:
         fatalError()
       }

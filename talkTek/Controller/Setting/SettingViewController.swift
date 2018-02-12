@@ -19,9 +19,10 @@ class SettingViewController: UIViewController {
   @IBOutlet weak var profile_ImageView: UIImageView!
   @IBOutlet weak var cameraIcon_Button: UIButton!
   @IBOutlet weak var name_Label: UILabel!
+   @IBOutlet weak var edit_View: UIView!
   @IBOutlet weak var LogIn_LogOut: UIButton!
   
-  @IBOutlet weak var Edit_Button: UIBarButtonItem!
+ 
   @IBOutlet weak var tableView: UITableView!
   var list = ["成為講師", "意見反饋", "優惠碼", "關於"]
   
@@ -40,7 +41,6 @@ class SettingViewController: UIViewController {
     tableView.delegate = self
     tableView.dataSource = self
     
-    Edit_Button.width = 0
     
     // Circle Image
     cameraIcon_Button.tintColor = UIColor.audioPlayGray()
@@ -68,6 +68,8 @@ class SettingViewController: UIViewController {
     
     // fetch Data
     fetchData()
+    
+    handgesture()
   }
   
   override func didReceiveMemoryWarning() {
@@ -81,10 +83,20 @@ class SettingViewController: UIViewController {
     }
   }
   
-  // MARK: Edit Button Tapped
-  @IBAction func Edit_Button_Tapped(_ sender: UIBarButtonItem) {
-    performSegue(withIdentifier: "identifierEdit", sender: self)
+  
+  func handgesture(){
+    let tap =
+      UITapGestureRecognizer(
+        target:self,
+        action:#selector(edit(recognizer:)))
+    edit_View.addGestureRecognizer(tap)
   }
+  @objc func edit(recognizer: UITapGestureRecognizer) {
+    performSegue(withIdentifier: "identifierEdit", sender: self)
+    
+    
+  }
+  
   
   // MARK: Log Out Button Tapped
   @IBAction func LogIn_LogOut(_ sender: UIButton) {
