@@ -742,7 +742,7 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-WV-ib8">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-WV-ib8" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="1450" width="375" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TeF-7x-0zT" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
@@ -839,6 +839,17 @@
                                     <constraint firstItem="gdA-yD-8iE" firstAttribute="leading" secondItem="Isf-Zo-MEe" secondAttribute="trailing" constant="3" id="xb8-SF-Z4G"/>
                                     <constraint firstItem="O5Z-vM-WXo" firstAttribute="centerY" secondItem="HtY-Df-IRy" secondAttribute="centerY" id="yEf-qZ-ZGN"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="size" keyPath="shadowOffset">
+                                        <size key="value" width="0.5" height="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2159,6 +2170,9 @@
                                         <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="gender_TextField_Tapped:" destination="XVY-GP-UPd" eventType="editingDidBegin" id="IwX-qF-PYh"/>
+                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -4925,6 +4939,7 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="irW-5M-Rbk"/>
         <segue reference="ATM-aJ-JqT"/>
         <segue reference="aZH-O9-L6d"/>
     </inferredMetricsTieBreakers>

@@ -164,6 +164,17 @@ class SettingEditViewController: UIViewController {
     toolBar.isTranslucent = true
     toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
     toolBar.sizeToFit()
+    
+    let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(SettingEditViewController.doneClick))
+    let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+    let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SettingEditViewController.cancelClick))
+    toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
+    toolBar.isUserInteractionEnabled = true
+    
+    self.view.addSubview(toolBar)
+    self.toolBar.isHidden = false
+    
+
   }
   
   let datePickerView = UIDatePicker()
