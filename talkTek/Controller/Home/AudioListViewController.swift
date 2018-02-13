@@ -49,7 +49,11 @@ class AudioListViewController: UIViewController {
     }
   }
   
-  
+  @objc func player_Button_Tapped(sender: UIButton){
+    let indexPathOfThisCell = sender.tag
+    self.thisSong = indexPathOfThisCell
+    performSegue(withIdentifier: "identifierPlayer", sender: self)
+  }
   
   // MARK: - Navigation
   
@@ -87,6 +91,9 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
       print("indexpath row is \(indexPath.row)")
       cell.topic_Label.text = audioArray![indexPath.row-1].Title//danger
       cell.time_Label.text = audioArray![indexPath.row-1].Time//danger
+      
+      cell.play_Button.tag = indexPath.row
+      cell.play_Button.addTarget(self, action: #selector(player_Button_Tapped(sender:)), for: .touchUpInside)
       //cell.topic_Label.text = audioItem_Array[indexPath.row].Title
      // cell.time_Label.text = audioItem_Array[indexPath.row].Time
       return cell
@@ -106,9 +113,9 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
 //    return 49
 //  }
   
-  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    self.thisSong = indexPath.row
-    performSegue(withIdentifier: "identifierPlayer", sender: self)
-  }
-  
+//  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//    self.thisSong = indexPath.row
+//    performSegue(withIdentifier: "identifierPlayer", sender: self)
+//  }
+//
 }
