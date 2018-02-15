@@ -92,10 +92,16 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
       cell.topic_Label.text = audioArray![indexPath.row-1].Title//danger
       cell.time_Label.text = audioArray![indexPath.row-1].Time//danger
       
-      cell.play_Button.tag = indexPath.row
-      cell.play_Button.addTarget(self, action: #selector(player_Button_Tapped(sender:)), for: .touchUpInside)
-      //cell.topic_Label.text = audioItem_Array[indexPath.row].Title
-     // cell.time_Label.text = audioItem_Array[indexPath.row].Time
+      if let audioArray = audioArray {
+        let totalSectionCount = audioDictionary.count
+        let currentSection = indexPath.section
+        let totalRowCount = audioArray.count
+        let currentRow = indexPath.row
+        
+        //cell.play_Button.tag =
+        cell.play_Button.addTarget(self, action: #selector(player_Button_Tapped(sender:)), for: .touchUpInside)
+      }
+      
       return cell
     }
     
