@@ -13,7 +13,6 @@ import FirebaseDatabase
 
 
 class AudioListViewController: UIViewController {
-  // https://drive.google.com/open?id=0B6OE35YKfCt3dFZRNzMxdVdHRzA
   
   var idToGet = ""
   var audioItem = AudioItem()
@@ -50,8 +49,8 @@ class AudioListViewController: UIViewController {
   }
   
   @objc func player_Button_Tapped(sender: UIButton){
-    let indexPathOfThisCell = sender.tag
-    self.thisSong = indexPathOfThisCell
+    self.thisSong = sender.tag
+    print("sender tag is \(sender.tag)")
     performSegue(withIdentifier: "identifierPlayer", sender: self)
   }
   
@@ -88,18 +87,25 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
     } else {
       let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AudioListTableViewCell
       let audioArray = audioDictionary[indexPath.section]
-      print("indexpath row is \(indexPath.row)")
+      
       cell.topic_Label.text = audioArray![indexPath.row-1].Title//danger
       cell.time_Label.text = audioArray![indexPath.row-1].Time//danger
       
-      if let audioArray = audioArray {
-        let totalSectionCount = audioDictionary.count
-        let currentSection = indexPath.section
-        let totalRowCount = audioArray.count
-        let currentRow = indexPath.row
+      if let _ = audioArray {
         
-        //cell.play_Button.tag =
-        cell.play_Button.addTarget(self, action: #selector(player_Button_Tapped(sender:)), for: .touchUpInside)
+        var rowForPlay = 0
+        for i in 0...indexPath.section {
+          // addition of total row by section from dictionary
+          let rowCountDependOnI = audioDictionary[i]?.count
+          if let rowCountDependOnI = rowCountDependOnI {
+            rowForPlay += rowCountDependOnI
+            cell.play_Button.tag = rowForPlay - 1
+            cell.play_Button.addTarget(self, action: #selector(player_Button_Tapped(sender:)), for: .touchUpInside)
+
+          }
+        }
+        
+
       }
       
       return cell
@@ -107,7 +113,7 @@ extension AudioListViewController: UITableViewDataSource, UITableViewDelegate{
     
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 57
+    return 68
   }
   
 //  func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

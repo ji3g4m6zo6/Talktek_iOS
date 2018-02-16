@@ -212,9 +212,8 @@ class CourseDetailViewController: UIViewController {
         audioItem.Topic = dictionary["Topic"] as? String
         audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
         audioItem.RowPriority = dictionary["RowPriority"] as? Int
-        
+        audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
 
-        print("section number is \(audioItem.SectionPriority ?? 10)")
         self.audioItem_Array.append(audioItem)
         
         //if audioItem.SectionPriority
@@ -291,8 +290,15 @@ class CourseDetailViewController: UIViewController {
     
     self.present(alert, animated: true)
   }
+  var thisSong = 0
+  @objc func player_Button_Tapped(sender: UIButton){
+    self.thisSong = sender.tag
+    print("sender tag is \(sender.tag)")
+    performSegue(withIdentifier: "identifierPlayer", sender: self)
+  }
+  
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "identifierPlayer"{
+    if segue.identifier == "identifierPlayerList"{
       let destination = segue.destination as! AudioListViewController
       destination.idToGet = detailToGet.courseId!
       destination.audioItem_Array = audioItem_Array
@@ -302,6 +308,10 @@ class CourseDetailViewController: UIViewController {
       let destination = segue.destination as! TeacherViewController
       destination.courseToGet = detailToGet
       destination.idToGet = detailToGet.teacherID!
+    } else if segue.identifier == "identifierPlayer"{
+      let destination = segue.destination as! PlayerViewController
+      destination.audioData = audioItem_Array
+      destination.thisSong = self.thisSong
     }
   }
   
@@ -387,6 +397,25 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
         print("indexpath row is \(indexPath.row)")
         cell.topic_Label.text = audioArray![indexPath.row-1].Title//danger
         cell.time_Label.text = audioArray![indexPath.row-1].Time//danger
+        
+        
+        if let _ = audioArray {
+          
+          var rowForPlay = 0
+          for i in 0...indexPath.section {
+            // addition of total row by section from dictionary
+            let rowCountDependOnI = audioDictionary[i]?.count
+            if let rowCountDependOnI = rowCountDependOnI {
+              rowForPlay += rowCountDependOnI
+              cell.play_Button.tag = rowForPlay - 1
+              cell.play_Button.addTarget(self, action: #selector(player_Button_Tapped(sender:)), for: .touchUpInside)
+              
+            }
+          }
+          
+          
+        }
+        
         //  cell.topic_Label.text = audioItem_Array[indexPath.row].Title
 //        cell.time_Label.text = audioItem_Array[indexPath.row].Time
         return cell
@@ -417,7 +446,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
         performSegue(withIdentifier: "identifierTeacher", sender: self)
       case DetailViewSection.courses.rawValue:
         if self.thisCourseHasBought == true {
-          performSegue(withIdentifier: "identifierPlayer", sender: self)
+          performSegue(withIdentifier: "identifierPlayerList", sender: self)
         } else {
           self.alertNotBought()
         }

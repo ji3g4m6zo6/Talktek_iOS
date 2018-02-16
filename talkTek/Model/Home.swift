@@ -38,6 +38,7 @@ class AudioItem: NSObject{
   var Title: String?
   var Section: String?
   
+  var TryOutEnable: Int?
   var SectionPriority: Int?
   var RowPriority: Int?
 }

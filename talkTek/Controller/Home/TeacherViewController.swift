@@ -209,7 +209,6 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
     if tableView.tag == 90{
       self.detailToPass = homeCourses_Array[indexPath.row]
       self.performSegue(withIdentifier: "identifierCourse", sender: self)
-      tableView.deselectRow(at: indexPath, animated: true)
     }
     
   }
@@ -225,7 +224,7 @@ extension TeacherViewController: UITableViewDataSource, UITableViewDelegate{
         return 204.0 //Not expanded
       case DetailViewSection.courses.rawValue:
         if homeCourses_Array.count <= 3 {
-          return 468.0 - CGFloat(119 * (3 - homeCourses_Array.count))
+          return 468.0 - CGFloat(119 * (3 - homeCourses_Array.count)) - 30
         } else {
           return 468
         }
