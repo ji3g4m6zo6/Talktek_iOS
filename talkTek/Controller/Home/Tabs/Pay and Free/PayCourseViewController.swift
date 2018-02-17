@@ -46,7 +46,7 @@ class PayCourseViewController: UIViewController {
         homeCourses.authorName = dictionary["authorName"]
         homeCourses.title = dictionary["title"]
         homeCourses.price = dictionary["price"]
-        homeCourses.studentNumber = dictionary["studentNumber"]
+       // homeCourses.studentNumber = dictionary["studentNumber"]
         
         self.homeCourses_Array.append(homeCourses)
         

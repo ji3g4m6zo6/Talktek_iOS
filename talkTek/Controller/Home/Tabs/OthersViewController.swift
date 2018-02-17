@@ -47,24 +47,26 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
   func fetchData(){
     // Get the number and root of collectionview
     self.databaseRef.child("Others").observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: String]{
+      if let dictionary = snapshot.value as? [String: Any]{
         print("dictionary is \(dictionary)")
         
         let homeCourses = HomeCourses()
         
-        homeCourses.authorDescription = dictionary["authorDescription"]
-        homeCourses.authorImage = dictionary["authorImage"]
-        homeCourses.authorName = dictionary["authorName"]
-        homeCourses.courseDescription = dictionary["courseDescription"]
-        homeCourses.hour = dictionary["hour"]
-        homeCourses.overViewImage = dictionary["overViewImage"]
-        homeCourses.price = dictionary["price"]
-        homeCourses.score = dictionary["score"]
-        homeCourses.studentNumber = dictionary["studentNumber"]
-        homeCourses.title = dictionary["title"]
-        homeCourses.courseId = dictionary["courseId"]
-        homeCourses.teacherID = dictionary["teacherID"]
-        homeCourses.onSalesPrice = dictionary["onSalesPrice"]
+        homeCourses.authorDescription = dictionary["authorDescription"] as? String
+        homeCourses.authorImage = dictionary["authorImage"] as? String
+        homeCourses.authorName = dictionary["authorName"] as? String
+        homeCourses.courseDescription = dictionary["courseDescription"] as? String
+        homeCourses.hour = dictionary["hour"] as? String
+        homeCourses.overViewImage = dictionary["overViewImage"] as? String
+        homeCourses.price = dictionary["price"] as? String
+        homeCourses.score = dictionary["score"] as? String
+        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+        homeCourses.title = dictionary["title"] as? String
+        homeCourses.courseId = dictionary["courseId"] as? String
+        homeCourses.teacherID = dictionary["teacherID"] as? String
+        homeCourses.onSalesPrice = dictionary["onSalesPrice"] as? String
+        
+        
         
         self.homeCourses_Array.append(homeCourses)
         
@@ -72,7 +74,7 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
           self.collectionView.reloadData()
         }
         self.collectionView.es.stopPullToRefresh()
-
+        
       }
     }
   }
@@ -104,7 +106,7 @@ extension OthersViewController: UICollectionViewDelegate, UICollectionViewDataSo
       cell.price_Label.text = priceLabel
     }
     if let studentNum = homeCourses_Array[indexPath.item].studentNumber{
-      let studentLabel = studentNum + "人購買"
+      let studentLabel = String(studentNum) + "人購買"
       cell.peopleBought_Label.text = studentLabel
     }
     if let overviewUrl = homeCourses_Array[indexPath.item].overViewImage{

@@ -72,21 +72,22 @@ class CouponViewController: UIViewController {
     
     if array_CourseID.contains(coupon_TextField.text!){
       databaseRef.child("AllCourses").child(coupon_TextField.text!).observe(.value, with: { (snapshot) in
-        if let dictionary = snapshot.value as? [String: String]{
+        if let dictionary = snapshot.value as? [String: Any]{
           let homeCourses = HomeCourses()
           
-          homeCourses.authorDescription = dictionary["authorDescription"]
-          homeCourses.authorImage = dictionary["authorImage"]
-          homeCourses.authorName = dictionary["authorName"]
-          homeCourses.courseDescription = dictionary["courseDescription"]
-          homeCourses.hour = dictionary["hour"]
-          homeCourses.overViewImage = dictionary["overViewImage"]
-          homeCourses.price = dictionary["price"]
-          homeCourses.score = dictionary["score"]
-          homeCourses.studentNumber = dictionary["studentNumber"]
-          homeCourses.title = dictionary["title"]
-          homeCourses.courseId = dictionary["courseId"]
-          homeCourses.teacherID = dictionary["teacherID"]
+          homeCourses.authorDescription = dictionary["authorDescription"] as? String
+          homeCourses.authorImage = dictionary["authorImage"] as? String
+          homeCourses.authorName = dictionary["authorName"] as? String
+          homeCourses.courseDescription = dictionary["courseDescription"] as? String
+          homeCourses.hour = dictionary["hour"] as? String
+          homeCourses.overViewImage = dictionary["overViewImage"] as? String
+          homeCourses.price = dictionary["price"] as? String
+          homeCourses.score = dictionary["score"] as? String
+          homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+          homeCourses.title = dictionary["title"] as? String
+          homeCourses.courseId = dictionary["courseId"] as? String
+          homeCourses.teacherID = dictionary["teacherID"] as? String
+          homeCourses.onSalesPrice = dictionary["onSalesPrice"] as? String
           
           let jsonEncoder = JSONEncoder()
           let jsonData = try? jsonEncoder.encode(homeCourses)

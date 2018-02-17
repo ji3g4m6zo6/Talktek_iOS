@@ -21,7 +21,7 @@ class HomeCourses: NSObject, Encodable {
   var overViewImage: String?
   var price: String?
   var score: String?
-  var studentNumber: String?
+  var studentNumber: Int?
   var title: String?
   var teacherID: String?
   
