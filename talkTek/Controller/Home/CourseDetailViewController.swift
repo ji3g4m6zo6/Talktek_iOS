@@ -131,8 +131,8 @@ class CourseDetailViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    self.tableView.delegate = self
-    self.tableView.dataSource = self
+    tableView.delegate = self
+    tableView.dataSource = self
 
     mainIconImage.tintColor = UIColor.moneyYellow()
     accountIconImage.tintColor = UIColor.moneyYellow()
@@ -199,97 +199,13 @@ class CourseDetailViewController: UIViewController {
   
   var audioItem_Array = [AudioItem]()
 
-  func fetchAudioFiles(withCourseId: String){
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-    databaseRef.child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: Any]{
-        let audioItem = AudioItem()
-        audioItem.Audio = dictionary["Audio"] as? String
-        audioItem.Section = dictionary["Section"] as? String
-        audioItem.Time = dictionary["Time"] as? String
-        audioItem.Title = dictionary["Title"] as? String
-        audioItem.Topic = dictionary["Topic"] as? String
-        audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
-        audioItem.RowPriority = dictionary["RowPriority"] as? Int
-        audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
-
-        self.audioItem_Array.append(audioItem)
-        
-        //if audioItem.SectionPriority
-        for i in 0...self.sectionCount-1{
-          guard let sectionNumber = audioItem.SectionPriority else { return }
-          if i == sectionNumber {
-            if var previousInfo = self.audioDictionary[i] {
-              previousInfo.append(audioItem)
-              self.audioDictionary.updateValue(previousInfo, forKey: i)
-            } else {
-              self.audioDictionary.updateValue([audioItem], forKey: i)
-            }
-            print("dicccc \(self.audioDictionary)")
-            DispatchQueue.main.async {
-             
-              self.tableView.reloadData()
-             
-            }
-          }
-          
-        }
-
-        
-        //self.tableView.reloadData()
-        
-      }
-    }
-  }
   
-  func fetchSectionTitle(withCourseId: String){
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-
-    databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
-      if let array = snapshot.value as? [String]{
-        self.sections = array
-        self.sectionCount = array.count
-        self.fetchAudioFiles(withCourseId: withCourseId)
-      }
-
-    }
-    
-  }
   var audioDictionary = [Int: [AudioItem]]()
   // [0: [AudioItem1, AudioItem2], 1: [AudioItem1]]
   var sections = [String]()
   var sectionCount = 0
   
   
-  func alertSuccess(){
-    let alert = UIAlertController(title: "成功購買課程", message: "您現在可以進行課程。", preferredStyle: .alert)
-    
-    
-    let confirmAction = UIAlertAction(
-      title: "確定",
-      style: .cancel,
-      handler: nil)
-    alert.addAction(confirmAction)
-    
-    
-    self.present(alert, animated: true)
-  }
-  func alertNotBought(){
-    let alert = UIAlertController(title: "您尚未購買此課程", message: "", preferredStyle: .alert)
-    
-    
-    let confirmAction = UIAlertAction(
-      title: "確認",
-      style: .cancel,
-      handler: nil)
-    alert.addAction(confirmAction)
-    
-    
-    
-    self.present(alert, animated: true)
-  }
   var thisSong = 0
   @objc func player_Button_Tapped(sender: UIButton){
     self.thisSong = sender.tag
@@ -316,7 +232,7 @@ class CourseDetailViewController: UIViewController {
   }
   
 }
-
+// MARK: - UITableViewDelegate, UITableViewDataSource
 extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource{
   func numberOfSections(in tableView: UITableView) -> Int {
     if tableView.tag == 100 {
@@ -392,9 +308,9 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
         return cell
         
       } else {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "audioFiles", for: indexPath) as! AudioFilesTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! AudioListTableViewCell
         let audioArray = audioDictionary[indexPath.section]
-        print("indexpath row is \(indexPath.row)")
+       // print("indexpath row is \(indexPath.row)")
         cell.topic_Label.text = audioArray![indexPath.row-1].Title//danger
         cell.time_Label.text = audioArray![indexPath.row-1].Time//danger
         
@@ -454,6 +370,9 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
         
       default: fatalError()
       }
+    } else if tableView.tag == 90 {
+      
+      print("indexPath section is \(indexPath.section)\nindexPath row is \(indexPath.row)")
     }
     
   }
@@ -506,4 +425,96 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
     return 0
   }
   
+}
+// MARK: - Alerts
+extension CourseDetailViewController {
+  
+  func alertSuccess(){
+    let alert = UIAlertController(title: "成功購買課程", message: "您現在可以進行課程。", preferredStyle: .alert)
+    
+    
+    let confirmAction = UIAlertAction(
+      title: "確定",
+      style: .cancel,
+      handler: nil)
+    alert.addAction(confirmAction)
+    
+    
+    self.present(alert, animated: true)
+  }
+  func alertNotBought(){
+    let alert = UIAlertController(title: "您尚未購買此課程", message: "", preferredStyle: .alert)
+    
+    
+    let confirmAction = UIAlertAction(
+      title: "確認",
+      style: .cancel,
+      handler: nil)
+    alert.addAction(confirmAction)
+    
+    
+    
+    self.present(alert, animated: true)
+  }
+}
+// MARK: - APIs
+extension CourseDetailViewController {
+  func fetchAudioFiles(withCourseId: String){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    databaseRef.child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Any]{
+        let audioItem = AudioItem()
+        audioItem.Audio = dictionary["Audio"] as? String
+        audioItem.Section = dictionary["Section"] as? String
+        audioItem.Time = dictionary["Time"] as? String
+        audioItem.Title = dictionary["Title"] as? String
+        audioItem.Topic = dictionary["Topic"] as? String
+        audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
+        audioItem.RowPriority = dictionary["RowPriority"] as? Int
+        audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
+        
+        self.audioItem_Array.append(audioItem)
+        
+        //if audioItem.SectionPriority
+        for i in 0...self.sectionCount-1{
+          guard let sectionNumber = audioItem.SectionPriority else { return }
+          if i == sectionNumber {
+            if var previousInfo = self.audioDictionary[i] {
+              previousInfo.append(audioItem)
+              self.audioDictionary.updateValue(previousInfo, forKey: i)
+            } else {
+              self.audioDictionary.updateValue([audioItem], forKey: i)
+            }
+            print("dicccc \(self.audioDictionary)")
+            DispatchQueue.main.async {
+              
+              self.tableView.reloadData()
+              
+            }
+          }
+          
+        }
+        
+        
+        //self.tableView.reloadData()
+        
+      }
+    }
+  }
+  
+  func fetchSectionTitle(withCourseId: String){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    
+    databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
+      if let array = snapshot.value as? [String]{
+        self.sections = array
+        self.sectionCount = array.count
+        self.fetchAudioFiles(withCourseId: withCourseId)
+      }
+      
+    }
+    
+  }
 }
