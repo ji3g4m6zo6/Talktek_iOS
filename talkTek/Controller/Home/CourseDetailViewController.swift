@@ -295,7 +295,6 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
         return cell
       case DetailViewSection.courses.rawValue:
         let cell = tableView.dequeueReusableCell(withIdentifier: "courses", for: indexPath) as! CoursesTableViewCell
-        //cell.setDatasource(courseId: detailToGet.courseId!)
         cell.course_TableView.reloadData()
         return cell
       default: fatalError()
