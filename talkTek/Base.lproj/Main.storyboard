@@ -56,7 +56,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WKg-tt-L6u">
-                                <rect key="frame" x="25" y="50" width="325" height="577"/>
+                                <rect key="frame" x="25" y="50" width="325" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="YR2-ry-Ci3" customClass="MoreTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -220,7 +220,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="msh-WE-erA">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1580"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1487"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="main" rowHeight="367" id="33X-Zp-sMF" customClass="MainTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -743,7 +743,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-WV-ib8" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1550" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="1501" width="375" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="HtY-Df-IRy">
                                         <rect key="frame" x="10" y="29" width="15" height="15"/>
@@ -894,7 +894,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-18-ASf">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioHeader" rowHeight="68" id="BoL-dD-ZIj" customClass="AudioSectionTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -1517,21 +1517,21 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ghost" translatesAutoresizingMaskIntoConstraints="NO" id="xgj-AG-ujl">
-                                <rect key="frame" x="62" y="157" width="251" height="251"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="畫圈圈" translatesAutoresizingMaskIntoConstraints="NO" id="xgj-AG-ujl">
+                                <rect key="frame" x="87.5" y="157" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="251" id="9rF-Hg-hqH"/>
-                                    <constraint firstAttribute="width" constant="251" id="DeP-H1-ohI"/>
+                                    <constraint firstAttribute="height" constant="200" id="9rF-Hg-hqH"/>
+                                    <constraint firstAttribute="width" constant="200" id="DeP-H1-ohI"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="還沒有購買任何課程呦！" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3x-9G-1Zi">
-                                <rect key="frame" x="92" y="411" width="191" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好想趕快學習呦TAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3x-9G-1Zi">
+                                <rect key="frame" x="125.5" y="377" width="124.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTl-P1-E0r" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
-                                <rect key="frame" x="127" y="453" width="121" height="32"/>
+                                <rect key="frame" x="127" y="409" width="121" height="32"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="121" id="uDh-ge-7he"/>
@@ -1554,11 +1554,11 @@
                         <constraints>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" constant="25" id="08Q-4v-hqc"/>
                             <constraint firstItem="xgj-AG-ujl" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" constant="93" id="1tg-2d-ff8"/>
-                            <constraint firstItem="l3x-9G-1Zi" firstAttribute="top" secondItem="xgj-AG-ujl" secondAttribute="bottom" constant="3" id="2Zv-kr-6ZT"/>
+                            <constraint firstItem="l3x-9G-1Zi" firstAttribute="top" secondItem="xgj-AG-ujl" secondAttribute="bottom" constant="20" id="2Zv-kr-6ZT"/>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="bottom" secondItem="ryu-0O-MAY" secondAttribute="bottom" id="6ZC-Zt-YVh"/>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="leading" secondItem="ryu-0O-MAY" secondAttribute="leading" constant="25" id="AIX-PS-0J0"/>
                             <constraint firstItem="l3x-9G-1Zi" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="ETk-ny-Lyl"/>
-                            <constraint firstItem="FTl-P1-E0r" firstAttribute="top" secondItem="l3x-9G-1Zi" secondAttribute="bottom" constant="21" id="SEw-YH-Y6k"/>
+                            <constraint firstItem="FTl-P1-E0r" firstAttribute="top" secondItem="l3x-9G-1Zi" secondAttribute="bottom" constant="15" id="SEw-YH-Y6k"/>
                             <constraint firstItem="xgj-AG-ujl" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="dQ4-rI-Lj7"/>
                             <constraint firstAttribute="trailing" secondItem="z2V-rx-7cf" secondAttribute="trailing" constant="25" id="gj0-jd-tk1"/>
                             <constraint firstItem="FTl-P1-E0r" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="sJS-oR-p7v"/>
@@ -2690,7 +2690,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PMf-Cz-lll">
-                                <rect key="frame" x="0.0" y="20" width="375" height="1180"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="1087"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="352" id="7vg-3n-Eo7" customClass="TeacherMainTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -4925,7 +4925,6 @@
         <image name="Tab_設置" width="20" height="20"/>
         <image name="Tab_首頁" width="20" height="20"/>
         <image name="TestIcon" width="160" height="160"/>
-        <image name="ghost" width="500" height="500"/>
         <image name="i8 第一登入頁" width="375" height="667"/>
         <image name="logo" width="240" height="320"/>
         <image name="往下" width="20" height="20"/>
@@ -4940,6 +4939,7 @@
         <image name="播放器_往後15秒" width="25" height="25"/>
         <image name="播放器_收藏" width="20" height="20"/>
         <image name="未登入人像" width="110" height="110"/>
+        <image name="畫圈圈" width="200" height="200"/>
         <image name="相機" width="16" height="16"/>
         <image name="課程 人數" width="24" height="24"/>
         <image name="課程_星星" width="24" height="24"/>
@@ -4947,9 +4947,8 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="irW-5M-Rbk"/>
-        <segue reference="vOA-a3-KS8"/>
+        <segue reference="ATM-aJ-JqT"/>
         <segue reference="r0k-Z7-iPA"/>
-        <segue reference="aZH-O9-L6d"/>
+        <segue reference="ots-Q2-Lei"/>
     </inferredMetricsTieBreakers>
 </document>
