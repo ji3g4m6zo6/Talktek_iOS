@@ -3170,7 +3170,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="loi-A3-4d2">
-                                <rect key="frame" x="162" y="449" width="50" height="50"/>
+                                <rect key="frame" x="162" y="429" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="GSr-sa-IGf"/>
                                     <constraint firstAttribute="height" constant="50" id="g4b-Sj-auu"/>
@@ -3181,7 +3181,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pEO-ov-2CG">
-                                <rect key="frame" x="17" y="461.5" width="25" height="25"/>
+                                <rect key="frame" x="17" y="441.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="8WQ-71-TNR"/>
                                     <constraint firstAttribute="height" constant="25" id="c0e-CP-ibf"/>
@@ -3192,7 +3192,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lvk-QQ-Lwy">
-                                <rect key="frame" x="89" y="461.5" width="25" height="25"/>
+                                <rect key="frame" x="89" y="441.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="bsY-Q0-iAE"/>
                                     <constraint firstAttribute="width" constant="25" id="yiw-dB-X1h"/>
@@ -3203,7 +3203,7 @@
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZDM-Ih-KF7">
-                                <rect key="frame" x="332" y="461.5" width="25" height="25"/>
+                                <rect key="frame" x="332" y="441.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="Zd2-op-g6c"/>
                                     <constraint firstAttribute="height" constant="25" id="gFR-iR-zWN"/>
@@ -3215,7 +3215,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbq-0y-41z">
-                                <rect key="frame" x="260" y="461.5" width="25" height="25"/>
+                                <rect key="frame" x="260" y="441.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="25" id="0Pr-ey-9Kl"/>
                                     <constraint firstAttribute="height" constant="25" id="e5W-yI-taf"/>
@@ -3226,13 +3226,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="553.5" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="533.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="553.5" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="533.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3248,14 +3248,14 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="537" width="325" height="1"/>
+                                <rect key="frame" x="25" y="517" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
                                 <color key="progressTintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </progressView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="HEX-0J-5YP">
-                                <rect key="frame" x="23" y="524" width="329" height="31"/>
+                                <rect key="frame" x="23" y="504" width="329" height="31"/>
                                 <color key="tintColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="slider_Tapped:" destination="IAP-L2-xR2" eventType="valueChanged" id="Fvp-wC-krl"/>
@@ -3282,7 +3282,7 @@
                             <constraint firstItem="fjK-uY-bC6" firstAttribute="top" secondItem="Es1-Id-VSF" secondAttribute="bottom" constant="15.5" id="9YX-9F-im1"/>
                             <constraint firstItem="QUW-jd-fEM" firstAttribute="leading" secondItem="W9U-Ok-hs5" secondAttribute="leading" constant="25" id="9ag-fl-qi4"/>
                             <constraint firstItem="W9U-Ok-hs5" firstAttribute="trailing" secondItem="tdK-vc-Fql" secondAttribute="trailing" constant="10" id="ACQ-N4-6ui"/>
-                            <constraint firstItem="loi-A3-4d2" firstAttribute="top" secondItem="QUW-jd-fEM" secondAttribute="bottom" constant="36" id="AcW-3I-OBR"/>
+                            <constraint firstItem="loi-A3-4d2" firstAttribute="top" secondItem="bZv-78-pn1" secondAttribute="top" constant="429" id="AcW-3I-OBR"/>
                             <constraint firstItem="lvk-QQ-Lwy" firstAttribute="leading" secondItem="pEO-ov-2CG" secondAttribute="trailing" constant="47" id="ChF-NS-xBV"/>
                             <constraint firstItem="loi-A3-4d2" firstAttribute="centerX" secondItem="bZv-78-pn1" secondAttribute="centerX" id="EwC-OG-qhs"/>
                             <constraint firstItem="loi-A3-4d2" firstAttribute="centerY" secondItem="pEO-ov-2CG" secondAttribute="centerY" id="KBC-Gn-hnS"/>
