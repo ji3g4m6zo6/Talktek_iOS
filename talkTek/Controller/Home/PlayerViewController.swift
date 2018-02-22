@@ -16,6 +16,10 @@ class PlayerViewController: UIViewController {
   var audioData = [AudioItem]()
   var thisSong = 0
 
+  @IBOutlet weak var playerToTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var sliderToTopConstraint: NSLayoutConstraint!
+  
+  
   @IBOutlet weak var playerToBottom_Button: UIButton!
   @IBAction func PlayerToBottom_Button_Tapped(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
@@ -136,6 +140,10 @@ class PlayerViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    playerToTopConstraint.constant = view.frame.height * 0.7
+    sliderToTopConstraint.constant = view.frame.height * 0.83 
+    
     
     slow_Button.tintColor = UIColor.white
     previous_Button.tintColor = UIColor.white
