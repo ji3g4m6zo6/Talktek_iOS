@@ -19,6 +19,7 @@ class CourseDetailViewController: UIViewController {
   var detailToGet = HomeCourses()
   var uid = ""
   
+  @IBOutlet weak var tableviewToBottom: NSLayoutConstraint!
   @IBOutlet weak var buy_View: UIView!
   @IBOutlet weak var buy_Button: UIButton!
   @IBOutlet weak var mainIconImage: UIImageView!
@@ -119,8 +120,20 @@ class CourseDetailViewController: UIViewController {
         thisCourseHasBought = true
       }
     }
+    
   }
   var thisCourseHasBought = false
+  {
+    didSet
+    {
+      if thisCourseHasBought == true {
+        tableviewToBottom.constant = 0
+      } else {
+        tableviewToBottom.constant = 50
+      }
+    }
+  }
+  
   @IBOutlet weak var tableView: UITableView!
   enum DetailViewSection: Int{
     case main = 0
@@ -321,9 +334,9 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
             // addition of total row by section from dictionary
             let rowCountDependOnI = audioDictionary[i]?.count
             if let rowCountDependOnI = rowCountDependOnI {
-              rowForPlay += rowCountDependOnI
-              cell.play_Button.tag = rowForPlay - 1
+              cell.play_Button.tag = rowForPlay - 1 + indexPath.row
               cell.play_Button.addTarget(self, action: #selector(player_Button_Tapped(sender:)), for: .touchUpInside)
+              rowForPlay += rowCountDependOnI
               
             }
           }
@@ -389,7 +402,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       case DetailViewSection.teacherInfo.rawValue:
         return 249.0
       case DetailViewSection.courses.rawValue:
-        return 700.0
+        return 550.0
       //return 591.0
       default:
         fatalError()
@@ -474,7 +487,7 @@ extension CourseDetailViewController {
         audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
         
         self.audioItem_Array.append(audioItem)
-        
+
         //if audioItem.SectionPriority
         for i in 0...self.sectionCount-1{
           guard let sectionNumber = audioItem.SectionPriority else { return }

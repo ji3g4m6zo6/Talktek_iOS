@@ -141,6 +141,7 @@ class PlayerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    print("this song \(thisSong)")
     playerToTopConstraint.constant = view.frame.height * 0.7
     sliderToTopConstraint.constant = view.frame.height * 0.83 
     
