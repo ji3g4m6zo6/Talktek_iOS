@@ -141,7 +141,9 @@ class PlayerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    print("this song \(thisSong)")
+    
+    
+    
     playerToTopConstraint.constant = view.frame.height * 0.7
     sliderToTopConstraint.constant = view.frame.height * 0.83 
     
@@ -153,8 +155,8 @@ class PlayerViewController: UIViewController {
     speed_Button.tintColor = UIColor.white
     playerToBottom_Button.tintColor = UIColor.white
     
-    topic_Label.text = audioData[thisSong].Topic
-    title_Label.text = audioData[thisSong].Title
+    title_Label.text = audioData[thisSong].Topic
+    topic_Label.text = audioData[thisSong].Title
     
     
     guard let url = URL(string: audioData[thisSong].Audio!) else { fatalError("連接錯誤") }
@@ -182,8 +184,8 @@ class PlayerViewController: UIViewController {
   
   func letsPlay(thisSongIndex: Int){
     
-    topic_Label.text = audioData[thisSongIndex].Topic
-    title_Label.text = audioData[thisSongIndex].Title
+    title_Label.text = audioData[thisSongIndex].Topic
+    topic_Label.text = audioData[thisSongIndex].Title
 
     playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
     playerItem.removeObserver(self, forKeyPath: "status")

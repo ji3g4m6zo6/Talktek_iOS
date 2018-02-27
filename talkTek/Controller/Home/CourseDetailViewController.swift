@@ -183,7 +183,7 @@ class CourseDetailViewController: UIViewController {
       
     }
     
-    print(detailToGet.title ?? "")
+
     
     databaseRef = Database.database().reference()
     let userDefaults = UserDefaults.standard
@@ -373,12 +373,14 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       case DetailViewSection.teacherInfo.rawValue:
         performSegue(withIdentifier: "identifierTeacher", sender: self)
       case DetailViewSection.courses.rawValue:
+        /*
         if self.thisCourseHasBought == true {
           performSegue(withIdentifier: "identifierPlayerList", sender: self)
         } else {
           self.alertNotBought()
         }
-        
+        */
+        break
         
       default: fatalError()
       }
@@ -402,7 +404,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       case DetailViewSection.teacherInfo.rawValue:
         return 249.0
       case DetailViewSection.courses.rawValue:
-        return 550.0
+        return 500.0
       //return 591.0
       default:
         fatalError()
