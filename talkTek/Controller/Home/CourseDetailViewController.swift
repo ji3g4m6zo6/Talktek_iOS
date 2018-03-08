@@ -221,9 +221,16 @@ class CourseDetailViewController: UIViewController {
   
   var thisSong = 0
   @objc func player_Button_Tapped(sender: UIButton){
-    self.thisSong = sender.tag
-    print("sender tag is \(sender.tag)")
-    performSegue(withIdentifier: "identifierPlayer", sender: self)
+    
+    if self.thisCourseHasBought == true {
+      self.thisSong = sender.tag
+      print("sender tag is \(sender.tag)")
+      performSegue(withIdentifier: "identifierPlayer", sender: self)
+    } else {
+      self.alertNotBought()
+    }
+    
+    
   }
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -373,13 +380,7 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       case DetailViewSection.teacherInfo.rawValue:
         performSegue(withIdentifier: "identifierTeacher", sender: self)
       case DetailViewSection.courses.rawValue:
-        /*
-        if self.thisCourseHasBought == true {
-          performSegue(withIdentifier: "identifierPlayerList", sender: self)
-        } else {
-          self.alertNotBought()
-        }
-        */
+        
         break
         
       default: fatalError()
