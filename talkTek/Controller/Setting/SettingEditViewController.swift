@@ -62,11 +62,7 @@ class SettingEditViewController: UIViewController {
     } else {
       name_Label.text = ""
     }
-//    if user.name != ""{
-//      name_Label.text = user.name
-//    } else {
-//      name_Label.text = "嗨你好:)"
-//    }
+
     
     if user.account == nil{
       account_TextField.placeholder = "請填寫帳號"
@@ -124,7 +120,9 @@ class SettingEditViewController: UIViewController {
   var username = ""
   
   @IBAction func comfirm_Button_Tapped(_ sender: UIBarButtonItem) {
-    let parameter = ["name": nickName_TextField.text ?? "", "account": account_TextField.text ?? "", "birthday": birthday_TextField.text ?? "", "gender": gender_TextField.text ?? ""]
+    
+    
+    let parameter = ["Online-Status": "On", "name": nickName_TextField.text ?? "", "account": account_TextField.text ?? "", "birthday": birthday_TextField.text ?? "", "gender": gender_TextField.text ?? "", "profileImageUrl": user.profileImageUrl ?? ""]
     databaseRef.child("Users/\(self.userID)").setValue(parameter) { (error, databaseRef) in
       if error != nil {
         
@@ -373,6 +371,10 @@ extension SettingEditViewController: UIImagePickerControllerDelegate, UINavigati
             
             // 連結取得方式就是：data?.downloadURL()?.absoluteString。
             if let uploadImageUrl = data?.downloadURL()?.absoluteString {
+              
+              
+              // 暫存至user.profileImageUrl
+              self.user.profileImageUrl = uploadImageUrl
               
               // 我們可以 print 出來看看這個連結事不是我們剛剛所上傳的照片。
               print("Photo Url: \(uploadImageUrl)")
