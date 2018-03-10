@@ -18,6 +18,8 @@ class PlayerViewController: UIViewController {
 
   @IBOutlet weak var playerToTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var sliderToTopConstraint: NSLayoutConstraint!
+  @IBOutlet weak var progressToTopConstraint: NSLayoutConstraint!
+  
   
   
   @IBOutlet weak var playerToBottom_Button: UIButton!
@@ -145,7 +147,8 @@ class PlayerViewController: UIViewController {
     
     
     playerToTopConstraint.constant = view.frame.height * 0.7
-    sliderToTopConstraint.constant = view.frame.height * 0.83 
+    sliderToTopConstraint.constant = view.frame.height * 0.83
+    progressToTopConstraint.constant = view.frame.height * 0.83 
     
     
     slow_Button.tintColor = UIColor.white
