@@ -78,6 +78,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
       } else {
         // No user is signed in
         //self.logIn()
+        
         self.facebook_Button.readPermissions = ["public_profile", "email"]
         print("permission \(self.facebook_Button.readPermissions)")
         self.facebook_Button.delegate = self
