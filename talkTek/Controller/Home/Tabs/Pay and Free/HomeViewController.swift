@@ -47,7 +47,11 @@ class HomeViewController: UIViewController {
   func searchImplement(){
     let search = UISearchController(searchResultsController: nil)
     search.searchResultsUpdater = self as? UISearchResultsUpdating
-    self.navigationItem.searchController = search
+    if #available(iOS 11.0, *) {
+      self.navigationItem.searchController = search
+    } else {
+      // Fallback on earlier versions
+    }
   }
   
 

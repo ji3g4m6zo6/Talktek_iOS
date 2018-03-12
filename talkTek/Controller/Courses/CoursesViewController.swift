@@ -27,7 +27,11 @@ class CoursesViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    navigationController?.navigationBar.prefersLargeTitles = true
+    if #available(iOS 11.0, *) {
+      navigationController?.navigationBar.prefersLargeTitles = true
+    } else {
+      // Fallback on earlier versions
+    }
     searchImplement()
     
     setUpView()
@@ -44,7 +48,11 @@ class CoursesViewController: UIViewController {
   func searchImplement(){
     let search = UISearchController(searchResultsController: nil)
     search.searchResultsUpdater = self as? UISearchResultsUpdating
-    self.navigationItem.searchController = search
+    if #available(iOS 11.0, *) {
+      self.navigationItem.searchController = search
+    } else {
+      // Fallback on earlier versions
+    }
   }
   
   
