@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -3249,13 +3250,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="527" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="527" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3271,7 +3272,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="517" width="325" height="1"/>
+                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
@@ -3316,18 +3317,18 @@
                             <constraint firstItem="qYV-ef-AOs" firstAttribute="centerX" secondItem="DjE-HR-6hd" secondAttribute="centerX" id="3KW-QN-dHJ"/>
                             <constraint firstItem="HEX-0J-5YP" firstAttribute="centerX" secondItem="bZv-78-pn1" secondAttribute="centerX" id="5M7-NA-wl2"/>
                             <constraint firstItem="fbq-0y-41z" firstAttribute="centerY" secondItem="pEO-ov-2CG" secondAttribute="centerY" id="6Gi-cI-hiw"/>
-                            <constraint firstItem="fJh-Rk-YLv" firstAttribute="top" secondItem="Es1-Id-VSF" secondAttribute="bottom" constant="9" id="6Vu-z5-1kM"/>
+                            <constraint firstItem="fJh-Rk-YLv" firstAttribute="top" secondItem="Es1-Id-VSF" secondAttribute="bottom" constant="10" id="6Vu-z5-1kM"/>
                             <constraint firstItem="Clj-nO-n7t" firstAttribute="centerX" secondItem="bZv-78-pn1" secondAttribute="centerX" id="96b-hj-B3M"/>
                             <constraint firstItem="loi-A3-4d2" firstAttribute="top" secondItem="bZv-78-pn1" secondAttribute="top" constant="429" id="AcW-3I-OBR"/>
-                            <constraint firstItem="Es1-Id-VSF" firstAttribute="top" secondItem="bZv-78-pn1" secondAttribute="top" constant="517" id="CEd-ii-igM"/>
                             <constraint firstItem="lvk-QQ-Lwy" firstAttribute="leading" secondItem="pEO-ov-2CG" secondAttribute="trailing" constant="47" id="ChF-NS-xBV"/>
                             <constraint firstItem="loi-A3-4d2" firstAttribute="centerX" secondItem="bZv-78-pn1" secondAttribute="centerX" id="EwC-OG-qhs"/>
-                            <constraint firstItem="fjK-uY-bC6" firstAttribute="top" secondItem="Es1-Id-VSF" secondAttribute="bottom" constant="9" id="HWb-gr-se8"/>
+                            <constraint firstItem="fjK-uY-bC6" firstAttribute="top" secondItem="Es1-Id-VSF" secondAttribute="bottom" constant="10" id="HWb-gr-se8"/>
                             <constraint firstItem="QUW-jd-fEM" firstAttribute="centerX" secondItem="bZv-78-pn1" secondAttribute="centerX" id="Jdu-lB-ncl"/>
                             <constraint firstItem="loi-A3-4d2" firstAttribute="centerY" secondItem="pEO-ov-2CG" secondAttribute="centerY" id="KBC-Gn-hnS"/>
                             <constraint firstItem="loi-A3-4d2" firstAttribute="top" secondItem="QUW-jd-fEM" secondAttribute="bottom" constant="54" id="Kew-mn-qS6"/>
                             <constraint firstItem="ZDM-Ih-KF7" firstAttribute="centerY" secondItem="pEO-ov-2CG" secondAttribute="centerY" id="L8Q-U8-QWh"/>
                             <constraint firstItem="ZDM-Ih-KF7" firstAttribute="leading" secondItem="fbq-0y-41z" secondAttribute="trailing" constant="47" id="Qe4-g8-t6u"/>
+                            <constraint firstItem="Es1-Id-VSF" firstAttribute="centerY" secondItem="HEX-0J-5YP" secondAttribute="centerY" id="T7N-D7-afp"/>
                             <constraint firstItem="W9U-Ok-hs5" firstAttribute="trailing" secondItem="Clj-nO-n7t" secondAttribute="trailing" constant="30" id="Wii-Pv-IDt"/>
                             <constraint firstItem="qYV-ef-AOs" firstAttribute="centerY" secondItem="DjE-HR-6hd" secondAttribute="centerY" id="XOT-gM-0KU"/>
                             <constraint firstItem="lvk-QQ-Lwy" firstAttribute="centerY" secondItem="pEO-ov-2CG" secondAttribute="centerY" id="aek-0p-5CU"/>
@@ -3356,7 +3357,6 @@
                         <outlet property="playerToTopConstraint" destination="AcW-3I-OBR" id="FTF-QT-e61"/>
                         <outlet property="playpause_Button" destination="loi-A3-4d2" id="n5O-8v-qc8"/>
                         <outlet property="previous_Button" destination="lvk-QQ-Lwy" id="rZ8-xn-6QM"/>
-                        <outlet property="progressToTopConstraint" destination="CEd-ii-igM" id="J01-AE-ebK"/>
                         <outlet property="progress_UIProguress" destination="Es1-Id-VSF" id="Kxa-7B-im5"/>
                         <outlet property="sliderToTopConstraint" destination="kOm-7p-0NG" id="hmk-76-Oia"/>
                         <outlet property="slider_UISlider" destination="HEX-0J-5YP" id="eet-jl-bqR"/>
