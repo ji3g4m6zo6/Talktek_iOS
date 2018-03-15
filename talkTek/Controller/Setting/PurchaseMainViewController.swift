@@ -30,12 +30,24 @@ class PurchaseMainViewController: UIViewController {
         print("Product: \(product.localizedDescription), price: \(priceString)")
       }
       else if let invalidProductId = result.invalidProductIDs.first {
-        return print("Could not retrieve product info, message: Invalid product identifier: \(invalidProductId)")
+        print("Invalid product identifier: \(invalidProductId)")
       }
       else {
-        print("Error: \(result.error ?? "" as! Error)")
+        print("Error: \(result.error)")
       }
     }
+//    SwiftyStoreKit.retrieveProductsInfo(["comeonQAQ"]) { result in
+//      if let product = result.retrievedProducts.first {
+//        let priceString = product.localizedPrice!
+//        print("Product: \(product.localizedDescription), price: \(priceString)")
+//      }
+//      else if let invalidProductId = result.invalidProductIDs.first {
+//        return print("Could not retrieve product info, message: Invalid product identifier: \(invalidProductId)")
+//      }
+//      else {
+//        print("Error: \(result.error ?? "" as! Error)")
+//      }
+//    }
 
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
@@ -49,6 +61,33 @@ class PurchaseMainViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  @IBAction func twofiftyButtonTapped(_ sender: UIButton) {
+    SwiftyStoreKit.purchaseProduct("com.talkTek.comeonQAQ", quantity: 1, atomically: true) { result in
+      switch result {
+      case .success(let purchase):
+        print("Purchase Success: \(purchase.productId)")
+      case .error(let error):
+        switch error.code {
+        case .unknown: print("Unknown error. Please contact support")
+        case .clientInvalid: print("Not allowed to make the payment")
+        case .paymentCancelled: break
+        case .paymentInvalid: print("The purchase identifier was invalid")
+        case .paymentNotAllowed: print("The device is not allowed to make the payment")
+        case .storeProductNotAvailable: print("The product is not available in the current storefront")
+        case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
+        case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
+        case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
+        }
+      }
+    }
+  }
+  @IBAction func fivehundredButtonTapped(_ sender: UIButton) {
+    
+  }
+  @IBAction func thousandButtonTapped(_ sender: UIButton) {
+    
+  }
+  /*
   @IBAction func testBuy(_ sender: UIButton) {
     SwiftyStoreKit.purchaseProduct("comeonQAQ", quantity: 1, atomically: true) { result in
       switch result {
@@ -70,7 +109,7 @@ class PurchaseMainViewController: UIViewController {
     }
     //IAPService.shared.purchase(product: .testPoints)
   }
-  
+  */
   func fetchData(){
     self.databaseRef = Database.database().reference()
     self.databaseRef.child("Money/\(self.userID)").observe(.value) { (snapshot) in

@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    
     FirebaseApp.configure()
 
     completeIAPTransactions()
@@ -48,9 +49,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       for purchase in purchases {
         if purchase.transaction.transactionState == .purchased || purchase.transaction.transactionState == .restored {
           
-          if purchase.needsFinishTransaction {
-            // Deliver content from server, then:
-            SwiftyStoreKit.finishTransaction(purchase.transaction)
+          switch purchase.transaction.transactionState {
+          case .purchased, .restored:
+            if purchase.needsFinishTransaction {
+              // Deliver content from server, then:
+              SwiftyStoreKit.finishTransaction(purchase.transaction)
+            }
+          // Unlock content
+          case .failed, .purchasing, .deferred:
+            break // do nothing
           }
           print("purchased: \(purchase.productId)")
         }

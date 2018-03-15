@@ -83,6 +83,7 @@
 		04E1004B1FD311270007D4E3 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004A1FD311270007D4E3 /* Setting.swift */; };
 		04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004C1FD3EF0A0007D4E3 /* Home.swift */; };
 		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
+		AE1A8A1D205A9080001A18DA /* CoursesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1A8A1C205A907F001A18DA /* CoursesHistoryViewController.swift */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
 		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
 /* End PBXBuildFile section */
@@ -196,6 +197,7 @@
 		77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTekTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D46998E4577BE8B8D2DB676 /* Pods-talkTekTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9DB2051EA337037B25D69905 /* Pods-talkTek.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.release.xcconfig"; sourceTree = "<group>"; };
+		AE1A8A1C205A907F001A18DA /* CoursesHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesHistoryViewController.swift; sourceTree = "<group>"; };
 		E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -264,6 +266,7 @@
 				04D06AEA1FCA94FF00E1702F /* SettingViewController.swift */,
 				04402E791FCDA2AC00EC95EE /* SettingEditViewController.swift */,
 				04402E7E1FCDA31A00EC95EE /* PointsCenterViewController.swift */,
+				AE1A8A1C205A907F001A18DA /* CoursesHistoryViewController.swift */,
 				048D0D391FD1B419002A2E93 /* PurchaseMainViewController.swift */,
 				04402E801FCDA33000EC95EE /* BecomeLecturerViewController.swift */,
 				04402E821FCDA33E00EC95EE /* SuggestionViewController.swift */,
@@ -909,6 +912,7 @@
 				0478E61D1FC1726F00DD0169 /* PayCollectionViewCell.swift in Sources */,
 				04BE920A1FB1583900A35523 /* AppDelegate.swift in Sources */,
 				047B1D241FE6AB1000853740 /* AudioListTableViewCell.swift in Sources */,
+				AE1A8A1D205A9080001A18DA /* CoursesHistoryViewController.swift in Sources */,
 				041E3CB21FDBE8DF0035E3A4 /* HotViewController.swift in Sources */,
 				0478E6181FC03D5400DD0169 /* UISegmentedControlExtension.swift in Sources */,
 				04402E7F1FCDA31A00EC95EE /* PointsCenterViewController.swift in Sources */,

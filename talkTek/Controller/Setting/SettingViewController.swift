@@ -19,12 +19,12 @@ class SettingViewController: UIViewController {
   @IBOutlet weak var profile_ImageView: UIImageView!
   @IBOutlet weak var cameraIcon_Button: UIButton!
   @IBOutlet weak var name_Label: UILabel!
-   @IBOutlet weak var edit_View: UIView!
+  @IBOutlet weak var edit_View: UIView!
   @IBOutlet weak var LogIn_LogOut: UIButton!
   
  
   @IBOutlet weak var tableView: UITableView!
-  var list = ["成為講師", "意見反饋", "優惠碼", "關於"]
+  var list = ["點數中心","成為講師", "意見反饋", "優惠碼", "關於"]
   
   var username = ""
   var userID = ""
@@ -154,6 +154,25 @@ class SettingViewController: UIViewController {
     if segue.identifier == "identifierEdit"{
       let destination = segue.destination as! SettingEditViewController
       destination.user = self.user
+      destination.hidesBottomBarWhenPushed = true
+    } else if segue.identifier == "points"{
+      let destination = segue.destination as! PointsCenterViewController
+      destination.hidesBottomBarWhenPushed = true
+    } else if segue.identifier == "lecturer"{
+      let destination = segue.destination as! BecomeLecturerViewController
+      destination.hidesBottomBarWhenPushed = true
+    } else if segue.identifier == "suggestion"{
+      let destination = segue.destination as! SuggestionViewController
+      destination.hidesBottomBarWhenPushed = true
+    } else if segue.identifier == "personal"{
+      let destination = segue.destination as! SettingEditViewController
+      destination.hidesBottomBarWhenPushed = true
+    } else if segue.identifier == "coupon"{
+      let destination = segue.destination as! CouponViewController
+      destination.hidesBottomBarWhenPushed = true
+    } else if segue.identifier == "about"{
+      let destination = segue.destination as! AboutViewController
+      destination.hidesBottomBarWhenPushed = true
     }
   }
   
@@ -174,19 +193,18 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource
     return cell
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//    if indexPath.row == 0{
-//      performSegue(withIdentifier: "points", sender: self)
-//    } else
-      if indexPath.row == 0{
-      performSegue(withIdentifier: "lecturer", sender: self)
+    if indexPath.row == 0{
+      performSegue(withIdentifier: "points", sender: self)
     } else if indexPath.row == 1{
+      performSegue(withIdentifier: "lecturer", sender: self)
+    } else if indexPath.row == 2{
       performSegue(withIdentifier: "suggestion", sender: self)
     } //else if indexPath.row == 3{
       //performSegue(withIdentifier: "personal", sender: self)
     //}
-       else if indexPath.row == 2{
+       else if indexPath.row == 3{
       performSegue(withIdentifier: "coupon", sender: self)
-    } else if indexPath.row == 3{
+    } else if indexPath.row == 4{
       performSegue(withIdentifier: "about", sender: self)
     } else{
       print("WTF happened!!!")
