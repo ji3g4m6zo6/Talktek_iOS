@@ -24,7 +24,7 @@ class PurchaseMainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     //IAPService.shared.getProducts()
-    SwiftyStoreKit.retrieveProductsInfo(["comeonQAQ"]) { result in
+    SwiftyStoreKit.retrieveProductsInfo(["com.talkTek.comeonQAQ"]) { result in
       if let product = result.retrievedProducts.first {
         let priceString = product.localizedPrice!
         print("Product: \(product.localizedDescription), price: \(priceString)")
