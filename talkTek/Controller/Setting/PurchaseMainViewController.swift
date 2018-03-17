@@ -24,7 +24,7 @@ class PurchaseMainViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     //IAPService.shared.getProducts()
-    SwiftyStoreKit.retrieveProductsInfo(["com.talkTek.comeonQAQ"]) { result in
+    SwiftyStoreKit.retrieveProductsInfo(["comeonQAQ"]) { result in
       if let product = result.retrievedProducts.first {
         let priceString = product.localizedPrice!
         print("Product: \(product.localizedDescription), price: \(priceString)")
@@ -62,7 +62,7 @@ class PurchaseMainViewController: UIViewController {
   }
   
   @IBAction func twofiftyButtonTapped(_ sender: UIButton) {
-    SwiftyStoreKit.purchaseProduct("com.talkTek.comeonQAQ", quantity: 1, atomically: true) { result in
+    SwiftyStoreKit.purchaseProduct("comeonQAQ", quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
