@@ -33,7 +33,7 @@ class PurchaseMainViewController: UIViewController {
         print("Invalid product identifier: \(invalidProductId)")
       }
       else {
-        print("Error: \(result.error)")
+        print("Error: \(result.error ?? "" as! Error)")
       }
     }
 //    SwiftyStoreKit.retrieveProductsInfo(["comeonQAQ"]) { result in
