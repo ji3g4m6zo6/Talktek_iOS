@@ -67,7 +67,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
   }
   func alert(){
     let title = "恭喜您獲得早鳥票免費體驗優惠券！"
-    let message = "您已獲得無限點數，現在購買任何課程皆不用費用。"
+    let message = "現在購買任何課程皆不用費用。"
     //let image = UIImage(named: "pexels-photo-103290")
     
     // Create the dialog
@@ -78,8 +78,8 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     let buttonOne = CancelButton(title: "YEAH 太好了！") {
       let userDefaults = UserDefaults.standard
       guard let uid = userDefaults.value(forKey: "uid") else { return }
-      let uidString = String(describing: uid)
- self.databaseRef.child("Money").child(uidString).child("money").setValue("100000000")
+//      let uidString = String(describing: uid)
+ //self.databaseRef.child("Money").child(uidString).child("money").setValue("100000000")
 
       print("You confirmed.")
     }
@@ -113,7 +113,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
         
         self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
         
-        self.databaseRef.child("Money").child((user?.uid)!).child("money").setValue("100000000")
+        //self.databaseRef.child("Money").child((user?.uid)!).child("money").setValue("100000000")
         
         //self.databaseRef.child("BoughtCourses").child((user?.uid)!)
         self.databaseRef.child("Users").child((user?.uid)!).observeSingleEvent(of: .value, with: { (snapshot) in

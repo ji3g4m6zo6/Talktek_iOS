@@ -13,9 +13,6 @@ import FirebaseAuth
 import StoreKit
 import SwiftyStoreKit
 
-//enum Product: String {
-//  case test = "com.talkTek.testPoints"
-//}
 
 class PurchaseMainViewController: UIViewController {
   var databaseRef: DatabaseReference!
@@ -23,8 +20,7 @@ class PurchaseMainViewController: UIViewController {
   @IBOutlet weak var points_Label: UILabel!
   override func viewDidLoad() {
     super.viewDidLoad()
-    //IAPService.shared.getProducts()
-    SwiftyStoreKit.retrieveProductsInfo(["comeonQAQ"]) { result in
+    SwiftyStoreKit.retrieveProductsInfo(["versionA01","versionA02","versionA03"]) { result in
       if let product = result.retrievedProducts.first {
         let priceString = product.localizedPrice!
         print("Product: \(product.localizedDescription), price: \(priceString)")
@@ -36,18 +32,6 @@ class PurchaseMainViewController: UIViewController {
         print("Error: \(result.error ?? "" as! Error)")
       }
     }
-//    SwiftyStoreKit.retrieveProductsInfo(["comeonQAQ"]) { result in
-//      if let product = result.retrievedProducts.first {
-//        let priceString = product.localizedPrice!
-//        print("Product: \(product.localizedDescription), price: \(priceString)")
-//      }
-//      else if let invalidProductId = result.invalidProductIDs.first {
-//        return print("Could not retrieve product info, message: Invalid product identifier: \(invalidProductId)")
-//      }
-//      else {
-//        print("Error: \(result.error ?? "" as! Error)")
-//      }
-//    }
 
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
@@ -62,7 +46,7 @@ class PurchaseMainViewController: UIViewController {
   }
   
   @IBAction func twofiftyButtonTapped(_ sender: UIButton) {
-    SwiftyStoreKit.purchaseProduct("comeonQAQ", quantity: 1, atomically: true) { result in
+    SwiftyStoreKit.purchaseProduct("versionA01", quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
@@ -81,15 +65,9 @@ class PurchaseMainViewController: UIViewController {
       }
     }
   }
+  
   @IBAction func fivehundredButtonTapped(_ sender: UIButton) {
-    
-  }
-  @IBAction func thousandButtonTapped(_ sender: UIButton) {
-    
-  }
-  /*
-  @IBAction func testBuy(_ sender: UIButton) {
-    SwiftyStoreKit.purchaseProduct("comeonQAQ", quantity: 1, atomically: true) { result in
+    SwiftyStoreKit.purchaseProduct("versionA02", quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
@@ -107,9 +85,31 @@ class PurchaseMainViewController: UIViewController {
         }
       }
     }
-    //IAPService.shared.purchase(product: .testPoints)
+    
   }
-  */
+  
+  @IBAction func thousandButtonTapped(_ sender: UIButton) {
+    SwiftyStoreKit.purchaseProduct("versionA03", quantity: 1, atomically: true) { result in
+      switch result {
+      case .success(let purchase):
+        print("Purchase Success: \(purchase.productId)")
+      case .error(let error):
+        switch error.code {
+        case .unknown: print("Unknown error. Please contact support")
+        case .clientInvalid: print("Not allowed to make the payment")
+        case .paymentCancelled: break
+        case .paymentInvalid: print("The purchase identifier was invalid")
+        case .paymentNotAllowed: print("The device is not allowed to make the payment")
+        case .storeProductNotAvailable: print("The product is not available in the current storefront")
+        case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
+        case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
+        case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
+        }
+      }
+    }
+    
+  }
+  
   func fetchData(){
     self.databaseRef = Database.database().reference()
     self.databaseRef.child("Money/\(self.userID)").observe(.value) { (snapshot) in
