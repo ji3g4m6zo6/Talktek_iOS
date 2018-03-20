@@ -17,10 +17,14 @@ import SwiftyStoreKit
 class PurchaseMainViewController: UIViewController {
   var databaseRef: DatabaseReference!
   var userID = ""
+  
+  @IBOutlet weak var moneyIcon: UIImageView!
   @IBOutlet weak var points_Label: UILabel!
   override func viewDidLoad() {
     super.viewDidLoad()
-    SwiftyStoreKit.retrieveProductsInfo(["versionA01","versionA02","versionA03"]) { result in
+    
+    moneyIcon.tintColor = UIColor.moneyYellow()
+ SwiftyStoreKit.retrieveProductsInfo(["versionA01","versionA02","versionA03"]) { result in
       if let product = result.retrievedProducts.first {
         let priceString = product.localizedPrice!
         print("Product: \(product.localizedDescription), price: \(priceString)")
