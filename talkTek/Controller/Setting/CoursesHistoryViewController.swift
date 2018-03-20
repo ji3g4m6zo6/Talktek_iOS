@@ -115,16 +115,17 @@ class CoursesHistoryViewController: UIViewController {
     noCourseBought_Label.isHidden = false
     noCourseBought_Button.isHidden = false
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  
+  // MARK: - Navigation
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierDetail"{
+      let destinationViewController = segue.destination as! CourseDetailViewController
+      destinationViewController.detailToGet = self.homeCouresToPass
     }
-    */
-
+  }
+  
+  
 }
 extension CoursesHistoryViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSections(in tableView: UITableView) -> Int {
@@ -135,7 +136,7 @@ extension CoursesHistoryViewController: UITableViewDataSource, UITableViewDelega
     return homeCourses_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CoursesBoughtTableViewCell
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! HistoryTableViewCell
     
     if let overviewUrl = homeCourses_Array[indexPath.row].overViewImage{
       let url = URL(string: overviewUrl)
@@ -149,7 +150,7 @@ extension CoursesHistoryViewController: UITableViewDataSource, UITableViewDelega
     
     cell.title_Label.text = homeCourses_Array[indexPath.row].title
     cell.teacherName_Label.text = homeCourses_Array[indexPath.row].authorName
-    
+ 
     return cell
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

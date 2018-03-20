@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WKg-tt-L6u">
-                                <rect key="frame" x="25" y="50" width="325" height="528"/>
+                                <rect key="frame" x="25" y="50" width="325" height="577"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="YR2-ry-Ci3" customClass="MoreTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -221,7 +221,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="msh-WE-erA">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1437"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1530"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="main" rowHeight="367" id="33X-Zp-sMF" customClass="MainTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -744,7 +744,7 @@
                                 </prototypes>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vXz-WV-ib8" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="1501" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="1550" width="375" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="HtY-Df-IRy">
                                         <rect key="frame" x="10" y="29" width="15" height="15"/>
@@ -896,7 +896,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UHv-18-ASf">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="audioHeader" rowHeight="68" id="BoL-dD-ZIj" customClass="AudioSectionTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -1383,15 +1383,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-rx-7cf">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-rx-7cf">
                                 <rect key="frame" x="25" y="89" width="325" height="529"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="QD3-y9-gg1" customClass="CoursesBoughtTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="QD3-y9-gg1" customClass="CoursesBoughtTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="325" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QD3-y9-gg1" id="uBx-Q7-Ehh">
-                                            <rect key="frame" x="0.0" y="0.0" width="325" height="128.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-0n-txc">
@@ -2460,15 +2460,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QI4-k9-DCp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QI4-k9-DCp">
                                 <rect key="frame" x="25" y="64" width="325" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="688-O1-KRY" customClass="HistoryTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="688-O1-KRY" customClass="HistoryTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="325" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="688-O1-KRY" id="fil-Go-M5Y">
-                                            <rect key="frame" x="0.0" y="0.0" width="325" height="128.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="325" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HQF-yb-tjD">
@@ -2618,6 +2618,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="B1x-Io-Rfr" kind="presentation" id="pzr-vQ-brV"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好想趕快學習呦TAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gbT-Cr-Z0D">
                                 <rect key="frame" x="125" y="377" width="124.5" height="17"/>
@@ -2643,7 +2646,11 @@
                     </view>
                     <nil key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="noCourseBought_Button" destination="tMs-Lg-yRq" id="Uhm-ER-4AF"/>
+                        <outlet property="noCourseBought_ImageView" destination="xeR-dP-UuD" id="udH-65-61M"/>
+                        <outlet property="noCourseBought_Label" destination="gbT-Cr-Z0D" id="MbX-nm-jCt"/>
                         <outlet property="tableView" destination="QI4-k9-DCp" id="FbL-4V-BFd"/>
+                        <segue destination="Ce4-6R-E40" kind="show" identifier="identifierDetail" id="Nv1-yK-lCa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTh-Kt-bj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2792,7 +2799,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" tag="100" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PMf-Cz-lll">
-                                <rect key="frame" x="0.0" y="64" width="375" height="1087"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="1180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="352" id="7vg-3n-Eo7" customClass="TeacherMainTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -3310,13 +3317,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3332,7 +3339,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="519" width="325" height="1"/>
+                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
@@ -5052,8 +5059,8 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ATM-aJ-JqT"/>
+        <segue reference="pzr-vQ-brV"/>
         <segue reference="r0k-Z7-iPA"/>
-        <segue reference="ots-Q2-Lei"/>
+        <segue reference="Nv1-yK-lCa"/>
     </inferredMetricsTieBreakers>
 </document>
