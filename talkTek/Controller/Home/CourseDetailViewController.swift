@@ -56,8 +56,10 @@ class CourseDetailViewController: UIViewController {
   func buy(){
     
     let moneyInt = Int(myMoney)
-    if let courseMoneyString = detailToGet.price{
+    
+    if let courseMoneyString = detailToGet.onSalesPrice{
       let courseMoneyInt = Int(courseMoneyString)
+      
       if moneyInt! >= courseMoneyInt!{
         
         
