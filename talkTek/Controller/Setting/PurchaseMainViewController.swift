@@ -62,6 +62,7 @@ class PurchaseMainViewController: UIViewController {
         print("Error: \(result.error ?? "" as! Error)")
       }
     }
+    
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
 

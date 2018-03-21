@@ -46,7 +46,6 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
     // Get the number and root of collectionview
     self.databaseRef.child("Professional").observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: Any]{
-        print("dictionary is \(dictionary)")
         
         let homeCourses = HomeCourses()
         

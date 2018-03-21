@@ -73,7 +73,6 @@ class CoursesHistoryViewController: UIViewController {
         self.databaseRef.child("BoughtCourses").child(self.userID).observe(.childAdded) { (snapshot) in
           
           if let dictionary = snapshot.value as? [String: Any]{
-            print("dictionary is \(dictionary)")
             
             let homeCourses = HomeCourses()
             

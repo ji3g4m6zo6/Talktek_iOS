@@ -39,7 +39,7 @@ class PayCourseViewController: UIViewController {
     // Get the number and root of collectionview
     self.databaseRef.child("CourseCategory").child("最新課程").observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: String]{
-        print("dictionary is \(dictionary)")
+        //print("dictionary is \(dictionary)")
         
         let homeCourses = HomeCourses()
         homeCourses.overViewImage = dictionary["overViewImage"]
