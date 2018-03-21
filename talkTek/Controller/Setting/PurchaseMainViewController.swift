@@ -17,6 +17,7 @@ import SwiftyStoreKit
 class PurchaseMainViewController: UIViewController {
   var databaseRef: DatabaseReference!
   var userID = ""
+  var moneyNumber = 0
   
   @IBOutlet weak var moneyIcon: UIImageView!
   @IBOutlet weak var points_Label: UILabel!
@@ -24,7 +25,8 @@ class PurchaseMainViewController: UIViewController {
     super.viewDidLoad()
     
     moneyIcon.tintColor = UIColor.moneyYellow()
- SwiftyStoreKit.retrieveProductsInfo(["versionA01","versionA02","versionA03"]) { result in
+    //,"versionA02","versionA03"
+    SwiftyStoreKit.retrieveProductsInfo(["versionA01"]) { result in
       if let product = result.retrievedProducts.first {
         let priceString = product.localizedPrice!
         print("Product: \(product.localizedDescription), price: \(priceString)")
@@ -36,7 +38,30 @@ class PurchaseMainViewController: UIViewController {
         print("Error: \(result.error ?? "" as! Error)")
       }
     }
-
+    SwiftyStoreKit.retrieveProductsInfo(["versionA02"]) { result in
+      if let product = result.retrievedProducts.first {
+        let priceString = product.localizedPrice!
+        print("Product: \(product.localizedDescription), price: \(priceString)")
+      }
+      else if let invalidProductId = result.invalidProductIDs.first {
+        print("Invalid product identifier: \(invalidProductId)")
+      }
+      else {
+        print("Error: \(result.error ?? "" as! Error)")
+      }
+    }
+    SwiftyStoreKit.retrieveProductsInfo(["versionA03"]) { result in
+      if let product = result.retrievedProducts.first {
+        let priceString = product.localizedPrice!
+        print("Product: \(product.localizedDescription), price: \(priceString)")
+      }
+      else if let invalidProductId = result.invalidProductIDs.first {
+        print("Invalid product identifier: \(invalidProductId)")
+      }
+      else {
+        print("Error: \(result.error ?? "" as! Error)")
+      }
+    }
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
 
@@ -54,6 +79,7 @@ class PurchaseMainViewController: UIViewController {
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
+        self.addPoints(points: 300)
       case .error(let error):
         switch error.code {
         case .unknown: print("Unknown error. Please contact support")
@@ -75,6 +101,8 @@ class PurchaseMainViewController: UIViewController {
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
+        self.addPoints(points: 1000)
+
       case .error(let error):
         switch error.code {
         case .unknown: print("Unknown error. Please contact support")
@@ -97,6 +125,8 @@ class PurchaseMainViewController: UIViewController {
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
+        self.addPoints(points: 2100)
+
       case .error(let error):
         switch error.code {
         case .unknown: print("Unknown error. Please contact support")
@@ -124,11 +154,17 @@ class PurchaseMainViewController: UIViewController {
         
         self.points_Label.text = ("\(money)點")
         
-        
+        self.moneyNumber = Int(money)! //danger
         
       }
       
     }
+  }
+  func addPoints(points: Int){
+    self.databaseRef = Database.database().reference()
+    let addition = points + moneyNumber
+    let additionString = String(addition) // int to string
+    self.databaseRef.child("Money/\(self.userID)/money").setValue(additionString)
   }
   
   /*

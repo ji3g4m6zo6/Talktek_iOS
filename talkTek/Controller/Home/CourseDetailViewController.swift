@@ -86,11 +86,21 @@ class CourseDetailViewController: UIViewController {
     
   }
   func money(){
-    self.databaseRef.child("Money").child(uid).child("money").observeSingleEvent(of: .value) { (snapshot) in
-      if let money = snapshot.value as? String{
-        self.myMoney = money
+   
+    self.databaseRef.child("Money").observeSingleEvent(of: .value) { (snapshot) in
+      if !snapshot.hasChild(self.uid){
+
+        return
+        
+      } else {
+        self.databaseRef.child("Money").child(self.uid).child("money").observeSingleEvent(of: .value) { (snapshot) in
+          if let money = snapshot.value as? String{
+            self.myMoney = money
+          }
+        }
       }
     }
+    
   }
   
   
@@ -501,7 +511,7 @@ extension CourseDetailViewController {
             } else {
               self.audioDictionary.updateValue([audioItem], forKey: i)
             }
-            print("dicccc \(self.audioDictionary)")
+            //print("dicccc \(self.audioDictionary)")
             DispatchQueue.main.async {
               
               self.tableView.reloadData()
