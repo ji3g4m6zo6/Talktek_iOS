@@ -118,6 +118,7 @@ class CoursesBoughtViewController: UIViewController {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CourseDetailViewController
       destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.hidesBottomBarWhenPushed = true
     }
   }
 }
