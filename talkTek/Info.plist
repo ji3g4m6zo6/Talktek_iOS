@@ -57,6 +57,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>「Talk小講」可讓你將照片指定為頭像。</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>「Talk小講」可讓你將照片指定為頭像。</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>audio</string>
