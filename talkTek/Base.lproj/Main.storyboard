@@ -4917,7 +4917,20 @@
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nI-fx-gn5" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="7.5" width="355" height="321.5"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aWB-fY-KV9">
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="182"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="182" id="dyC-Vd-Msc"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                    </subviews>
                                                     <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="aWB-fY-KV9" secondAttribute="trailing" id="4mY-cK-eGz"/>
+                                                        <constraint firstItem="aWB-fY-KV9" firstAttribute="top" secondItem="9nI-fx-gn5" secondAttribute="top" id="P9S-CR-OKM"/>
+                                                        <constraint firstItem="aWB-fY-KV9" firstAttribute="leading" secondItem="9nI-fx-gn5" secondAttribute="leading" id="c0D-Rl-3gy"/>
+                                                    </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                             <real key="value" value="15"/>
