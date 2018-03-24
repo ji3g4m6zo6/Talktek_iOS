@@ -15,7 +15,7 @@
 		041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */; };
 		0425ADB21FC40F39008165F1 /* PayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */; };
 		0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */; };
-		04294FCE1FE1573900CB4FCA /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */; };
+		04294FCE1FE1573900CB4FCA /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04294FCD1FE1573900CB4FCA /* UIViewExtension.swift */; };
 		04297B581FDEB2D10096E928 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B571FDEB2D10096E928 /* LogInViewController.swift */; };
 		04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04297B591FDEB2DF0096E928 /* SignUpViewController.swift */; };
 		042B48A31FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042B48A21FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift */; };
@@ -114,7 +114,7 @@
 		041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerViewController.swift; sourceTree = "<group>"; };
 		0425ADB11FC40F39008165F1 /* PayCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCourseViewController.swift; sourceTree = "<group>"; };
 		0425ADB31FC40F44008165F1 /* FreeCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FreeCourseViewController.swift; sourceTree = "<group>"; };
-		04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
+		04294FCD1FE1573900CB4FCA /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		04297B571FDEB2D10096E928 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		04297B591FDEB2DF0096E928 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		042B48A21FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherCoursesItemsTableViewCell.swift; sourceTree = "<group>"; };
@@ -401,7 +401,7 @@
 				041E3CAA1FDBBA970035E3A4 /* UIColorExtension.swift */,
 				0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */,
 				0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */,
-				04294FCD1FE1573900CB4FCA /* UIImageExtension.swift */,
+				04294FCD1FE1573900CB4FCA /* UIViewExtension.swift */,
 				044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */,
 				044EB21C1FD05DC300CE1EBB /* talkTek-Bridging-Header.h */,
 			);
@@ -949,7 +949,7 @@
 				049AB7F5202213E000F5C7CC /* MoreTableViewCell.swift in Sources */,
 				04402E8B1FCDAED100EC95EE /* SettingMainTableViewCell.swift in Sources */,
 				0478E61F1FC1745600DD0169 /* UIImageViewExtension.swift in Sources */,
-				04294FCE1FE1573900CB4FCA /* UIImageExtension.swift in Sources */,
+				04294FCE1FE1573900CB4FCA /* UIViewExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
