@@ -37,7 +37,7 @@ class SettingEditViewController: UIViewController {
   var user = User()
   let genderPickerView = UIPickerView()
 
-  let gender = ["男", "女", "其他"]
+  let gender = ["", "男", "女", "其他"]
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -158,20 +158,6 @@ class SettingEditViewController: UIViewController {
   }
   @IBAction func gender_TextField_Tapped(_ sender: UITextField) {
     sender.inputView = genderPickerView
-    toolBar.barStyle = .default
-    toolBar.isTranslucent = true
-    toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
-    toolBar.sizeToFit()
-    
-    let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(SettingEditViewController.doneClick))
-    let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SettingEditViewController.cancelClick))
-    toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
-    toolBar.isUserInteractionEnabled = true
-    
-    self.view.addSubview(toolBar)
-    self.toolBar.isHidden = false
-    
 
   }
   
@@ -184,21 +170,6 @@ class SettingEditViewController: UIViewController {
     sender.inputView = datePickerView
     
     self.datePickerView.addTarget(self, action: #selector(SettingEditViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
-    
-    toolBar.barStyle = .default
-    toolBar.isTranslucent = true
-    toolBar.tintColor = UIColor(red: 92/255, green: 216/255, blue: 255/255, alpha: 1)
-    toolBar.sizeToFit()
-    
-    // Adding Button ToolBar
-    let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(SettingEditViewController.doneClick))
-    let spaceButton = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-    let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(SettingEditViewController.cancelClick))
-    toolBar.setItems([cancelButton, spaceButton, doneButton], animated: true)
-    toolBar.isUserInteractionEnabled = true
-    
-    self.view.addSubview(toolBar)
-    self.toolBar.isHidden = false
     
     
     
@@ -213,23 +184,6 @@ class SettingEditViewController: UIViewController {
     dateFormatter.timeStyle = .none
     
     birthday_TextField.text = dateFormatter.string(from: sender.date)
-    
-  }
-  let toolBar = UIToolbar()
-
-  @objc func doneClick() {
-    genderPickerView.isHidden = true
-    datePickerView.isHidden = true
-    self.toolBar.isHidden = true
-    
-    
-  }
-  
-  @objc func cancelClick() {
-    
-    genderPickerView.isHidden = true
-    datePickerView.isHidden = true
-    self.toolBar.isHidden = true
     
   }
   
@@ -260,8 +214,10 @@ extension SettingEditViewController: UIPickerViewDataSource, UIPickerViewDelegat
     return gender[row]
   }
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+
     gender_TextField.text = gender[row]
   }
+  
 }
 
 

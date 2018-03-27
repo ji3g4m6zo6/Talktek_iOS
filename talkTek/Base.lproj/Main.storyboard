@@ -2324,7 +2324,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tpd-5x-hlY" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="BpK-zD-xfJ" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1344.8" y="1333.5832083958021"/>
+            <point key="canvasLocation" x="1388" y="1334"/>
         </scene>
         <!--Points Center View Controller-->
         <scene sceneID="3N1-lp-Aax">
@@ -2687,7 +2687,7 @@
                                         <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bf-YH-gJp">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bf-YH-gJp">
                                         <rect key="frame" x="0.0" y="93" width="355" height="1"/>
                                         <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -2735,11 +2735,13 @@
                                 <constraints>
                                     <constraint firstItem="N3c-8I-8UO" firstAttribute="leading" secondItem="V53-xh-Azn" secondAttribute="leading" constant="15" id="4to-sy-FjH"/>
                                     <constraint firstAttribute="trailing" secondItem="Ckn-jh-pn3" secondAttribute="trailing" id="6nU-PJ-3NU"/>
+                                    <constraint firstItem="6bf-YH-gJp" firstAttribute="leading" secondItem="V53-xh-Azn" secondAttribute="leading" id="88J-RP-He0"/>
                                     <constraint firstItem="1V2-Re-ArQ" firstAttribute="leading" secondItem="20P-Bk-sdA" secondAttribute="trailing" constant="10" id="CIz-Cq-PFD"/>
                                     <constraint firstItem="Ckn-jh-pn3" firstAttribute="leading" secondItem="V53-xh-Azn" secondAttribute="leading" id="EQq-ey-T1k"/>
                                     <constraint firstAttribute="trailing" secondItem="3lz-VX-oDm" secondAttribute="trailing" constant="15" id="J2S-7S-UNb"/>
                                     <constraint firstItem="3lz-VX-oDm" firstAttribute="leading" secondItem="V53-xh-Azn" secondAttribute="leading" constant="15" id="JfR-VQ-XRL"/>
                                     <constraint firstItem="20P-Bk-sdA" firstAttribute="top" secondItem="Ckn-jh-pn3" secondAttribute="bottom" constant="15" id="OzX-c9-kpp"/>
+                                    <constraint firstAttribute="trailing" secondItem="6bf-YH-gJp" secondAttribute="trailing" id="R19-eg-v2R"/>
                                     <constraint firstItem="eYd-EB-htV" firstAttribute="top" secondItem="6bf-YH-gJp" secondAttribute="bottom" constant="15" id="URk-7J-zND"/>
                                     <constraint firstItem="Ckn-jh-pn3" firstAttribute="top" secondItem="V53-xh-Azn" secondAttribute="top" constant="15" id="US3-LW-qBg"/>
                                     <constraint firstAttribute="height" constant="560" id="WOE-6Y-rQJ"/>
@@ -3317,13 +3319,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3339,7 +3341,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="519" width="325" height="1"/>
+                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
