@@ -10,7 +10,13 @@ import UIKit
 
 class CoursePageListTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  @IBOutlet weak var playerButton: UIButton!
+  
+  @IBOutlet weak var titleLabel: UILabel!
+  
+  
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

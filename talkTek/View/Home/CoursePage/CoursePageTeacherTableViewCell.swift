@@ -10,7 +10,13 @@ import UIKit
 
 class CoursePageTeacherTableViewCell: UITableViewCell {
 
-    override func awakeFromNib() {
+  @IBOutlet weak var teacherImageView: UIImageView!
+  
+  @IBOutlet weak var teacherNameLabel: UILabel!
+  
+  @IBOutlet weak var teacherInfoLabel: UILabel!
+  
+  override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }

@@ -3319,13 +3319,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3341,7 +3341,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="519" width="325" height="1"/>
+                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
@@ -4898,10 +4898,10 @@
             </objects>
             <point key="canvasLocation" x="-962" y="-1016"/>
         </scene>
-        <!--View Controller-->
+        <!--Course Page View Controller-->
         <scene sceneID="w70-bY-Wb0">
             <objects>
-                <viewController id="caW-R6-lY1" sceneMemberID="viewController">
+                <viewController id="caW-R6-lY1" customClass="CoursePageViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kYW-WG-w5y">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -4910,7 +4910,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="1430"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="377" id="wgA-cZ-Oxb">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="overview" rowHeight="377" id="wgA-cZ-Oxb" customClass="CoursePageOverviewTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="377"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wgA-cZ-Oxb" id="hqB-TA-TP7">
@@ -4933,8 +4933,8 @@
                                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="222min" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o26-7c-k38">
-                                                            <rect key="frame" x="233" y="302.5" width="57.5" height="24"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o26-7c-k38">
+                                                            <rect key="frame" x="253" y="302.5" width="18" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="Pnp-Ce-gIc"/>
                                                             </constraints>
@@ -5063,8 +5063,15 @@
                                                 <constraint firstAttribute="bottom" secondItem="9nI-fx-gn5" secondAttribute="bottom" constant="7.5" id="yso-oL-YU1"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="coursesNumberLabel" destination="o26-7c-k38" id="Cja-CX-QY6"/>
+                                            <outlet property="overviewImageView" destination="aWB-fY-KV9" id="Whu-Ko-mSQ"/>
+                                            <outlet property="scoreNumberLabel" destination="XBd-ZP-mFQ" id="FPa-kr-j0d"/>
+                                            <outlet property="studentNumberLabel" destination="tmL-gz-Y5t" id="Mo3-XF-Q9q"/>
+                                            <outlet property="topicLabel" destination="iA6-V5-Q4t" id="cuA-Qh-hX0"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="107" id="twz-f8-7sm">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="intro" rowHeight="107" id="twz-f8-7sm" customClass="CoursePageIntroTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="405" width="375" height="107"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="twz-f8-7sm" id="z04-pH-9Pe">
@@ -5111,8 +5118,11 @@
                                                 <constraint firstItem="W56-lE-zrV" firstAttribute="top" secondItem="z04-pH-9Pe" secondAttribute="top" constant="-15" id="Y2M-r0-eyk"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="introLabel" destination="5Ov-86-iNO" id="1Tr-tc-PIq"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="51" id="Sqr-id-CuE">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="showall" rowHeight="51" id="Sqr-id-CuE" customClass="CoursePageShowAllTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="512" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sqr-id-CuE" id="e0O-Fg-PoC">
@@ -5158,8 +5168,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="h51-gh-STN" secondAttribute="bottom" constant="7.5" id="xBr-1D-5IS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="showAllButton" destination="ueS-XE-VfN" id="SPg-4K-eQu"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="132" id="XtC-5R-U6W">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="teacher" rowHeight="132" id="XtC-5R-U6W" customClass="CoursePageTeacherTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="563" width="375" height="132"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XtC-5R-U6W" id="Mpr-Sc-gwA">
@@ -5227,8 +5240,13 @@
                                                 <constraint firstItem="e3L-l5-yb1" firstAttribute="top" secondItem="Mpr-Sc-gwA" secondAttribute="top" constant="-15" id="x3d-Me-4HS"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="teacherImageView" destination="k0W-Vx-YdJ" id="3U1-ov-88e"/>
+                                            <outlet property="teacherInfoLabel" destination="Bhp-hx-tcX" id="O5k-OH-ORe"/>
+                                            <outlet property="teacherNameLabel" destination="pvr-TU-azW" id="w9O-8G-gus"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="64" id="Qy6-Sm-KF0">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header" rowHeight="64" id="Qy6-Sm-KF0" customClass="CoursePageHeaderTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="695" width="375" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Qy6-Sm-KF0" id="gWd-MZ-VDJ">
@@ -5286,8 +5304,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="box-uO-fPH" secondAttribute="bottom" constant="-15" id="vpJ-0F-gh6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="titleSectionLabel" destination="Yoz-TE-c7b" id="z8X-dZ-m21"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="51" id="NM5-3D-fPv">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="topic" rowHeight="51" id="NM5-3D-fPv" customClass="CoursePageTopicTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="759" width="375" height="51"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="NM5-3D-fPv" id="pz7-rf-MQF">
@@ -5343,8 +5364,11 @@
                                                 <constraint firstAttribute="bottom" secondItem="5Nz-fJ-Yc6" secondAttribute="bottom" constant="-15" id="usN-QI-lQ9"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="topicLabel" destination="lWw-x7-1t4" id="Nbb-nu-12n"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="58" id="76B-Y3-GDg">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="list" rowHeight="58" id="76B-Y3-GDg" customClass="CoursePageListTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="810" width="375" height="58"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="76B-Y3-GDg" id="VMJ-60-IsV">
@@ -5409,8 +5433,12 @@
                                                 <constraint firstItem="o0x-mP-Zy6" firstAttribute="leading" secondItem="VMJ-60-IsV" secondAttribute="leading" constant="10" id="mI0-oZ-1Kf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="playerButton" destination="QMa-W2-ZpW" id="gEM-L7-Hv0"/>
+                                            <outlet property="titleLabel" destination="frv-8v-m9p" id="CJu-rt-oRC"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="54" id="tnv-6G-gVU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expand" rowHeight="54" id="tnv-6G-gVU" customClass="CoursePageExpandTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="868" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tnv-6G-gVU" id="Yf5-j0-Iwa">
@@ -5471,6 +5499,9 @@
                         <viewLayoutGuide key="safeArea" id="5cS-RB-olf"/>
                     </view>
                     <size key="freeformSize" width="375" height="1500"/>
+                    <connections>
+                        <outlet property="tableView" destination="cYo-90-7O6" id="U1d-wD-2Qn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6P-TG-dKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
