@@ -14,6 +14,7 @@ class CoursePageViewController: UIViewController {
   var audioDictionary = [Int: [AudioItem]]()
 
   
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     
