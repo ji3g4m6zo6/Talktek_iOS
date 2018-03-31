@@ -3451,7 +3451,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tbL-nO-3GV" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                 <rect key="frame" x="10" y="74" width="355" height="421"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="課程內容：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taz-L1-vcP">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="意見內容：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taz-L1-vcP">
                                         <rect key="frame" x="15" y="148" width="71.5" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
@@ -3483,8 +3483,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連絡信箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebd-a9-mWU">
-                                        <rect key="frame" x="15" y="79" width="71.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="聯絡信箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ebd-a9-mWU">
+                                        <rect key="frame" x="15" y="79" width="72" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -3728,7 +3728,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aeh-98-Ckf" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                 <rect key="frame" x="10" y="79" width="355" height="92"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入優惠碼" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMg-sY-Ms3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入信箱" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wMg-sY-Ms3">
                                         <rect key="frame" x="15" y="10" width="325" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="tqC-ha-AJD"/>
@@ -3744,7 +3744,7 @@
                                             <constraint firstAttribute="height" constant="32" id="crz-iC-Xr1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <state key="normal" title="提交">
+                                        <state key="normal" title="訂閱">
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -3959,8 +3959,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="連絡信箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1a-Md-Q8A">
-                                        <rect key="frame" x="15" y="79" width="71.5" height="17"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="聯絡信箱：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P1a-Md-Q8A">
+                                        <rect key="frame" x="15" y="79" width="72" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -5318,8 +5318,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Nz-fJ-Yc6" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
                                                     <rect key="frame" x="10" y="-15" width="355" height="81"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="標題一標題一標題一標題一標題一標題一標題一" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWw-x7-1t4">
-                                                            <rect key="frame" x="15" y="20" width="325" height="41"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="標題一標題一標題一" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWw-x7-1t4">
+                                                            <rect key="frame" x="15" y="29.5" width="325" height="21.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" red="0.12156862745098039" green="0.74901960784313726" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -5334,12 +5334,13 @@
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstItem="PKB-6N-t3Z" firstAttribute="top" secondItem="5Nz-fJ-Yc6" secondAttribute="top" constant="65" id="242-TN-OC6"/>
                                                         <constraint firstAttribute="trailing" secondItem="PKB-6N-t3Z" secondAttribute="trailing" constant="15" id="6zM-DE-tHF"/>
+                                                        <constraint firstAttribute="bottom" secondItem="PKB-6N-t3Z" secondAttribute="bottom" constant="15" id="Dpq-qe-Dxq"/>
                                                         <constraint firstAttribute="trailing" secondItem="lWw-x7-1t4" secondAttribute="trailing" constant="15" id="G08-nm-Bqp"/>
+                                                        <constraint firstAttribute="bottom" secondItem="lWw-x7-1t4" secondAttribute="bottom" constant="30" id="fLd-9h-vuW"/>
+                                                        <constraint firstItem="lWw-x7-1t4" firstAttribute="top" secondItem="5Nz-fJ-Yc6" secondAttribute="top" constant="30" id="iiN-NL-gFf"/>
                                                         <constraint firstItem="lWw-x7-1t4" firstAttribute="leading" secondItem="5Nz-fJ-Yc6" secondAttribute="leading" constant="15" id="mkj-Cp-srJ"/>
                                                         <constraint firstItem="PKB-6N-t3Z" firstAttribute="leading" secondItem="5Nz-fJ-Yc6" secondAttribute="leading" constant="15" id="s2a-Cq-VRe"/>
-                                                        <constraint firstItem="lWw-x7-1t4" firstAttribute="centerY" secondItem="5Nz-fJ-Yc6" secondAttribute="centerY" id="wmg-EX-cAP"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -5368,46 +5369,57 @@
                                             <outlet property="topicLabel" destination="lWw-x7-1t4" id="Nbb-nu-12n"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="list" rowHeight="58" id="76B-Y3-GDg" customClass="CoursePageListTableViewCell" customModule="talkTek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="810" width="375" height="58"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="list" rowHeight="54" id="76B-Y3-GDg" customClass="CoursePageListTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="810" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="76B-Y3-GDg" id="VMJ-60-IsV">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0x-mP-Zy6" customClass="DesignableView" customModule="talkTek" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="-15" width="355" height="88"/>
+                                                    <rect key="frame" x="10" y="-15" width="355" height="84"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMa-W2-ZpW">
-                                                            <rect key="frame" x="15" y="34" width="20" height="20"/>
+                                                            <rect key="frame" x="15" y="32" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="Scx-ih-LH5"/>
                                                                 <constraint firstAttribute="height" constant="20" id="aiY-iz-VZQ"/>
                                                             </constraints>
                                                             <state key="normal" image="播放"/>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.為什麼你會「喜歡上」一個人？愛..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frv-8v-m9p">
-                                                            <rect key="frame" x="45" y="36.5" width="203.5" height="14.5"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.為什麼你會「喜歡上」一個人？愛為什麼你" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frv-8v-m9p">
+                                                            <rect key="frame" x="45" y="25" width="295" height="17"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lbk-Ij-M20">
-                                                            <rect key="frame" x="15" y="72" width="325" height="1"/>
+                                                            <rect key="frame" x="15" y="68" width="325" height="1"/>
                                                             <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="9iZ-NU-TwV"/>
                                                             </constraints>
                                                         </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaY-lH-ZCD">
+                                                            <rect key="frame" x="45" y="44.5" width="295" height="14.5"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="QMa-W2-ZpW" firstAttribute="leading" secondItem="o0x-mP-Zy6" secondAttribute="leading" constant="15" id="3Sz-j5-a2F"/>
+                                                        <constraint firstAttribute="trailing" secondItem="frv-8v-m9p" secondAttribute="trailing" constant="15" id="8Oh-8h-rCi"/>
                                                         <constraint firstAttribute="trailing" secondItem="lbk-Ij-M20" secondAttribute="trailing" constant="15" id="8fs-xu-JlN"/>
+                                                        <constraint firstAttribute="bottom" secondItem="lbk-Ij-M20" secondAttribute="bottom" constant="15" id="EfN-7f-jfz"/>
                                                         <constraint firstItem="QMa-W2-ZpW" firstAttribute="centerY" secondItem="o0x-mP-Zy6" secondAttribute="centerY" id="NYu-30-C4U"/>
-                                                        <constraint firstItem="frv-8v-m9p" firstAttribute="centerY" secondItem="o0x-mP-Zy6" secondAttribute="centerY" id="Nkc-wy-X7v"/>
+                                                        <constraint firstItem="jaY-lH-ZCD" firstAttribute="leading" secondItem="frv-8v-m9p" secondAttribute="leading" id="aDU-5X-d5b"/>
+                                                        <constraint firstAttribute="bottom" secondItem="jaY-lH-ZCD" secondAttribute="bottom" constant="25" id="ehb-cm-vic"/>
+                                                        <constraint firstItem="jaY-lH-ZCD" firstAttribute="trailing" secondItem="frv-8v-m9p" secondAttribute="trailing" id="hLG-q4-rp3"/>
                                                         <constraint firstItem="lbk-Ij-M20" firstAttribute="leading" secondItem="o0x-mP-Zy6" secondAttribute="leading" constant="15" id="hQN-si-j9Y"/>
-                                                        <constraint firstItem="lbk-Ij-M20" firstAttribute="top" secondItem="o0x-mP-Zy6" secondAttribute="top" constant="72" id="rh0-Rx-i9w"/>
+                                                        <constraint firstItem="frv-8v-m9p" firstAttribute="top" secondItem="o0x-mP-Zy6" secondAttribute="top" constant="25" id="shm-Gk-fBd"/>
+                                                        <constraint firstItem="jaY-lH-ZCD" firstAttribute="top" secondItem="frv-8v-m9p" secondAttribute="bottom" constant="2" id="xLk-es-OC4"/>
                                                         <constraint firstItem="frv-8v-m9p" firstAttribute="leading" secondItem="QMa-W2-ZpW" secondAttribute="trailing" constant="10" id="zzW-eT-i8p"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -5439,7 +5451,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expand" rowHeight="54" id="tnv-6G-gVU" customClass="CoursePageExpandTableViewCell" customModule="talkTek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="868" width="375" height="54"/>
+                                        <rect key="frame" x="0.0" y="864" width="375" height="54"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tnv-6G-gVU" id="Yf5-j0-Iwa">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="54"/>
@@ -5670,7 +5682,7 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pzr-vQ-brV"/>
+        <segue reference="vOA-a3-KS8"/>
         <segue reference="r0k-Z7-iPA"/>
         <segue reference="fdZ-d5-Ryc"/>
     </inferredMetricsTieBreakers>

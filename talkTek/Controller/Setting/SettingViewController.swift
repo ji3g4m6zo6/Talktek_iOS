@@ -24,7 +24,7 @@ class SettingViewController: UIViewController {
   
  
   @IBOutlet weak var tableView: UITableView!
-  var list = ["點數中心","成為講師", "意見反饋", "優惠碼", "關於"]
+  var list = ["點數中心","成為講師", "意見反饋", "訂閱電子報", "關於"]
   
   var username = ""
   var userID = ""

@@ -7,11 +7,19 @@
 //
 
 import UIKit
+import Kingfisher
+import Firebase
+import FirebaseDatabase
+import FirebaseAuth
 
 class CoursePageViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
+  
+  var audioItem_Array = [AudioItem]()
   var audioDictionary = [Int: [AudioItem]]()
+  var sections = [String]()
+  var sectionCount = 0
 
   
   
@@ -21,6 +29,8 @@ class CoursePageViewController: UIViewController {
     tableView.dataSource = self
     tableView.delegate = self
     tableView.tableFooterView = UIView()
+    
+    fetchSectionTitle(withCourseId: "couple_achievement")
     // Do any additional setup after loading the view.
   }
   
@@ -36,6 +46,65 @@ class CoursePageViewController: UIViewController {
     case courses = 3
   }
   
+  func fetchAudioFiles(withCourseId: String){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    databaseRef.child("Test").child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Any]{
+        let audioItem = AudioItem()
+        audioItem.Audio = dictionary["Audio"] as? String
+        audioItem.Section = dictionary["Section"] as? String
+        audioItem.Time = dictionary["Time"] as? String
+        audioItem.Title = dictionary["Title"] as? String
+        audioItem.Topic = dictionary["Topic"] as? String
+        audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
+        audioItem.RowPriority = dictionary["RowPriority"] as? Int
+        audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
+        
+        self.audioItem_Array.append(audioItem)
+        
+        
+        for i in 0...self.sectionCount-1{
+          guard let sectionNumber = audioItem.SectionPriority else { return }
+          if i == sectionNumber {
+            
+            if var previousInfo = self.audioDictionary[i] {
+              previousInfo.append(audioItem)
+              self.audioDictionary.updateValue(previousInfo, forKey: i)
+            } else {
+              self.audioDictionary.updateValue([audioItem], forKey: i)
+            }
+            //print("dicccc \(self.audioDictionary)")
+            DispatchQueue.main.async {
+              
+              self.tableView.reloadData()
+              
+            }
+          }
+          
+        }
+        
+        
+        //self.tableView.reloadData()
+        
+      }
+    }
+  }
+  
+  func fetchSectionTitle(withCourseId: String){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    
+    databaseRef.child("Test").child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
+      if let array = snapshot.value as? [String]{
+        self.sections = array
+        self.sectionCount = array.count
+        self.fetchAudioFiles(withCourseId: withCourseId)
+      }
+      
+    }
+    
+  }
   /*
    // MARK: - Navigation
    
@@ -61,14 +130,130 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     case DetailViewSection.teacherInfo.rawValue:
       return 3
     case DetailViewSection.courses.rawValue:
-      return 1 + audioDictionary.count + 1
-    // header + sections + audiofiles + footer
+      return 2 + sectionCount + audioItem_Array.count
+        // (header + footer) + sections + audiofiles
     default:
       return 0
     }
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-    return UITableViewCell()
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      let cell = tableView.dequeueReusableCell(withIdentifier: "overview", for: indexPath) as! CoursePageOverviewTableViewCell
+      return cell
+    case DetailViewSection.courseInfo.rawValue:
+      if indexPath.row == 0 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! CoursePageHeaderTableViewCell
+        return cell
+      } else if indexPath.row == 1 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "intro", for: indexPath) as! CoursePageIntroTableViewCell
+        return cell
+
+      } else {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "expand", for: indexPath) as! CoursePageExpandTableViewCell
+        return cell
+      }
+    case DetailViewSection.teacherInfo.rawValue:
+      if indexPath.row == 0 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! CoursePageHeaderTableViewCell
+        return cell
+        
+      } else if indexPath.row == 1 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "teacher", for: indexPath) as! CoursePageTeacherTableViewCell
+        return cell
+
+      } else {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "showall", for: indexPath) as! CoursePageShowAllTableViewCell
+        return cell
+      }
+      
+    case DetailViewSection.courses.rawValue:
+      if indexPath.row == 0 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! CoursePageHeaderTableViewCell
+        return cell
+      } else if indexPath.row == audioDictionary.count + audioItem_Array.count + 1 {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "expand", for: indexPath) as! CoursePageExpandTableViewCell
+        
+        return cell
+      } else {
+        
+        //
+        //
+        //
+        
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "list", for: indexPath) as! CoursePageListTableViewCell
+        return cell
+        
+        //return UITableViewCell()
+      }
+    default:
+      return UITableViewCell()
+    }
+  }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      return UITableViewAutomaticDimension
+    case DetailViewSection.courseInfo.rawValue:
+      if indexPath.row == 0 {
+        return 64
+      } else if indexPath.row == 1 {
+        return 107
+      } else {
+        return 54
+      }
+    case DetailViewSection.teacherInfo.rawValue:
+      if indexPath.row == 0 {
+        return 64
+      } else if indexPath.row == 1 {
+        return 132
+      } else {
+        return 51
+      }
+    case DetailViewSection.courses.rawValue:
+      
+      if indexPath.row == 0 {
+        return 64
+      } else if indexPath.row == audioDictionary.count + audioItem_Array.count + 1  {
+        return 54
+      } else {
+        return UITableViewAutomaticDimension
+      }
+    default:
+      return 0
+    }
+  }
+  func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      return 377
+    case DetailViewSection.courseInfo.rawValue:
+      if indexPath.row == 0 {
+        return 0
+      } else if indexPath.row == 1 {
+        return 0
+      } else {
+        return 0
+      }
+    case DetailViewSection.teacherInfo.rawValue:
+      if indexPath.row == 0 {
+        return 0
+      } else if indexPath.row == 1 {
+        return 0
+      } else {
+        return 0
+      }
+    case DetailViewSection.courses.rawValue:
+      if indexPath.row == 0 {
+        return 0
+      } else if indexPath.row == audioDictionary.count + audioItem_Array.count + 1  {
+        return 0
+      } else {
+        return 52
+      }
+    default:
+      return 0
+    }
   }
 }
