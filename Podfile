@@ -58,6 +58,9 @@ pod "ESPullToRefresh"
 # Snapkit
 pod 'SnapKit', '~> 4.0.0'
 
+# Indicator
+pod 'SVProgressHUD'
+
 
   target 'talkTekTests' do
     inherit! :search_paths

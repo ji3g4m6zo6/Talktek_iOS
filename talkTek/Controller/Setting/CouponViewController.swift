@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import SVProgressHUD
+
 
 class CouponViewController: UIViewController {
   
@@ -35,7 +37,8 @@ class CouponViewController: UIViewController {
   var array_CourseID = [String]()
   @IBAction func Send_Button_Tapped(_ sender: UIButton) {
     if coupon_TextField.text != ""{
-      self.sendCoupon(coupon: coupon_TextField.text!)
+      email()
+      //self.sendCoupon(coupon: coupon_TextField.text!)
     } else {
       self.alertNotEnoughInfo()
     }
@@ -111,8 +114,9 @@ class CouponViewController: UIViewController {
   }
   
   func alertError(){
-    let alertController = UIAlertController(title: "選課錯誤", message: "請確認優惠碼無誤", preferredStyle: UIAlertControllerStyle.alert)
-    
+    //let alertController = UIAlertController(title: "選課錯誤", message: "請確認優惠碼無誤", preferredStyle: UIAlertControllerStyle.alert)
+    let alertController = UIAlertController(title: "訂閱失敗", message: "請確認信箱無誤", preferredStyle: UIAlertControllerStyle.alert)
+
     alertController.addAction(UIAlertAction(title: "確認", style: UIAlertActionStyle.default,handler: nil))
     
     self.present(alertController, animated: true, completion: nil)
@@ -136,6 +140,22 @@ class CouponViewController: UIViewController {
     alertController.addAction(UIAlertAction(title: "確認", style: UIAlertActionStyle.default,handler: nil))
     
     self.present(alertController, animated: true, completion: nil)
+  }
+  
+  func email(){
+    guard let couponText = coupon_TextField.text else { return }
+    if isValid(couponText) {
+      SVProgressHUD.showSuccess(withStatus: "訂閱成功")
+    } else {
+      SVProgressHUD.showError(withStatus: "訂閱失敗")
+    }
+  }
+  
+  func isValid(_ email: String) -> Bool {
+    let emailRegEx = "(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"+"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"+"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"+"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"+"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"+"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"+"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
+    
+    let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
+    return emailTest.evaluate(with: email)
   }
   /*
    // MARK: - Navigation
