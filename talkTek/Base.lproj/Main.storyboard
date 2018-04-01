@@ -3717,10 +3717,10 @@
             </objects>
             <point key="canvasLocation" x="2260" y="2239"/>
         </scene>
-        <!--優惠碼-->
+        <!--訂閱電子報-->
         <scene sceneID="YRS-79-Len">
             <objects>
-                <viewController title="優惠碼" id="Sv1-kt-Mge" customClass="CouponViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="訂閱電子報" id="Sv1-kt-Mge" customClass="CouponViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Mkt-W7-gip">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
