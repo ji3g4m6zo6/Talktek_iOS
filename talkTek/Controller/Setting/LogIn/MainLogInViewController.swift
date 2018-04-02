@@ -140,6 +140,8 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
     
     self.facebook_Button.isHidden = true
     
+    Analytics.logEvent("facebook_login", parameters: nil)
+    
     
     if (error != nil)
     {

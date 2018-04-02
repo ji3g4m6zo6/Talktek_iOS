@@ -24,7 +24,7 @@ class HomeCourses: NSObject, Encodable {
   var studentNumber: Int?
   var title: String?
   var teacherID: String?
-  
+  var tags: [String?] = []
   
   
 }

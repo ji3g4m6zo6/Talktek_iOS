@@ -16,10 +16,8 @@ class CoursePageViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var audioItem_Array = [AudioItem]()
-  var audioDictionary = [Int: [AudioItem]]()
+  var audioItem_Array = [AudioItem?]()
   var sections = [String]()
-  var sectionCount = 0
 
   
   
@@ -47,6 +45,7 @@ class CoursePageViewController: UIViewController {
   }
   
   func fetchAudioFiles(withCourseId: String){
+    var tempSection = -1
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
     databaseRef.child("Test").child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
@@ -61,31 +60,27 @@ class CoursePageViewController: UIViewController {
         audioItem.RowPriority = dictionary["RowPriority"] as? Int
         audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
         
-        self.audioItem_Array.append(audioItem)
         
-        
-        for i in 0...self.sectionCount-1{
-          guard let sectionNumber = audioItem.SectionPriority else { return }
-          if i == sectionNumber {
-            
-            if var previousInfo = self.audioDictionary[i] {
-              previousInfo.append(audioItem)
-              self.audioDictionary.updateValue(previousInfo, forKey: i)
-            } else {
-              self.audioDictionary.updateValue([audioItem], forKey: i)
-            }
-            //print("dicccc \(self.audioDictionary)")
-            DispatchQueue.main.async {
-              
-              self.tableView.reloadData()
-              
-            }
+        if tempSection != audioItem.SectionPriority {
+          if let sectionPriority = audioItem.SectionPriority {
+            self.audioItem_Array.append(audioItem)
+            print(self.audioItem_Array.count - 1)
+            self.audioItem_Array.insert(nil, at: self.audioItem_Array.count - 1 )
+            tempSection = sectionPriority
           }
           
+        } else {
+          self.audioItem_Array.append(audioItem)
+
         }
         
         
-        //self.tableView.reloadData()
+        DispatchQueue.main.async {
+          
+          self.tableView.reloadData()
+          
+        }
+        
         
       }
     }
@@ -98,7 +93,6 @@ class CoursePageViewController: UIViewController {
     databaseRef.child("Test").child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
       if let array = snapshot.value as? [String]{
         self.sections = array
-        self.sectionCount = array.count
         self.fetchAudioFiles(withCourseId: withCourseId)
       }
       
@@ -130,7 +124,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     case DetailViewSection.teacherInfo.rawValue:
       return 3
     case DetailViewSection.courses.rawValue:
-      return 2 + sectionCount + audioItem_Array.count
+      return 2 + audioItem_Array.count
         // (header + footer) + sections + audiofiles
     default:
       return 0
@@ -171,25 +165,27 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! CoursePageHeaderTableViewCell
         return cell
-      } else if indexPath.row == audioDictionary.count + audioItem_Array.count + 1 {
+      } else if indexPath.row == audioItem_Array.count + 1 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expand", for: indexPath) as! CoursePageExpandTableViewCell
         
         return cell
       } else {
+      
         
-        //
-        //
-        //
+        if let _ = audioItem_Array[indexPath.row-1]{
+          let cell = tableView.dequeueReusableCell(withIdentifier: "list", for: indexPath) as! CoursePageListTableViewCell
+          return cell
+        } else {
+          let cell = tableView.dequeueReusableCell(withIdentifier: "topic", for: indexPath) as! CoursePageTopicTableViewCell
+          return cell
+          
+        }
         
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "list", for: indexPath) as! CoursePageListTableViewCell
-        return cell
-        
-        //return UITableViewCell()
       }
     default:
       return UITableViewCell()
     }
+
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
@@ -215,7 +211,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       
       if indexPath.row == 0 {
         return 64
-      } else if indexPath.row == audioDictionary.count + audioItem_Array.count + 1  {
+      } else if indexPath.row == audioItem_Array.count + 1  {
         return 54
       } else {
         return UITableViewAutomaticDimension
@@ -247,7 +243,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     case DetailViewSection.courses.rawValue:
       if indexPath.row == 0 {
         return 0
-      } else if indexPath.row == audioDictionary.count + audioItem_Array.count + 1  {
+      } else if indexPath.row == audioItem_Array.count + 1  {
         return 0
       } else {
         return 52

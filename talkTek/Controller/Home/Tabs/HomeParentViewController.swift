@@ -22,6 +22,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     
     listenToState()
     userFirstLogIn()
+    fetchData()
     
     settings.style.buttonBarBackgroundColor = .white
     settings.style.buttonBarItemBackgroundColor = .white
@@ -41,16 +42,69 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     
     
     
-    /*
-     let LogInVC: UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MainLogInViewController") as! MainLogInViewController
-     self.present(LogInVC, animated: true, completion: nil)*/
-    // Do any additional setup after loading the view.
+    
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
   var databaseRef: DatabaseReference!
+  var homeCourses_Array = [HomeCourses]()
+  var hottest = [HomeCourses]()
+  var professional = [HomeCourses]()
+  var life = [HomeCourses]()
+  var others = [HomeCourses]()
+  
+  func fetchData(){
+    // Get the number and root of collectionview
+    self.databaseRef.child("AllCourses").observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Any]{
+        
+        let homeCourses = HomeCourses()
+        
+        homeCourses.authorDescription = dictionary["authorDescription"] as? String
+        homeCourses.authorImage = dictionary["authorImage"] as? String
+        homeCourses.authorName = dictionary["authorName"] as? String
+        homeCourses.courseDescription = dictionary["courseDescription"] as? String
+        homeCourses.hour = dictionary["hour"] as? String
+        homeCourses.overViewImage = dictionary["overViewImage"] as? String
+        homeCourses.price = dictionary["price"] as? String
+        homeCourses.score = dictionary["score"] as? String
+        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+        homeCourses.title = dictionary["title"] as? String
+        homeCourses.courseId = dictionary["courseId"] as? String
+        homeCourses.teacherID = dictionary["teacherID"] as? String
+        homeCourses.onSalesPrice = dictionary["onSalesPrice"] as? String
+        homeCourses.tags = dictionary["tags"] as! [String]
+        
+        
+        self.homeCourses_Array.append(homeCourses)
+        
+        self.tagsSplit(tags: homeCourses.tags, homecourse: homeCourses)
+        
+      }
+    }
+  }
+  
+  func tagsSplit(tags: [String?], homecourse: HomeCourses){
+    for (_, value) in tags.enumerated() {
+      guard let value = value else { return }
+      if value.contains("Hottest"){
+        hottest.append(homecourse)
+      } else if value.contains("Professional") {
+        professional.append(homecourse)
+      } else if value.contains("Life") {
+        life.append(homecourse)
+      } else if value.contains("Others") {
+        others.append(homecourse)
+      } else {
+        return
+      }
+      
+    }
+  }
+  
   var getCoupon = ""
   func userFirstLogIn(){
     let userDefaults = UserDefaults.standard
@@ -134,10 +188,14 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
   }
   
   override func viewControllers (for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
-    let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Hot")
-    let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Pro")
-    let child_3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Life")
-    let child_4 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Others")
+    let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Hot") as! HotViewController
+    
+    let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Pro") as! ProfessionalViewController
+    
+    let child_3 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Life") as! LifeViewController
+    
+    let child_4 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Others") as! OthersViewController
+    
     return [child_1, child_2, child_3, child_4]
   }
   
