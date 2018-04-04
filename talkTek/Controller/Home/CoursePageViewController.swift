@@ -11,21 +11,33 @@ import Kingfisher
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
-
+import SVProgressHUD
 
 class CoursePageViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  
+  @IBOutlet weak var tableviewToBottom: NSLayoutConstraint!
+
   var detailToGet = HomeCourses()
   var audioItem_Array = [AudioItem?]()
   var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
 
+  @IBOutlet weak var buy_View: UIView!
+  @IBOutlet weak var buyButton: UIButton!
+  @IBOutlet weak var originalIconImage: UIImageView!
+  @IBOutlet weak var originalCost_Label: UILabel!
+  @IBOutlet weak var onsaleIconImage: UIImageView!
+  @IBOutlet weak var onsale_Label: UILabel!
+  @IBOutlet weak var deletionView: UIView!
+  @IBOutlet weak var onlyIconImage: UIImageView!
+  @IBOutlet weak var onlyMoneyLabel: UILabel!
   
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    uid = UserDefaults.standard.string(forKey: "uid")
     
     tableView.dataSource = self
     tableView.delegate = self
@@ -41,6 +53,105 @@ class CoursePageViewController: UIViewController {
     super.didReceiveMemoryWarning()
 
   }
+  
+  var uid: String?
+  var myMoney = "0"
+  var courseId = ""
+  var array_CourseID = [String]()
+  var databaseRef: DatabaseReference!
+
+  @IBAction func buy_Button_Tapped(_ sender: UIButton) {
+    if uid != "guest"{
+      buy()
+    } else {
+      SVProgressHUD.showError(withStatus: "尚未登入")
+    }
+  }
+  func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+      do {
+        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+    return nil
+  }
+  func buy(){
+    guard let uid = self.uid else { return }
+
+    let moneyInt = Int(myMoney)
+    if let courseMoneyString = detailToGet.priceOnSales{
+      let courseMoneyInt = Int(courseMoneyString)
+      
+      if moneyInt! >= courseMoneyInt{
+        
+        
+        
+        let jsonEncoder = JSONEncoder()
+        let jsonData = try? jsonEncoder.encode(detailToGet)
+        let json = String(data: jsonData!, encoding: String.Encoding.utf8)
+        
+        let result = convertToDictionary(text: json!)
+        databaseRef.child("BoughtCourses").child(uid).child(courseId).setValue(result)
+        let moneyLeft = String(moneyInt! - courseMoneyInt)
+        self.myMoney = moneyLeft
+        self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
+        
+        
+        // ALERT Success
+        SVProgressHUD.showSuccess(withStatus: "購買成功")
+        self.thisCourseHasBought = true
+        self.buy_View.isHidden = true
+        
+        
+      } else {
+        //Alert not enough money
+        SVProgressHUD.showError(withStatus: "購買失敗")
+      }
+    }
+    
+  }
+  func money(){
+    guard let uid = self.uid else { return }
+
+    self.databaseRef.child("Money").observeSingleEvent(of: .value) { (snapshot) in
+      if !snapshot.hasChild(uid){
+        
+        return
+        
+      } else {
+        self.databaseRef.child("Money").child(uid).child("money").observeSingleEvent(of: .value) { (snapshot) in
+          if let money = snapshot.value as? String{
+            self.myMoney = money
+          }
+        }
+      }
+    }
+    
+  }
+  
+  func boughtOrNot(){
+    for i in array_CourseID{
+      if i == detailToGet.courseId{
+        buy_View.isHidden = true
+        thisCourseHasBought = true
+      }
+    }
+    
+  }
+  var thisCourseHasBought = false
+  {
+    didSet
+    {
+      if thisCourseHasBought == true {
+        tableviewToBottom.constant = 0
+      } else {
+        tableviewToBottom.constant = 50
+      }
+    }
+  }
+  
   
   enum DetailViewSection: Int{
     case main = 0
