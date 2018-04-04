@@ -89,7 +89,6 @@ class CoursePageViewController: UIViewController {
   func fetchSectionTitle(withCourseId: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
-    
     databaseRef.child("Test").child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
       if let array = snapshot.value as? [String]{
         self.sections = array

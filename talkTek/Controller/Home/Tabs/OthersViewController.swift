@@ -44,9 +44,12 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
   
   var homeCourses_Array = [HomeCourses]()
   var homeCouresToPass = HomeCourses()
+  
   func fetchData(){
     // Get the number and root of collectionview
-    self.databaseRef.child("Others").observe(.childAdded) { (snapshot) in
+    databaseRef = Database.database().reference()
+    
+    databaseRef.child("AllCourses").observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: Any]{
         
         let homeCourses = HomeCourses()
@@ -64,19 +67,29 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
         homeCourses.courseId = dictionary["courseId"] as? String
         homeCourses.teacherID = dictionary["teacherID"] as? String
         homeCourses.onSalesPrice = dictionary["onSalesPrice"] as? String
+        homeCourses.tags = dictionary["tags"] as! [String]
         
         
+        //self.homeCourses_Array.append(homeCourses)
         
-        self.homeCourses_Array.append(homeCourses)
-        
-        DispatchQueue.main.async {
-          self.collectionView.reloadData()
-        }
-        self.collectionView.es.stopPullToRefresh()
+        self.tagsSplit(tags: homeCourses.tags, homecourse: homeCourses)
         
       }
     }
   }
+  
+  func tagsSplit(tags: [String?], homecourse: HomeCourses){
+    for (_, value) in tags.enumerated() {
+      guard let value = value else { return }
+      if value.contains("Others"){
+        homeCourses_Array.append(homecourse)
+      }
+      DispatchQueue.main.async {
+        self.collectionView.reloadData()
+      }
+    }
+  }
+  
   
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
