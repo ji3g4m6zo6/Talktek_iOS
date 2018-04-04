@@ -12,11 +12,14 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 
+
 class CoursePageViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
+  var detailToGet = HomeCourses()
   var audioItem_Array = [AudioItem?]()
+  var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
 
   
@@ -28,13 +31,15 @@ class CoursePageViewController: UIViewController {
     tableView.delegate = self
     tableView.tableFooterView = UIView()
     
-    fetchSectionTitle(withCourseId: "couple_achievement")
-    // Do any additional setup after loading the view.
+    if let courseId = detailToGet.courseId {
+      fetchSectionTitle(withCourseId: courseId)
+    }
+    
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
+
   }
   
   enum DetailViewSection: Int{
@@ -48,7 +53,7 @@ class CoursePageViewController: UIViewController {
     var tempSection = -1
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
-    databaseRef.child("Test").child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
+    databaseRef.child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: Any]{
         let audioItem = AudioItem()
         audioItem.Audio = dictionary["Audio"] as? String
@@ -60,6 +65,7 @@ class CoursePageViewController: UIViewController {
         audioItem.RowPriority = dictionary["RowPriority"] as? Int
         audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
         
+        self.audioItemFromDatabase.append(audioItem)
         
         if tempSection != audioItem.SectionPriority {
           if let sectionPriority = audioItem.SectionPriority {
@@ -89,7 +95,7 @@ class CoursePageViewController: UIViewController {
   func fetchSectionTitle(withCourseId: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
-    databaseRef.child("Test").child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
+    databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
       if let array = snapshot.value as? [String]{
         self.sections = array
         self.fetchAudioFiles(withCourseId: withCourseId)
@@ -133,6 +139,13 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "overview", for: indexPath) as! CoursePageOverviewTableViewCell
+      
+      if let iconUrl = detailToGet.overViewImage{
+        let url = URL(string: iconUrl)
+        cell.overviewImageView.kf.setImage(with: url)
+      }
+      cell.topicLabel.text = detailToGet.title
+      
       return cell
     case DetailViewSection.courseInfo.rawValue:
       if indexPath.row == 0 {

@@ -55,7 +55,7 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
   // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
-      let destinationViewController = segue.destination as! CourseDetailViewController
+      let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
       destinationViewController.hidesBottomBarWhenPushed = true
     }
