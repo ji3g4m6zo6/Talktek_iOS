@@ -14,36 +14,106 @@ import Kingfisher
 
 class OthersViewController: UIViewController, IndicatorInfoProvider {
   
-  
+  // MARK: - XLPagerTab Indicator Info
   func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
     return IndicatorInfo(title: "其他")
   }
 
-  
+  // MARK: - Firebase Outlets
   var databaseRef: DatabaseReference!
+  var homeCourses_Array = [HomeCourses]()
+  var homeCouresToPass = HomeCourses()
+  
+  // MARK: - UICollectionView
   @IBOutlet weak var collectionView: UICollectionView!
+  
+  // MARK: - viewDidLoad, didReceiveMemoryWarning
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // MARK: - collection view datasource & delegate
     collectionView.dataSource = self
     collectionView.delegate = self
     
-    databaseRef = Database.database().reference()
+    // MARK: - fetch data from firebase & split from tags
     fetchData()
     
+    // MARK: - ESPullToRefresh
     collectionView.es.addPullToRefresh {
       [unowned self] in
       self.homeCourses_Array.removeAll()
       self.fetchData()
     }
   }
-  
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
-  var homeCourses_Array = [HomeCourses]()
-  var homeCouresToPass = HomeCourses()
+  // MARK: - Segue
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierDetail"{
+      let destinationViewController = segue.destination as! CourseDetailViewController
+      destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.hidesBottomBarWhenPushed = true
+
+    }
+  }
+  
+}
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension OthersViewController: UICollectionViewDelegate, UICollectionViewDataSource{
+  func numberOfSections(in collectionView: UICollectionView) -> Int {
+    return 1
+  }
+  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    return homeCourses_Array.count
+  }
+  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! OthersCollectionViewCell
+    
+    cell.author_Label.text = homeCourses_Array[indexPath.item].authorName
+    
+    if let priceNum = homeCourses_Array[indexPath.item].price{
+      let priceLabel = priceNum + "點"
+      cell.price_Label.text = priceLabel
+    }
+    if let studentNum = homeCourses_Array[indexPath.item].studentNumber{
+      let studentLabel = String(studentNum) + "人購買"
+      cell.peopleBought_Label.text = studentLabel
+    }
+    if let overviewUrl = homeCourses_Array[indexPath.item].overViewImage{
+      let url = URL(string: overviewUrl)
+      cell.overview_ImageView.kf.setImage(with: url)
+    }
+    if let authorUrl = homeCourses_Array[indexPath.item].authorImage{
+      let url = URL(string: authorUrl)
+      cell.author_ImageView.kf.setImage(with: url)
+    }
+    cell.title_Label.text = homeCourses_Array[indexPath.item].title
+
+    return cell
+  }
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    homeCouresToPass = homeCourses_Array[indexPath.item]
+    performSegue(withIdentifier: "identifierDetail", sender: self)
+  }
+}
+
+extension OthersViewController: UICollectionViewDelegateFlowLayout{
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+    return 10
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    return 10
+  }
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return CGSize(width: 160, height: 190)
+  }
+}
+
+// MARK: - API calls
+extension OthersViewController {
   
   func fetchData(){
     // Get the number and root of collectionview
@@ -90,98 +160,5 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
     }
   }
   
-  
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    if segue.identifier == "identifierDetail"{
-      let destinationViewController = segue.destination as! CourseDetailViewController
-      destinationViewController.detailToGet = self.homeCouresToPass
-      destinationViewController.hidesBottomBarWhenPushed = true
-
-    }
-  }
-  
-  
 }
-
-extension OthersViewController: UICollectionViewDelegate, UICollectionViewDataSource{
-  func numberOfSections(in collectionView: UICollectionView) -> Int {
-    return 1
-  }
-  func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    return homeCourses_Array.count
-  }
-  func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! OthersCollectionViewCell
-    
-    cell.author_Label.text = homeCourses_Array[indexPath.item].authorName
-    
-    if let priceNum = homeCourses_Array[indexPath.item].price{
-      let priceLabel = priceNum + "點"
-      cell.price_Label.text = priceLabel
-    }
-    if let studentNum = homeCourses_Array[indexPath.item].studentNumber{
-      let studentLabel = String(studentNum) + "人購買"
-      cell.peopleBought_Label.text = studentLabel
-    }
-    if let overviewUrl = homeCourses_Array[indexPath.item].overViewImage{
-      let url = URL(string: overviewUrl)
-      cell.overview_ImageView.kf.setImage(with: url)
-    }
-    if let authorUrl = homeCourses_Array[indexPath.item].authorImage{
-      let url = URL(string: authorUrl)
-      cell.author_ImageView.kf.setImage(with: url)
-    }
-    cell.title_Label.text = homeCourses_Array[indexPath.item].title
-
-    return cell
-  }
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    homeCouresToPass = homeCourses_Array[indexPath.item]
-    performSegue(withIdentifier: "identifierDetail", sender: self)
-  }
-}
-
-extension OthersViewController: UICollectionViewDelegateFlowLayout{
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 10
-  }
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-    return 10
-  }
-  /*func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-   let elements_count = 15
-   let cellCount = CGFloat(elements_count)
-   
-   // 如果 Cell 的數量是 0，也沒必要做 Layout
-   if cellCount > 0 {
-   let flowLayout = collectionViewLayout as! UICollectionViewFlowLayout
-   let cellWidth = flowLayout.itemSize.width + flowLayout.minimumInteritemSpacing
-   
-   // 如果你想要加 extra space 給 cell
-   let totalCellWidth = cellWidth*cellCount // + 5.00 * (cellCount-1)
-   let contentWidth = collectionView.frame.size.width - collectionView.contentInset.left - collectionView.contentInset.right
-   
-   if (totalCellWidth < contentWidth) {
-   //If the number of cells that exists take up less room than the
-   //collection view width... then there is an actual point to centering them.
-   
-   // 在一個 row 放幾個 cells
-   let padding = (contentWidth - totalCellWidth) / 2.0
-   return UIEdgeInsetsMake(0, padding, 0, padding)
-   } else {
-   //Pretty much if the number of cells that exist take up
-   //more room than the actual collectionView width, there is no
-   // point in trying to center them. So we leave the default behavior.
-   return UIEdgeInsetsMake(0, 40, 0, 40)
-   }
-   }
-   
-   return UIEdgeInsets.zero
-   }*/
-  
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return CGSize(width: 160, height: 190)
-  }
-}
-
 
