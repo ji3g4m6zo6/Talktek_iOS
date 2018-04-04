@@ -16,15 +16,20 @@ class CoursePageTeacherTableViewCell: UITableViewCell {
   
   @IBOutlet weak var teacherInfoLabel: UILabel!
   
+  override func layoutSubviews() {
+    teacherImageView.layer.cornerRadius = teacherImageView.bounds.height / 2
+    teacherImageView.clipsToBounds = true
+  }
+  
   override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    super.awakeFromNib()
+    // Initialization code
+  }
+  
+  override func setSelected(_ selected: Bool, animated: Bool) {
+    super.setSelected(selected, animated: animated)
+    
+    // Configure the view for the selected state
+  }
+  
 }

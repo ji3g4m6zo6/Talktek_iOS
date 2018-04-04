@@ -76,20 +76,19 @@ class CoursesBoughtViewController: UIViewController {
             let homeCourses = HomeCourses()
             
             homeCourses.authorDescription = dictionary["authorDescription"] as? String
+            homeCourses.authorId = dictionary["authorId"] as? String
             homeCourses.authorImage = dictionary["authorImage"] as? String
             homeCourses.authorName = dictionary["authorName"] as? String
             homeCourses.courseDescription = dictionary["courseDescription"] as? String
-            homeCourses.hour = dictionary["hour"] as? String
-            homeCourses.overViewImage = dictionary["overViewImage"] as? String
-            homeCourses.price = dictionary["price"] as? String
-            homeCourses.score = dictionary["score"] as? String
-            homeCourses.studentNumber = dictionary["studentNumber"] as? Int
-            homeCourses.title = dictionary["title"] as? String
             homeCourses.courseId = dictionary["courseId"] as? String
-            homeCourses.teacherID = dictionary["teacherID"] as? String
-            homeCourses.onSalesPrice = dictionary["onSalesPrice"] as? String
-            
-            
+            homeCourses.courseTitle = dictionary["courseTitle"] as? String
+            homeCourses.overViewImage = dictionary["overViewImage"] as? String
+            homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
+            homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
+            homeCourses.scorePeople = dictionary["scorePeople"] as? Int
+            homeCourses.scoreTotal = dictionary["scoreTotal"] as? Int
+            homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+            homeCourses.tags = dictionary["tags"] as! [String]
             
             self.homeCourses_Array.append(homeCourses)
             print("homecourses array \(self.homeCourses_Array)")
@@ -143,7 +142,7 @@ extension CoursesBoughtViewController: UITableViewDataSource, UITableViewDelegat
       cell.author_ImageView.kf.setImage(with: url)
     }
     
-    cell.title_Label.text = homeCourses_Array[indexPath.row].title
+    cell.title_Label.text = homeCourses_Array[indexPath.row].courseTitle
     cell.teacherName_Label.text = homeCourses_Array[indexPath.row].authorName
     
     return cell

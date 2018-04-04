@@ -42,12 +42,21 @@ class PayCourseViewController: UIViewController {
         //print("dictionary is \(dictionary)")
         
         let homeCourses = HomeCourses()
-        homeCourses.overViewImage = dictionary["overViewImage"]
-        homeCourses.authorName = dictionary["authorName"]
-        homeCourses.title = dictionary["title"]
-        homeCourses.price = dictionary["price"]
-       // homeCourses.studentNumber = dictionary["studentNumber"]
         
+        homeCourses.authorDescription = dictionary["authorDescription"] as? String
+        homeCourses.authorId = dictionary["authorId"] as? String
+        homeCourses.authorImage = dictionary["authorImage"] as? String
+        homeCourses.authorName = dictionary["authorName"] as? String
+        homeCourses.courseDescription = dictionary["courseDescription"] as? String
+        homeCourses.courseId = dictionary["courseId"] as? String
+        homeCourses.courseTitle = dictionary["courseTitle"] as? String
+        homeCourses.overViewImage = dictionary["overViewImage"] as? String
+        homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
+        homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
+        homeCourses.scorePeople = dictionary["scorePeople"] as? Int
+        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Int
+        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+        homeCourses.tags = dictionary["tags"] as! [String]
         self.homeCourses_Array.append(homeCourses)
         
         DispatchQueue.main.async {

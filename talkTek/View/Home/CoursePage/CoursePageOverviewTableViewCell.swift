@@ -20,7 +20,20 @@ class CoursePageOverviewTableViewCell: UITableViewCell {
   
   @IBOutlet weak var coursesNumberLabel: UILabel!
   
+  @IBOutlet weak var peopleIcon_ImageView: UIImageView!
+  @IBOutlet weak var starIcon_ImageView: UIImageView!
+  @IBOutlet weak var clockIcon_ImageView: UIImageView!
+
   
+  override func layoutSubviews() {
+    overviewImageView.roundCorners([.topLeft, .topRight], radius: 15)
+    
+    peopleIcon_ImageView.tintColor = UIColor.tealish()
+    starIcon_ImageView.tintColor = UIColor.tealish()
+    clockIcon_ImageView.tintColor = UIColor.tealish()
+    
+  }
+
   
   override func awakeFromNib() {
     super.awakeFromNib()

@@ -12,6 +12,8 @@ class CoursePageHeaderTableViewCell: UITableViewCell {
 
   @IBOutlet weak var titleSectionLabel: UILabel!
  
+  
+
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code

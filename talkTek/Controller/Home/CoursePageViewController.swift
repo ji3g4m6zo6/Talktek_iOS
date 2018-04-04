@@ -57,12 +57,10 @@ class CoursePageViewController: UIViewController {
       if let dictionary = snapshot.value as? [String: Any]{
         let audioItem = AudioItem()
         audioItem.Audio = dictionary["Audio"] as? String
-        audioItem.Section = dictionary["Section"] as? String
         audioItem.Time = dictionary["Time"] as? String
         audioItem.Title = dictionary["Title"] as? String
         audioItem.Topic = dictionary["Topic"] as? String
         audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
-        audioItem.RowPriority = dictionary["RowPriority"] as? Int
         audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
         
         self.audioItemFromDatabase.append(audioItem)
@@ -95,14 +93,16 @@ class CoursePageViewController: UIViewController {
   func fetchSectionTitle(withCourseId: String){
     var databaseRef: DatabaseReference!
     databaseRef = Database.database().reference()
+   print("course id \(withCourseId)")
     databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
       if let array = snapshot.value as? [String]{
         self.sections = array
-        self.fetchAudioFiles(withCourseId: withCourseId)
       }
       
     }
-    
+    self.fetchAudioFiles(withCourseId: withCourseId)
+
+
   }
   /*
    // MARK: - Navigation
@@ -144,15 +144,35 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
         let url = URL(string: iconUrl)
         cell.overviewImageView.kf.setImage(with: url)
       }
-      cell.topicLabel.text = detailToGet.title
+      if let studentNumber = detailToGet.studentNumber {
+        let studentNumberString = String(studentNumber)
+        cell.studentNumberLabel.text = studentNumberString
+      }
+      
+      if let scoreTotal = detailToGet.scoreTotal, let scorePeople = detailToGet.scorePeople {
+        if scorePeople == 0 {
+          cell.scoreNumberLabel.text = String(scorePeople)
+        } else {
+          let average = Float(scoreTotal) / Float(scorePeople)
+          cell.scoreNumberLabel.text = String(format: "%.1f", average)
+        }
+      }
+      
+      let courseNumberString = String(audioItemFromDatabase.count)
+      cell.coursesNumberLabel.text = courseNumberString
+      
+      
+      cell.topicLabel.text = detailToGet.courseTitle
       
       return cell
     case DetailViewSection.courseInfo.rawValue:
       if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! CoursePageHeaderTableViewCell
+        cell.titleSectionLabel.text = "課程資訊"
         return cell
       } else if indexPath.row == 1 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "intro", for: indexPath) as! CoursePageIntroTableViewCell
+        cell.introLabel.text = detailToGet.courseDescription
         return cell
 
       } else {
@@ -162,10 +182,18 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     case DetailViewSection.teacherInfo.rawValue:
       if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! CoursePageHeaderTableViewCell
+        cell.titleSectionLabel.text = "講師資訊"
+
         return cell
         
       } else if indexPath.row == 1 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "teacher", for: indexPath) as! CoursePageTeacherTableViewCell
+        if let iconUrl = detailToGet.authorImage{
+          let url = URL(string: iconUrl)
+          cell.teacherImageView.kf.setImage(with: url)
+        }
+        cell.teacherNameLabel.text = detailToGet.authorName
+        cell.teacherInfoLabel.text = detailToGet.authorDescription
         return cell
 
       } else {
@@ -176,20 +204,38 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     case DetailViewSection.courses.rawValue:
       if indexPath.row == 0 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "header", for: indexPath) as! CoursePageHeaderTableViewCell
+        cell.titleSectionLabel.text = "課程列表"
+
         return cell
       } else if indexPath.row == audioItem_Array.count + 1 {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expand", for: indexPath) as! CoursePageExpandTableViewCell
-        
+        cell.expandButton.isHidden = true
         return cell
       } else {
       
         
-        if let _ = audioItem_Array[indexPath.row-1]{
+        if let particularItem = audioItem_Array[indexPath.row-1]{
           let cell = tableView.dequeueReusableCell(withIdentifier: "list", for: indexPath) as! CoursePageListTableViewCell
+          cell.titleLabel.text = particularItem.Title
+          cell.timeLabel.text = particularItem.Time
+          
+          if let tryOutEnable = particularItem.TryOutEnable{
+            if tryOutEnable == -1 {
+              cell.tryoutButton.isHidden = true
+            } else {
+              cell.tryoutButton.isHidden = false
+            }
+          }
           return cell
         } else {
           let cell = tableView.dequeueReusableCell(withIdentifier: "topic", for: indexPath) as! CoursePageTopicTableViewCell
-          return cell
+          if let particularItem = audioItem_Array[indexPath.row] {
+            if let sectionPriority = particularItem.SectionPriority{
+              cell.topicLabel.text = sections[sectionPriority]
+              return cell
+            }
+          }
+          
           
         }
         
@@ -197,7 +243,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     default:
       return UITableViewCell()
     }
-
+    return UITableViewCell()
   }
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {

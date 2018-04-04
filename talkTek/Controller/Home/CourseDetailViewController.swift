@@ -57,10 +57,10 @@ class CourseDetailViewController: UIViewController {
     
     let moneyInt = Int(myMoney)
     
-    if let courseMoneyString = detailToGet.onSalesPrice{
+    if let courseMoneyString = detailToGet.priceOnSales{
       let courseMoneyInt = Int(courseMoneyString)
       
-      if moneyInt! >= courseMoneyInt!{
+      if moneyInt! >= courseMoneyInt{
         
         
         
@@ -70,7 +70,7 @@ class CourseDetailViewController: UIViewController {
      
         let result = convertToDictionary(text: json!)
         databaseRef.child("BoughtCourses").child(self.uid).child(courseId).setValue(result)
-        let moneyLeft = String(moneyInt! - courseMoneyInt!)
+        let moneyLeft = String(moneyInt! - courseMoneyInt)
         self.myMoney = moneyLeft
       self.databaseRef.child("Money").child(self.uid).child("money").setValue(self.myMoney)
         
@@ -163,8 +163,8 @@ class CourseDetailViewController: UIViewController {
     accountIconImage.tintColor = UIColor.moneyYellow()
     onlyIconImage.tintColor = UIColor.moneyYellow()
     
-    if let onSalesPrice = detailToGet.onSalesPrice{
-      if onSalesPrice == "-1"{
+    if let onSalesPrice = detailToGet.priceOnSales{
+      if onSalesPrice == -1 {
         account_Label.isHidden = true
         accountIconImage.isHidden = true
         deletionView.isHidden = true
@@ -174,7 +174,7 @@ class CourseDetailViewController: UIViewController {
         onlyIconImage.isHidden = false
         onlyMoneyLabel.isHidden = false
         
-        if let price = detailToGet.price {
+        if let price = detailToGet.priceOrigin {
           onlyMoneyLabel.text = "\(price)點"
         }
       } else {
@@ -187,7 +187,7 @@ class CourseDetailViewController: UIViewController {
         cost_Label.isHidden = false
         mainIconImage.isHidden = false
         
-        if let price = detailToGet.price {
+        if let price = detailToGet.priceOrigin {
           cost_Label.text = "\(price)點"
         }
         account_Label.text = "\(onSalesPrice)點"
@@ -255,7 +255,7 @@ class CourseDetailViewController: UIViewController {
     } else if segue.identifier == "identifierTeacher"{
       let destination = segue.destination as! TeacherViewController
       destination.courseToGet = detailToGet
-      destination.idToGet = detailToGet.teacherID!
+      destination.idToGet = detailToGet.authorId!
     } else if segue.identifier == "identifierPlayer"{
       let destination = segue.destination as! PlayerViewController
       destination.audioData = audioItem_Array
@@ -301,12 +301,12 @@ extension CourseDetailViewController: UITableViewDelegate, UITableViewDataSource
       switch indexPath.section {
       case DetailViewSection.main.rawValue:
         let cell = tableView.dequeueReusableCell(withIdentifier: "main", for: indexPath) as! MainTableViewCell
-        cell.courseHour_Label.text = detailToGet.hour
+        //cell.courseHour_Label.text = detailToGet.hour
         if let iconUrl = detailToGet.overViewImage{
           let url = URL(string: iconUrl)
           cell.overview_ImageView.kf.setImage(with: url)
         }
-        cell.title_Label.text = detailToGet.title
+        cell.title_Label.text = detailToGet.courseTitle
         
         return cell
       case DetailViewSection.courseInfo.rawValue:
@@ -493,12 +493,10 @@ extension CourseDetailViewController {
       if let dictionary = snapshot.value as? [String: Any]{
         let audioItem = AudioItem()
         audioItem.Audio = dictionary["Audio"] as? String
-        audioItem.Section = dictionary["Section"] as? String
         audioItem.Time = dictionary["Time"] as? String
         audioItem.Title = dictionary["Title"] as? String
         audioItem.Topic = dictionary["Topic"] as? String
         audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
-        audioItem.RowPriority = dictionary["RowPriority"] as? Int
         audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
         
         self.audioItem_Array.append(audioItem)

@@ -70,7 +70,7 @@ extension ViewMoreViewController: UITableViewDataSource, UITableViewDelegate {
       cell.author_ImageView.kf.setImage(with: url)
     }
     
-    cell.title_Label.text = homeCourses_Array[indexPath.row].title
+    cell.title_Label.text = homeCourses_Array[indexPath.row].courseTitle
     cell.teacherName_Label.text = homeCourses_Array[indexPath.row].authorName
     
     return cell

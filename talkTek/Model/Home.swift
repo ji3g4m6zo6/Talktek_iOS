@@ -26,7 +26,6 @@ class HomeCourses: NSObject, Encodable {
   var studentNumber: Int?
   var tags: [String?] = []
   
-  
 }
 
 
@@ -38,7 +37,7 @@ class AudioItem: NSObject {
   var Title: String?
   var Topic: String?
   var TryOutEnable: Int?
-
+  
 }
 
 

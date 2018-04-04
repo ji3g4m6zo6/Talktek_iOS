@@ -54,7 +54,7 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
   // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
-      let destinationViewController = segue.destination as! CourseDetailViewController
+      let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
       destinationViewController.hidesBottomBarWhenPushed = true
 
@@ -76,8 +76,8 @@ extension ProfessionalViewController: UICollectionViewDelegate, UICollectionView
     
     cell.author_Label.text = homeCourses_Array[indexPath.item].authorName
     
-    if let priceNum = homeCourses_Array[indexPath.item].price{
-      let priceLabel = priceNum + "點"
+    if let priceNum = homeCourses_Array[indexPath.item].priceOrigin{
+      let priceLabel = String(priceNum) + "點"
       cell.price_Label.text = priceLabel
     }
     if let studentNum = homeCourses_Array[indexPath.item].studentNumber{
@@ -92,7 +92,8 @@ extension ProfessionalViewController: UICollectionViewDelegate, UICollectionView
       let url = URL(string: authorUrl)
       cell.author_ImageView.kf.setImage(with: url)
     }
-    cell.title_Label.text = homeCourses_Array[indexPath.item].title
+    
+    cell.title_Label.text = homeCourses_Array[indexPath.item].courseTitle
 
     return cell
   }
@@ -126,23 +127,24 @@ extension ProfessionalViewController {
         let homeCourses = HomeCourses()
         
         homeCourses.authorDescription = dictionary["authorDescription"] as? String
+        homeCourses.authorId = dictionary["authorId"] as? String
         homeCourses.authorImage = dictionary["authorImage"] as? String
         homeCourses.authorName = dictionary["authorName"] as? String
         homeCourses.courseDescription = dictionary["courseDescription"] as? String
-        homeCourses.hour = dictionary["hour"] as? String
-        homeCourses.overViewImage = dictionary["overViewImage"] as? String
-        homeCourses.price = dictionary["price"] as? String
-        homeCourses.score = dictionary["score"] as? String
-        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
-        homeCourses.title = dictionary["title"] as? String
         homeCourses.courseId = dictionary["courseId"] as? String
-        homeCourses.teacherID = dictionary["teacherID"] as? String
-        homeCourses.onSalesPrice = dictionary["onSalesPrice"] as? String
+        homeCourses.courseTitle = dictionary["courseTitle"] as? String
+        homeCourses.overViewImage = dictionary["overViewImage"] as? String
+        homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
+        homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
+        homeCourses.scorePeople = dictionary["scorePeople"] as? Int
+        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Int
+        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
         homeCourses.tags = dictionary["tags"] as! [String]
         
         
-        
         self.tagsSplit(tags: homeCourses.tags, homecourse: homeCourses)
+        
+        
         
       }
     }
