@@ -18,6 +18,7 @@ class CoursePageViewController: UIViewController {
   // MARK: - tableview
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var tableviewToBottom: NSLayoutConstraint!
+  var selectedRow = IndexPath(item: -1, section: -1)
   enum DetailViewSection: Int{
     case main = 0
     case courseInfo = 1
@@ -184,7 +185,11 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
 
       } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expand", for: indexPath) as! CoursePageExpandTableViewCell
-        cell.expandButton.isHidden = false
+        if selectedRow != indexPath {
+          cell.expandButton.isHidden = false
+        } else {
+          cell.expandButton.isHidden = true
+        }
         return cell
       }
     case DetailViewSection.teacherInfo.rawValue:
@@ -268,7 +273,11 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       if indexPath.row == 0 {
         return 64
       } else if indexPath.row == 1 {
-        return 107
+        if selectedRow == IndexPath(item: 2, section: 1){
+          return UITableViewAutomaticDimension // expanded
+        } else {
+          return 107
+        }
       } else {
         return 39
       }
@@ -281,7 +290,6 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
         return 51
       }
     case DetailViewSection.courses.rawValue:
-      
       if indexPath.row == 0 {
         return 64
       } else if indexPath.row == audioItem_Array.count + 1  {
@@ -301,7 +309,11 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       if indexPath.row == 0 {
         return 0
       } else if indexPath.row == 1 {
-        return 0
+        if selectedRow == IndexPath(item: 2, section: 1){
+          return 400
+        } else {
+          return 0
+        }
       } else {
         return 0
       }
@@ -335,7 +347,12 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       } else if indexPath.row == 1 {
         break
       } else {
-        break
+        if selectedRow != indexPath {
+          selectedRow = indexPath
+          tableView.reloadData()
+        } else {
+          break
+        }
       }
     case DetailViewSection.teacherInfo.rawValue:
       if indexPath.row == 0 {
