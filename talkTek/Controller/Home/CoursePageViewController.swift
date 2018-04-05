@@ -60,26 +60,27 @@ class CoursePageViewController: UIViewController {
   // MARK: - Firebase
   var uid: String?
   var myMoney: String?
-  var courseId = ""
-  var array_CourseID = [String]()
   var databaseRef: DatabaseReference!
 
   // MARK: - viewDidLoad, didReceiveMemoryWarning
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // uid from userdefaults, database init
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
 
- 
+    // Tableview
     tableView.dataSource = self
     tableView.delegate = self
     tableView.tableFooterView = UIView()
     
+    // updateBuyView, getMoney, ifUserHasCourse
     updateBuyView()
     getMoney()
     ifUserHasCourse()
     
+    // fetchAudioFiles
     if let courseId = detailToGet.courseId {
       fetchSectionTitle(withCourseId: courseId)
     }
@@ -320,6 +321,38 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       return 0
     }
   }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      break
+    case DetailViewSection.courseInfo.rawValue:
+      if indexPath.row == 0 {
+        break
+      } else if indexPath.row == 1 {
+        break
+      } else {
+        break
+      }
+    case DetailViewSection.teacherInfo.rawValue:
+      if indexPath.row == 0 {
+        break
+      } else if indexPath.row == 1 {
+        break
+      } else {
+        performSegue(withIdentifier: "identifierTeacher", sender: self)
+      }
+    case DetailViewSection.courses.rawValue:
+      if indexPath.row == 0 {
+        break
+      } else if indexPath.row == audioItem_Array.count + 1  {
+        break
+      } else {
+        performSegue(withIdentifier: "identifierPlayer", sender: self)
+      }
+    default:
+      break
+    }
+  }
 }
 
 // MARK: - API call
@@ -455,7 +488,7 @@ extension CoursePageViewController {
   // MARK: - Buy
   // depend on price onsale or origin, add to bought course, add to money, thisCourseHasBought update, alert success or error
   func buy(){
-    guard let uid = self.uid, let money = myMoney else { return }
+    guard let uid = self.uid, let money = myMoney, let courseId = detailToGet.courseId else { return }
     if let moneyInt = Int(money) {
       if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
         

@@ -93,6 +93,7 @@
 		AE15950F206BE3580045D15A /* CoursePageListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE15950E206BE3580045D15A /* CoursePageListTableViewCell.swift */; };
 		AE159511206BE4010045D15A /* CoursePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE159510206BE4010045D15A /* CoursePageViewController.swift */; };
 		AE1A8A1D205A9080001A18DA /* CoursesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1A8A1C205A907F001A18DA /* CoursesHistoryViewController.swift */; };
+		AE87197F20761E0900D99852 /* TeacherPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87197E20761E0900D99852 /* TeacherPageViewController.swift */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
 		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
 /* End PBXBuildFile section */
@@ -216,6 +217,7 @@
 		AE15950E206BE3580045D15A /* CoursePageListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePageListTableViewCell.swift; sourceTree = "<group>"; };
 		AE159510206BE4010045D15A /* CoursePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursePageViewController.swift; sourceTree = "<group>"; };
 		AE1A8A1C205A907F001A18DA /* CoursesHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesHistoryViewController.swift; sourceTree = "<group>"; };
+		AE87197E20761E0900D99852 /* TeacherPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPageViewController.swift; sourceTree = "<group>"; };
 		E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -324,6 +326,7 @@
 			children = (
 				04475E9C1FE7F24000F28478 /* Tabs */,
 				AE159510206BE4010045D15A /* CoursePageViewController.swift */,
+				AE87197E20761E0900D99852 /* TeacherPageViewController.swift */,
 				044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */,
 				04475E941FE7EA7200F28478 /* TeacherViewController.swift */,
 				04CC36A7201F76920032F247 /* ViewMoreViewController.swift */,
@@ -340,8 +343,7 @@
 				04DD58A31FEA723B009944D2 /* ProfessionCollectionViewCell.swift */,
 				04DD58A51FEA724C009944D2 /* LifeCollectionViewCell.swift */,
 				04DD58A71FEA7258009944D2 /* OthersCollectionViewCell.swift */,
-				049AB7F4202213E000F5C7CC /* MoreTableViewCell.swift */,
-				AE159501206BDF9C0045D15A /* CoursePage */,
+				AE159501206BDF9C0045D15A /* CoursePage_TeacherPage_More */,
 				041E3CB51FDC1BB30035E3A4 /* Pay and Free */,
 				04402E8C1FCDAF1F00EC95EE /* CourseDetail */,
 				04475E8F1FE7E9F100F28478 /* Teacher */,
@@ -538,7 +540,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AE159501206BDF9C0045D15A /* CoursePage */ = {
+		AE159501206BDF9C0045D15A /* CoursePage_TeacherPage_More */ = {
 			isa = PBXGroup;
 			children = (
 				AE1594FF206BDF930045D15A /* CoursePageOverviewTableViewCell.swift */,
@@ -549,8 +551,9 @@
 				AE15950A206BE1500045D15A /* CoursePageTeacherTableViewCell.swift */,
 				AE15950C206BE34B0045D15A /* CoursePageTopicTableViewCell.swift */,
 				AE15950E206BE3580045D15A /* CoursePageListTableViewCell.swift */,
+				049AB7F4202213E000F5C7CC /* MoreTableViewCell.swift */,
 			);
-			path = CoursePage;
+			path = CoursePage_TeacherPage_More;
 			sourceTree = "<group>";
 		};
 		E5B8E35493391EBF73AF0773 /* Frameworks */ = {
@@ -937,6 +940,7 @@
 				041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */,
 				048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */,
 				04475E931FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift in Sources */,
+				AE87197F20761E0900D99852 /* TeacherPageViewController.swift in Sources */,
 				04475E971FE7F21900F28478 /* ProfessionalViewController.swift in Sources */,
 				048D0D361FD1B209002A2E93 /* IAPService.swift in Sources */,
 				AE15950B206BE1500045D15A /* CoursePageTeacherTableViewCell.swift in Sources */,

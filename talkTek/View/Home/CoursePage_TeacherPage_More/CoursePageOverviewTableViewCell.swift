@@ -23,6 +23,10 @@ class CoursePageOverviewTableViewCell: UITableViewCell {
   @IBOutlet weak var peopleIcon_ImageView: UIImageView!
   @IBOutlet weak var starIcon_ImageView: UIImageView!
   @IBOutlet weak var clockIcon_ImageView: UIImageView!
+  
+  @IBOutlet weak var teacherImageView: UIImageView!
+  @IBOutlet weak var teacherNameLabel: UILabel!
+
 
   
   override func layoutSubviews() {

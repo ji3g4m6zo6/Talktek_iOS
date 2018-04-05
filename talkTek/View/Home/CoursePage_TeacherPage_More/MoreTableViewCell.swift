@@ -9,17 +9,25 @@
 import UIKit
 
 class MoreTableViewCell: UITableViewCell {
-  @IBOutlet weak var overview_ImageView: UIImageView!
   
-  @IBOutlet weak var title_Label: UILabel!
+  @IBOutlet weak var overviewImageView: UIImageView!
   
-  @IBOutlet weak var author_ImageView: UIImageView!
+  @IBOutlet weak var authorImageView: UIImageView!
   
-  @IBOutlet weak var teacherName_Label: UILabel!
+  @IBOutlet weak var authorNameLabel: UILabel!
   
-  @IBOutlet weak var studentNumber_Label: UILabel!
+  @IBOutlet weak var titleLabel: UILabel!
   
-  @IBOutlet weak var giveStarNumber_Label: UILabel!
+  @IBOutlet weak var iconImageView: UIImageView!
+
+  @IBOutlet weak var money_Label: UILabel!
+
+  
+  @IBOutlet weak var studentNumberLabel: UILabel!
+  
+  @IBOutlet weak var commentNumberLabel: UILabel!
+  
+  
   
   override func awakeFromNib() {
     super.awakeFromNib()
