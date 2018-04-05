@@ -348,8 +348,20 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       } else if indexPath.row == audioItem_Array.count + 1  {
         break
       } else {
-        self.thisSong = indexPath.row - 1
-        performSegue(withIdentifier: "identifierPlayer", sender: self)
+        if thisCourseHasBought == true{
+          if let _ = audioItem_Array[indexPath.row-1]{
+            self.thisSong = indexPath.row - 1
+            performSegue(withIdentifier: "identifierPlayer", sender: self)
+          } else {
+            break
+          }
+        } else {
+          SVProgressHUD.showError(withStatus: "尚未購買")
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            SVProgressHUD.dismiss()
+          })
+        }
+        
       }
     default:
       break
@@ -539,5 +551,11 @@ extension CoursePageViewController {
       }
     }
     return nil
+  }
+  
+  @objc func tryOutButtonTapped(_ sender: UIButton){
+    self.thisSong = sender.tag
+    print("sender tag is \(sender.tag)")
+    performSegue(withIdentifier: "identifierPlayer", sender: self)
   }
 }
