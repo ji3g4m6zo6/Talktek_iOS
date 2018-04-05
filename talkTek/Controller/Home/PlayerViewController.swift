@@ -13,7 +13,7 @@ import FirebaseDatabase
 
 class PlayerViewController: UIViewController {
   
-  var audioData = [AudioItem]()
+  var audioData = [AudioItem?]()
   var thisSong = 0
 
   @IBOutlet weak var playerToTopConstraint: NSLayoutConstraint!
@@ -71,17 +71,62 @@ class PlayerViewController: UIViewController {
   @IBAction func next_Button_Tapped(_ sender: UIButton) {
     if thisSong < audioData.count-1 {
       thisSong += 1
-      letsPlay(thisSongIndex: thisSong)
+      if let audioOfThisSongExisted = audioData[thisSong] {
+        letsPlay(songAudio: audioOfThisSongExisted)
+      } else {
+        next_Button_Tapped(next_Button)
+      }
+    } else {
+      thisSong = 0
+      if let audioOfThisSongExisted = audioData[thisSong] {
+        letsPlay(songAudio: audioOfThisSongExisted)
+      } else {
+        next_Button_Tapped(next_Button)
+      }
     }
   }
 
   @IBAction func previous_Button_Tapped(_ sender: UIButton) {
     if thisSong != 0 {
       thisSong -= 1
-      letsPlay(thisSongIndex: thisSong)
+      if let audioOfThisSongExisted = audioData[thisSong] {
+        letsPlay(songAudio: audioOfThisSongExisted)
+      } else {
+        previous_Button_Tapped(previous_Button)
+      }
+    } else {
+      thisSong = audioData.count-1
+      if let audioOfThisSongExisted = audioData[thisSong] {
+        letsPlay(songAudio: audioOfThisSongExisted)
+      } else {
+        previous_Button_Tapped(previous_Button)
+      }
     }
   }
-
+  func letsPlay(songAudio: AudioItem){
+    
+    title_Label.text = songAudio.Topic
+    topic_Label.text = songAudio.Title
+    
+    playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
+    playerItem.removeObserver(self, forKeyPath: "status")
+    
+    guard let url = URL(string: songAudio.Audio!) else { fatalError("連接錯誤") }
+    
+    playerItem = AVPlayerItem(url: url)
+    playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: NSKeyValueObservingOptions.new, context: nil)
+    playerItem.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
+    
+    player = AVPlayer(playerItem: playerItem)
+    
+    slider_UISlider.minimumValue = 0
+    slider_UISlider.maximumValue = 1
+    
+    slider_UISlider.value = 0
+    
+    
+    
+  }
   @IBAction func speedup_Button_Tapped(_ sender: UIButton) {
     
   }
@@ -154,11 +199,15 @@ class PlayerViewController: UIViewController {
     speed_Button.tintColor = UIColor.white
     playerToBottom_Button.tintColor = UIColor.white
     
-    title_Label.text = audioData[thisSong].Topic
-    topic_Label.text = audioData[thisSong].Title
+    guard let audioDataOfThisSong = audioData[thisSong] else {
+      return
+    }
+    
+    title_Label.text = audioDataOfThisSong.Topic
+    topic_Label.text = audioDataOfThisSong.Title
     
     
-    guard let url = URL(string: audioData[thisSong].Audio!) else { fatalError("連接錯誤") }
+    guard let url = URL(string: audioDataOfThisSong.Audio!) else { fatalError("連接錯誤") }
     
     playerItem = AVPlayerItem(url: url)
     playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: NSKeyValueObservingOptions.new, context: nil)
@@ -181,30 +230,7 @@ class PlayerViewController: UIViewController {
     
   }
   
-  func letsPlay(thisSongIndex: Int){
-    
-    title_Label.text = audioData[thisSongIndex].Topic
-    topic_Label.text = audioData[thisSongIndex].Title
-
-    playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
-    playerItem.removeObserver(self, forKeyPath: "status")
-    
-    guard let url = URL(string: audioData[thisSongIndex].Audio!) else { fatalError("連接錯誤") }
-    
-    playerItem = AVPlayerItem(url: url)
-    playerItem.addObserver(self, forKeyPath: "loadedTimeRanges", options: NSKeyValueObservingOptions.new, context: nil)
-    playerItem.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.new, context: nil)
-    
-    player = AVPlayer(playerItem: playerItem)
-    
-    slider_UISlider.minimumValue = 0
-    slider_UISlider.maximumValue = 1
-    
-    slider_UISlider.value = 0
-    
-    
-
-  }
+  
   override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
     guard let playerItem = object as? AVPlayerItem else { return }
     if keyPath == "loadedTimeRanges"{

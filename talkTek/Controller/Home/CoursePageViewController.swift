@@ -61,7 +61,8 @@ class CoursePageViewController: UIViewController {
   var uid: String?
   var myMoney: String?
   var databaseRef: DatabaseReference!
-
+  var thisSong = 0
+  
   // MARK: - viewDidLoad, didReceiveMemoryWarning
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -107,12 +108,15 @@ class CoursePageViewController: UIViewController {
     }
   }
   
-  
-  
+  // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierTeacher" {
       let destination = segue.destination as! TeacherPageViewController
       destination.courseToGet = detailToGet
+    } else if segue.identifier == "identifierPlayer" {
+      let destination = segue.destination as! PlayerViewController
+      destination.audioData = audioItem_Array
+      destination.thisSong = thisSong
     }
   }
   
@@ -344,6 +348,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       } else if indexPath.row == audioItem_Array.count + 1  {
         break
       } else {
+        self.thisSong = indexPath.row - 1
         performSegue(withIdentifier: "identifierPlayer", sender: self)
       }
     default:
