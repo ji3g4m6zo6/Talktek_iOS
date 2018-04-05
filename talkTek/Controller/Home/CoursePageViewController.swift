@@ -90,7 +90,6 @@ class CoursePageViewController: UIViewController {
           }
         }
       }
-      
     }
   }
   
@@ -114,6 +113,46 @@ class CoursePageViewController: UIViewController {
   }
  
   
+  
+  func buy(){
+    guard let uid = self.uid, let money = myMoney else { return }
+    if let moneyInt = Int(money) {
+      if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
+        var courseMoneyInt = 0
+        if priceOnSales >= 0 {
+          courseMoneyInt = priceOnSales
+        } else {
+          courseMoneyInt = priceOrigin
+        }
+        
+        if moneyInt >= courseMoneyInt{
+          
+          let jsonEncoder = JSONEncoder()
+          let jsonData = try? jsonEncoder.encode(detailToGet)
+          let json = String(data: jsonData!, encoding: String.Encoding.utf8)
+          
+          let result = convertToDictionary(text: json!)
+          databaseRef.child("BoughtCourses").child(uid).child(courseId).setValue(result)
+          let moneyLeft = String(moneyInt - courseMoneyInt)
+          self.myMoney = moneyLeft
+          self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
+          
+          
+          // ALERT Success
+          SVProgressHUD.showSuccess(withStatus: "購買成功")
+          self.thisCourseHasBought = true
+          self.buy_View.isHidden = true
+          
+          
+        } else {
+          //Alert not enough money
+          SVProgressHUD.showError(withStatus: "購買失敗")
+        }
+        
+      }
+    }
+  }
+  
   func convertToDictionary(text: String) -> [String: Any]? {
     if let data = text.data(using: .utf8) {
       do {
@@ -124,43 +163,6 @@ class CoursePageViewController: UIViewController {
     }
     return nil
   }
-  
-  func buy(){
-    guard let uid = self.uid, let money = myMoney else { return }
-
-    let moneyInt = Int(money)
-    if let courseMoneyString = detailToGet.priceOnSales{
-      let courseMoneyInt = Int(courseMoneyString)
-      
-      if moneyInt! >= courseMoneyInt{
-        
-        
-        
-        let jsonEncoder = JSONEncoder()
-        let jsonData = try? jsonEncoder.encode(detailToGet)
-        let json = String(data: jsonData!, encoding: String.Encoding.utf8)
-        
-        let result = convertToDictionary(text: json!)
-        databaseRef.child("BoughtCourses").child(uid).child(courseId).setValue(result)
-        let moneyLeft = String(moneyInt! - courseMoneyInt)
-        self.myMoney = moneyLeft
-        self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
-        
-        
-        // ALERT Success
-        SVProgressHUD.showSuccess(withStatus: "購買成功")
-        self.thisCourseHasBought = true
-        self.buy_View.isHidden = true
-        
-        
-      } else {
-        //Alert not enough money
-        SVProgressHUD.showError(withStatus: "購買失敗")
-      }
-    }
-    
-  }
-  
   
   
   @IBAction func buy_Button_Tapped(_ sender: UIButton) {
@@ -307,6 +309,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
 
       } else {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expand", for: indexPath) as! CoursePageExpandTableViewCell
+        cell.expandButton.isHidden = false
         return cell
       }
     case DetailViewSection.teacherInfo.rawValue:
