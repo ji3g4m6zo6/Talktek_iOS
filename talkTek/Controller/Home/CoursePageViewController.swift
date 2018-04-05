@@ -23,6 +23,21 @@ class CoursePageViewController: UIViewController {
   var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
 
+  var thisCourseHasBought = false
+  {
+    didSet
+    {
+      if thisCourseHasBought == true {
+        tableviewToBottom.constant = 0
+        buy_View.isHidden = true
+        tableView.reloadData()
+      } else {
+        tableviewToBottom.constant = 50
+        buy_View.isHidden = false
+        tableView.reloadData()
+      }
+    }
+  }
   @IBOutlet weak var buy_View: UIView!
   @IBOutlet weak var buyButton: UIButton!
   @IBOutlet weak var originalIconImage: UIImageView!
@@ -33,15 +48,26 @@ class CoursePageViewController: UIViewController {
   @IBOutlet weak var onlyIconImage: UIImageView!
   @IBOutlet weak var onlyMoneyLabel: UILabel!
   
+  var uid: String?
+  var myMoney: String?
+  var courseId = ""
+  var array_CourseID = [String]()
+  var databaseRef: DatabaseReference!
+
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     uid = UserDefaults.standard.string(forKey: "uid")
-    
+    databaseRef = Database.database().reference()
+
     tableView.dataSource = self
     tableView.delegate = self
     tableView.tableFooterView = UIView()
+    
+
+    money()
+    usersCourses()
     
     if let courseId = detailToGet.courseId {
       fetchSectionTitle(withCourseId: courseId)
@@ -54,19 +80,40 @@ class CoursePageViewController: UIViewController {
 
   }
   
-  var uid: String?
-  var myMoney = "0"
-  var courseId = ""
-  var array_CourseID = [String]()
-  var databaseRef: DatabaseReference!
-
-  @IBAction func buy_Button_Tapped(_ sender: UIButton) {
-    if uid != "guest"{
-      buy()
-    } else {
-      SVProgressHUD.showError(withStatus: "尚未登入")
+  func money(){
+    guard let uid = self.uid else { return }
+    self.databaseRef.child("Money").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid) {
+        self.databaseRef.child("Money/\(uid)/money").observeSingleEvent(of: .value) { (snapshot) in
+          if let money = snapshot.value as? String{
+            self.myMoney = money
+          }
+        }
+      }
+      
     }
   }
+  
+  func usersCourses(){
+    guard let uid = self.uid, let courseId = detailToGet.courseId else { return }
+    databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid){
+        self.databaseRef.child("BoughtCourses").child(uid).observe(.value) { (snapshot) in
+          for child in snapshot.children{
+            let snap = child as! DataSnapshot
+            
+            if snap.key == courseId {
+              self.thisCourseHasBought = true
+              return
+            }
+            
+          }
+        }
+      }
+    }
+  }
+ 
+  
   func convertToDictionary(text: String) -> [String: Any]? {
     if let data = text.data(using: .utf8) {
       do {
@@ -77,10 +124,11 @@ class CoursePageViewController: UIViewController {
     }
     return nil
   }
+  
   func buy(){
-    guard let uid = self.uid else { return }
+    guard let uid = self.uid, let money = myMoney else { return }
 
-    let moneyInt = Int(myMoney)
+    let moneyInt = Int(money)
     if let courseMoneyString = detailToGet.priceOnSales{
       let courseMoneyInt = Int(courseMoneyString)
       
@@ -112,46 +160,17 @@ class CoursePageViewController: UIViewController {
     }
     
   }
-  func money(){
+  
+  
+  
+  @IBAction func buy_Button_Tapped(_ sender: UIButton) {
     guard let uid = self.uid else { return }
-
-    self.databaseRef.child("Money").observeSingleEvent(of: .value) { (snapshot) in
-      if !snapshot.hasChild(uid){
-        
-        return
-        
-      } else {
-        self.databaseRef.child("Money").child(uid).child("money").observeSingleEvent(of: .value) { (snapshot) in
-          if let money = snapshot.value as? String{
-            self.myMoney = money
-          }
-        }
-      }
-    }
-    
-  }
-  
-  func boughtOrNot(){
-    for i in array_CourseID{
-      if i == detailToGet.courseId{
-        buy_View.isHidden = true
-        thisCourseHasBought = true
-      }
-    }
-    
-  }
-  var thisCourseHasBought = false
-  {
-    didSet
-    {
-      if thisCourseHasBought == true {
-        tableviewToBottom.constant = 0
-      } else {
-        tableviewToBottom.constant = 50
-      }
+    if uid != "guest"{
+      buy()
+    } else {
+      SVProgressHUD.showError(withStatus: "尚未登入")
     }
   }
-  
   
   enum DetailViewSection: Int{
     case main = 0
@@ -330,13 +349,18 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
           cell.titleLabel.text = particularItem.Title
           cell.timeLabel.text = particularItem.Time
           
-          if let tryOutEnable = particularItem.TryOutEnable{
-            if tryOutEnable == -1 {
-              cell.tryoutButton.isHidden = true
-            } else {
-              cell.tryoutButton.isHidden = false
+          if thisCourseHasBought == true {
+            cell.tryoutButton.isHidden = true
+          } else {
+            if let tryOutEnable = particularItem.TryOutEnable{
+              if tryOutEnable == -1 {
+                cell.tryoutButton.isHidden = true
+              } else {
+                cell.tryoutButton.isHidden = false
+              }
             }
           }
+          
           return cell
         } else {
           let cell = tableView.dequeueReusableCell(withIdentifier: "topic", for: indexPath) as! CoursePageTopicTableViewCell
