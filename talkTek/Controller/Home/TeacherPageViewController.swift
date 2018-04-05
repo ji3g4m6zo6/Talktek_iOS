@@ -224,7 +224,7 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
         if homeCourses_Array.count > 3 {
           return 40
         } else {
-          return 30
+          return 20
         }
       } else {
         return 119

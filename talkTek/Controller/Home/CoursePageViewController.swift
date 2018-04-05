@@ -279,7 +279,11 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
           return 107
         }
       } else {
-        return 39
+        if selectedRow == IndexPath(item: 2, section: 1){
+          return 20
+        } else {
+          return 39
+        }
       }
     case DetailViewSection.teacherInfo.rawValue:
       if indexPath.row == 0 {
