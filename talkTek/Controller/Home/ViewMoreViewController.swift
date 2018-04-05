@@ -62,16 +62,16 @@ extension ViewMoreViewController: UITableViewDataSource, UITableViewDelegate {
     
     if let overviewUrl = homeCourses_Array[indexPath.row].overViewImage{
       let url = URL(string: overviewUrl)
-      cell.overview_ImageView.kf.setImage(with: url)
+      cell.overviewImageView.kf.setImage(with: url)
     }
     
     if let authorUrl = homeCourses_Array[indexPath.row].authorImage{
       let url = URL(string: authorUrl)
-      cell.author_ImageView.kf.setImage(with: url)
+      cell.authorImageView.kf.setImage(with: url)
     }
     
-    cell.title_Label.text = homeCourses_Array[indexPath.row].courseTitle
-    cell.teacherName_Label.text = homeCourses_Array[indexPath.row].authorName
+    cell.titleLabel.text = homeCourses_Array[indexPath.row].courseTitle
+    cell.authorNameLabel.text = homeCourses_Array[indexPath.row].authorName
     
     return cell
   }

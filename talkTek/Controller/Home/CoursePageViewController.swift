@@ -109,15 +109,12 @@ class CoursePageViewController: UIViewController {
   
   
   
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierTeacher" {
+      let destination = segue.destination as! TeacherPageViewController
+      destination.courseToGet = detailToGet
+    }
+  }
   
 }
 // MARK: - UITableViewDataSource, UITableViewDelegate
@@ -158,7 +155,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
         if scorePeople == 0 {
           cell.scoreNumberLabel.text = String(scorePeople)
         } else {
-          let average = Float(scoreTotal) / Float(scorePeople)
+          let average = Double(scoreTotal) / Double(scorePeople)
           cell.scoreNumberLabel.text = String(format: "%.1f", average)
         }
       }
@@ -266,7 +263,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       } else if indexPath.row == 1 {
         return 107
       } else {
-        return 54
+        return 39
       }
     case DetailViewSection.teacherInfo.rawValue:
       if indexPath.row == 0 {
@@ -281,7 +278,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       if indexPath.row == 0 {
         return 64
       } else if indexPath.row == audioItem_Array.count + 1  {
-        return 54
+        return 39
       } else {
         return UITableViewAutomaticDimension
       }
@@ -431,9 +428,6 @@ extension CoursePageViewController {
   // MARK: - Audio
   // fetch audio files
   func fetchSectionTitle(withCourseId: String){
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-    print("course id \(withCourseId)")
     databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
       if let array = snapshot.value as? [String]{
         self.sections = array
@@ -445,8 +439,6 @@ extension CoursePageViewController {
   // fetch audio sections
   func fetchAudioFiles(withCourseId: String){
     var tempSection = -1
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
     databaseRef.child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: Any]{
         let audioItem = AudioItem()

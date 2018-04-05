@@ -22,12 +22,16 @@ class MoreTableViewCell: UITableViewCell {
 
   @IBOutlet weak var money_Label: UILabel!
 
-  
   @IBOutlet weak var studentNumberLabel: UILabel!
   
   @IBOutlet weak var commentNumberLabel: UILabel!
   
-  
+  override func layoutSubviews() {
+    authorImageView.layer.cornerRadius = authorImageView.bounds.height / 2
+    authorImageView.layer.borderWidth = 2.0
+    authorImageView.clipsToBounds = true
+    iconImageView.tintColor = UIColor.moneyYellow()
+  }
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -40,11 +44,6 @@ class MoreTableViewCell: UITableViewCell {
     // Configure the view for the selected state
   }
   
-  override func layoutSubviews() {
-    author_ImageView.layer.cornerRadius = author_ImageView.bounds.height / 2
-    author_ImageView.layer.borderWidth = 2.0
-    author_ImageView.layer.borderColor = UIColor.white.cgColor
-    author_ImageView.clipsToBounds = true
-  }
+  
   
 }

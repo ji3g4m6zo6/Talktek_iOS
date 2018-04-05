@@ -3335,13 +3335,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="530" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="530" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3357,7 +3357,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
+                                <rect key="frame" x="25" y="519" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
@@ -5426,7 +5426,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-E2-eIj" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
-                                                            <rect key="frame" x="85" y="43.5" width="45" height="17"/>
+                                                            <rect key="frame" x="110" y="43.5" width="45" height="17"/>
                                                             <color key="backgroundColor" red="0.12156862745098039" green="0.74901960784313726" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="45" id="Yey-Rd-10w"/>
@@ -5448,7 +5448,7 @@
                                                         <constraint firstItem="QMa-W2-ZpW" firstAttribute="leading" secondItem="o0x-mP-Zy6" secondAttribute="leading" constant="15" id="3Sz-j5-a2F"/>
                                                         <constraint firstAttribute="trailing" secondItem="frv-8v-m9p" secondAttribute="trailing" constant="15" id="8Oh-8h-rCi"/>
                                                         <constraint firstAttribute="trailing" secondItem="lbk-Ij-M20" secondAttribute="trailing" constant="15" id="8fs-xu-JlN"/>
-                                                        <constraint firstItem="wTR-E2-eIj" firstAttribute="leading" secondItem="QMa-W2-ZpW" secondAttribute="trailing" constant="50" id="EBA-bd-AZG"/>
+                                                        <constraint firstItem="wTR-E2-eIj" firstAttribute="leading" secondItem="QMa-W2-ZpW" secondAttribute="trailing" constant="75" id="EBA-bd-AZG"/>
                                                         <constraint firstAttribute="bottom" secondItem="lbk-Ij-M20" secondAttribute="bottom" constant="15" id="EfN-7f-jfz"/>
                                                         <constraint firstItem="QMa-W2-ZpW" firstAttribute="centerY" secondItem="o0x-mP-Zy6" secondAttribute="centerY" id="NYu-30-C4U"/>
                                                         <constraint firstItem="jaY-lH-ZCD" firstAttribute="leading" secondItem="frv-8v-m9p" secondAttribute="leading" id="aDU-5X-d5b"/>
@@ -5697,7 +5697,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="980"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="352" id="Ucl-du-HJX" customClass="CoursePageOverviewTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="mainCell" rowHeight="352" id="Ucl-du-HJX" customClass="TeacherPageOverviewTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="352"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ucl-du-HJX" id="fO1-k3-B8D">
@@ -5709,6 +5709,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2cc-xh-EIh">
                                                             <rect key="frame" x="118.5" y="50" width="117" height="117"/>
+                                                            <color key="backgroundColor" red="0.9137254901960784" green="0.9137254901960784" blue="0.9137254901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="117" id="CTO-2e-i5C"/>
                                                                 <constraint firstAttribute="width" constant="117" id="xST-t6-2Y1"/>
@@ -5827,6 +5828,7 @@
                                                     <constraints>
                                                         <constraint firstItem="i6F-0f-mNf" firstAttribute="centerY" secondItem="Ldx-pM-Tc1" secondAttribute="centerY" id="2DA-ke-AVS"/>
                                                         <constraint firstItem="eT4-Ji-oc8" firstAttribute="centerY" secondItem="Ldx-pM-Tc1" secondAttribute="centerY" id="2qW-yh-cwT"/>
+                                                        <constraint firstItem="eT4-Ji-oc8" firstAttribute="top" secondItem="oy7-K4-dgv" secondAttribute="bottom" constant="33.5" id="4Hd-0c-d18"/>
                                                         <constraint firstItem="oy7-K4-dgv" firstAttribute="centerX" secondItem="2PG-Dz-b3u" secondAttribute="centerX" id="5rZ-V3-ghd"/>
                                                         <constraint firstItem="GQB-I5-QKL" firstAttribute="top" secondItem="Ldx-pM-Tc1" secondAttribute="bottom" constant="10" id="7HF-HM-jnZ"/>
                                                         <constraint firstItem="8rN-Ih-Ek6" firstAttribute="centerX" secondItem="i6F-0f-mNf" secondAttribute="centerX" id="A7E-H9-bvg"/>
@@ -5878,14 +5880,14 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="clockIcon_ImageView" destination="i6F-0f-mNf" id="y5l-iz-MfP"/>
-                                            <outlet property="coursesNumberLabel" destination="8rN-Ih-Ek6" id="Ezf-hs-GWc"/>
-                                            <outlet property="peopleIcon_ImageView" destination="Ldx-pM-Tc1" id="X3y-VT-BF2"/>
-                                            <outlet property="scoreNumberLabel" destination="04o-T4-QNx" id="D7a-Wu-gku"/>
-                                            <outlet property="starIcon_ImageView" destination="eT4-Ji-oc8" id="uqY-NA-bMZ"/>
-                                            <outlet property="studentNumberLabel" destination="GQB-I5-QKL" id="bWr-aC-ygj"/>
-                                            <outlet property="teacherImageView" destination="2cc-xh-EIh" id="biV-Lg-NGG"/>
-                                            <outlet property="teacherNameLabel" destination="oy7-K4-dgv" id="GfA-Kb-3hS"/>
+                                            <outlet property="clockIcon_ImageView" destination="i6F-0f-mNf" id="1Cf-S3-yd6"/>
+                                            <outlet property="coursesNumberLabel" destination="8rN-Ih-Ek6" id="5Dl-Wj-kft"/>
+                                            <outlet property="peopleIcon_ImageView" destination="Ldx-pM-Tc1" id="qgS-oF-3QM"/>
+                                            <outlet property="scoreNumberLabel" destination="04o-T4-QNx" id="dO6-7v-uMj"/>
+                                            <outlet property="starIcon_ImageView" destination="eT4-Ji-oc8" id="zlr-JC-Uzl"/>
+                                            <outlet property="studentNumberLabel" destination="GQB-I5-QKL" id="hJT-ZK-rtv"/>
+                                            <outlet property="teacherImageView" destination="2cc-xh-EIh" id="dcl-kn-WHf"/>
+                                            <outlet property="teacherNameLabel" destination="oy7-K4-dgv" id="va6-Wd-vqf"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="header" rowHeight="64" id="NcZ-W1-f2h" customClass="CoursePageHeaderTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -6056,7 +6058,7 @@
                                             <outlet property="expandButton" destination="oWw-lr-JVN" id="XFm-iq-tF1"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="119" id="GHy-RI-OYl" customClass="MoreTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="119" id="GHy-RI-OYl" customClass="MoreTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="590" width="375" height="119"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GHy-RI-OYl" id="F5G-R2-iiR">
@@ -6068,6 +6070,7 @@
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9xX-Lb-mYV">
                                                             <rect key="frame" x="15" y="15" width="160" height="90"/>
+                                                            <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="90" id="AOo-hQ-q3t"/>
                                                                 <constraint firstAttribute="width" constant="160" id="iHs-ff-X99"/>
@@ -6143,6 +6146,7 @@
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HyG-C4-E5q">
                                                             <rect key="frame" x="15" y="86.5" width="36" height="36"/>
+                                                            <color key="backgroundColor" red="0.91372549020000005" green="0.91372549020000005" blue="0.91372549020000005" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="36" id="H8b-8H-frX"/>
                                                                 <constraint firstAttribute="height" constant="36" id="ILd-hg-Ys8"/>

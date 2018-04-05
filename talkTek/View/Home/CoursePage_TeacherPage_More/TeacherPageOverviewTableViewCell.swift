@@ -1,18 +1,18 @@
 //
-//  CourseOverviewTableViewCell.swift
+//  TeacherPageOverviewTableViewCell.swift
 //  talkTek
 //
-//  Created by 李昀 on 2018/3/28.
+//  Created by 李昀 on 2018/4/5.
 //  Copyright © 2018年 Talktek Inc. All rights reserved.
 //
 
 import UIKit
 
-class CoursePageOverviewTableViewCell: UITableViewCell {
+class TeacherPageOverviewTableViewCell: UITableViewCell {
   
-  @IBOutlet weak var overviewImageView: UIImageView!
+  @IBOutlet weak var teacherImageView: UIImageView!
   
-  @IBOutlet weak var topicLabel: UILabel!
+  @IBOutlet weak var teacherNameLabel: UILabel!
   
   @IBOutlet weak var studentNumberLabel: UILabel!
   
@@ -24,19 +24,16 @@ class CoursePageOverviewTableViewCell: UITableViewCell {
   @IBOutlet weak var starIcon_ImageView: UIImageView!
   @IBOutlet weak var clockIcon_ImageView: UIImageView!
   
- 
-
-
-  
   override func layoutSubviews() {
-    overviewImageView.roundCorners([.topLeft, .topRight], radius: 15)
     
     peopleIcon_ImageView.tintColor = UIColor.tealish()
     starIcon_ImageView.tintColor = UIColor.tealish()
     clockIcon_ImageView.tintColor = UIColor.tealish()
     
+    teacherImageView.layer.cornerRadius = teacherImageView.bounds.height / 2
+    teacherImageView.clipsToBounds = true
+    
   }
-
   
   override func awakeFromNib() {
     super.awakeFromNib()

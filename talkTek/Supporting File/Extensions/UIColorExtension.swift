@@ -24,6 +24,12 @@ extension UIColor {
     let b = 233.0 / 255.0
     return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
   }
+  class func designableGray() -> UIColor {
+    let r = 246.0 / 255.0
+    let g = 246.0 / 255.0
+    let b = 246.0 / 255.0
+    return UIColor(red: r.cgFloat, green: g.cgFloat, blue: b.cgFloat, alpha: 1)
+  }
   class func lightGray() -> UIColor {
     let r = 248.0 / 255.0
     let g = 248.0 / 255.0
