@@ -30,6 +30,7 @@ class CoursePageViewController: UIViewController {
   var audioItem_Array = [AudioItem?]()
   var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
+  var detailToPass = [AudioItem?]()
 
   // MARK: - Buy View
   @IBOutlet weak var buy_View: UIView!
@@ -115,7 +116,7 @@ class CoursePageViewController: UIViewController {
       destination.courseToGet = detailToGet
     } else if segue.identifier == "identifierPlayer" {
       let destination = segue.destination as! PlayerViewController
-      destination.audioData = audioItem_Array
+      destination.audioData = detailToPass
       destination.thisSong = thisSong
     }
   }
@@ -237,6 +238,8 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
               }
             }
           }
+          cell.tryoutButton.tag = indexPath.row - 1
+          cell.tryoutButton.addTarget(self, action: #selector(tryOutButtonTapped(_:)), for: .touchUpInside)
           
           return cell
         } else {
@@ -351,6 +354,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
         if thisCourseHasBought == true{
           if let _ = audioItem_Array[indexPath.row-1]{
             self.thisSong = indexPath.row - 1
+            self.detailToPass = audioItem_Array
             performSegue(withIdentifier: "identifierPlayer", sender: self)
           } else {
             break
@@ -555,7 +559,17 @@ extension CoursePageViewController {
   
   @objc func tryOutButtonTapped(_ sender: UIButton){
     self.thisSong = sender.tag
-    print("sender tag is \(sender.tag)")
+    self.detailToPass = audioItem_Array
+    for (index, value) in detailToPass.enumerated() {
+      if let audioItems = value {
+        if let audioItemsTryOut = audioItems.TryOutEnable{
+          if audioItemsTryOut == -1 {
+            self.detailToPass[index] = nil
+          }
+        }
+      }
+    }
+    
     performSegue(withIdentifier: "identifierPlayer", sender: self)
   }
 }
