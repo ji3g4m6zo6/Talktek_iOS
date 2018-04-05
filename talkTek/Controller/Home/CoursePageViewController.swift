@@ -15,14 +15,32 @@ import SVProgressHUD
 
 class CoursePageViewController: UIViewController {
   
+  // MARK: - tableview
   @IBOutlet weak var tableView: UITableView!
   @IBOutlet weak var tableviewToBottom: NSLayoutConstraint!
-
+  enum DetailViewSection: Int{
+    case main = 0
+    case courseInfo = 1
+    case teacherInfo = 2
+    case courses = 3
+  }
+  
+  // MARK: - API save
   var detailToGet = HomeCourses()
   var audioItem_Array = [AudioItem?]()
   var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
 
+  // MARK: - Buy View
+  @IBOutlet weak var buy_View: UIView!
+  @IBOutlet weak var buyButton: UIButton!
+  @IBOutlet weak var originalIconImage: UIImageView!
+  @IBOutlet weak var originalCost_Label: UILabel!
+  @IBOutlet weak var onsaleIconImage: UIImageView!
+  @IBOutlet weak var onsale_Label: UILabel!
+  @IBOutlet weak var deletionView: UIView!
+  @IBOutlet weak var onlyIconImage: UIImageView!
+  @IBOutlet weak var onlyMoneyLabel: UILabel!
   var thisCourseHasBought = false
   {
     didSet
@@ -38,36 +56,29 @@ class CoursePageViewController: UIViewController {
       }
     }
   }
-  @IBOutlet weak var buy_View: UIView!
-  @IBOutlet weak var buyButton: UIButton!
-  @IBOutlet weak var originalIconImage: UIImageView!
-  @IBOutlet weak var originalCost_Label: UILabel!
-  @IBOutlet weak var onsaleIconImage: UIImageView!
-  @IBOutlet weak var onsale_Label: UILabel!
-  @IBOutlet weak var deletionView: UIView!
-  @IBOutlet weak var onlyIconImage: UIImageView!
-  @IBOutlet weak var onlyMoneyLabel: UILabel!
   
+  // MARK: - Firebase
   var uid: String?
   var myMoney: String?
   var courseId = ""
   var array_CourseID = [String]()
   var databaseRef: DatabaseReference!
 
-  
+  // MARK: - viewDidLoad, didReceiveMemoryWarning
   override func viewDidLoad() {
     super.viewDidLoad()
     
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
 
+ 
     tableView.dataSource = self
     tableView.delegate = self
     tableView.tableFooterView = UIView()
     
-
-    money()
-    usersCourses()
+    updateBuyView()
+    getMoney()
+    ifUserHasCourse()
     
     if let courseId = detailToGet.courseId {
       fetchSectionTitle(withCourseId: courseId)
@@ -80,162 +91,23 @@ class CoursePageViewController: UIViewController {
 
   }
   
-  func money(){
-    guard let uid = self.uid else { return }
-    self.databaseRef.child("Money").observeSingleEvent(of: .value) { (snapshot) in
-      if snapshot.hasChild(uid) {
-        self.databaseRef.child("Money/\(uid)/money").observeSingleEvent(of: .value) { (snapshot) in
-          if let money = snapshot.value as? String{
-            self.myMoney = money
-          }
-        }
-      }
-    }
-  }
   
-  func usersCourses(){
-    guard let uid = self.uid, let courseId = detailToGet.courseId else { return }
-    databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
-      if snapshot.hasChild(uid){
-        self.databaseRef.child("BoughtCourses").child(uid).observe(.value) { (snapshot) in
-          for child in snapshot.children{
-            let snap = child as! DataSnapshot
-            
-            if snap.key == courseId {
-              self.thisCourseHasBought = true
-              return
-            }
-            
-          }
-        }
-      }
-    }
-  }
- 
-  
-  
-  func buy(){
-    guard let uid = self.uid, let money = myMoney else { return }
-    if let moneyInt = Int(money) {
-      if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
-        var courseMoneyInt = 0
-        if priceOnSales >= 0 {
-          courseMoneyInt = priceOnSales
-        } else {
-          courseMoneyInt = priceOrigin
-        }
-        
-        if moneyInt >= courseMoneyInt{
-          
-          let jsonEncoder = JSONEncoder()
-          let jsonData = try? jsonEncoder.encode(detailToGet)
-          let json = String(data: jsonData!, encoding: String.Encoding.utf8)
-          
-          let result = convertToDictionary(text: json!)
-          databaseRef.child("BoughtCourses").child(uid).child(courseId).setValue(result)
-          let moneyLeft = String(moneyInt - courseMoneyInt)
-          self.myMoney = moneyLeft
-          self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
-          
-          
-          // ALERT Success
-          SVProgressHUD.showSuccess(withStatus: "購買成功")
-          self.thisCourseHasBought = true
-          self.buy_View.isHidden = true
-          
-          
-        } else {
-          //Alert not enough money
-          SVProgressHUD.showError(withStatus: "購買失敗")
-        }
-        
-      }
-    }
-  }
-  
-  func convertToDictionary(text: String) -> [String: Any]? {
-    if let data = text.data(using: .utf8) {
-      do {
-        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-      } catch {
-        print(error.localizedDescription)
-      }
-    }
-    return nil
-  }
-  
-  
+  // MARK: - Buy Button Tapped
   @IBAction func buy_Button_Tapped(_ sender: UIButton) {
     guard let uid = self.uid else { return }
     if uid != "guest"{
+      SVProgressHUD.show(withStatus: "支付中...")
       buy()
     } else {
       SVProgressHUD.showError(withStatus: "尚未登入")
+      DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+        SVProgressHUD.dismiss()
+      })
     }
   }
   
-  enum DetailViewSection: Int{
-    case main = 0
-    case courseInfo = 1
-    case teacherInfo = 2
-    case courses = 3
-  }
   
-  func fetchAudioFiles(withCourseId: String){
-    var tempSection = -1
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-    databaseRef.child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: Any]{
-        let audioItem = AudioItem()
-        audioItem.Audio = dictionary["Audio"] as? String
-        audioItem.Time = dictionary["Time"] as? String
-        audioItem.Title = dictionary["Title"] as? String
-        audioItem.Topic = dictionary["Topic"] as? String
-        audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
-        audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
-        
-        self.audioItemFromDatabase.append(audioItem)
-        
-        if tempSection != audioItem.SectionPriority {
-          if let sectionPriority = audioItem.SectionPriority {
-            self.audioItem_Array.append(audioItem)
-            print(self.audioItem_Array.count - 1)
-            self.audioItem_Array.insert(nil, at: self.audioItem_Array.count - 1 )
-            tempSection = sectionPriority
-          }
-          
-        } else {
-          self.audioItem_Array.append(audioItem)
-
-        }
-        
-        
-        DispatchQueue.main.async {
-          
-          self.tableView.reloadData()
-          
-        }
-        
-        
-      }
-    }
-  }
   
-  func fetchSectionTitle(withCourseId: String){
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-   print("course id \(withCourseId)")
-    databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
-      if let array = snapshot.value as? [String]{
-        self.sections = array
-      }
-      
-    }
-    self.fetchAudioFiles(withCourseId: withCourseId)
-
-
-  }
   /*
    // MARK: - Navigation
    
@@ -247,7 +119,7 @@ class CoursePageViewController: UIViewController {
    */
   
 }
-
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSections(in tableView: UITableView) -> Int {
     return 4
@@ -447,5 +319,195 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     default:
       return 0
     }
+  }
+}
+
+// MARK: - API call
+extension CoursePageViewController {
+  // MARK: - update buy view
+  func updateBuyView(){
+    
+    originalIconImage.tintColor = UIColor.moneyYellow()
+    onsaleIconImage.tintColor = UIColor.moneyYellow()
+    onlyIconImage.tintColor = UIColor.moneyYellow()
+    
+    if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
+      if priceOnSales >= 0 {
+        
+        onlyIconImage.isHidden = true
+        onlyMoneyLabel.isHidden = true
+        onsale_Label.isHidden = false
+        onsaleIconImage.isHidden = false
+        deletionView.isHidden = false
+        originalCost_Label.isHidden = false
+        originalIconImage.isHidden = false
+        
+        originalCost_Label.text = "\(priceOrigin)點"
+        onsale_Label.text = "\(priceOnSales)點"
+      } else {
+        onlyIconImage.isHidden = false
+        onlyMoneyLabel.isHidden = false
+        onsale_Label.isHidden = true
+        onsaleIconImage.isHidden = true
+        deletionView.isHidden = true
+        originalCost_Label.isHidden = true
+        originalIconImage.isHidden = true
+        
+        onlyMoneyLabel.text = "\(priceOrigin)點"
+      }
+    }
+    
+  }
+  
+  // MARK: - Money
+  // Get Money
+  func getMoney(){
+    guard let uid = self.uid else { return }
+    self.databaseRef.child("Money").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid) {
+        self.databaseRef.child("Money/\(uid)/money").observeSingleEvent(of: .value) { (snapshot) in
+          if let money = snapshot.value as? String{
+            self.myMoney = money
+          }
+        }
+      }
+    }
+  }
+  
+  // MARK: - User Course
+  // check if user has this course
+  func ifUserHasCourse(){
+    guard let uid = self.uid, let courseId = detailToGet.courseId else { return }
+    databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid){
+        self.databaseRef.child("BoughtCourses").child(uid).observe(.value) { (snapshot) in
+          for child in snapshot.children{
+            let snap = child as! DataSnapshot
+            
+            if snap.key == courseId {
+              self.thisCourseHasBought = true
+              return
+            }
+            
+          }
+        }
+      }
+    }
+  }
+  
+  // MARK: - Audio
+  // fetch audio files
+  func fetchSectionTitle(withCourseId: String){
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    print("course id \(withCourseId)")
+    databaseRef.child("AudioPlayerSection").child(withCourseId).observe(.value) { (snapshot) in
+      if let array = snapshot.value as? [String]{
+        self.sections = array
+      }
+      
+    }
+    self.fetchAudioFiles(withCourseId: withCourseId)
+  }
+  // fetch audio sections
+  func fetchAudioFiles(withCourseId: String){
+    var tempSection = -1
+    var databaseRef: DatabaseReference!
+    databaseRef = Database.database().reference()
+    databaseRef.child("AudioPlayer").child(withCourseId).observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Any]{
+        let audioItem = AudioItem()
+        audioItem.Audio = dictionary["Audio"] as? String
+        audioItem.Time = dictionary["Time"] as? String
+        audioItem.Title = dictionary["Title"] as? String
+        audioItem.Topic = dictionary["Topic"] as? String
+        audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
+        audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
+        
+        self.audioItemFromDatabase.append(audioItem)
+        
+        if tempSection != audioItem.SectionPriority {
+          if let sectionPriority = audioItem.SectionPriority {
+            self.audioItem_Array.append(audioItem)
+            print(self.audioItem_Array.count - 1)
+            self.audioItem_Array.insert(nil, at: self.audioItem_Array.count - 1 )
+            tempSection = sectionPriority
+          }
+          
+        } else {
+          self.audioItem_Array.append(audioItem)
+          
+        }
+        
+        
+        DispatchQueue.main.async {
+          
+          self.tableView.reloadData()
+          
+        }
+        
+        
+      }
+    }
+  }
+  
+  
+  // MARK: - Buy
+  // depend on price onsale or origin, add to bought course, add to money, thisCourseHasBought update, alert success or error
+  func buy(){
+    guard let uid = self.uid, let money = myMoney else { return }
+    if let moneyInt = Int(money) {
+      if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
+        
+        // Depend on priceOnSales or priceOrigin
+        var courseMoneyInt = 0
+        if priceOnSales >= 0 {
+          courseMoneyInt = priceOnSales
+        } else {
+          courseMoneyInt = priceOrigin
+        }
+        
+        if moneyInt >= courseMoneyInt{
+          
+          // Add to BoughtCourses of each person
+          let jsonEncoder = JSONEncoder()
+          let jsonData = try? jsonEncoder.encode(detailToGet)
+          let json = String(data: jsonData!, encoding: String.Encoding.utf8)
+          let result = convertToDictionary(text: json!)
+          databaseRef.child("BoughtCourses").child(uid).child(courseId).setValue(result)
+          
+          // Add to Money
+          let moneyLeft = String(moneyInt - courseMoneyInt)
+          self.myMoney = moneyLeft
+          self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
+          
+          // Alert Success
+          SVProgressHUD.showSuccess(withStatus: "購買成功")
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            SVProgressHUD.dismiss()
+          })
+          self.thisCourseHasBought = true
+          
+        } else {
+          //Alert not enough money
+          SVProgressHUD.showError(withStatus: "購買失敗")
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            SVProgressHUD.dismiss()
+          })
+        }
+        
+      }
+    }
+  }
+  // data convert to dictionary
+  func convertToDictionary(text: String) -> [String: Any]? {
+    if let data = text.data(using: .utf8) {
+      do {
+        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
+      } catch {
+        print(error.localizedDescription)
+      }
+    }
+    return nil
   }
 }
