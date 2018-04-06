@@ -60,7 +60,7 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="YR2-ry-Ci3" customClass="MoreTableViewCell" customModule="talkTek" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="YR2-ry-Ci3" customClass="MoreTableViewCell" customModule="talkTek" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YR2-ry-Ci3" id="nva-fy-nfb">
@@ -1399,15 +1399,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="畫圈圈" translatesAutoresizingMaskIntoConstraints="NO" id="xgj-AG-ujl">
+                                <rect key="frame" x="87.5" y="157" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="9rF-Hg-hqH"/>
+                                    <constraint firstAttribute="width" constant="200" id="DeP-H1-ohI"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好想趕快學習呦TAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3x-9G-1Zi">
+                                <rect key="frame" x="125.5" y="377" width="124.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTl-P1-E0r" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
+                                <rect key="frame" x="127" y="409" width="121" height="32"/>
+                                <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="uDh-ge-7he"/>
+                                    <constraint firstAttribute="height" constant="32" id="vKG-yn-mhh"/>
+                                </constraints>
+                                <state key="normal" title="馬上去逛">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="B1x-Io-Rfr" kind="presentation" id="ATM-aJ-JqT"/>
+                                </connections>
+                            </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="z2V-rx-7cf">
-                                <rect key="frame" x="25" y="89" width="325" height="529"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" rowHeight="129" id="QD3-y9-gg1" customClass="CoursesBoughtTableViewCell" customModule="talkTek" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="325" height="129"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="QD3-y9-gg1" id="uBx-Q7-Ehh">
-                                            <rect key="frame" x="0.0" y="0.0" width="325" height="129"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5E9-0n-txc">
@@ -1535,50 +1567,18 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="畫圈圈" translatesAutoresizingMaskIntoConstraints="NO" id="xgj-AG-ujl">
-                                <rect key="frame" x="87.5" y="157" width="200" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="9rF-Hg-hqH"/>
-                                    <constraint firstAttribute="width" constant="200" id="DeP-H1-ohI"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好想趕快學習呦TAT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l3x-9G-1Zi">
-                                <rect key="frame" x="125.5" y="377" width="124.5" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FTl-P1-E0r" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
-                                <rect key="frame" x="127" y="409" width="121" height="32"/>
-                                <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="121" id="uDh-ge-7he"/>
-                                    <constraint firstAttribute="height" constant="32" id="vKG-yn-mhh"/>
-                                </constraints>
-                                <state key="normal" title="馬上去逛">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="15"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <segue destination="B1x-Io-Rfr" kind="presentation" id="ATM-aJ-JqT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="z2V-rx-7cf" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" constant="25" id="08Q-4v-hqc"/>
                             <constraint firstItem="xgj-AG-ujl" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" constant="93" id="1tg-2d-ff8"/>
                             <constraint firstItem="l3x-9G-1Zi" firstAttribute="top" secondItem="xgj-AG-ujl" secondAttribute="bottom" constant="20" id="2Zv-kr-6ZT"/>
-                            <constraint firstItem="z2V-rx-7cf" firstAttribute="bottom" secondItem="ryu-0O-MAY" secondAttribute="bottom" id="6ZC-Zt-YVh"/>
-                            <constraint firstItem="z2V-rx-7cf" firstAttribute="leading" secondItem="ryu-0O-MAY" secondAttribute="leading" constant="25" id="AIX-PS-0J0"/>
+                            <constraint firstItem="ryu-0O-MAY" firstAttribute="trailing" secondItem="z2V-rx-7cf" secondAttribute="trailing" id="2zn-ri-544"/>
                             <constraint firstItem="l3x-9G-1Zi" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="ETk-ny-Lyl"/>
+                            <constraint firstItem="z2V-rx-7cf" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" id="KG6-cf-e9V"/>
                             <constraint firstItem="FTl-P1-E0r" firstAttribute="top" secondItem="l3x-9G-1Zi" secondAttribute="bottom" constant="15" id="SEw-YH-Y6k"/>
+                            <constraint firstItem="z2V-rx-7cf" firstAttribute="bottom" secondItem="ryu-0O-MAY" secondAttribute="bottom" id="WBv-T4-ngX"/>
                             <constraint firstItem="xgj-AG-ujl" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="dQ4-rI-Lj7"/>
-                            <constraint firstAttribute="trailing" secondItem="z2V-rx-7cf" secondAttribute="trailing" constant="25" id="gj0-jd-tk1"/>
+                            <constraint firstItem="z2V-rx-7cf" firstAttribute="leading" secondItem="ryu-0O-MAY" secondAttribute="leading" id="dda-Vi-y2o"/>
                             <constraint firstItem="FTl-P1-E0r" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="sJS-oR-p7v"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ryu-0O-MAY"/>
@@ -3333,13 +3333,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3355,7 +3355,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="519" width="325" height="1"/>
+                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
@@ -6297,7 +6297,7 @@
                     <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="tableView" destination="Lpy-Xc-UW4" id="Izb-d8-xDU"/>
-                        <segue destination="f2S-i6-i9S" kind="show" identifier="identifierCourses" id="8X2-rV-BAi"/>
+                        <segue destination="f2S-i6-i9S" kind="show" identifier="identifierMore" id="8X2-rV-BAi"/>
                         <segue destination="caW-R6-lY1" kind="show" identifier="identifierDetail" id="Pm1-uf-4IQ"/>
                     </connections>
                 </viewController>
@@ -6470,6 +6470,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="aZH-O9-L6d"/>
         <segue reference="rnJ-4A-HtR"/>
-        <segue reference="vOA-a3-KS8"/>
+        <segue reference="ATM-aJ-JqT"/>
     </inferredMetricsTieBreakers>
 </document>

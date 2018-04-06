@@ -101,20 +101,33 @@ class TeacherPageViewController: UIViewController {
         }
       }
     }
-    
+    weightedAverage()
   }
   func weightedAverage(){
+    var sum = 0.0
+    for (scoreI, peopleI) in zip(scoreTotalArray, scorePeopleArray){
+      sum += scoreI * Double(peopleI)
+    }
+    let peopleSum = scorePeopleArray.reduce(0, +)
+    if peopleSum == 0 {
+      scoreAverage = 0
+    } else {
+      scoreAverage = sum / Double(peopleSum)
+    }
     
+    self.tableView.reloadData()
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+
+  var detailToPass = HomeCourses()
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierDetail" {
+      let destination = segue.destination as! CoursePageViewController
+      destination.detailToGet = detailToPass
+    } else if segue.identifier == "identifierMore" {
+      let destination = segue.destination as! ViewMoreViewController
+      destination.homeCourses_Array = homeCourses_Array
+    }
+  }
   
 }
 extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
@@ -143,6 +156,7 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
       }
       cell.teacherNameLabel.text = courseToGet.authorName
       cell.studentNumberLabel.text = "\(studentNumber)"
+      cell.scoreNumberLabel.text = String(format: "%.1f", scoreAverage)
       cell.coursesNumberLabel.text = "\(homeCourses_Array.count)"
       
       return cell
@@ -266,5 +280,33 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
       return 0
     }
   }*/
-  
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    switch indexPath.section {
+    case DetailViewSection.main.rawValue:
+      break
+    case DetailViewSection.teacherInfo.rawValue:
+      if indexPath.row == 0 {
+        break
+      } else if indexPath.row == 1 {
+        break
+      } else {
+        break
+      }
+    case DetailViewSection.courses.rawValue:
+      if indexPath.row == 0 {
+        break
+      } else if indexPath.row == 1 + homeCourses_Array.prefix(3).count {
+        if homeCourses_Array.count > 3 {
+          performSegue(withIdentifier: "identifierMore", sender: nil)
+        } else {
+          break
+        }
+      } else {
+        detailToPass = homeCourses_Array[indexPath.row-1]
+        performSegue(withIdentifier: "identifierDetail", sender: nil)
+      }
+    default:
+      break
+    }
+  }
 }

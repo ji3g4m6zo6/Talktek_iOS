@@ -32,7 +32,7 @@ class ViewMoreViewController: UIViewController {
   var homeCouresToPass = HomeCourses()
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
-      let destinationViewController = segue.destination as! CourseDetailViewController
+      let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
     }
   }
@@ -60,23 +60,36 @@ extension ViewMoreViewController: UITableViewDataSource, UITableViewDelegate {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MoreTableViewCell
     
-    if let overviewUrl = homeCourses_Array[indexPath.row].overViewImage{
-      let url = URL(string: overviewUrl)
+    cell.authorImageView.layer.borderColor = UIColor.white.cgColor
+    if let iconUrl = homeCourses_Array[indexPath.row].overViewImage{
+      let url = URL(string: iconUrl)
       cell.overviewImageView.kf.setImage(with: url)
     }
-    
-    if let authorUrl = homeCourses_Array[indexPath.row].authorImage{
-      let url = URL(string: authorUrl)
+    if let iconUrl = homeCourses_Array[indexPath.row].authorImage{
+      let url = URL(string: iconUrl)
       cell.authorImageView.kf.setImage(with: url)
     }
-    
-    cell.titleLabel.text = homeCourses_Array[indexPath.row].courseTitle
     cell.authorNameLabel.text = homeCourses_Array[indexPath.row].authorName
+    cell.titleLabel.text = homeCourses_Array[indexPath.row].courseTitle
+    
+    ////////// waiting for price on sale UI
+    if let priceOrigin = homeCourses_Array[indexPath.row].priceOrigin{
+      cell.money_Label.text = "\(priceOrigin)"
+    }
+    
+    
+    if let studentNumber = homeCourses_Array[indexPath.row].studentNumber {
+      cell.studentNumberLabel.text = "\(studentNumber)"
+    }
+    
+    if let scorePeople = homeCourses_Array[indexPath.row].scorePeople {
+      cell.commentNumberLabel.text = "\(scorePeople)"
+    }
     
     return cell
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    homeCouresToPass = homeCourses_Array[indexPath.item]
+    homeCouresToPass = homeCourses_Array[indexPath.row]
     performSegue(withIdentifier: "identifierDetail", sender: self)
   }
   
