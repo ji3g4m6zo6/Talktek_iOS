@@ -14,7 +14,8 @@ import FirebaseAuth
 class TeacherPageViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
-  
+  var selectedRow = IndexPath(item: -1, section: -1)
+
   var databaseRef: DatabaseReference!
   var homeCourses_Array = [HomeCourses]()
   var courseToGet = HomeCourses()
@@ -229,14 +230,22 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
-      return 350 //377
+      return 320 //377
     case DetailViewSection.teacherInfo.rawValue:
       if indexPath.row == 0 {
         return 64
       } else if indexPath.row == 1 {
-        return 107
+        if selectedRow == IndexPath(item: 2, section: 1){
+          return UITableViewAutomaticDimension // expanded
+        } else {
+          return 107
+        }
       } else {
-        return 39
+        if selectedRow == IndexPath(item: 2, section: 1){
+          return 20
+        } else {
+          return 39
+        }
       }
     case DetailViewSection.courses.rawValue:
       if indexPath.row == 0 {
@@ -255,18 +264,26 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
     }
   }
   
-  /*
+  
   func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
-        return 0
+        return 320
     case DetailViewSection.teacherInfo.rawValue:
       if indexPath.row == 0 {
-        return 0
+        return 64
       } else if indexPath.row == 1 {
-        return 0
+        if selectedRow == IndexPath(item: 2, section: 1){
+          return 200
+        } else {
+          return 0
+        }
       } else {
-        return 0
+        if selectedRow == IndexPath(item: 2, section: 1){
+          return 20
+        } else {
+          return 39
+        }
       }
     case DetailViewSection.courses.rawValue:
       if indexPath.row == 0 {
@@ -279,7 +296,7 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
     default:
       return 0
     }
-  }*/
+  }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
@@ -290,7 +307,12 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
       } else if indexPath.row == 1 {
         break
       } else {
-        break
+        if selectedRow != indexPath {
+          selectedRow = indexPath
+          tableView.reloadData()
+        } else {
+          break
+        }
       }
     case DetailViewSection.courses.rawValue:
       if indexPath.row == 0 {
