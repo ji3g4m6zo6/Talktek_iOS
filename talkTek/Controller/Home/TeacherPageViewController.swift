@@ -18,7 +18,10 @@ class TeacherPageViewController: UIViewController {
   var databaseRef: DatabaseReference!
   var homeCourses_Array = [HomeCourses]()
   var courseToGet = HomeCourses()
+  
   var studentNumber = 0
+  var scoreTotalArray = [Double]()
+  var scorePeopleArray = [Int]()
   var scoreAverage = 0.0
   
   
@@ -77,7 +80,7 @@ class TeacherPageViewController: UIViewController {
         homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
         homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
         homeCourses.scorePeople = dictionary["scorePeople"] as? Int
-        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Int
+        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
         homeCourses.studentNumber = dictionary["studentNumber"] as? Int
         homeCourses.tags = dictionary["tags"] as! [String]
         
@@ -86,7 +89,8 @@ class TeacherPageViewController: UIViewController {
         }
         if let scoreTotal = homeCourses.scoreTotal, let scorePeople = homeCourses.scorePeople{
           if scorePeople != 0 {
-            self.scoreAverage = Double(scoreTotal) / Double(scorePeople)
+            self.scorePeopleArray.append(scorePeople)
+            self.scoreTotalArray.append(scoreTotal)
           }
         }
         
@@ -97,8 +101,11 @@ class TeacherPageViewController: UIViewController {
         }
       }
     }
+    
   }
-  
+  func weightedAverage(){
+    
+  }
   /*
    // MARK: - Navigation
    

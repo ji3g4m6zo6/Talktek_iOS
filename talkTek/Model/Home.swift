@@ -22,7 +22,7 @@ class HomeCourses: NSObject, Encodable {
   var priceOnSales: Int?
   var priceOrigin: Int?
   var scorePeople: Int?
-  var scoreTotal: Int?
+  var scoreTotal: Double?
   var studentNumber: Int?
   var tags: [String?] = []
   

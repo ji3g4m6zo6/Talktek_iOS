@@ -87,7 +87,7 @@ class CoursesHistoryViewController: UIViewController {
             homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
             homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
             homeCourses.scorePeople = dictionary["scorePeople"] as? Int
-            homeCourses.scoreTotal = dictionary["scoreTotal"] as? Int
+            homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
             homeCourses.studentNumber = dictionary["studentNumber"] as? Int
             homeCourses.tags = dictionary["tags"] as! [String]
             

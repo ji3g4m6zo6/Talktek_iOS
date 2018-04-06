@@ -161,7 +161,7 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
         if scorePeople == 0 {
           cell.scoreNumberLabel.text = String(scorePeople)
         } else {
-          let average = Double(scoreTotal) / Double(scorePeople)
+          let average = scoreTotal / Double(scorePeople)
           cell.scoreNumberLabel.text = String(format: "%.1f", average)
         }
       }

@@ -38,7 +38,7 @@ class PayCourseViewController: UIViewController {
   func fetchData(){
     // Get the number and root of collectionview
     self.databaseRef.child("CourseCategory").child("最新課程").observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: String]{
+      if let dictionary = snapshot.value as? [String: Any]{
         //print("dictionary is \(dictionary)")
         
         let homeCourses = HomeCourses()
@@ -54,7 +54,7 @@ class PayCourseViewController: UIViewController {
         homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
         homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
         homeCourses.scorePeople = dictionary["scorePeople"] as? Int
-        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Int
+        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
         homeCourses.studentNumber = dictionary["studentNumber"] as? Int
         homeCourses.tags = dictionary["tags"] as! [String]
         self.homeCourses_Array.append(homeCourses)
