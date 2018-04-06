@@ -21,7 +21,6 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     super.viewDidLoad()
     
     listenToState()
-    userFirstLogIn()
     
     settings.style.buttonBarBackgroundColor = .white
     settings.style.buttonBarItemBackgroundColor = .white
@@ -51,57 +50,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
   
   var databaseRef: DatabaseReference!
 
-  var getCoupon = ""
-  func userFirstLogIn(){
-    let userDefaults = UserDefaults.standard
-    self.getCoupon = userDefaults.string(forKey: "getCoupon") ?? "0"
-    
-    if self.getCoupon == "0"{
-      self.alert()
-      userDefaults.set("1", forKey: "getCoupon")
-    }
-      
-      
-
-
-  }
-  func alert(){
-    let title = "恭喜您獲得早鳥票免費體驗優惠券！"
-    let message = "現在購買任何課程皆不用費用。"
-    //let image = UIImage(named: "pexels-photo-103290")
-    
-    // Create the dialog
-    let popup = PopupDialog(title: title, message: message)
-    //, image: image)
-    
-    // Create buttons
-    let buttonOne = CancelButton(title: "YEAH 太好了！") {
-      let userDefaults = UserDefaults.standard
-      guard let uid = userDefaults.value(forKey: "uid") else { return }
-//      let uidString = String(describing: uid)
- //self.databaseRef.child("Money").child(uidString).child("money").setValue("100000000")
-
-      print("You confirmed.")
-    }
-    
-    // This button will not the dismiss the dialog
-    //      let buttonTwo = DefaultButton(title: "ADMIRE CAR", dismissOnTap: false) {
-    //        print("What a beauty!")
-    //      }
-    //
-    //      let buttonThree = DefaultButton(title: "BUY CAR", height: 60) {
-    //        print("Ah, maybe next time :)")
-    //      }
-    
-    // Add buttons to dialog
-    // Alternatively, you can use popup.addButton(buttonOne)
-    // to add a single button
-    popup.addButtons([buttonOne])
-    
-    
-    // Present dialog
-    self.present(popup, animated: true, completion: nil)
-  }
+  
   func listenToState(){
     Auth.auth().addStateDidChangeListener() { (auth, user) in
       if user != nil{

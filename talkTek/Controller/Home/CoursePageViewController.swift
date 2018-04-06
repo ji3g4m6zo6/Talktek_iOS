@@ -28,6 +28,7 @@ class CoursePageViewController: UIViewController {
   
   // MARK: - API save
   var detailToGet = HomeCourses()
+  var titleOfBoughtCourses = [String]()
   var audioItem_Array = [AudioItem?]()
   var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
@@ -43,7 +44,7 @@ class CoursePageViewController: UIViewController {
   @IBOutlet weak var deletionView: UIView!
   @IBOutlet weak var onlyIconImage: UIImageView!
   @IBOutlet weak var onlyMoneyLabel: UILabel!
-  var thisCourseHasBought = false
+  var thisCourseHasBought: Bool?
   {
     didSet
     {
@@ -453,15 +454,22 @@ extension CoursePageViewController {
     databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
       if snapshot.hasChild(uid){
         self.databaseRef.child("BoughtCourses").child(uid).observe(.value) { (snapshot) in
-          for child in snapshot.children{
-            let snap = child as! DataSnapshot
-            
-            if snap.key == courseId {
-              self.thisCourseHasBought = true
-              return
-            }
-            
+          
+          if let array = snapshot.value as? [String]{
+            self.titleOfBoughtCourses = array
+            array.forEach({ (value) in
+              if value == courseId {
+                self.thisCourseHasBought = true
+              }
+            })
           }
+          
+          if let _ = self.thisCourseHasBought {
+            
+          } else {
+            self.thisCourseHasBought = false
+          }
+
         }
       }
     }
@@ -537,11 +545,8 @@ extension CoursePageViewController {
         if moneyInt >= courseMoneyInt{
           
           // Add to BoughtCourses of each person
-          let jsonEncoder = JSONEncoder()
-          let jsonData = try? jsonEncoder.encode(detailToGet)
-          let json = String(data: jsonData!, encoding: String.Encoding.utf8)
-          let result = convertToDictionary(text: json!)
-          databaseRef.child("BoughtCourses").child(uid).child(courseId).setValue(result)
+          self.titleOfBoughtCourses.append(courseId)
+          databaseRef.child("BoughtCourses").child(uid).setValue(self.titleOfBoughtCourses)
           
           // Add to Money
           let moneyLeft = String(moneyInt - courseMoneyInt)
@@ -565,17 +570,6 @@ extension CoursePageViewController {
         
       }
     }
-  }
-  // data convert to dictionary
-  func convertToDictionary(text: String) -> [String: Any]? {
-    if let data = text.data(using: .utf8) {
-      do {
-        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-      } catch {
-        print(error.localizedDescription)
-      }
-    }
-    return nil
   }
   
   @objc func tryOutButtonTapped(_ sender: UIButton){
