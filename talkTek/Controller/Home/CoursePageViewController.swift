@@ -471,6 +471,8 @@ extension CoursePageViewController {
           }
 
         }
+      } else {
+        self.thisCourseHasBought = false
       }
     }
   }
