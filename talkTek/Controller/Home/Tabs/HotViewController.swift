@@ -58,6 +58,7 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.homeCourseType = "hot"
       destinationViewController.hidesBottomBarWhenPushed = true
     }
   }

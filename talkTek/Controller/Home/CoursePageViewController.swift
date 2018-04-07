@@ -66,7 +66,14 @@ class CoursePageViewController: UIViewController {
   var databaseRef: DatabaseReference!
   var thisSong = 0
   
+<<<<<<< HEAD
   // MARK: - viewDidLoad, didReceiveMemoryWarning
+=======
+  // MARK: - Firebase Analytics
+  var homeCourseType: String?
+  
+  // MARK: - viewDidLoad, didReceiveMemoryWarning, viewWillDisappear
+>>>>>>> FirebaseAnalytics
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -84,10 +91,17 @@ class CoursePageViewController: UIViewController {
     getMoney()
     ifUserHasCourse()
     
+<<<<<<< HEAD
     Analytics.logEvent("facebook_login", parameters: nil)
 
     // fetchAudioFiles
     if let courseId = detailToGet.courseId {
+=======
+
+    // fetchAudioFiles
+    if let courseId = detailToGet.courseId {
+      Analytics.logEvent("all_\(courseId)_home_click", parameters: nil)
+>>>>>>> FirebaseAnalytics
       fetchSectionTitle(withCourseId: courseId)
     }
     
@@ -95,7 +109,19 @@ class CoursePageViewController: UIViewController {
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
+<<<<<<< HEAD
 
+=======
+  }
+  
+  override func viewWillDisappear(_ animated: Bool) {
+    super.viewWillDisappear(true)
+    if self.isMovingFromParentViewController{
+      if let homeCourseType = homeCourseType, let courseId = detailToGet.courseId {
+        Analytics.logEvent("\(homeCourseType)_\(courseId)_home_click", parameters: nil)
+      }
+    }
+>>>>>>> FirebaseAnalytics
   }
   
   
@@ -355,6 +381,12 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
         break
       } else {
         if selectedRow != indexPath {
+<<<<<<< HEAD
+=======
+          if let courseId = detailToGet.courseId, let homeCourseType = homeCourseType {
+            Analytics.logEvent("\(homeCourseType)_\(courseId)_courseinfo_open", parameters: nil)
+          }
+>>>>>>> FirebaseAnalytics
           selectedRow = indexPath
           tableView.reloadData()
         } else {
@@ -367,6 +399,12 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       } else if indexPath.row == 1 {
         break
       } else {
+<<<<<<< HEAD
+=======
+        if let courseId = detailToGet.courseId, let homeCourseType = homeCourseType {
+          Analytics.logEvent("\(homeCourseType)_\(courseId)_click", parameters: nil)
+        }
+>>>>>>> FirebaseAnalytics
         performSegue(withIdentifier: "identifierTeacher", sender: self)
       }
     case DetailViewSection.courses.rawValue:

@@ -57,6 +57,7 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.homeCourseType = "professional"
       destinationViewController.hidesBottomBarWhenPushed = true
 
     }

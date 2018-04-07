@@ -54,8 +54,8 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.homeCourseType = "others"
       destinationViewController.hidesBottomBarWhenPushed = true
-
     }
   }
   
