@@ -83,6 +83,7 @@ class LifeViewController: UIViewController, IndicatorInfoProvider {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CourseDetailViewController
       destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.homeCourseType = "life"
       destinationViewController.hidesBottomBarWhenPushed = true
 
     }
