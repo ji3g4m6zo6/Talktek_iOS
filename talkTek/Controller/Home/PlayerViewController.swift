@@ -10,12 +10,14 @@ import UIKit
 import AVFoundation
 import FirebaseStorage
 import FirebaseDatabase
+import Firebase
 
 class PlayerViewController: UIViewController {
   
   var audioData = [AudioItem]()
   var thisSong = 0
 
+  @IBOutlet weak var photoToTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var playerToTopConstraint: NSLayoutConstraint!
   @IBOutlet weak var sliderToTopConstraint: NSLayoutConstraint!
   
@@ -83,11 +85,21 @@ class PlayerViewController: UIViewController {
   }
 
   @IBAction func speedup_Button_Tapped(_ sender: UIButton) {
-    
+    /*
+    if self.player.status == .readyToPlay{
+      let duration = Float(CMTimeGetSeconds(self.player.currentItem!.duration)) + 15.0
+      let seekTime = CMTimeMake(Int64(duration), 1)
+      self.player.seek(to: seekTime)
+    }*/
   }
   
   @IBAction func speeddown_Button_Tapped(_ sender: UIButton) {
-    
+    /*
+    if self.player.status == .readyToPlay{
+      let duration = Float(CMTimeGetSeconds(self.player.currentItem!.duration)) - 15.0
+      let seekTime = CMTimeMake(Int64(duration), 1)
+      self.player.seek(to: seekTime)
+    }*/
   }
 
   @IBAction func slider_Tapped(_ sender: UISlider) {
@@ -156,6 +168,16 @@ class PlayerViewController: UIViewController {
     
     title_Label.text = audioData[thisSong].Topic
     topic_Label.text = audioData[thisSong].Title
+
+    guard let audioDataOfThisSong = audioData[thisSong] else {
+      return
+    }
+    if let SectionPriority = audioDataOfThisSong.SectionPriority, let RowPriority = audioDataOfThisSong.RowPriority {
+      Analytics.logEvent("seaweedbear1_radio\(SectionPriority)_\(RowPriority)_play", parameters: nil)
+    }
+
+    title_Label.text = audioDataOfThisSong.Topic
+    topic_Label.text = audioDataOfThisSong.Title
     
     
     guard let url = URL(string: audioData[thisSong].Audio!) else { fatalError("連接錯誤") }
