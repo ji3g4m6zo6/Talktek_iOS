@@ -13,113 +13,52 @@ import FirebaseDatabase
 import FirebaseAuth
 class TeacherPageViewController: UIViewController {
   
+  // MARK: - tableview
   @IBOutlet weak var tableView: UITableView!
   var selectedRow = IndexPath(item: -1, section: -1)
-
-  var databaseRef: DatabaseReference!
-  var homeCourses_Array = [HomeCourses]()
-  var courseToGet = HomeCourses()
-  
-  var studentNumber = 0
-  var scoreTotalArray = [Double]()
-  var scorePeopleArray = [Int]()
-  var scoreAverage = 0.0
-  
-  
   enum DetailViewSection: Int{
     case main = 0
     case teacherInfo = 1
     case courses = 2
   }
   
+  // MARK: - Firebase
+  var databaseRef: DatabaseReference!
+  var homeCourses_Array = [HomeCourses]()
+  var courseToGet = HomeCourses()
+  var detailToPass = HomeCourses()
+  
+  // MARK: - student and score
+  var studentNumber = 0
+  var scoreTotalArray = [Double]()
+  var scorePeopleArray = [Int]()
+  var scoreAverage = 0.0
+  
+  
+  // MARK: - viewDidLoad, didReceiveMemoryWarning
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // database init
     databaseRef = Database.database().reference()
 
+    // Tableview
     tableView.dataSource = self
     tableView.delegate = self
     tableView.tableFooterView = UIView()
     
+    // teacher courses
     if let authorId = courseToGet.authorId {
       teacherCoursesName(authorId: authorId)
     }
-    // Do any additional setup after loading the view.
+    
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
   
-  func teacherCoursesName(authorId: String){
-   
-    databaseRef.child("TeacherCourses").child(authorId).observe(.value) { (snapshot) in
-      if let array = snapshot.value as? [String]{
-        array.forEach({ (courseId) in
-          self.fetchTeacherCourses(withCourseId: courseId)
-        })
-        
-      }
-    }
-    
-  }
-  func fetchTeacherCourses(withCourseId: String){
-    databaseRef.child("AllCourses").child(withCourseId).observe(.value) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: Any]{
-        
-        let homeCourses = HomeCourses()
-        
-        homeCourses.authorDescription = dictionary["authorDescription"] as? String
-        homeCourses.authorId = dictionary["authorId"] as? String
-        homeCourses.authorImage = dictionary["authorImage"] as? String
-        homeCourses.authorName = dictionary["authorName"] as? String
-        homeCourses.courseDescription = dictionary["courseDescription"] as? String
-        homeCourses.courseId = dictionary["courseId"] as? String
-        homeCourses.courseTitle = dictionary["courseTitle"] as? String
-        homeCourses.overViewImage = dictionary["overViewImage"] as? String
-        homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
-        homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
-        homeCourses.scorePeople = dictionary["scorePeople"] as? Int
-        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
-        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
-        homeCourses.tags = dictionary["tags"] as! [String]
-        
-        if let studentNumber = homeCourses.studentNumber{
-          self.studentNumber += studentNumber
-        }
-        if let scoreTotal = homeCourses.scoreTotal, let scorePeople = homeCourses.scorePeople{
-          if scorePeople != 0 {
-            self.scorePeopleArray.append(scorePeople)
-            self.scoreTotalArray.append(scoreTotal)
-          }
-        }
-        
-        self.homeCourses_Array.append(homeCourses)
-        
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
-        }
-      }
-    }
-    weightedAverage()
-  }
-  func weightedAverage(){
-    var sum = 0.0
-    for (scoreI, peopleI) in zip(scoreTotalArray, scorePeopleArray){
-      sum += scoreI * Double(peopleI)
-    }
-    let peopleSum = scorePeopleArray.reduce(0, +)
-    if peopleSum == 0 {
-      scoreAverage = 0
-    } else {
-      scoreAverage = sum / Double(peopleSum)
-    }
-    
-    self.tableView.reloadData()
-  }
-
-  var detailToPass = HomeCourses()
+  // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail" {
       let destination = segue.destination as! CoursePageViewController
@@ -131,6 +70,7 @@ class TeacherPageViewController: UIViewController {
   }
   
 }
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
   func numberOfSections(in tableView: UITableView) -> Int {
     return 3
@@ -330,5 +270,78 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
     default:
       break
     }
+  }
+}
+
+// MARK: - API call
+extension TeacherPageViewController {
+  
+  // get name of courses from TeacherCourses
+  func teacherCoursesName(authorId: String){
+    databaseRef.child("TeacherCourses").child(authorId).observe(.value) { (snapshot) in
+      if let array = snapshot.value as? [String]{
+        array.forEach({ (courseId) in
+          self.fetchTeacherCourses(withCourseId: courseId)
+        })
+      }
+    }
+  }
+  
+  // filter teacher courses from AllCourses
+  func fetchTeacherCourses(withCourseId: String){
+    databaseRef.child("AllCourses").child(withCourseId).observe(.value) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Any]{
+        
+        let homeCourses = HomeCourses()
+        
+        homeCourses.authorDescription = dictionary["authorDescription"] as? String
+        homeCourses.authorId = dictionary["authorId"] as? String
+        homeCourses.authorImage = dictionary["authorImage"] as? String
+        homeCourses.authorName = dictionary["authorName"] as? String
+        homeCourses.courseDescription = dictionary["courseDescription"] as? String
+        homeCourses.courseId = dictionary["courseId"] as? String
+        homeCourses.courseTitle = dictionary["courseTitle"] as? String
+        homeCourses.overViewImage = dictionary["overViewImage"] as? String
+        homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
+        homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
+        homeCourses.scorePeople = dictionary["scorePeople"] as? Int
+        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
+        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+        homeCourses.tags = dictionary["tags"] as! [String]
+        
+        if let studentNumber = homeCourses.studentNumber{
+          self.studentNumber += studentNumber
+        }
+        if let scoreTotal = homeCourses.scoreTotal, let scorePeople = homeCourses.scorePeople{
+          if scorePeople != 0 {
+            self.scorePeopleArray.append(scorePeople)
+            self.scoreTotalArray.append(scoreTotal)
+          }
+        }
+        
+        self.homeCourses_Array.append(homeCourses)
+        
+        DispatchQueue.main.async {
+          self.tableView.reloadData()
+        }
+      }
+    }
+    weightedAverage()
+  }
+  
+  // calculate score average
+  func weightedAverage(){
+    var sum = 0.0
+    for (scoreI, peopleI) in zip(scoreTotalArray, scorePeopleArray){
+      sum += scoreI * Double(peopleI)
+    }
+    let peopleSum = scorePeopleArray.reduce(0, +)
+    if peopleSum == 0 {
+      scoreAverage = 0
+    } else {
+      scoreAverage = sum / Double(peopleSum)
+    }
+    
+    self.tableView.reloadData()
   }
 }

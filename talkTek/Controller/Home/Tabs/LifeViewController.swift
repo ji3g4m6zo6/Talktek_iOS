@@ -32,6 +32,7 @@ class LifeViewController: UIViewController, IndicatorInfoProvider {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+
     // MARK: - collection view datasource & delegate
     collectionView.dataSource = self
     collectionView.delegate = self

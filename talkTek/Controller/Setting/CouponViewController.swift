@@ -64,7 +64,6 @@ class CouponViewController: UIViewController {
       for child in snapshot.children{
         let snap = child as! DataSnapshot
         self.array_CourseID.append(snap.key)
-        print("key is \(snap.key)")
       }
     })
   }

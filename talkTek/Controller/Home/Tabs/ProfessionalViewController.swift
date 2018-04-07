@@ -38,6 +38,7 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
     
     // MARK: - fetch data from firebase & split from tags
     fetchData()
+
     
     // MARK: - ESPullToRefresh
     collectionView.es.addPullToRefresh {

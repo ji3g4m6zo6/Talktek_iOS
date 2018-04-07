@@ -84,6 +84,8 @@ class CoursePageViewController: UIViewController {
     getMoney()
     ifUserHasCourse()
     
+    Analytics.logEvent("facebook_login", parameters: nil)
+
     // fetchAudioFiles
     if let courseId = detailToGet.courseId {
       fetchSectionTitle(withCourseId: courseId)
@@ -499,6 +501,7 @@ extension CoursePageViewController {
         audioItem.Title = dictionary["Title"] as? String
         audioItem.Topic = dictionary["Topic"] as? String
         audioItem.SectionPriority = dictionary["SectionPriority"] as? Int
+        audioItem.RowPriority = dictionary["RowPriority"] as? Int
         audioItem.TryOutEnable = dictionary["TryOutEnable"] as? Int
         
         self.audioItemFromDatabase.append(audioItem)
@@ -513,7 +516,6 @@ extension CoursePageViewController {
           
         } else {
           self.audioItem_Array.append(audioItem)
-          
         }
         
         

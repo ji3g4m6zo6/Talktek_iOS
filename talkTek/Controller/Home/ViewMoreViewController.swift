@@ -9,46 +9,39 @@
 import UIKit
 
 class ViewMoreViewController: UIViewController {
-
   
-  var homeCourses_Array = [HomeCourses]()
-
+  // MARK: - tableview
   @IBOutlet weak var tableView: UITableView!
+  
+  // MARK: - API outlets
+  var homeCourses_Array = [HomeCourses]()
+  var homeCouresToPass = HomeCourses()
+
+  // MARK: - viewDidLoad, didReceiveMemoryWarning
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // Tableview
     tableView.dataSource = self
     tableView.delegate = self
-    
     tableView.tableFooterView = UIView()
     
-    
-
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
-  var homeCouresToPass = HomeCourses()
+  
+  // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
     }
   }
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
 }
 
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension ViewMoreViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1

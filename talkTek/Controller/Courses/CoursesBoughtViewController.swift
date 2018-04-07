@@ -14,32 +14,34 @@ import ESPullToRefresh
 
 
 class CoursesBoughtViewController: UIViewController {
+  
+  // MARK: - tableview
   @IBOutlet weak var tableView: UITableView!
   
+  // MARK: - hide
   @IBOutlet weak var noCourseBought_ImageView: UIImageView!
-  
   @IBOutlet weak var noCourseBought_Label: UILabel!
-  
   @IBOutlet weak var noCourseBought_Button: UIButton!
   
+  // MARK: - API save
   var databaseRef: DatabaseReference!
-  var titleOfBoughtCourses = [String]()
   var uid: String?
-  var idToPass = ""
+  var titleOfBoughtCourses = [String]()
+  var homeCourses_Array = [HomeCourses]()
+  var homeCouresToPass = HomeCourses()
   
+  // MARK: - viewDidLoad, didReceiveMemoryWarning, viewWillAppear
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // Tableview
     tableView.dataSource = self
     tableView.delegate = self
-    
     tableView.tableFooterView = UIView()
     
     // uid from userdefaults, database init
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
-
-    
 
   }
   
@@ -47,6 +49,7 @@ class CoursesBoughtViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
+  
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     fetchData()
@@ -55,69 +58,9 @@ class CoursesBoughtViewController: UIViewController {
       self.fetchData()
     }
   }
-  var homeCourses_Array = [HomeCourses]()
-  var homeCouresToPass = HomeCourses()
-  func fetchData(){
-    guard let uid = self.uid else { return }
-    self.databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
-      if snapshot.hasChild(uid){
-        self.tableView.isHidden = false
-        self.databaseRef.child("BoughtCourses").child(uid).observe(.value) { (snapshot) in
-          if let array = snapshot.value as? [String]{
-            self.titleOfBoughtCourses = array
-          }
-          self.fetchAllCourses()
-        }
-        return
-      } else {
-        self.tableView.isHidden = true
-        return
-      }
-    }
-  }
-  
-  func fetchAllCourses(){
-    
-    databaseRef = Database.database().reference()
-    self.homeCourses_Array.removeAll()
-
-    databaseRef.child("AllCourses").observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: Any]{
-        
-        let homeCourses = HomeCourses()
-        
-        homeCourses.authorDescription = dictionary["authorDescription"] as? String
-        homeCourses.authorId = dictionary["authorId"] as? String
-        homeCourses.authorImage = dictionary["authorImage"] as? String
-        homeCourses.authorName = dictionary["authorName"] as? String
-        homeCourses.courseDescription = dictionary["courseDescription"] as? String
-        homeCourses.courseId = dictionary["courseId"] as? String
-        homeCourses.courseTitle = dictionary["courseTitle"] as? String
-        homeCourses.overViewImage = dictionary["overViewImage"] as? String
-        homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
-        homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
-        homeCourses.scorePeople = dictionary["scorePeople"] as? Int
-        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
-        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
-        homeCourses.tags = dictionary["tags"] as! [String]
-        
-        self.titleOfBoughtCourses.forEach({ (value) in
-          if value == homeCourses.courseId {
-            self.homeCourses_Array.append(homeCourses)
-            DispatchQueue.main.async {
-              self.tableView.reloadData()
-            }
-            return
-          }
-        })
-        
-        self.tableView.es.stopPullToRefresh()
-      }
-    }
-    
-  }
   
   
+  // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CoursePageViewController
@@ -126,6 +69,7 @@ class CoursesBoughtViewController: UIViewController {
     }
   }
 }
+// MARK: - UITableViewDataSource, UITableViewDelegate
 extension CoursesBoughtViewController: UITableViewDataSource, UITableViewDelegate {
   func numberOfSections(in tableView: UITableView) -> Int {
     return 1
@@ -172,6 +116,67 @@ extension CoursesBoughtViewController: UITableViewDataSource, UITableViewDelegat
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 129
+  }
+}
+
+// MARK: - API call
+extension CoursesBoughtViewController {
+  func fetchData(){
+    guard let uid = self.uid else { return }
+    self.databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid){
+        self.tableView.isHidden = false
+        self.databaseRef.child("BoughtCourses").child(uid).observe(.value) { (snapshot) in
+          if let array = snapshot.value as? [String]{
+            self.titleOfBoughtCourses = array
+          }
+          self.fetchAllCourses()
+        }
+        return
+      } else {
+        self.tableView.isHidden = true
+        return
+      }
+    }
+  }
+  
+  func fetchAllCourses(){
+    databaseRef = Database.database().reference()
+    self.homeCourses_Array.removeAll()
+    
+    databaseRef.child("AllCourses").observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Any]{
+        
+        let homeCourses = HomeCourses()
+        
+        homeCourses.authorDescription = dictionary["authorDescription"] as? String
+        homeCourses.authorId = dictionary["authorId"] as? String
+        homeCourses.authorImage = dictionary["authorImage"] as? String
+        homeCourses.authorName = dictionary["authorName"] as? String
+        homeCourses.courseDescription = dictionary["courseDescription"] as? String
+        homeCourses.courseId = dictionary["courseId"] as? String
+        homeCourses.courseTitle = dictionary["courseTitle"] as? String
+        homeCourses.overViewImage = dictionary["overViewImage"] as? String
+        homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
+        homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
+        homeCourses.scorePeople = dictionary["scorePeople"] as? Int
+        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
+        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+        homeCourses.tags = dictionary["tags"] as! [String]
+        
+        self.titleOfBoughtCourses.forEach({ (value) in
+          if value == homeCourses.courseId {
+            self.homeCourses_Array.append(homeCourses)
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+            return
+          }
+        })
+        
+        self.tableView.es.stopPullToRefresh()
+      }
+    }
   }
 }
 

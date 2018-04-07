@@ -328,12 +328,12 @@
 			children = (
 				04475E9C1FE7F24000F28478 /* Tabs */,
 				AE159510206BE4010045D15A /* CoursePageViewController.swift */,
+				041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */,
 				AE87197E20761E0900D99852 /* TeacherPageViewController.swift */,
 				04CC36A7201F76920032F247 /* ViewMoreViewController.swift */,
 				044F0B4D1FC46CB600E98E45 /* CourseDetailViewController.swift */,
 				04475E941FE7EA7200F28478 /* TeacherViewController.swift */,
 				047B1D211FE6AA7300853740 /* AudioListViewController.swift */,
-				041E3CB81FDD41480035E3A4 /* PlayerViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";

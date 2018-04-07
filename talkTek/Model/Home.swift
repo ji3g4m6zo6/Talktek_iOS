@@ -33,6 +33,7 @@ class AudioItem: NSObject {
   
   var Audio: String?
   var SectionPriority: Int?
+  var RowPriority: Int?
   var Time: String?
   var Title: String?
   var Topic: String?

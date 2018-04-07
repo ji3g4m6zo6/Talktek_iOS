@@ -21,6 +21,7 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     return IndicatorInfo(title: "熱門")
   }
   
+  
   // MARK: - Firebase Outlets
   var databaseRef: DatabaseReference!
   var homeCourses_Array = [HomeCourses]()
