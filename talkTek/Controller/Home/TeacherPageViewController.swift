@@ -35,11 +35,7 @@ class TeacherPageViewController: UIViewController {
   var scoreAverage = 0.0
   
   
-<<<<<<< HEAD
-  // MARK: - viewDidLoad, didReceiveMemoryWarning
-=======
   // MARK: - viewDidLoad, didReceiveMemoryWarning, viewWillDisappear
->>>>>>> FirebaseAnalytics
   override func viewDidLoad() {
     super.viewDidLoad()
     
@@ -62,8 +58,6 @@ class TeacherPageViewController: UIViewController {
     super.didReceiveMemoryWarning()
   }
   
-<<<<<<< HEAD
-=======
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(true)
     if self.isMovingFromParentViewController{
@@ -72,7 +66,6 @@ class TeacherPageViewController: UIViewController {
       }
     }
   }
->>>>>>> FirebaseAnalytics
   // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail" {
@@ -263,12 +256,9 @@ extension TeacherPageViewController: UITableViewDelegate, UITableViewDataSource{
         break
       } else {
         if selectedRow != indexPath {
-<<<<<<< HEAD
-=======
           if let courseId = courseToGet.courseId {
             Analytics.logEvent("lecturerpage_\(courseId)_info_open", parameters: nil)
           }
->>>>>>> FirebaseAnalytics
           selectedRow = indexPath
           tableView.reloadData()
         } else {

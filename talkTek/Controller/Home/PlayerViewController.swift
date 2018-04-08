@@ -211,15 +211,7 @@ class PlayerViewController: UIViewController {
     speed_Button.tintColor = UIColor.white
     playerToBottom_Button.tintColor = UIColor.white
     
-<<<<<<< HEAD
-    guard let audioDataOfThisSong = audioData[thisSong] else {
-      return
-    }
     
-=======
-    title_Label.text = audioData[thisSong].Topic
-    topic_Label.text = audioData[thisSong].Title
-
     guard let audioDataOfThisSong = audioData[thisSong] else {
       return
     }
@@ -227,7 +219,6 @@ class PlayerViewController: UIViewController {
       Analytics.logEvent("seaweedbear1_radio\(SectionPriority)_\(RowPriority)_play", parameters: nil)
     }
 
->>>>>>> FirebaseAnalytics
     title_Label.text = audioDataOfThisSong.Topic
     topic_Label.text = audioDataOfThisSong.Title
     
