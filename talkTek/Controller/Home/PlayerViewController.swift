@@ -211,13 +211,10 @@ class PlayerViewController: UIViewController {
     speed_Button.tintColor = UIColor.white
     playerToBottom_Button.tintColor = UIColor.white
     
-    
     guard let audioDataOfThisSong = audioData[thisSong] else {
       return
     }
-    if let SectionPriority = audioDataOfThisSong.SectionPriority, let RowPriority = audioDataOfThisSong.RowPriority {
-      Analytics.logEvent("seaweedbear1_radio\(SectionPriority)_\(RowPriority)_play", parameters: nil)
-    }
+    
 
     title_Label.text = audioDataOfThisSong.Topic
     topic_Label.text = audioDataOfThisSong.Title
