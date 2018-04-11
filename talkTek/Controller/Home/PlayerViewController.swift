@@ -199,11 +199,12 @@ class PlayerViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
+    photoToTopConstraint.constant = view.frame.height * 0.156
     playerToTopConstraint.constant = view.frame.height * 0.7
     sliderToTopConstraint.constant = view.frame.height * 0.83
     
-    
+    slow_Button.isHidden = true
+    speed_Button.isHidden = true
     slow_Button.tintColor = UIColor.white
     previous_Button.tintColor = UIColor.white
     playpause_Button.tintColor = UIColor.white
