@@ -12,56 +12,45 @@ import FirebaseDatabase
 import FirebaseAuth
 import StoreKit
 import SwiftyStoreKit
-
+import SVProgressHUD
 
 class PurchaseMainViewController: UIViewController {
   var databaseRef: DatabaseReference!
   var userID = ""
   var moneyNumber = 0
   
+  let productIDArray = ["com.talktek.Talk.300NT", "  com.talktek.Talk.990NT", "com.talktek.Talk.1990NT"]
+  
   @IBOutlet weak var moneyIcon: UIImageView!
   @IBOutlet weak var points_Label: UILabel!
+  
+  @IBOutlet weak var cheap: UIButton!
+  @IBOutlet weak var middle: UIButton!
+  @IBOutlet weak var expensive: UIButton!
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
+//    middle.isHidden = true
+//    expensive.isHidden = true
     moneyIcon.tintColor = UIColor.moneyYellow()
-    //,"versionA02","versionA03"
-    SwiftyStoreKit.retrieveProductsInfo(["versionA01"]) { result in
-      if let product = result.retrievedProducts.first {
-        let priceString = product.localizedPrice!
-        print("Product: \(product.localizedDescription), price: \(priceString)")
-      }
-      else if let invalidProductId = result.invalidProductIDs.first {
-        print("Invalid product identifier: \(invalidProductId)")
-      }
-      else {
-        print("Error: \(result.error ?? "" as! Error)")
-      }
-    }
-    SwiftyStoreKit.retrieveProductsInfo(["versionA02"]) { result in
-      if let product = result.retrievedProducts.first {
-        let priceString = product.localizedPrice!
-        print("Product: \(product.localizedDescription), price: \(priceString)")
-      }
-      else if let invalidProductId = result.invalidProductIDs.first {
-        print("Invalid product identifier: \(invalidProductId)")
-      }
-      else {
-        print("Error: \(result.error ?? "" as! Error)")
+
+    for i in 0...productIDArray.count - 1 {
+      SwiftyStoreKit.retrieveProductsInfo([productIDArray[i]]) { result in
+        if let product = result.retrievedProducts.first {
+          let priceString = product.localizedPrice!
+          print("Product: \(product.localizedDescription), price: \(priceString)")
+        }
+        else if let invalidProductId = result.invalidProductIDs.first {
+          print("Invalid product identifier: \(invalidProductId)")
+        }
+        else {
+          print("Error: \(String(describing: result.error))")
+        }
       }
     }
-    SwiftyStoreKit.retrieveProductsInfo(["versionA03"]) { result in
-      if let product = result.retrievedProducts.first {
-        let priceString = product.localizedPrice!
-        print("Product: \(product.localizedDescription), price: \(priceString)")
-      }
-      else if let invalidProductId = result.invalidProductIDs.first {
-        print("Invalid product identifier: \(invalidProductId)")
-      }
-      else {
-        print("Error: \(result.error ?? "" as! Error)")
-      }
-    }
+    
+    
     
     let userDefaults = UserDefaults.standard
     userID = userDefaults.string(forKey: "uid") ?? ""
@@ -76,12 +65,21 @@ class PurchaseMainViewController: UIViewController {
   }
   
   @IBAction func twofiftyButtonTapped(_ sender: UIButton) {
-    SwiftyStoreKit.purchaseProduct("versionA01", quantity: 1, atomically: true) { result in
+    SVProgressHUD.show(withStatus: "載入中...")
+    SwiftyStoreKit.purchaseProduct(productIDArray[0], quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
+        SVProgressHUD.showSuccess(withStatus: "成功購買")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
         self.addPoints(points: 300)
       case .error(let error):
+        SVProgressHUD.showError(withStatus: "購買失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
         switch error.code {
         case .unknown: print("Unknown error. Please contact support")
         case .clientInvalid: print("Not allowed to make the payment")
@@ -98,13 +96,22 @@ class PurchaseMainViewController: UIViewController {
   }
   
   @IBAction func fivehundredButtonTapped(_ sender: UIButton) {
-    SwiftyStoreKit.purchaseProduct("versionA02", quantity: 1, atomically: true) { result in
+    SVProgressHUD.show(withStatus: "載入中...")
+    SwiftyStoreKit.purchaseProduct(productIDArray[1], quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
+        SVProgressHUD.showSuccess(withStatus: "成功購買")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
         self.addPoints(points: 1000)
 
       case .error(let error):
+        SVProgressHUD.showError(withStatus: "購買失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
         switch error.code {
         case .unknown: print("Unknown error. Please contact support")
         case .clientInvalid: print("Not allowed to make the payment")
@@ -122,13 +129,23 @@ class PurchaseMainViewController: UIViewController {
   }
   
   @IBAction func thousandButtonTapped(_ sender: UIButton) {
-    SwiftyStoreKit.purchaseProduct("versionA03", quantity: 1, atomically: true) { result in
+    SVProgressHUD.show(withStatus: "載入中...")
+    SwiftyStoreKit.purchaseProduct(productIDArray[2], quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
+        SVProgressHUD.showSuccess(withStatus: "成功購買")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+
         self.addPoints(points: 2100)
 
       case .error(let error):
+        SVProgressHUD.showError(withStatus: "購買失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
         switch error.code {
         case .unknown: print("Unknown error. Please contact support")
         case .clientInvalid: print("Not allowed to make the payment")

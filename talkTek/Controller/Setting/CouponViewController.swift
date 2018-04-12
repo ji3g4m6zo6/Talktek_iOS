@@ -146,8 +146,16 @@ class CouponViewController: UIViewController {
     guard let couponText = coupon_TextField.text else { return }
     if isValid(couponText) {
       SVProgressHUD.showSuccess(withStatus: "訂閱成功")
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        SVProgressHUD.dismiss()
+      })
+
     } else {
       SVProgressHUD.showError(withStatus: "訂閱失敗")
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        SVProgressHUD.dismiss()
+      })
+
     }
   }
   
