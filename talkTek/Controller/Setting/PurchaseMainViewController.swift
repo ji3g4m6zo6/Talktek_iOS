@@ -185,6 +185,7 @@ class PurchaseMainViewController: UIViewController {
     self.databaseRef.child("Money/\(self.userID)/money").setValue(additionString)
   }
   
+  
   /*
    // MARK: - Navigation
    
