@@ -20,19 +20,22 @@ class PurchaseMainViewController: UIViewController {
   var moneyNumber = 0
   
   let productIDArray = ["com.talktek.Talk.300NT", "  com.talktek.Talk.990NT", "com.talktek.Talk.1990NT"]
+  let imageArray = ["300點","1000點","2100點"]
+  let valueArray = [300, 1000, 2100]
   
+  @IBOutlet weak var tableView: UITableView!
+
   @IBOutlet weak var moneyIcon: UIImageView!
   @IBOutlet weak var points_Label: UILabel!
   
-  @IBOutlet weak var cheap: UIButton!
-  @IBOutlet weak var middle: UIButton!
-  @IBOutlet weak var expensive: UIButton!
-
   override func viewDidLoad() {
     super.viewDidLoad()
     
-//    middle.isHidden = true
-//    expensive.isHidden = true
+    tableView.delegate = self
+    tableView.dataSource = self
+    tableView.tableFooterView = UIView()
+    
+    
     moneyIcon.tintColor = UIColor.moneyYellow()
 
     for i in 0...productIDArray.count - 1 {
@@ -64,40 +67,10 @@ class PurchaseMainViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  @IBAction func twofiftyButtonTapped(_ sender: UIButton) {
-    SVProgressHUD.show(withStatus: "載入中...")
-    SwiftyStoreKit.purchaseProduct(productIDArray[0], quantity: 1, atomically: true) { result in
-      switch result {
-      case .success(let purchase):
-        print("Purchase Success: \(purchase.productId)")
-        SVProgressHUD.showSuccess(withStatus: "成功購買")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-          SVProgressHUD.dismiss()
-        })
-        self.addPoints(points: 300)
-      case .error(let error):
-        SVProgressHUD.showError(withStatus: "購買失敗")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-          SVProgressHUD.dismiss()
-        })
-        switch error.code {
-        case .unknown: print("Unknown error. Please contact support")
-        case .clientInvalid: print("Not allowed to make the payment")
-        case .paymentCancelled: break
-        case .paymentInvalid: print("The purchase identifier was invalid")
-        case .paymentNotAllowed: print("The device is not allowed to make the payment")
-        case .storeProductNotAvailable: print("The product is not available in the current storefront")
-        case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
-        case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
-        case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
-        }
-      }
-    }
-  }
   
-  @IBAction func fivehundredButtonTapped(_ sender: UIButton) {
+  func purchaseAction(index: Int){
     SVProgressHUD.show(withStatus: "載入中...")
-    SwiftyStoreKit.purchaseProduct(productIDArray[1], quantity: 1, atomically: true) { result in
+    SwiftyStoreKit.purchaseProduct(productIDArray[index], quantity: 1, atomically: true) { result in
       switch result {
       case .success(let purchase):
         print("Purchase Success: \(purchase.productId)")
@@ -105,8 +78,9 @@ class PurchaseMainViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
           SVProgressHUD.dismiss()
         })
-        self.addPoints(points: 1000)
-
+        
+        self.addPoints(points: self.valueArray[index])
+        
       case .error(let error):
         SVProgressHUD.showError(withStatus: "購買失敗")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
@@ -125,41 +99,6 @@ class PurchaseMainViewController: UIViewController {
         }
       }
     }
-    
-  }
-  
-  @IBAction func thousandButtonTapped(_ sender: UIButton) {
-    SVProgressHUD.show(withStatus: "載入中...")
-    SwiftyStoreKit.purchaseProduct(productIDArray[2], quantity: 1, atomically: true) { result in
-      switch result {
-      case .success(let purchase):
-        print("Purchase Success: \(purchase.productId)")
-        SVProgressHUD.showSuccess(withStatus: "成功購買")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-          SVProgressHUD.dismiss()
-        })
-
-        self.addPoints(points: 2100)
-
-      case .error(let error):
-        SVProgressHUD.showError(withStatus: "購買失敗")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
-          SVProgressHUD.dismiss()
-        })
-        switch error.code {
-        case .unknown: print("Unknown error. Please contact support")
-        case .clientInvalid: print("Not allowed to make the payment")
-        case .paymentCancelled: break
-        case .paymentInvalid: print("The purchase identifier was invalid")
-        case .paymentNotAllowed: print("The device is not allowed to make the payment")
-        case .storeProductNotAvailable: print("The product is not available in the current storefront")
-        case .cloudServicePermissionDenied: print("Access to cloud service information is not allowed")
-        case .cloudServiceNetworkConnectionFailed: print("Could not connect to the network")
-        case .cloudServiceRevoked: print("User has revoked permission to use this cloud service")
-        }
-      }
-    }
-    
   }
   
   func fetchData(){
@@ -197,3 +136,23 @@ class PurchaseMainViewController: UIViewController {
    */
   
 }
+extension PurchaseMainViewController: UITableViewDataSource, UITableViewDelegate {
+  func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 3
+  }
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! PurchaseMainTableViewCell
+    cell.imagePurchase.image = UIImage(named: imageArray[indexPath.row])
+    return cell
+  }
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 127
+  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    purchaseAction(index: indexPath.row)
+  }
+}
+

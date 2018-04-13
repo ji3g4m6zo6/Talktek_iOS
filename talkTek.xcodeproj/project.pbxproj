@@ -95,6 +95,7 @@
 		AE1A8A1D205A9080001A18DA /* CoursesHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1A8A1C205A907F001A18DA /* CoursesHistoryViewController.swift */; };
 		AE87197F20761E0900D99852 /* TeacherPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87197E20761E0900D99852 /* TeacherPageViewController.swift */; };
 		AE87198120762DF900D99852 /* TeacherPageOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87198020762DF900D99852 /* TeacherPageOverviewTableViewCell.swift */; };
+		AEBD5BF920810ADE00A83FA6 /* PurchaseMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBD5BF820810ADE00A83FA6 /* PurchaseMainTableViewCell.swift */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
 		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
 /* End PBXBuildFile section */
@@ -220,6 +221,7 @@
 		AE1A8A1C205A907F001A18DA /* CoursesHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesHistoryViewController.swift; sourceTree = "<group>"; };
 		AE87197E20761E0900D99852 /* TeacherPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPageViewController.swift; sourceTree = "<group>"; };
 		AE87198020762DF900D99852 /* TeacherPageOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPageOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		AEBD5BF820810ADE00A83FA6 /* PurchaseMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMainTableViewCell.swift; sourceTree = "<group>"; };
 		E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -367,6 +369,7 @@
 			children = (
 				04402E8A1FCDAED100EC95EE /* SettingMainTableViewCell.swift */,
 				04DD58A91FEAC296009944D2 /* HistoryTableViewCell.swift */,
+				AEBD5BF820810ADE00A83FA6 /* PurchaseMainTableViewCell.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -940,6 +943,7 @@
 				04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */,
 				04475E8E1FE7E9ED00F28478 /* TeacherMainTableViewCell.swift in Sources */,
 				04445AF11FC71453004D2825 /* AudioSectionTableViewCell.swift in Sources */,
+				AEBD5BF920810ADE00A83FA6 /* PurchaseMainTableViewCell.swift in Sources */,
 				041E3CB91FDD41480035E3A4 /* PlayerViewController.swift in Sources */,
 				048D0D3A1FD1B419002A2E93 /* PurchaseMainViewController.swift in Sources */,
 				04475E931FE7EA1100F28478 /* TeacherCoursesTableViewCell.swift in Sources */,
