@@ -33,6 +33,10 @@ class CoursePageViewController: UIViewController {
   var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
   var detailToPass = [AudioItem?]()
+  
+  // MARK: - CashFlow
+  var cashFlow = CashFlow()
+
 
   // MARK: - Buy View
   @IBOutlet weak var buy_View: UIView!
@@ -82,9 +86,10 @@ class CoursePageViewController: UIViewController {
     tableView.delegate = self
     tableView.tableFooterView = UIView()
     
-    // updateBuyView, getMoney, ifUserHasCourse
+    // updateBuyView, fetchMoney, ifUserHasCourse
     updateBuyView()
-    getMoney()
+    fetchMoney()
+    //getMoney()
     ifUserHasCourse()
     
     Analytics.logEvent("facebook_login", parameters: nil)
@@ -415,6 +420,23 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       break
     }
   }
+  
+  // Try out audio
+  @objc func tryOutButtonTapped(_ sender: UIButton){
+    self.thisSong = sender.tag
+    self.detailToPass = audioItem_Array
+    for (index, value) in detailToPass.enumerated() {
+      if let audioItems = value {
+        if let audioItemsTryOut = audioItems.TryOutEnable{
+          if audioItemsTryOut == -1 {
+            self.detailToPass[index] = nil
+          }
+        }
+      }
+    }
+    
+    performSegue(withIdentifier: "identifierPlayer", sender: self)
+  }
 }
 
 // MARK: - API call
@@ -467,6 +489,31 @@ extension CoursePageViewController {
         }
       }
     }
+  }
+  
+  // fetch data from firebase check if user exist in CashFlow
+  func fetchMoney(){
+    guard let uid = uid else { return }
+    databaseRef.child("CashFlow").observe(.value) { (value) in
+      if value.hasChild(uid) {
+        self.fetchCash()
+      } else {
+        self.cashFlow.CashValue = 0
+        self.cashFlow.RewardPoints = 0
+      }
+    }
+  }
+  // fetch user's money
+  func fetchCash(){
+    guard let uid = uid else { return }
+    databaseRef.child("CashFlow/\(uid)/Total").observe(.value, with: { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Int] {
+        if let cashValue = dictionary["CashValue"], let rewardPoints = dictionary["RewardPoints"]{
+          self.cashFlow.CashValue = cashValue
+          self.cashFlow.RewardPoints = rewardPoints
+        }
+      }
+    })
   }
   
   // MARK: - User Course
@@ -554,61 +601,76 @@ extension CoursePageViewController {
   // MARK: - Buy
   // depend on price onsale or origin, add to bought course, add to money, thisCourseHasBought update, alert success or error
   func buy(){
-    guard let uid = self.uid, let money = myMoney, let courseId = detailToGet.courseId else { return }
-    if let moneyInt = Int(money) {
-      if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
-        
-        // Depend on priceOnSales or priceOrigin
-        var courseMoneyInt = 0
-        if priceOnSales >= 0 {
-          courseMoneyInt = priceOnSales
-        } else {
-          courseMoneyInt = priceOrigin
-        }
-        
-        if moneyInt >= courseMoneyInt{
-          
-          // Add to BoughtCourses of each person
-          self.titleOfBoughtCourses.append(courseId)
-          databaseRef.child("BoughtCourses").child(uid).setValue(self.titleOfBoughtCourses)
-          
-          // Add to Money
-          let moneyLeft = String(moneyInt - courseMoneyInt)
-          self.myMoney = moneyLeft
-          self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
-          
-          // Alert Success
-          SVProgressHUD.showSuccess(withStatus: "購買成功")
-          DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            SVProgressHUD.dismiss()
-          })
-          self.thisCourseHasBought = true
-          
-        } else {
-          //Alert not enough money
-          SVProgressHUD.showError(withStatus: "購買失敗")
-          DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-            SVProgressHUD.dismiss()
-          })
-        }
-        
+    guard let uid = self.uid, let money = cashFlow.RewardPoints, let courseId = detailToGet.courseId else { return }
+    if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
+      
+      // Depend on priceOnSales or priceOrigin
+      var courseMoneyInt = 0
+      if priceOnSales >= 0 {
+        courseMoneyInt = priceOnSales
+      } else {
+        courseMoneyInt = priceOrigin
       }
+      
+      if money >= courseMoneyInt{
+        
+        // Add to BoughtCourses of each person
+        titleOfBoughtCourses.append(courseId)
+        databaseRef.child("BoughtCourses").child(uid).setValue(self.titleOfBoughtCourses)
+        
+        // Add to Money
+//        let moneyLeft = String(money - courseMoneyInt)
+//        self.myMoney = moneyLeft
+//        self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
+        addRewardPoints(addRewardPoints: courseMoneyInt)
+        addPointsToHistory()
+        
+        // Alert Success
+        SVProgressHUD.showSuccess(withStatus: "購買成功")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+          SVProgressHUD.dismiss()
+        })
+        thisCourseHasBought = true
+        
+      } else {
+        //Alert not enough money
+        SVProgressHUD.showError(withStatus: "購買失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+          SVProgressHUD.dismiss()
+        })
+      }
+      
+      
     }
   }
   
-  @objc func tryOutButtonTapped(_ sender: UIButton){
-    self.thisSong = sender.tag
-    self.detailToPass = audioItem_Array
-    for (index, value) in detailToPass.enumerated() {
-      if let audioItems = value {
-        if let audioItemsTryOut = audioItems.TryOutEnable{
-          if audioItemsTryOut == -1 {
-            self.detailToPass[index] = nil
-          }
-        }
-      }
-    }
-    
-    performSegue(withIdentifier: "identifierPlayer", sender: self)
+  // update point
+  func addRewardPoints(addRewardPoints: Int){
+    guard let uid = uid, let rewardPoints = cashFlow.RewardPoints else { return }
+    databaseRef.child("CashFlow/\(uid)/Total").child("RewardPoints").setValue(rewardPoints - addRewardPoints)
   }
+  
+  // add point to history
+  func addPointsToHistory(){
+    guard let uid = uid, let courseId = detailToGet.courseId, let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin else { return }
+    let currentTime = getCurrentTime()
+    if priceOnSales >= 0 {
+      let parameter = ["Time": currentTime, "CashType": "購買課程\(courseId)", "Value": -priceOnSales, "Unit": "點數"] as [String : Any]
+      databaseRef.child("CashFlow/\(uid)/History").childByAutoId().setValue(parameter)
+    } else {
+      let parameter = ["Time": currentTime, "CashType": "購買課程\(courseId)", "Value": -priceOrigin, "Unit": "點數"] as [String : Any]
+      databaseRef.child("CashFlow/\(uid)/History").childByAutoId().setValue(parameter)
+    }
+  }
+  
+  // get current time for history usage
+  func getCurrentTime() -> String{
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    
+    return formatter.string(from: date)
+  }
+  
+  
 }

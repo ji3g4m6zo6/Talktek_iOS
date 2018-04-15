@@ -33,8 +33,8 @@ class PurchaseMainViewController: UIViewController {
   // MARK: - Product Arrays
   let productIDArray = ["com.talktek.Talk.300NT", "  com.talktek.Talk.990NT", "com.talktek.Talk.1990NT"]
   let imageArray = ["300點","1000點","2100點"]
-  let pointArray = [300.0, 1000.0, 2100.0]
-  let cashArray = [300.0, 990.0, 1990.0]
+  let pointArray = [300, 1000, 2100]
+  let cashArray = [300, 990, 1990]
   
 
   // MARK: - viewDidLoad, didReceiveMemoryWarning
@@ -117,11 +117,11 @@ extension PurchaseMainViewController {
   func fetchCash(){
     guard let uid = uid else { return }
     databaseRef.child("CashFlow/\(uid)/Total").observe(.value, with: { (snapshot) in
-      if let dictionary = snapshot.value as? [String: Double] {
+      if let dictionary = snapshot.value as? [String: Int] {
         if let cashValue = dictionary["CashValue"], let rewardPoints = dictionary["RewardPoints"]{
           self.cashFlow.CashValue = cashValue
           self.cashFlow.RewardPoints = rewardPoints
-          self.points_Label.text = String(format: "%.0f", rewardPoints) + "點"
+          self.points_Label.text = "\(rewardPoints)點"
         }
       }
     })
@@ -201,12 +201,12 @@ extension PurchaseMainViewController {
     databaseRef.child("CashFlow/\(uid)/History").childByAutoId().setValue(parameter)
   }
   // update cash
-  func addCashValue(addCashValue: Double){
+  func addCashValue(addCashValue: Int){
     guard let uid = uid, let cashValue = cashFlow.CashValue else { return }
     databaseRef.child("CashFlow/\(uid)/Total").child("CashValue").setValue(cashValue + addCashValue)
   }
   // update point
-  func addRewardPoints(addRewardPoints: Double){
+  func addRewardPoints(addRewardPoints: Int){
     guard let uid = uid, let rewardPoints = cashFlow.RewardPoints else { return }
     databaseRef.child("CashFlow/\(uid)/Total").child("RewardPoints").setValue(rewardPoints + addRewardPoints)
   }

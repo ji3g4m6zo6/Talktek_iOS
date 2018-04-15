@@ -20,14 +20,14 @@ class User: NSObject{
 }
 
 class CashFlow: NSObject {
-  var CashValue: Double?
-  var RewardPoints: Double?
+  var CashValue: Int?
+  var RewardPoints: Int?
 }
 
 class CashFlowHistory: NSObject {
   var Time: Date?
   var CashType: String?
-  var Value: Double?
+  var Value: Int?
   var Unit: String?
 }
 
