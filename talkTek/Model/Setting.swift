@@ -18,3 +18,17 @@ class User: NSObject{
   
   
 }
+
+class CashFlow: NSObject {
+  var CashValue: Double?
+  var RewardPoints: Double?
+  var history: [CashFlowHistory]?
+}
+
+class CashFlowHistory: NSObject {
+  var Time: Date?
+  var CashType: String?
+  var Value: Double?
+  var Unit: String?
+}
+

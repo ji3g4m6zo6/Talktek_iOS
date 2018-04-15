@@ -14,14 +14,19 @@ import StoreKit
 import SwiftyStoreKit
 import SVProgressHUD
 
+
 class PurchaseMainViewController: UIViewController {
   var databaseRef: DatabaseReference!
-  var userID = ""
-  var moneyNumber = 0
+  var uid: String?
+  var money = 0
+  
+  var cashFlow = CashFlow()
+  
   
   let productIDArray = ["com.talktek.Talk.300NT", "  com.talktek.Talk.990NT", "com.talktek.Talk.1990NT"]
   let imageArray = ["300點","1000點","2100點"]
-  let valueArray = [300, 1000, 2100]
+  let pointArray = [300.0, 1000.0, 2100.0]
+  let cashArray = [300.0, 990.0, 1990.0]
   
   @IBOutlet weak var tableView: UITableView!
 
@@ -30,6 +35,8 @@ class PurchaseMainViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    databaseRef = Database.database().reference()
     
     tableView.delegate = self
     tableView.dataSource = self
@@ -56,9 +63,8 @@ class PurchaseMainViewController: UIViewController {
     
     
     let userDefaults = UserDefaults.standard
-    userID = userDefaults.string(forKey: "uid") ?? ""
+    uid = userDefaults.string(forKey: "uid") ?? ""
 
-    
     fetchData()
   }
   
@@ -79,7 +85,10 @@ class PurchaseMainViewController: UIViewController {
           SVProgressHUD.dismiss()
         })
         
-        self.addPoints(points: self.valueArray[index])
+        self.addCashToHistory(index: index)
+        self.addCashValue(addCashValue: self.cashArray[index])
+        self.addPointsToHistory(index: index)
+        self.addRewardPoints(addRewardPoints: self.pointArray[index])
         
       case .error(let error):
         SVProgressHUD.showError(withStatus: "購買失敗")
@@ -102,6 +111,31 @@ class PurchaseMainViewController: UIViewController {
   }
   
   func fetchData(){
+    guard let uid = uid else { return }
+    databaseRef.child("CashFlow").observe(.value) { (value) in
+      if value.hasChild(uid) {
+        
+        self.fetchCash()
+//        self.databaseRef.child("CashFlow\(uid)/Total").child("RewardPoints").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//          //.child("RewardPoints")
+//          print("snapshot value is \(snapshot.value.unsafelyUnwrapped)")
+//          if let value = snapshot.value as? Double {
+//            self.cashFlow.rewardPoints = value
+//            print("value is \(value)")
+//            if let rewardPoints = self.cashFlow.rewardPoints {
+//              self.points_Label.text = "\(rewardPoints)點"
+//            }
+//          }
+//
+//        })
+        
+      } else {
+        self.cashFlow.CashValue = 0
+        self.cashFlow.RewardPoints = 0
+      }
+    }
+    /*
     self.databaseRef = Database.database().reference()
     self.databaseRef.child("Money/\(self.userID)").observe(.value) { (snapshot) in
       if let dictionary = snapshot.value as? [String: String]{
@@ -115,16 +149,63 @@ class PurchaseMainViewController: UIViewController {
         
       }
       
-    }
+    }*/
+  }
+  func fetchCash(){
+    guard let uid = uid else { return }
+    databaseRef.child("CashFlow\(uid)/Total").observeSingleEvent(of: .value, with: { (snapshot) in
+      //.child("CashValue")
+      print("snapshot value is \(snapshot.value)")
+      if let dictionary = snapshot.value as? [String: Any] {
+        self.cashFlow.setValuesForKeys(dictionary)
+        print(self.cashFlow.CashValue ?? 0.000)
+        if let rewardPoints = self.cashFlow.RewardPoints {
+          self.points_Label.text = "\(rewardPoints)點"
+        }
+      }
+    })
   }
   func addPoints(points: Int){
+    guard let uid = uid else { return }
     self.databaseRef = Database.database().reference()
-    let addition = points + moneyNumber
+    let addition = points + money
     let additionString = String(addition) // int to string
-    self.databaseRef.child("Money/\(self.userID)/money").setValue(additionString)
+    self.databaseRef.child("Money/\(uid)/money").setValue(additionString)
   }
   
+  func addCashToHistory(index: Int){
+    guard let uid = uid else { return }
+    let currentTime = getCurrentTime()
+    
+    let parameter = ["Time": currentTime, "CashType": "IAP入帳", "Value": cashArray[index], "Unit": "台幣"] as [String : Any]
+    databaseRef.child("CashFlow/\(uid)/History").childByAutoId().setValue(parameter)
+  }
   
+  func addPointsToHistory(index: Int){
+    guard let uid = uid else { return }
+    let currentTime = getCurrentTime()
+    
+    let parameter = ["Time": currentTime, "CashType": "點數轉換", "Value": pointArray[index], "Unit": "點數"] as [String : Any]
+    databaseRef.child("CashFlow/\(uid)/History").childByAutoId().setValue(parameter)
+
+  }
+  
+  func addCashValue(addCashValue: Double){
+    guard let uid = uid, let cashValue = cashFlow.CashValue else { return }
+    databaseRef.child("CashFlow/\(uid)/Total").child("CashValue").setValue(cashValue + addCashValue)
+  }
+  func addRewardPoints(addRewardPoints: Double){
+    guard let uid = uid, let rewardPoints = cashFlow.RewardPoints else { return }
+    databaseRef.child("CashFlow/\(uid)/Total").child("RewardPoints").setValue(rewardPoints + addRewardPoints)
+  }
+
+  func getCurrentTime() -> String{
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    
+    return formatter.string(from: date)
+  }
   /*
    // MARK: - Navigation
    
