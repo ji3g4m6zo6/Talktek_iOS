@@ -65,7 +65,8 @@ class PurchaseMainViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     uid = userDefaults.string(forKey: "uid") ?? ""
 
-    fetchData()
+    fetchCash()
+    //fetchData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -114,54 +115,23 @@ class PurchaseMainViewController: UIViewController {
     guard let uid = uid else { return }
     databaseRef.child("CashFlow").observe(.value) { (value) in
       if value.hasChild(uid) {
-        
         self.fetchCash()
-//        self.databaseRef.child("CashFlow\(uid)/Total").child("RewardPoints").observeSingleEvent(of: .value, with: { (snapshot) in
-//
-//          //.child("RewardPoints")
-//          print("snapshot value is \(snapshot.value.unsafelyUnwrapped)")
-//          if let value = snapshot.value as? Double {
-//            self.cashFlow.rewardPoints = value
-//            print("value is \(value)")
-//            if let rewardPoints = self.cashFlow.rewardPoints {
-//              self.points_Label.text = "\(rewardPoints)點"
-//            }
-//          }
-//
-//        })
-        
       } else {
         self.cashFlow.CashValue = 0
         self.cashFlow.RewardPoints = 0
       }
     }
-    /*
-    self.databaseRef = Database.database().reference()
-    self.databaseRef.child("Money/\(self.userID)").observe(.value) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: String]{
-        print("dictionary is \(dictionary)")
-        
-        let money = dictionary["money"] ?? ""
-        
-        self.points_Label.text = ("\(money)點")
-        
-        self.moneyNumber = Int(money)! //danger
-        
-      }
-      
-    }*/
   }
   func fetchCash(){
     guard let uid = uid else { return }
-    databaseRef.child("CashFlow\(uid)/Total").observeSingleEvent(of: .value, with: { (snapshot) in
-      //.child("CashValue")
-      print("snapshot value is \(snapshot.value)")
-      if let dictionary = snapshot.value as? [String: Any] {
-        self.cashFlow.setValuesForKeys(dictionary)
-        print(self.cashFlow.CashValue ?? 0.000)
-        if let rewardPoints = self.cashFlow.RewardPoints {
+    databaseRef.child("CashFlow/\(uid)/Total").observe(.value, with: { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Double] {
+        if let cashValue = dictionary["CashValue"], let rewardPoints = dictionary["RewardPoints"]{
+          self.cashFlow.CashValue = cashValue
+          self.cashFlow.RewardPoints = rewardPoints
           self.points_Label.text = "\(rewardPoints)點"
         }
+        
       }
     })
   }

@@ -22,7 +22,6 @@ class User: NSObject{
 class CashFlow: NSObject {
   var CashValue: Double?
   var RewardPoints: Double?
-  var history: [CashFlowHistory]?
 }
 
 class CashFlowHistory: NSObject {

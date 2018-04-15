@@ -373,8 +373,8 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
 // APIs
 extension SettingViewController {
   func fetchData(){
-    self.databaseRef = Database.database().reference()
-    self.databaseRef.child("Users/\(self.userID)").observe(.value) { (snapshot) in
+    databaseRef = Database.database().reference()
+    databaseRef.child("Users/\(self.userID)").observe(.value) { (snapshot) in
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")
         
