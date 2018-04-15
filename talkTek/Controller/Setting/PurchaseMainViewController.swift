@@ -129,7 +129,7 @@ class PurchaseMainViewController: UIViewController {
         if let cashValue = dictionary["CashValue"], let rewardPoints = dictionary["RewardPoints"]{
           self.cashFlow.CashValue = cashValue
           self.cashFlow.RewardPoints = rewardPoints
-          self.points_Label.text = "\(rewardPoints)點"
+          self.points_Label.text = String(format: "%.0f", rewardPoints) + "點"
         }
         
       }
