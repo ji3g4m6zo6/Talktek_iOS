@@ -47,7 +47,6 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  
   var databaseRef: DatabaseReference!
 
   
@@ -81,6 +80,8 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
       }
     }
   }
+  
+  
   
   override func viewControllers (for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
     let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Hot") as! HotViewController

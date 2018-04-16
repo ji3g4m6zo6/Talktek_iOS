@@ -46,6 +46,9 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
       self.homeCourses_Array.removeAll()
       self.fetchData()
     }
+    
+    
+
 
   }
   override func didReceiveMemoryWarning() {
@@ -62,7 +65,7 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
 
     }
   }
-  
+
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout

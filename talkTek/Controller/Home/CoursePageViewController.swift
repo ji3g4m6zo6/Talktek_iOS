@@ -108,6 +108,13 @@ class CoursePageViewController: UIViewController {
 
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    if let homeCourseType = homeCourseType, let courseId = detailToGet.courseId {
+      Analytics.logEvent("\(homeCourseType)_\(courseId)_course_open", parameters: nil)
+    }
+  }
+  
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(true)
     if self.isMovingFromParentViewController{
