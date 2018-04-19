@@ -237,7 +237,6 @@ class PlayerViewController: UIViewController {
     self.link = CADisplayLink(target: self, selector: #selector(update))
     self.link.add(to: RunLoop.main, forMode: RunLoopMode.defaultRunLoopMode)
 
-    // Do any additional setup after loading the view.
   }
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
