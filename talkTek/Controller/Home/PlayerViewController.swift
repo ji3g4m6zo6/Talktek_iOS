@@ -22,7 +22,6 @@ class PlayerViewController: UIViewController {
   @IBOutlet weak var sliderToTopConstraint: NSLayoutConstraint!
   
   
-  
   @IBOutlet weak var playerToBottom_Button: UIButton!
   @IBAction func PlayerToBottom_Button_Tapped(_ sender: UIButton) {
     self.dismiss(animated: true, completion: nil)
