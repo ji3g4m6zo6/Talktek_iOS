@@ -13,14 +13,21 @@ import FirebaseAuth
 import FirebaseDatabase
 import XLPagerTabStrip
 import PopupDialog
+import SnapKit
 
 class HomeParentViewController: ButtonBarPagerTabStripViewController {
-  
+
   let tealish = UIColor.tealish()
   override func viewDidLoad() {
     super.viewDidLoad()
     
     listenToState()
+    
+//    passView.snp.makeConstraints { (make) in
+//      make.width.equalTo(self.view)
+//      make.height.equalTo(54)
+//      make.bottom.equalTo(self.view).inset(15)
+//    }
     
     settings.style.buttonBarBackgroundColor = .white
     settings.style.buttonBarItemBackgroundColor = .white

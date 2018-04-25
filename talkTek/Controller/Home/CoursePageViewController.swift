@@ -12,8 +12,10 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import SVProgressHUD
+import ARNTransitionAnimator
 
 class CoursePageViewController: UIViewController {
+  
   
   // MARK: - tableview
   @IBOutlet weak var tableView: UITableView!
@@ -76,6 +78,7 @@ class CoursePageViewController: UIViewController {
   // MARK: - viewDidLoad, didReceiveMemoryWarning, viewWillDisappear
   override func viewDidLoad() {
     super.viewDidLoad()
+
     
     // uid from userdefaults, database init
     uid = UserDefaults.standard.string(forKey: "uid")

@@ -1,4 +1,5 @@
 PODS:
+  - ARNTransitionAnimator (3.0.1)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -91,6 +92,7 @@ PODS:
   - XLPagerTabStrip (8.0.0)
 
 DEPENDENCIES:
+  - ARNTransitionAnimator
   - Bolts
   - Cosmos (~> 12.0)
   - DatePickerCell (~> 1.0)
@@ -115,6 +117,7 @@ DEPENDENCIES:
   - XLPagerTabStrip (~> 8.0)
 
 SPEC CHECKSUMS:
+  ARNTransitionAnimator: 26f24acc0e2fd5134596ece6f9479c36cfcfce68
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Cosmos: 4a9f57998a08788a1062c7b8eefbc62d2b590f39
   DatePickerCell: f324217007d784b085647631c2067edadce58f55
@@ -146,6 +149,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 70c6a9e3d5006eb9fea81e3212352586ec380666
+PODFILE CHECKSUM: 0ac4602429e55ec5b3c37cf578533a26166d7cc0
 
 COCOAPODS: 1.4.0

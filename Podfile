@@ -61,6 +61,9 @@ pod 'SnapKit', '~> 4.0.0'
 # Indicator
 pod 'SVProgressHUD'
 
+# Transition
+pod "ARNTransitionAnimator"
+
 
   target 'talkTekTests' do
     inherit! :search_paths

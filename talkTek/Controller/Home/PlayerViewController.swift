@@ -11,9 +11,11 @@ import AVFoundation
 import FirebaseStorage
 import FirebaseDatabase
 import Firebase
+import ARNTransitionAnimator
 
 class PlayerViewController: UIViewController {
   
+
   var audioData = [AudioItem?]()
   var thisSong = 0
 
@@ -59,8 +61,8 @@ class PlayerViewController: UIViewController {
         selected = -1
       }
     }
-    
   }
+  
   var selected = -1
   func playThis(thisOne: String)
   {
@@ -197,6 +199,8 @@ class PlayerViewController: UIViewController {
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    
     
     photoToTopConstraint.constant = view.frame.height * 0.156
     playerToTopConstraint.constant = view.frame.height * 0.7
