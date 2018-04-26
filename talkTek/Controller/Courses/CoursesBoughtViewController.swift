@@ -11,9 +11,15 @@ import Firebase
 import FirebaseDatabase
 import FirebaseAuth
 import ESPullToRefresh
+import XLPagerTabStrip
 
 
-class CoursesBoughtViewController: UIViewController {
+class CoursesBoughtViewController: UIViewController, IndicatorInfoProvider {
+  
+  // MARK: - XLPagerTab Indicator Info
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "已購")
+  }
   
   // MARK: - tableview
   @IBOutlet weak var tableView: UITableView!
@@ -92,6 +98,11 @@ extension CoursesBoughtViewController: UITableViewDataSource, UITableViewDelegat
     }
     cell.authorNameLabel.text = homeCourses_Array[indexPath.row].authorName
     cell.titleLabel.text = homeCourses_Array[indexPath.row].courseTitle
+    
+    
+    // hide a few button
+    cell.heartButton.isHidden = true
+    
     
     ////////// waiting for price on sale UI
     if let priceOrigin = homeCourses_Array[indexPath.row].priceOrigin{

@@ -83,7 +83,7 @@ class CoursePageViewController: UIViewController {
     // uid from userdefaults, database init
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
-
+    
     // Tableview
     tableView.dataSource = self
     tableView.delegate = self

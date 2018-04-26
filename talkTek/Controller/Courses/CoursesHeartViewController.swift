@@ -10,23 +10,34 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import XLPagerTabStrip
 
-class CoursesHeartViewController: UIViewController {
+class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
+  
+  
+  // MARK: - XLPagerTab Indicator Info
+  func indicatorInfo(for pagerTabStripController: PagerTabStripViewController) -> IndicatorInfo {
+    return IndicatorInfo(title: "心願")
+  }
   
   var databaseRef: DatabaseReference!
-  var userID = ""
+  var uid: String?
+  var titleOfHeartCourses = [String]()
+
   @IBOutlet weak var tableView: UITableView!
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     tableView.delegate = self
     tableView.dataSource = self
-    
     tableView.tableFooterView = UIView()
     
-    userID = Auth.auth().currentUser!.uid
-    fetchData()
+    // uid from userdefaults, database init
+    uid = UserDefaults.standard.string(forKey: "uid")
+    databaseRef = Database.database().reference()
 
+    fetchData()
   }
   
   override func didReceiveMemoryWarning() {
@@ -34,37 +45,67 @@ class CoursesHeartViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  var heartCourses_Array = [HeartCourses]()
-  var heartCoursesToPass = HeartCourses()
+  var homeCourses_Array = [HomeCourses]()
+  var homeCoursesToPass = HomeCourses()
+  
   func fetchData(){
-    self.databaseRef = Database.database().reference()
-    self.databaseRef.child("HeartCourses/\(self.userID)").observe(.childAdded) { (snapshot) in
-      if let dictionary = snapshot.value as? [String: String]{
-        print("dictionary is \(dictionary)")
-        
-        let heartCourses = HeartCourses()
-        heartCourses.authorDescription = dictionary["authorDescription"]
-        heartCourses.authorImage = dictionary["authorImage"]
-        heartCourses.authorName = dictionary["authorName"]
-        heartCourses.courseDescription = dictionary["courseDescription"]
-        heartCourses.hour = dictionary["hour"]
-        heartCourses.overViewImage = dictionary["overViewImage"]
-        heartCourses.price = dictionary["price"]
-        heartCourses.score = dictionary["score"]
-        heartCourses.studentNumber = dictionary["studentNumber"]
-        heartCourses.title = dictionary["title"]
-        
-        self.heartCourses_Array.append(heartCourses)
-        DispatchQueue.main.async {
-          self.tableView.reloadData()
+    guard let uid = self.uid else { return }
+    self.databaseRef.child("HeartCourses").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid){
+        self.tableView.isHidden = false
+        self.databaseRef.child("HeartCourses").child(uid).observe(.value) { (snapshot) in
+          if let array = snapshot.value as? [String]{
+            self.titleOfHeartCourses = array
+          }
+          self.fetchAllCourses()
         }
-        
+        return
+      } else {
+        self.tableView.isHidden = true
+        return
       }
-      
     }
   }
   
- 
+  func fetchAllCourses(){
+    databaseRef = Database.database().reference()
+    self.homeCourses_Array.removeAll()
+    
+    databaseRef.child("AllCourses").observe(.childAdded) { (snapshot) in
+      if let dictionary = snapshot.value as? [String: Any]{
+        
+        let homeCourses = HomeCourses()
+        
+        homeCourses.authorDescription = dictionary["authorDescription"] as? String
+        homeCourses.authorId = dictionary["authorId"] as? String
+        homeCourses.authorImage = dictionary["authorImage"] as? String
+        homeCourses.authorName = dictionary["authorName"] as? String
+        homeCourses.courseDescription = dictionary["courseDescription"] as? String
+        homeCourses.courseId = dictionary["courseId"] as? String
+        homeCourses.courseTitle = dictionary["courseTitle"] as? String
+        homeCourses.overViewImage = dictionary["overViewImage"] as? String
+        homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
+        homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
+        homeCourses.scorePeople = dictionary["scorePeople"] as? Int
+        homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
+        homeCourses.studentNumber = dictionary["studentNumber"] as? Int
+        homeCourses.tags = dictionary["tags"] as! [String]
+        homeCourses.heart = true
+        
+        self.titleOfHeartCourses.forEach({ (value) in
+          if value == homeCourses.courseId {
+            self.homeCourses_Array.append(homeCourses)
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
+            return
+          }
+        })
+        
+        self.tableView.es.stopPullToRefresh()
+      }
+    }
+  }
   
 }
 
@@ -74,28 +115,42 @@ extension CoursesHeartViewController: UITableViewDataSource, UITableViewDelegate
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return heartCourses_Array.count
+    return homeCourses_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CoursesHeartTableViewCell
-    if let overviewUrl = heartCourses_Array[indexPath.row].overViewImage{
-      let url = URL(string: overviewUrl)
-      cell.overview_ImageView.kf.setImage(with: url)
+    let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MoreTableViewCell
+    
+    cell.authorImageView.layer.borderColor = UIColor.white.cgColor
+    if let iconUrl = homeCourses_Array[indexPath.row].overViewImage{
+      let url = URL(string: iconUrl)
+      cell.overviewImageView.kf.setImage(with: url)
+    }
+    if let iconUrl = homeCourses_Array[indexPath.row].authorImage{
+      let url = URL(string: iconUrl)
+      cell.authorImageView.kf.setImage(with: url)
+    }
+    cell.authorNameLabel.text = homeCourses_Array[indexPath.row].authorName
+    cell.titleLabel.text = homeCourses_Array[indexPath.row].courseTitle
+    
+    ////////// waiting for price on sale UI
+    if let priceOrigin = homeCourses_Array[indexPath.row].priceOrigin{
+      cell.money_Label.text = "\(priceOrigin)"
     }
     
-    if let authorUrl = heartCourses_Array[indexPath.row].authorImage{
-      let url = URL(string: authorUrl)
-      cell.author_ImageView.kf.setImage(with: url)
+    
+    if let studentNumber = homeCourses_Array[indexPath.row].studentNumber {
+      cell.studentNumberLabel.text = "\(studentNumber)"
     }
     
-    cell.title_Label.text = heartCourses_Array[indexPath.row].title
-    cell.teacherName_Label.text = heartCourses_Array[indexPath.row].authorName
-    
+    if let scorePeople = homeCourses_Array[indexPath.row].scorePeople {
+      cell.commentNumberLabel.text = "\(scorePeople)"
+    }
     
     return cell
+    
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-    return 109
+    return 129
   }
 }

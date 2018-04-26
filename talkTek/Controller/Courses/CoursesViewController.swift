@@ -7,35 +7,31 @@
 //
 
 import UIKit
+import XLPagerTabStrip
 
-class CoursesViewController: UIViewController {
+class CoursesViewController: ButtonBarPagerTabStripViewController {
   
-  @IBOutlet weak var segmentedControl: UISegmentedControl!
-  lazy var payViewController: CoursesBoughtViewController = {
-    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    var viewController = storyboard.instantiateViewController(withIdentifier: "CoursesBoughtViewController") as! CoursesBoughtViewController
-    self.addViewControllerAsChildViewController(childViewController: viewController)
-    return viewController
-  }()
-  lazy var freeViewController: CoursesHeartViewController = {
-    let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-    var viewController = storyboard.instantiateViewController(withIdentifier: "CoursesHeartViewController") as! CoursesHeartViewController
-    self.addViewControllerAsChildViewController(childViewController: viewController)
-    return viewController
-  }()
   
+  let tealish = UIColor.tealish()
+
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if #available(iOS 11.0, *) {
-      navigationController?.navigationBar.prefersLargeTitles = true
-    } else {
-      // Fallback on earlier versions
+    settings.style.buttonBarBackgroundColor = .white
+    settings.style.buttonBarItemBackgroundColor = .white
+    settings.style.selectedBarBackgroundColor = UIColor.tealish()
+    settings.style.buttonBarItemFont = .boldSystemFont(ofSize: 14)
+    settings.style.selectedBarHeight = CGFloat(1.0)
+    settings.style.buttonBarMinimumLineSpacing = 0
+    settings.style.buttonBarItemTitleColor = UIColor.tealish()
+    settings.style.buttonBarItemsShouldFillAvailiableWidth = true
+    settings.style.buttonBarLeftContentInset = 0
+    settings.style.buttonBarRightContentInset = 0
+    changeCurrentIndexProgressive = { [weak self] (oldCell: ButtonBarViewCell?, newCell: ButtonBarViewCell?, progressPercentage: CGFloat, changeCurrentIndex: Bool, animated: Bool) -> Void in
+      guard changeCurrentIndex == true else { return }
+      oldCell?.label.textColor = UIColor.lightGray
+      newCell?.label.textColor = self?.tealish
     }
-    searchImplement()
-    
-    setUpView()
-    segmentedControl.addUnderlineForSelectedSegment()
     
   }
   
@@ -44,66 +40,14 @@ class CoursesViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
-  
-  func searchImplement(){
-    let search = UISearchController(searchResultsController: nil)
-    search.searchResultsUpdater = self as? UISearchResultsUpdating
-    if #available(iOS 11.0, *) {
-      self.navigationItem.searchController = search
-    } else {
-      // Fallback on earlier versions
-    }
-  }
-  
-  
-  
-  private func setUpView() {
-    setUpSegmentedControl()
-    
-    updateView()
-  }
-  
-  private func updateView() {
-    payViewController.view.isHidden = !(segmentedControl.selectedSegmentIndex == 0)
-    freeViewController.view.isHidden = (segmentedControl.selectedSegmentIndex == 0)
-  }
-  
-  private func setUpSegmentedControl() {
+  override func viewControllers (for pagerTabStripController: PagerTabStripViewController) -> [UIViewController] {
+    let child_1 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Bought") as! CoursesBoughtViewController
     
     
-    segmentedControl.removeAllSegments()
-    segmentedControl.insertSegment(withTitle: "已購", at: 0, animated: false)
-    segmentedControl.insertSegment(withTitle: "心願單", at: 1, animated: false)
-    segmentedControl.addTarget(self, action: #selector(selectionDidChange(sender:)), for: .valueChanged)
+    let child_2 = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Heart") as! CoursesHeartViewController
     
-    segmentedControl.selectedSegmentIndex = 0
     
-  }
-  
-  @objc func selectionDidChange(sender: UISegmentedControl) {
-    segmentedControl.changeUnderlinePosition()
-    
-    updateView()
-  }
-  
-  private func addViewControllerAsChildViewController(childViewController: UIViewController) {
-    addChildViewController(childViewController)
-    
-    view.insertSubview(childViewController.view, at: 0)
-    
-    childViewController.view.frame = view.bounds
-    childViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-    
-    childViewController.didMove(toParentViewController: self)
-    
-  }
-  
-  private func removeViewControllerAsChildViewController(childViewController: UIViewController) {
-    childViewController.willMove(toParentViewController: nil)
-    
-    childViewController.view.removeFromSuperview()
-    
-    childViewController.removeFromParentViewController()
+    return [child_1, child_2]
   }
   
   

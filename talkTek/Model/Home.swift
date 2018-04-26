@@ -26,6 +26,8 @@ class HomeCourses: NSObject, Encodable {
   var studentNumber: Int?
   var tags: [String?] = []
   
+  var heart: Bool = false
+  
 }
 
 

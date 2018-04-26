@@ -95,14 +95,31 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
       let url = URL(string: authorUrl)
       cell.author_ImageView.kf.setImage(with: url)
     }
-    
     cell.title_Label.text = homeCourses_Array[indexPath.item].courseTitle
+    
+    if homeCourses_Array[indexPath.item].heart {
+      cell.heart_Button.setImage(UIImage(named: "播放"), for: .normal)
+    } else {
+      cell.heart_Button.setImage(UIImage(named: "搜尋"), for: .normal)
+    }
+    
+    cell.heart_Button.tag = indexPath.item
+    cell.heart_Button.addTarget(self, action: #selector(heartButtonTapped(_:)), for: .touchUpInside)
+    
     return cell
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     homeCouresToPass = homeCourses_Array[indexPath.item]
     performSegue(withIdentifier: "identifierDetail", sender: self)
   }
+  
+  @objc func heartButtonTapped(_ sender: UIButton){
+    
+    homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
+    collectionView.reloadData()
+    
+  }
+  
 }
 
 extension HotViewController: UICollectionViewDelegateFlowLayout{
