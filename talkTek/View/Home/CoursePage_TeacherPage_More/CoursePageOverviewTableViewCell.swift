@@ -10,6 +10,9 @@ import UIKit
 
 class CoursePageOverviewTableViewCell: UITableViewCell {
   
+  
+  @IBOutlet weak var heartButton: UIButton!
+
   @IBOutlet weak var overviewImageView: UIImageView!
   
   @IBOutlet weak var topicLabel: UILabel!

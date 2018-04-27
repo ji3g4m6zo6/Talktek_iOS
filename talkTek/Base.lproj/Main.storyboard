@@ -1638,12 +1638,12 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mM-Cm-59t">
-                                                    <rect key="frame" x="160" y="10" width="15" height="15"/>
+                                                    <rect key="frame" x="154" y="10" width="21" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="bFX-sP-6Ea"/>
-                                                        <constraint firstAttribute="height" constant="15" id="fY6-fe-alx"/>
+                                                        <constraint firstAttribute="width" constant="21" id="bFX-sP-6Ea"/>
+                                                        <constraint firstAttribute="height" constant="21" id="fY6-fe-alx"/>
                                                     </constraints>
-                                                    <state key="normal" image="心願"/>
+                                                    <state key="normal" image="heartEmpty"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1767,7 +1767,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38人購買" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIV-MP-FyU">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="38人購買" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIV-MP-FyU">
                                                     <rect key="frame" x="195" y="56" width="180" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="gWZ-71-ssD"/>
@@ -1811,7 +1811,7 @@
                                                         <constraint firstAttribute="height" constant="12" id="MUZ-bO-OZS"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(11,032)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-pD-tZ3">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(11,032)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NsK-pD-tZ3">
                                                     <rect key="frame" x="258" y="73.5" width="117" height="17"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="17" id="Hbm-w0-W5O"/>
@@ -1827,7 +1827,7 @@
                                                         <constraint firstAttribute="height" constant="36" id="pMD-dD-5Bw"/>
                                                     </constraints>
                                                 </imageView>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="ZMK-w3-8R3">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="錢幣" translatesAutoresizingMaskIntoConstraints="NO" id="ZMK-w3-8R3">
                                                     <rect key="frame" x="195" y="38" width="15" height="15"/>
                                                     <color key="tintColor" red="0.98039215690000003" green="0.74901960779999999" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -1835,19 +1835,19 @@
                                                         <constraint firstAttribute="width" constant="15" id="gb2-fk-39Q"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="109點" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-TU-aiN">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="109點" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Umn-TU-aiN">
                                                     <rect key="frame" x="212" y="38" width="33.5" height="14.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e61-zG-v5t">
-                                                    <rect key="frame" x="160" y="10" width="15" height="15"/>
+                                                    <rect key="frame" x="154" y="10" width="21" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="8zb-Dc-CY4"/>
-                                                        <constraint firstAttribute="width" constant="15" id="Ixe-Bu-kpa"/>
+                                                        <constraint firstAttribute="height" constant="21" id="8zb-Dc-CY4"/>
+                                                        <constraint firstAttribute="width" constant="21" id="Ixe-Bu-kpa"/>
                                                     </constraints>
-                                                    <state key="normal" image="心願"/>
+                                                    <state key="normal" image="heartEmpty"/>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -4678,13 +4678,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eks-xB-Vxq">
-                                                    <rect key="frame" x="135" y="10" width="15" height="15"/>
+                                                    <rect key="frame" x="129" y="10" width="21" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="2YY-uh-Zo0"/>
-                                                        <constraint firstAttribute="height" constant="15" id="xtT-e4-atS"/>
+                                                        <constraint firstAttribute="width" constant="21" id="2YY-uh-Zo0"/>
+                                                        <constraint firstAttribute="height" constant="21" id="xtT-e4-atS"/>
                                                     </constraints>
                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" image="心願"/>
+                                                    <state key="normal" image="heartEmpty"/>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ua2-Er-4MS">
                                                     <rect key="frame" x="0.0" y="71" width="37" height="37"/>
@@ -4816,13 +4816,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cxR-eW-wXi">
-                                                    <rect key="frame" x="135" y="10" width="15" height="15"/>
+                                                    <rect key="frame" x="129" y="10" width="21" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="6qY-Yh-5zZ"/>
-                                                        <constraint firstAttribute="width" constant="15" id="UEK-2j-vaw"/>
+                                                        <constraint firstAttribute="height" constant="21" id="6qY-Yh-5zZ"/>
+                                                        <constraint firstAttribute="width" constant="21" id="UEK-2j-vaw"/>
                                                     </constraints>
                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" image="心願"/>
+                                                    <state key="normal" image="heartEmpty"/>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fhV-27-Zab">
                                                     <rect key="frame" x="0.0" y="71" width="37" height="37"/>
@@ -4954,13 +4954,13 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjH-sE-C6c">
-                                                    <rect key="frame" x="135" y="10" width="15" height="15"/>
+                                                    <rect key="frame" x="129" y="10" width="21" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="15" id="J63-ft-EGX"/>
-                                                        <constraint firstAttribute="height" constant="15" id="ztb-6f-jYg"/>
+                                                        <constraint firstAttribute="width" constant="21" id="J63-ft-EGX"/>
+                                                        <constraint firstAttribute="height" constant="21" id="ztb-6f-jYg"/>
                                                     </constraints>
                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" image="心願"/>
+                                                    <state key="normal" image="heartEmpty"/>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pO9-bW-4Wd">
                                                     <rect key="frame" x="0.0" y="71" width="37" height="37"/>
@@ -5570,7 +5570,7 @@
                                                                 <constraint firstAttribute="height" constant="21" id="oNS-wh-JcS"/>
                                                             </constraints>
                                                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <state key="normal" image="心願"/>
+                                                            <state key="normal" image="heartEmpty"/>
                                                         </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -5629,6 +5629,7 @@
                                         <connections>
                                             <outlet property="clockIcon_ImageView" destination="kda-1D-e7f" id="6K3-Lg-IZO"/>
                                             <outlet property="coursesNumberLabel" destination="o26-7c-k38" id="Cja-CX-QY6"/>
+                                            <outlet property="heartButton" destination="YJ3-61-2NR" id="Lej-6W-X4V"/>
                                             <outlet property="overviewImageView" destination="aWB-fY-KV9" id="Whu-Ko-mSQ"/>
                                             <outlet property="peopleIcon_ImageView" destination="o1H-l0-3xr" id="ooB-0Z-VR3"/>
                                             <outlet property="scoreNumberLabel" destination="XBd-ZP-mFQ" id="FPa-kr-j0d"/>
@@ -6781,14 +6782,14 @@
                                                         <constraint firstAttribute="height" constant="90" id="Dnj-ha-LqX"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoA-pe-Sru">
-                                                    <rect key="frame" x="135" y="10" width="15" height="15"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BoA-pe-Sru">
+                                                    <rect key="frame" x="129" y="10" width="21" height="21"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="15" id="I64-o2-ViG"/>
-                                                        <constraint firstAttribute="width" constant="15" id="qkM-Hj-E8k"/>
+                                                        <constraint firstAttribute="height" constant="21" id="I64-o2-ViG"/>
+                                                        <constraint firstAttribute="width" constant="21" id="qkM-Hj-E8k"/>
                                                     </constraints>
                                                     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <state key="normal" image="播放器_收藏"/>
+                                                    <state key="normal" image="heartEmpty"/>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bUJ-Y6-aH4">
                                                     <rect key="frame" x="0.0" y="71" width="37" height="37"/>
@@ -6975,20 +6976,19 @@
         <image name="Tab_設置" width="20" height="20"/>
         <image name="Tab_首頁" width="20" height="20"/>
         <image name="TestIcon" width="160" height="160"/>
+        <image name="heartEmpty" width="21" height="21"/>
         <image name="i8 第一登入頁" width="375" height="667"/>
         <image name="logo" width="240" height="320"/>
         <image name="往上" width="20" height="20"/>
         <image name="往下" width="20" height="20"/>
         <image name="往前" width="20" height="20"/>
         <image name="往後" width="20" height="20"/>
-        <image name="心願" width="17" height="17"/>
         <image name="播放" width="20" height="20"/>
         <image name="播放(大)" width="50" height="50"/>
         <image name="播放器_下一首" width="20" height="20"/>
         <image name="播放器_前一首" width="20" height="20"/>
         <image name="播放器_往前15秒" width="25" height="25"/>
         <image name="播放器_往後15秒" width="25" height="25"/>
-        <image name="播放器_收藏" width="20" height="20"/>
         <image name="未登入人像" width="110" height="110"/>
         <image name="畫圈圈" width="200" height="200"/>
         <image name="相機" width="16" height="16"/>

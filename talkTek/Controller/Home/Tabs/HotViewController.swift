@@ -45,8 +45,6 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
     
-    // MARK: - fetch data from firebase & split from tags
-    fetchData()
     
     // MARK: - ESPullToRefresh
     collectionView.es.addPullToRefresh {
@@ -60,11 +58,19 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     super.didReceiveMemoryWarning()
   }
   
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    
+    // MARK: - fetch data from firebase & split from tags
+    fetchData()
+  }
+  
   // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CoursePageViewController
-      destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.detailToGet = homeCouresToPass
+      destinationViewController.titleOfHeartCourses = titleOfHeartCourses
       destinationViewController.homeCourseType = "hot"
       destinationViewController.hidesBottomBarWhenPushed = true
     }
@@ -105,9 +111,9 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     cell.title_Label.text = homeCourses_Array[indexPath.item].courseTitle
     
     if homeCourses_Array[indexPath.item].heart {
-      cell.heart_Button.setImage(UIImage(named: "心願"), for: .normal)
+      cell.heart_Button.setImage(UIImage(named: "heartFill"), for: .normal)
     } else {
-      cell.heart_Button.setImage(UIImage(named: "搜尋"), for: .normal)
+      cell.heart_Button.setImage(UIImage(named: "heartEmpty"), for: .normal)
     }
     
     cell.heart_Button.tag = indexPath.item
@@ -129,6 +135,7 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
       homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
       titleOfHeartCourses.remove(at: sender.tag)
       updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+      collectionView.reloadData()
       
     } else { // if false(未收藏) -> 加入收藏
       
@@ -137,7 +144,8 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
         titleOfHeartCourses.append(courseId)
         updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
       }
-      
+      collectionView.reloadData()
+
     }
     
   }
@@ -240,7 +248,7 @@ extension HotViewController {
           SVProgressHUD.dismiss()
         })
       } else {
-        print("Successfully add to heart")
+        print("Successfully update heart")
       }
       
     }

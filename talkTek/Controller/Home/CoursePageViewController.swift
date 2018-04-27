@@ -31,6 +31,7 @@ class CoursePageViewController: UIViewController {
   // MARK: - API save
   var detailToGet = HomeCourses()
   var titleOfBoughtCourses = [String]()
+  var titleOfHeartCourses = [String]()
   var audioItem_Array = [AudioItem?]()
   var audioItemFromDatabase = [AudioItem]()
   var sections = [String]()
@@ -179,7 +180,13 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     switch indexPath.section {
     case DetailViewSection.main.rawValue:
       let cell = tableView.dequeueReusableCell(withIdentifier: "overview", for: indexPath) as! CoursePageOverviewTableViewCell
-      
+      if detailToGet.heart {
+        cell.heartButton.setImage(UIImage(named: "心願"), for: .normal)
+      } else {
+        cell.heartButton.setImage(UIImage(named: "搜尋"), for: .normal)
+      }
+      cell.heartButton.addTarget(self, action: #selector(heartButtonTapped(_:)), for: .touchUpInside)
+
       if let iconUrl = detailToGet.overViewImage{
         let url = URL(string: iconUrl)
         cell.overviewImageView.kf.setImage(with: url)
@@ -446,6 +453,62 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     performSegue(withIdentifier: "identifierPlayer", sender: self)
+  }
+  
+  // heart Button
+  @objc func heartButtonTapped(_ sender: UIButton){
+    if detailToGet.heart { // if true(已收藏) -> 移除收藏
+      
+      // firebase set value of array
+      
+      
+      detailToGet.heart = !detailToGet.heart
+      titleOfHeartCourses.remove(at: sender.tag)
+      
+      addHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+
+      tableView.reloadData()
+      
+    } else { // if false(未收藏) -> 加入收藏
+      
+      detailToGet.heart = !detailToGet.heart
+      if let courseId = detailToGet.courseId {
+        titleOfHeartCourses.append(courseId)
+        addHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+      }
+      tableView.reloadData()
+      
+    }
+    
+  }
+  
+  func addHeartToNetwork(updatedTitleOfHeartCourses: [String]){
+    guard let uid = self.uid else { return }
+    databaseRef.child("HeartCourses").child(uid).setValue(updatedTitleOfHeartCourses) { (error, _) in
+      if error != nil {
+        SVProgressHUD.showError(withStatus: "設定失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+      } else {
+        print("Successfully add heart")
+      }
+      
+    }
+  }
+  
+  func removeHeartToNetwork() {
+    guard let uid = self.uid else { return }
+    databaseRef.child("HeartCourses").child(uid).removeValue { (error, _) in
+      if error != nil {
+        SVProgressHUD.showError(withStatus: "刪除失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+      } else {
+        print("Successfully delete heart")
+      }
+    }
   }
 }
 
