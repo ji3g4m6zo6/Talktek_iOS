@@ -45,6 +45,8 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
     
+    // MARK: - fetch data from firebase & split from tags
+    fetchData()
     
     // MARK: - ESPullToRefresh
     collectionView.es.addPullToRefresh {
@@ -61,8 +63,7 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
     
-    // MARK: - fetch data from firebase & split from tags
-    fetchData()
+    
   }
   
   // MARK: - Segue
@@ -214,7 +215,7 @@ extension HotViewController {
   
   func fetchHeartCourse(){
     guard let uid = self.uid else { return }
-    databaseRef.child("HeartCourses").observeSingleEvent(of: .value) { (snapshot) in
+    databaseRef.child("HeartCourses").observe(.value) { (snapshot) in
       if snapshot.hasChild(uid){
         self.databaseRef.child("HeartCourses").child(uid).observe(.value) { (snapshot) in
           if let array = snapshot.value as? [String]{
