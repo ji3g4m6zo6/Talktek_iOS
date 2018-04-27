@@ -134,9 +134,14 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
       
       
       homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
-      titleOfHeartCourses.remove(at: sender.tag)
-      updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
-      collectionView.reloadData()
+      if let courseId = homeCourses_Array[sender.tag].courseId {
+        if let title = titleOfHeartCourses.index(of: courseId) {
+          titleOfHeartCourses.remove(at: title)
+          updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+          collectionView.reloadData()
+        }
+
+      }
       
     } else { // if false(未收藏) -> 加入收藏
       

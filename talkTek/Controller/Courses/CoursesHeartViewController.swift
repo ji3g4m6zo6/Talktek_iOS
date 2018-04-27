@@ -12,6 +12,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import ESPullToRefresh
 import XLPagerTabStrip
+import SVProgressHUD
 
 class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   
@@ -38,6 +39,12 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
 
+  
+    fetchData()
+    tableView.es.addPullToRefresh {
+      [unowned self] in
+      self.fetchData()
+    }
   }
   
   override func didReceiveMemoryWarning() {
@@ -47,11 +54,7 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    fetchData()
-    tableView.es.addPullToRefresh {
-      [unowned self] in
-      self.fetchData()
-    }
+    
   }
   
   var homeCourses_Array = [HomeCourses]()
@@ -59,7 +62,7 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   
   func fetchData(){
     guard let uid = self.uid else { return }
-    self.databaseRef.child("HeartCourses").observeSingleEvent(of: .value) { (snapshot) in
+    self.databaseRef.child("HeartCourses").observe(.value) { (snapshot) in
       if snapshot.hasChild(uid){
         self.tableView.isHidden = false
         self.databaseRef.child("HeartCourses").child(uid).observe(.value) { (snapshot) in
@@ -78,7 +81,7 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   
   func fetchAllCourses(){
     databaseRef = Database.database().reference()
-    self.homeCourses_Array.removeAll()
+    homeCourses_Array.removeAll()
     
     databaseRef.child("AllCourses").observe(.childAdded) { (snapshot) in
       if let dictionary = snapshot.value as? [String: Any]{
@@ -124,6 +127,7 @@ extension CoursesHeartViewController: UITableViewDataSource, UITableViewDelegate
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    print("home array \(homeCourses_Array.count)")
     return homeCourses_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -163,11 +167,63 @@ extension CoursesHeartViewController: UITableViewDataSource, UITableViewDelegate
       cell.commentNumberLabel.text = "(\(scorePeople))"
     }
     
+    
+    if homeCourses_Array[indexPath.item].heart {
+      cell.heartButton.setImage(UIImage(named: "heartFill"), for: .normal)
+    } else {
+      cell.heartButton.setImage(UIImage(named: "heartEmpty"), for: .normal)
+    }
+    
+    cell.heartButton.tag = indexPath.row
+    cell.heartButton.addTarget(self, action: #selector(heartButtonTapped(_:)), for: .touchUpInside)
+    
     return cell
     
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 129
+  }
+  
+  @objc func heartButtonTapped(_ sender: UIButton){
+    if homeCourses_Array[sender.tag].heart { // if true(已收藏) -> 移除收藏
+      
+      // firebase set value of array
+      homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
+      if let courseId = homeCourses_Array[sender.tag].courseId {
+        if let title = titleOfHeartCourses.index(of: courseId) {
+          titleOfHeartCourses.remove(at: title)
+          updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+        }
+        
+      }
+      
+      
+    } else { // if false(未收藏) -> 加入收藏
+      
+      homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
+      if let courseId = homeCourses_Array[sender.tag].courseId {
+        titleOfHeartCourses.append(courseId)
+        updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+      }
+      tableView.reloadData()
+      
+    }
+    
+  }
+  func updateHeartToNetwork(updatedTitleOfHeartCourses: [String]){
+    guard let uid = self.uid else { return }
+    databaseRef.child("HeartCourses").child(uid).setValue(updatedTitleOfHeartCourses) { (error, _) in
+      if error != nil {
+        SVProgressHUD.showError(withStatus: "設定失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+      } else {
+        self.fetchData()
+        print("Successfully update heart")
+      }
+      
+    }
   }
 }
