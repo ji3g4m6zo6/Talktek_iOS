@@ -230,6 +230,10 @@ extension HotViewController {
         }
         return
       } else {
+        for course in self.homeCourses_Array{
+          course.heart = false
+        }
+        self.collectionView.reloadData()
         return
       }
     }

@@ -40,11 +40,7 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
     databaseRef = Database.database().reference()
 
   
-    fetchData()
-    tableView.es.addPullToRefresh {
-      [unowned self] in
-      self.fetchData()
-    }
+    
   }
   
   override func didReceiveMemoryWarning() {
@@ -54,7 +50,11 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    
+    fetchData()
+    tableView.es.addPullToRefresh {
+      [unowned self] in
+      self.fetchData()
+    }
   }
   
   var homeCourses_Array = [HomeCourses]()
@@ -62,10 +62,10 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   
   func fetchData(){
     guard let uid = self.uid else { return }
-    self.databaseRef.child("HeartCourses").observe(.value) { (snapshot) in
+    self.databaseRef.child("HeartCourses").observeSingleEvent(of: .value) { (snapshot) in
       if snapshot.hasChild(uid){
         self.tableView.isHidden = false
-        self.databaseRef.child("HeartCourses").child(uid).observe(.value) { (snapshot) in
+        self.databaseRef.child("HeartCourses").child(uid).observeSingleEvent(of: .value) { (snapshot) in
           if let array = snapshot.value as? [String]{
             self.titleOfHeartCourses = array
           }
