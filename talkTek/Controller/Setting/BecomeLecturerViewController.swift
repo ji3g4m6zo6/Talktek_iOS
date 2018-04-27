@@ -35,7 +35,7 @@ class BecomeLecturerViewController: UIViewController, UITextViewDelegate {
     
     description_TextView.layer.borderWidth = 1.0
     description_TextView.layer.borderColor = UIColor.borderGray().cgColor
-    description_TextView.textColor = UIColor.lightGray
+    description_TextView.textColor = UIColor.greyPlaceholderColor()
     description_TextView.delegate = self
   }
   func textViewDidBeginEditing(_ textView: UITextView) {

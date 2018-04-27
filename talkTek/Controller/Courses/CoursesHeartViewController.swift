@@ -132,18 +132,26 @@ extension CoursesHeartViewController: UITableViewDataSource, UITableViewDelegate
     cell.authorNameLabel.text = homeCourses_Array[indexPath.row].authorName
     cell.titleLabel.text = homeCourses_Array[indexPath.row].courseTitle
     
+    
+    // hide a few button
+    cell.iconImageView.isHidden = true
+    cell.money_Label.isHidden = true
+    cell.studentNumberLabel.isHidden = true
+    cell.commentNumberLabel.isHidden = true
+    
+    
     ////////// waiting for price on sale UI
     if let priceOrigin = homeCourses_Array[indexPath.row].priceOrigin{
-      cell.money_Label.text = "\(priceOrigin)"
+      cell.money_Label.text = "\(priceOrigin)點"
     }
     
     
     if let studentNumber = homeCourses_Array[indexPath.row].studentNumber {
-      cell.studentNumberLabel.text = "\(studentNumber)"
+      cell.studentNumberLabel.text = "\(studentNumber)人購買"
     }
     
     if let scorePeople = homeCourses_Array[indexPath.row].scorePeople {
-      cell.commentNumberLabel.text = "\(scorePeople)"
+      cell.commentNumberLabel.text = "(\(scorePeople))"
     }
     
     return cell

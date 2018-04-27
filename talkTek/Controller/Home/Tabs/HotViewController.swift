@@ -23,9 +23,12 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
   
   
   // MARK: - Firebase Outlets
+  var uid: String?
   var databaseRef: DatabaseReference!
   var homeCourses_Array = [HomeCourses]()
   var homeCouresToPass = HomeCourses()
+  var titleOfHeartCourses = [String]()
+
 
   // MARK: - UICollectionView
   @IBOutlet weak var collectionView: UICollectionView!
@@ -37,6 +40,10 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     // MARK: - collection view datasource & delegate
     collectionView.dataSource = self
     collectionView.delegate = self
+    
+    // uid from userdefaults, database init
+    uid = UserDefaults.standard.string(forKey: "uid")
+    databaseRef = Database.database().reference()
     
     // MARK: - fetch data from firebase & split from tags
     fetchData()
@@ -98,7 +105,7 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     cell.title_Label.text = homeCourses_Array[indexPath.item].courseTitle
     
     if homeCourses_Array[indexPath.item].heart {
-      cell.heart_Button.setImage(UIImage(named: "播放"), for: .normal)
+      cell.heart_Button.setImage(UIImage(named: "心願"), for: .normal)
     } else {
       cell.heart_Button.setImage(UIImage(named: "搜尋"), for: .normal)
     }
@@ -179,5 +186,34 @@ extension HotViewController {
         self.collectionView.reloadData()
       }
     }
+    fetchHeartCourse()
   }
+  
+  func fetchHeartCourse(){
+    guard let uid = self.uid else { return }
+    databaseRef.child("HeartCourses").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid){
+        self.databaseRef.child("HeartCourses").child(uid).observe(.value) { (snapshot) in
+          if let array = snapshot.value as? [String]{
+            self.titleOfHeartCourses = array
+          }
+          self.loopThroughHeart()
+        }
+        return
+      } else {
+        return
+      }
+    }
+  }
+  func loopThroughHeart(){
+    for course in homeCourses_Array {
+      for heart in titleOfHeartCourses {
+        if course.courseId == heart {
+          course.heart = true
+          collectionView.reloadData()
+        }
+      }
+    }
+  }
+  
 }

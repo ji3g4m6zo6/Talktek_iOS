@@ -30,11 +30,11 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
   
     description_TextView.layer.borderWidth = 1.0
     description_TextView.layer.borderColor = UIColor.borderGray().cgColor
-    description_TextView.textColor = UIColor.lightGray
+    description_TextView.textColor = UIColor.greyPlaceholderColor()
     description_TextView.delegate = self
   }
   func textViewDidBeginEditing(_ textView: UITextView) {
-    if description_TextView.textColor == UIColor.lightGray {
+    if description_TextView.textColor == UIColor.greyPlaceholderColor() {
       description_TextView.text = nil
       description_TextView.textColor = UIColor.black
     }
@@ -42,7 +42,7 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
   func textViewDidEndEditing(_ textView: UITextView) {
     if description_TextView.text.isEmpty {
       description_TextView.text = "輸入課程內容"
-      description_TextView.textColor = UIColor.lightGray
+      description_TextView.textColor = UIColor.greyPlaceholderColor()
     }
   }
   override func didReceiveMemoryWarning() {
