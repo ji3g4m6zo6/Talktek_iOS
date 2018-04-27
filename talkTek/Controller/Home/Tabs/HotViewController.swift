@@ -12,7 +12,7 @@ import FirebaseDatabase
 import Kingfisher
 import XLPagerTabStrip
 import ESPullToRefresh
-
+import SVProgressHUD
 
 class HotViewController: UIViewController, IndicatorInfoProvider {
   
@@ -121,9 +121,24 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
   }
   
   @objc func heartButtonTapped(_ sender: UIButton){
-    
-    homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
-    collectionView.reloadData()
+    if homeCourses_Array[sender.tag].heart { // if true(已收藏) -> 移除收藏
+      
+      // firebase set value of array
+      
+      
+      homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
+      titleOfHeartCourses.remove(at: sender.tag)
+      updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+      
+    } else { // if false(未收藏) -> 加入收藏
+      
+      homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
+      if let courseId = homeCourses_Array[sender.tag].courseId {
+        titleOfHeartCourses.append(courseId)
+        updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+      }
+      
+    }
     
   }
   
@@ -213,6 +228,21 @@ extension HotViewController {
           collectionView.reloadData()
         }
       }
+    }
+  }
+  
+  func updateHeartToNetwork(updatedTitleOfHeartCourses: [String]){
+    guard let uid = self.uid else { return }
+    databaseRef.child("HeartCourses").child(uid).setValue(updatedTitleOfHeartCourses) { (error, _) in
+      if error != nil {
+        SVProgressHUD.showError(withStatus: "設定失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+      } else {
+        print("Successfully add to heart")
+      }
+      
     }
   }
   

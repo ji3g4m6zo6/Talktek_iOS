@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseDatabase
 import FirebaseAuth
+import ESPullToRefresh
 import XLPagerTabStrip
 
 class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
@@ -37,12 +38,20 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
     uid = UserDefaults.standard.string(forKey: "uid")
     databaseRef = Database.database().reference()
 
-    fetchData()
   }
   
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    fetchData()
+    tableView.es.addPullToRefresh {
+      [unowned self] in
+      self.fetchData()
+    }
   }
   
   var homeCourses_Array = [HomeCourses]()
