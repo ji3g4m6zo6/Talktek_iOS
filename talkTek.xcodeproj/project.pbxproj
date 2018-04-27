@@ -99,6 +99,7 @@
 		AEB8D5B5208F41B600C82729 /* MiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB8D5B3208F41B600C82729 /* MiniPlayerView.xib */; };
 		AEB8D5B6208F41B600C82729 /* MiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D5B4208F41B600C82729 /* MiniPlayer.swift */; };
 		AEB8D5B8208F6D8600C82729 /* PassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D5B7208F6D8600C82729 /* PassView.swift */; };
+		AEB8D5BA209306BC00C82729 /* PaddingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D5B9209306BC00C82729 /* PaddingExtension.swift */; };
 		AEBD5BF920810ADE00A83FA6 /* PurchaseMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBD5BF820810ADE00A83FA6 /* PurchaseMainTableViewCell.swift */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
 		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
@@ -229,6 +230,7 @@
 		AEB8D5B3208F41B600C82729 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
 		AEB8D5B4208F41B600C82729 /* MiniPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayer.swift; sourceTree = "<group>"; };
 		AEB8D5B7208F6D8600C82729 /* PassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassView.swift; sourceTree = "<group>"; };
+		AEB8D5B9209306BC00C82729 /* PaddingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingExtension.swift; sourceTree = "<group>"; };
 		AEBD5BF820810ADE00A83FA6 /* PurchaseMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMainTableViewCell.swift; sourceTree = "<group>"; };
 		E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -438,6 +440,7 @@
 				0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */,
 				0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */,
 				04294FCD1FE1573900CB4FCA /* UIViewExtension.swift */,
+				AEB8D5B9209306BC00C82729 /* PaddingExtension.swift */,
 				044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */,
 				044EB21C1FD05DC300CE1EBB /* talkTek-Bridging-Header.h */,
 			);
@@ -954,6 +957,7 @@
 				04445AE71FC6FFCF004D2825 /* CoursesHeartViewController.swift in Sources */,
 				04D06AEB1FCA94FF00E1702F /* SettingViewController.swift in Sources */,
 				04297B5A1FDEB2DF0096E928 /* SignUpViewController.swift in Sources */,
+				AEB8D5BA209306BC00C82729 /* PaddingExtension.swift in Sources */,
 				04DD58AA1FEAC296009944D2 /* HistoryTableViewCell.swift in Sources */,
 				044F0BC51FC5D7C600E98E45 /* TeacherInfoTableViewCell.swift in Sources */,
 				04445AEB1FC70275004D2825 /* CoursesHeartTableViewCell.swift in Sources */,

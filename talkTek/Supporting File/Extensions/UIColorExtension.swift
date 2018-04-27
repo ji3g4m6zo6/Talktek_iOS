@@ -12,6 +12,10 @@ import UIKit
 
 extension UIColor {
   
+  class func greyPlaceholderColor() -> UIColor {
+    return UIColor(red: 0.78, green: 0.78, blue: 0.80, alpha: 1.0)
+  }
+  
   class func tealish() -> UIColor {
     let r = 31.0 / 255.0
     let g = 191.0 / 255.0
