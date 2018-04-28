@@ -19,9 +19,9 @@ class User: NSObject{
   
 }
 
-class CashFlow: NSObject {
-  var CashValue: Int?
-  var RewardPoints: Int?
+struct CashFlow {
+  var CashValue: Int = 0
+  var RewardPoints: Int = 0
 }
 
 class CashFlowHistory: NSObject {

@@ -666,7 +666,8 @@ extension CoursePageViewController {
   // MARK: - Buy
   // depend on price onsale or origin, add to bought course, add to money, thisCourseHasBought update, alert success or error
   func buy(){
-    guard let uid = self.uid, let money = cashFlow.RewardPoints, let courseId = detailToGet.courseId else { return }
+    guard let uid = self.uid, let courseId = detailToGet.courseId else { return }
+    let money = cashFlow.RewardPoints
     if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
       
       // Depend on priceOnSales or priceOrigin
@@ -711,7 +712,8 @@ extension CoursePageViewController {
   
   // update point
   func addRewardPoints(addRewardPoints: Int){
-    guard let uid = uid, let rewardPoints = cashFlow.RewardPoints else { return }
+    guard let uid = uid else { return }
+    let rewardPoints = cashFlow.RewardPoints
     databaseRef.child("CashFlow/\(uid)/Total").child("RewardPoints").setValue(rewardPoints - addRewardPoints)
   }
   

@@ -108,8 +108,7 @@ extension PurchaseMainViewController {
       if value.hasChild(uid) {
         self.fetchCash()
       } else {
-        self.cashFlow.CashValue = 0
-        self.cashFlow.RewardPoints = 0
+        return
       }
     }
   }
@@ -202,12 +201,14 @@ extension PurchaseMainViewController {
   }
   // update cash
   func addCashValue(addCashValue: Int){
-    guard let uid = uid, let cashValue = cashFlow.CashValue else { return }
+    guard let uid = uid else { return }
+    let cashValue = cashFlow.CashValue
     databaseRef.child("CashFlow/\(uid)/Total").child("CashValue").setValue(cashValue + addCashValue)
   }
   // update point
   func addRewardPoints(addRewardPoints: Int){
-    guard let uid = uid, let rewardPoints = cashFlow.RewardPoints else { return }
+    guard let uid = uid else { return }
+    let rewardPoints = cashFlow.RewardPoints
     databaseRef.child("CashFlow/\(uid)/Total").child("RewardPoints").setValue(rewardPoints + addRewardPoints)
   }
   // get current time for history usage
