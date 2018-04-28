@@ -62,9 +62,9 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(true)
-    
-    
+    fetchHeartCourse()
   }
+  
   
   // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -131,7 +131,6 @@ extension HotViewController: UICollectionViewDelegate, UICollectionViewDataSourc
     if homeCourses_Array[sender.tag].heart { // if true(已收藏) -> 移除收藏
       
       // firebase set value of array
-      
       
       homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
       if let courseId = homeCourses_Array[sender.tag].courseId {
@@ -215,24 +214,23 @@ extension HotViewController {
         self.collectionView.reloadData()
       }
     }
-    fetchHeartCourse()
   }
   
   func fetchHeartCourse(){
     guard let uid = self.uid else { return }
+    for course in self.homeCourses_Array{
+      course.heart = false
+    }
     databaseRef.child("HeartCourses").observe(.value) { (snapshot) in
       if snapshot.hasChild(uid){
         self.databaseRef.child("HeartCourses").child(uid).observe(.value) { (snapshot) in
           if let array = snapshot.value as? [String]{
             self.titleOfHeartCourses = array
+            self.loopThroughHeart()
           }
-          self.loopThroughHeart()
         }
         return
       } else {
-        for course in self.homeCourses_Array{
-          course.heart = false
-        }
         self.collectionView.reloadData()
         return
       }
@@ -241,6 +239,7 @@ extension HotViewController {
   func loopThroughHeart(){
     for course in homeCourses_Array {
       for heart in titleOfHeartCourses {
+        print("titles are \(titleOfHeartCourses)")
         if course.courseId == heart {
           course.heart = true
           collectionView.reloadData()
@@ -251,6 +250,8 @@ extension HotViewController {
   
   func updateHeartToNetwork(updatedTitleOfHeartCourses: [String]){
     guard let uid = self.uid else { return }
+    print("titles \(titleOfHeartCourses)")
+
     databaseRef.child("HeartCourses").child(uid).setValue(updatedTitleOfHeartCourses) { (error, _) in
       if error != nil {
         SVProgressHUD.showError(withStatus: "設定失敗")
