@@ -213,6 +213,7 @@ extension HotViewController {
       DispatchQueue.main.async {
         self.collectionView.reloadData()
       }
+      fetchHeartCourse()
     }
   }
   
@@ -239,7 +240,6 @@ extension HotViewController {
   func loopThroughHeart(){
     for course in homeCourses_Array {
       for heart in titleOfHeartCourses {
-        print("titles are \(titleOfHeartCourses)")
         if course.courseId == heart {
           course.heart = true
           collectionView.reloadData()
@@ -250,8 +250,6 @@ extension HotViewController {
   
   func updateHeartToNetwork(updatedTitleOfHeartCourses: [String]){
     guard let uid = self.uid else { return }
-    print("titles \(titleOfHeartCourses)")
-
     databaseRef.child("HeartCourses").child(uid).setValue(updatedTitleOfHeartCourses) { (error, _) in
       if error != nil {
         SVProgressHUD.showError(withStatus: "設定失敗")

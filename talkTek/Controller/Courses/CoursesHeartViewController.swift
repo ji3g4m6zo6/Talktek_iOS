@@ -25,6 +25,7 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   var databaseRef: DatabaseReference!
   var uid: String?
   var titleOfHeartCourses = [String]()
+  var homeCouresToPass = HomeCourses()
 
   @IBOutlet weak var tableView: UITableView!
   
@@ -119,6 +120,16 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
     }
   }
   
+  // MARK: - Segue
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierDetail"{
+      let destinationViewController = segue.destination as! CoursePageViewController
+      destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.titleOfHeartCourses = titleOfHeartCourses
+      destinationViewController.hidesBottomBarWhenPushed = true
+    }
+  }
+  
 }
 
 extension CoursesHeartViewController: UITableViewDataSource, UITableViewDelegate{
@@ -127,7 +138,6 @@ extension CoursesHeartViewController: UITableViewDataSource, UITableViewDelegate
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    print("home array \(homeCourses_Array.count)")
     return homeCourses_Array.count
   }
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -179,6 +189,10 @@ extension CoursesHeartViewController: UITableViewDataSource, UITableViewDelegate
     
     return cell
     
+  }
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    homeCouresToPass = homeCourses_Array[indexPath.row]
+    performSegue(withIdentifier: "identifierDetail", sender: nil)
   }
   
   func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
