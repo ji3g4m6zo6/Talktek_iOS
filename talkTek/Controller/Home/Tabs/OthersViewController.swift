@@ -11,6 +11,7 @@ import XLPagerTabStrip
 import Firebase
 import FirebaseDatabase
 import Kingfisher
+import SVProgressHUD
 
 class OthersViewController: UIViewController, IndicatorInfoProvider {
   
@@ -20,10 +21,12 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
   }
 
   // MARK: - Firebase Outlets
+  var uid: String?
   var databaseRef: DatabaseReference!
   var homeCourses_Array = [HomeCourses]()
   var homeCouresToPass = HomeCourses()
-  
+  var titleOfHeartCourses = [String]()
+
   // MARK: - UICollectionView
   @IBOutlet weak var collectionView: UICollectionView!
   
@@ -34,6 +37,10 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
     // MARK: - collection view datasource & delegate
     collectionView.dataSource = self
     collectionView.delegate = self
+    
+    // uid from userdefaults, database init
+    uid = UserDefaults.standard.string(forKey: "uid")
+    databaseRef = Database.database().reference()
     
     // MARK: - fetch data from firebase & split from tags
     fetchData()
@@ -48,12 +55,17 @@ class OthersViewController: UIViewController, IndicatorInfoProvider {
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
+  override func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(true)
+    fetchHeartCourse()
+  }
   
   // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "identifierDetail"{
       let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
+      destinationViewController.titleOfHeartCourses = titleOfHeartCourses
       destinationViewController.homeCourseType = "others"
       destinationViewController.hidesBottomBarWhenPushed = true
     }
@@ -92,12 +104,49 @@ extension OthersViewController: UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     cell.title_Label.text = homeCourses_Array[indexPath.item].courseTitle
+    
+    if homeCourses_Array[indexPath.item].heart {
+      cell.heart_Button.setImage(UIImage(named: "heartFill"), for: .normal)
+    } else {
+      cell.heart_Button.setImage(UIImage(named: "heartEmpty"), for: .normal)
+    }
+    
+    cell.heart_Button.tag = indexPath.item
+    cell.heart_Button.addTarget(self, action: #selector(heartButtonTapped(_:)), for: .touchUpInside)
 
     return cell
   }
   func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
     homeCouresToPass = homeCourses_Array[indexPath.item]
     performSegue(withIdentifier: "identifierDetail", sender: self)
+  }
+  
+  @objc func heartButtonTapped(_ sender: UIButton){
+    if homeCourses_Array[sender.tag].heart { // if true(已收藏) -> 移除收藏
+      
+      // firebase set value of array
+      
+      homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
+      if let courseId = homeCourses_Array[sender.tag].courseId {
+        if let title = titleOfHeartCourses.index(of: courseId) {
+          titleOfHeartCourses.remove(at: title)
+          updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+          collectionView.reloadData()
+        }
+        
+      }
+      
+    } else { // if false(未收藏) -> 加入收藏
+      
+      homeCourses_Array[sender.tag].heart = !homeCourses_Array[sender.tag].heart
+      if let courseId = homeCourses_Array[sender.tag].courseId {
+        titleOfHeartCourses.append(courseId)
+        updateHeartToNetwork(updatedTitleOfHeartCourses: titleOfHeartCourses)
+      }
+      collectionView.reloadData()
+      
+    }
+    
   }
 }
 
@@ -156,6 +205,52 @@ extension OthersViewController {
       DispatchQueue.main.async {
         self.collectionView.reloadData()
       }
+      fetchHeartCourse()
+    }
+  }
+  func fetchHeartCourse(){
+    guard let uid = self.uid else { return }
+    for course in self.homeCourses_Array{
+      course.heart = false
+    }
+    databaseRef.child("HeartCourses").observe(.value) { (snapshot) in
+      if snapshot.hasChild(uid){
+        self.databaseRef.child("HeartCourses").child(uid).observe(.value) { (snapshot) in
+          if let array = snapshot.value as? [String]{
+            self.titleOfHeartCourses = array
+            self.loopThroughHeart()
+          }
+        }
+        return
+      } else {
+        self.collectionView.reloadData()
+        return
+      }
+    }
+  }
+  func loopThroughHeart(){
+    for course in homeCourses_Array {
+      for heart in titleOfHeartCourses {
+        if course.courseId == heart {
+          course.heart = true
+          collectionView.reloadData()
+        }
+      }
+    }
+  }
+  
+  func updateHeartToNetwork(updatedTitleOfHeartCourses: [String]){
+    guard let uid = self.uid else { return }
+    databaseRef.child("HeartCourses").child(uid).setValue(updatedTitleOfHeartCourses) { (error, _) in
+      if error != nil {
+        SVProgressHUD.showError(withStatus: "設定失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+      } else {
+        print("Successfully update heart")
+      }
+      
     }
   }
   
