@@ -52,9 +52,6 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
       self.fetchData()
     }
     
-    
-
-
   }
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
