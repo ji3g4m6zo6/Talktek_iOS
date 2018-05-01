@@ -686,6 +686,10 @@ extension CoursePageViewController {
             // update studentNumber
             studentNumber += 1
             currentData.value = studentNumber
+            self.detailToGet.studentNumber = studentNumber
+            DispatchQueue.main.async {
+              self.tableView.reloadData()
+            }
             
             // Add to BoughtCourses of each person
             self.titleOfBoughtCourses.append(courseId)

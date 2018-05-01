@@ -12,11 +12,11 @@ import FirebaseDatabase
 
 class LogInViewController: UIViewController {
   
+  @IBOutlet weak var backgroundImageview: UIImageView!
   @IBOutlet weak var email_Textfield: UITextField!
   @IBOutlet weak var password_Textfield: UITextField!
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     // Do any additional setup after loading the view.
   }
   

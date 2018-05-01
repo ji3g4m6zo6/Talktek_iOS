@@ -29,3 +29,18 @@ extension UIImageView {
     downloadedFrom(url: url, contentMode: mode)
   }
 }
+
+
+extension UIImageView
+{
+  func addBlurEffect()
+  {
+    let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.regular)
+    let blurEffectView = UIVisualEffectView(effect: blurEffect)
+    blurEffectView.frame = self.bounds
+    
+    blurEffectView.backgroundColor = UIColor(red: 51.0 / 255.0, green: 51.0 / 255.0, blue: 51.0 / 255.0, alpha: 0.03)
+    blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight] // for supporting device rotation
+    self.addSubview(blurEffectView)
+  }
+}
