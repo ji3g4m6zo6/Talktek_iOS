@@ -667,47 +667,70 @@ extension CoursePageViewController {
   // depend on price onsale or origin, add to bought course, add to money, thisCourseHasBought update, alert success or error
   func buy(){
     guard let uid = self.uid, let courseId = detailToGet.courseId else { return }
-    let money = cashFlow.RewardPoints
-    if let priceOnSales = detailToGet.priceOnSales, let priceOrigin = detailToGet.priceOrigin{
+    databaseRef.child("AllCourses/\(courseId)/studentNumber").runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
       
-      // Depend on priceOnSales or priceOrigin
-      var courseMoneyInt = 0
-      if priceOnSales >= 0 {
-        courseMoneyInt = priceOnSales
-      } else {
-        courseMoneyInt = priceOrigin
+      if var studentNumber = currentData.value as? Int{
+        let money = self.cashFlow.RewardPoints
+        if let priceOnSales = self.detailToGet.priceOnSales, let priceOrigin = self.detailToGet.priceOrigin{
+          
+          // Depend on priceOnSales or priceOrigin
+          var courseMoneyInt = 0
+          if priceOnSales >= 0 {
+            courseMoneyInt = priceOnSales
+          } else {
+            courseMoneyInt = priceOrigin
+          }
+          
+          if money >= courseMoneyInt{
+            
+            // update studentNumber
+            studentNumber += 1
+            currentData.value = studentNumber
+            
+            // Add to BoughtCourses of each person
+            self.titleOfBoughtCourses.append(courseId)
+            self.databaseRef.child("BoughtCourses").child(uid).setValue(self.titleOfBoughtCourses)
+            
+            
+            self.addRewardPoints(addRewardPoints: courseMoneyInt)
+            self.addPointsToHistory()
+            
+            // Alert Success
+            SVProgressHUD.showSuccess(withStatus: "購買成功")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+              SVProgressHUD.dismiss()
+            })
+            self.thisCourseHasBought = true
+            
+          } else {
+            //Alert not enough money
+            SVProgressHUD.showError(withStatus: "金額不足")
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+              SVProgressHUD.dismiss()
+            })
+          }
+          
+          
+        }
+        
+        return TransactionResult.success(withValue: currentData)
+
       }
       
-      if money >= courseMoneyInt{
-        
-        // Add to BoughtCourses of each person
-        titleOfBoughtCourses.append(courseId)
-        databaseRef.child("BoughtCourses").child(uid).setValue(self.titleOfBoughtCourses)
-        
-        // Add to Money
-//        let moneyLeft = String(money - courseMoneyInt)
-//        self.myMoney = moneyLeft
-//        self.databaseRef.child("Money").child(uid).child("money").setValue(self.myMoney)
-        addRewardPoints(addRewardPoints: courseMoneyInt)
-        addPointsToHistory()
-        
-        // Alert Success
-        SVProgressHUD.showSuccess(withStatus: "購買成功")
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-          SVProgressHUD.dismiss()
-        })
-        thisCourseHasBought = true
-        
-      } else {
-        //Alert not enough money
+      
+      
+      return TransactionResult.success(withValue: currentData)
+    }) { (error, committed, snapshot) in
+      if let error = error {
+        print(error.localizedDescription)
         SVProgressHUD.showError(withStatus: "購買失敗")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
           SVProgressHUD.dismiss()
         })
       }
-      
-      
     }
+    
+    
   }
   
   // update point
