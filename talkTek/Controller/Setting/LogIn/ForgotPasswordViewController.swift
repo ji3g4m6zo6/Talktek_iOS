@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class ForgotPasswordViewController: UIViewController {
   
+  @IBOutlet weak var backButton: UIButton!
+  
   @IBOutlet weak var email_TextField: UITextField!
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -23,6 +25,10 @@ class ForgotPasswordViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   
+  @IBAction func backButtonTapped(_ sender: UIButton) {
+    self.dismiss(animated: true, completion: nil)
+    backButton.isEnabled = false
+  }
   @IBAction func pass_Button_Tapped(_ sender: UIButton) {
     if let email = email_TextField.text {
       forgetPassword(email: email)
