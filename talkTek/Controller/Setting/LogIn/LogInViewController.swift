@@ -19,8 +19,19 @@ class LogInViewController: UIViewController {
   @IBOutlet weak var email_Textfield: UITextField!
   @IBOutlet weak var password_Textfield: UITextField!
   
+  
+  
+  @IBOutlet weak var logInButton: UIButton!
+  var emailFromSignUp: String?
+  var passwordFromSignUp: String?
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    if let emailFromSignUp = emailFromSignUp, let passwordFromSignUp = passwordFromSignUp {
+      email_Textfield.text = emailFromSignUp
+      password_Textfield.text = passwordFromSignUp
+      LogIn_Button_Tapped(logInButton)
+    } else { return }
     // Do any additional setup after loading the view.
   }
   
@@ -31,13 +42,15 @@ class LogInViewController: UIViewController {
   
   
   @IBAction func LogIn_Button_Tapped(_ sender: UIButton) {
+    
     if let email = email_Textfield.text, let password = password_Textfield.text{
       if email == "" || password == "" { // 欄位為空
-        SVProgressHUD.showError(withStatus: "\n所有欄位\n皆須填寫")
+        SVProgressHUD.showError(withStatus: "欄位皆須填寫")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
           SVProgressHUD.dismiss()
         })
       } else {
+        SVProgressHUD.setStatus("登入中...")
         signInWithEmail(email: email, password: password)
       }
     }
@@ -45,10 +58,12 @@ class LogInViewController: UIViewController {
   }
   
   @IBAction func Back_Button_Tapped(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
-    backButton.isEnabled = false
+    _ = navigationController?.popViewController(animated: true)
   }
   
+  @IBAction func forgetButtonTapped(_ sender: UIButton) {
+    performSegue(withIdentifier: "identifierForget", sender: nil)
+  }
   func signInWithEmail(email: String, password: String){
     
     Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -73,7 +88,8 @@ class LogInViewController: UIViewController {
     })
   }
   
-  
+  @IBAction func BackToLogIn( segue: UIStoryboardSegue ) { }
+
   
   /*
    // MARK: - Navigation

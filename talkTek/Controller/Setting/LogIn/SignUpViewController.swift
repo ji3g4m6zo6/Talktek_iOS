@@ -21,6 +21,7 @@ class SignUpViewController: UIViewController {
   @IBOutlet weak var email_TextField: UITextField!
   @IBOutlet weak var password_TextField: UITextField!
   
+
   var databaseRef: DatabaseReference!
   
   override func viewDidLoad() {
@@ -36,7 +37,7 @@ class SignUpViewController: UIViewController {
   @IBAction func SignUp_Button_Tapped(_ sender: UIButton) {
     if let email = email_TextField.text, let password = password_TextField.text, let name = name_TextField.text{
       if email == "" || password == "" || name == "" { // 欄位為空
-        SVProgressHUD.showError(withStatus: "所有欄位皆須填寫")
+        SVProgressHUD.showError(withStatus: "欄位皆須填寫")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
           SVProgressHUD.dismiss()
         })
@@ -57,8 +58,7 @@ class SignUpViewController: UIViewController {
   }
   
   @IBAction func Back_Button_Tapped(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
-    backButton.isEnabled = false
+    _ = navigationController?.popViewController(animated: true)
   }
   
   

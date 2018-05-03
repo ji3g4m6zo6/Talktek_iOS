@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import SVProgressHUD
 
 class ForgotPasswordViewController: UIViewController {
   
@@ -26,12 +27,24 @@ class ForgotPasswordViewController: UIViewController {
   }
   
   @IBAction func backButtonTapped(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
-    backButton.isEnabled = false
+    _ = navigationController?.popViewController(animated: true)
   }
   @IBAction func pass_Button_Tapped(_ sender: UIButton) {
     if let email = email_TextField.text {
-      forgetPassword(email: email)
+      if email == "" {
+        SVProgressHUD.showError(withStatus: "欄位皆須填寫")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+          SVProgressHUD.dismiss()
+        })
+        
+      } else {
+        forgetPassword(email: email)
+      }
+    } else {
+      SVProgressHUD.showError(withStatus: "欄位皆須填寫")
+      DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+        SVProgressHUD.dismiss()
+      })
     }
   }
   func forgetPassword(email: String){
@@ -51,11 +64,9 @@ class ForgotPasswordViewController: UIViewController {
   }
   func alert(){
     
-    let alertController = UIAlertController(title: "", message: "請至信箱查收註冊驗證信。", preferredStyle: UIAlertControllerStyle.alert)
+    let alertController = UIAlertController(title: "成功", message: "請至信箱查收密碼重設信件。", preferredStyle: UIAlertControllerStyle.alert)
     let ok = UIAlertAction(title: "確認", style: UIAlertActionStyle.default, handler: {(action) -> Void in
-      //The (withIdentifier: "VC2") is the Storyboard Segue identifier.
-      self.dismiss(animated: true, completion: nil)
-      //self.performSegue(withIdentifier: "identifierMain", sender: self)
+      self.performSegue(withIdentifier: "identifierBack", sender: nil)
     })
     
     alertController.addAction(ok)
@@ -63,7 +74,7 @@ class ForgotPasswordViewController: UIViewController {
   }
   func alertError(){
     
-    let alertController = UIAlertController(title: "", message: "請至信箱查收註冊驗證信。", preferredStyle: .alert)
+    let alertController = UIAlertController(title: "失敗", message: "此信箱尚未註冊", preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "確認", style: UIAlertActionStyle.default, handler: nil))
 
     self.present(alertController, animated: true, completion: nil)

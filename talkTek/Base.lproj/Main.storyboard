@@ -1087,7 +1087,7 @@
                                     <constraint firstAttribute="height" constant="50" id="dqn-Xx-kh9"/>
                                 </constraints>
                             </view>
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-ab-nb0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rJk-ab-nb0">
                                 <rect key="frame" x="158.5" y="570" width="58" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="稍後登入">
@@ -1225,6 +1225,9 @@
                                 <state key="normal" title="忘記密碼？">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgetButtonTapped:" destination="FxB-0D-AF7" eventType="touchUpInside" id="Coq-gx-UkI"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FPV-vy-vkY" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
                                 <rect key="frame" x="109" y="550" width="157" height="50"/>
@@ -1286,9 +1289,11 @@
                         <outlet property="backButton" destination="FPV-vy-vkY" id="RnN-h2-pQB"/>
                         <outlet property="backgroundImageview" destination="N8o-pk-PcV" id="VaP-Eu-Nv3"/>
                         <outlet property="email_Textfield" destination="WLh-QX-r86" id="LTg-SE-zcP"/>
+                        <outlet property="logInButton" destination="rmm-de-NR5" id="fGd-tv-Ip1"/>
                         <outlet property="password_Textfield" destination="MgU-wb-T8l" id="z5T-wF-wVx"/>
                         <segue destination="B1x-Io-Rfr" kind="show" identifier="identifierHome" id="osH-YE-6X6"/>
                         <segue destination="B1x-Io-Rfr" kind="presentation" id="5GV-c3-5D2"/>
+                        <segue destination="i6j-RX-DRY" kind="presentation" identifier="identifierForget" id="OxR-uI-Y9h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vO5-VJ-n3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1457,7 +1462,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNY-pW-wlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="A6z-tK-vUg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3038" y="-108"/>
+            <point key="canvasLocation" x="-3081" y="-108"/>
         </scene>
         <!--課程-->
         <scene sceneID="LHt-84-ftp">
@@ -3515,13 +3520,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3537,7 +3542,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="519" width="325" height="1"/>
+                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
@@ -4453,7 +4458,7 @@
                                     <constraint firstAttribute="width" constant="157" id="zmO-Hm-hVY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
-                                <state key="normal" title="下一步">
+                                <state key="normal" title="送出">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -4535,11 +4540,13 @@
                     <connections>
                         <outlet property="backButton" destination="hVS-IC-QuH" id="ruf-1T-EML"/>
                         <outlet property="email_TextField" destination="eeG-TY-TPV" id="SWX-a7-244"/>
+                        <segue destination="hRE-zR-GIL" kind="unwind" identifier="identifierBack" unwindAction="BackToLogInSegue:" id="xXe-lS-C3I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLU-r2-n8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hRE-zR-GIL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2402.4000000000001" y="-108.39580209895054"/>
+            <point key="canvasLocation" x="-2426" y="-108"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CWZ-nX-xY7">
@@ -7034,7 +7041,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="irW-5M-Rbk"/>
         <segue reference="2IN-i8-vHq"/>
-        <segue reference="osH-YE-6X6"/>
+        <segue reference="5GV-c3-5D2"/>
         <segue reference="7KF-dj-I3T"/>
     </inferredMetricsTieBreakers>
 </document>
