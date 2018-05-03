@@ -33,7 +33,7 @@ class LogInViewController: UIViewController {
   @IBAction func LogIn_Button_Tapped(_ sender: UIButton) {
     if let email = email_Textfield.text, let password = password_Textfield.text{
       if email == "" || password == "" { // 欄位為空
-        SVProgressHUD.showError(withStatus: "所有欄位皆須填寫")
+        SVProgressHUD.showError(withStatus: "\n所有欄位\n皆須填寫")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
           SVProgressHUD.dismiss()
         })

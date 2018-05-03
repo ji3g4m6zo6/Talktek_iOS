@@ -1019,7 +1019,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i8 第一登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-19-C39" customClass="blurImageView" customModule="talkTek" customModuleProvider="target">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="GZG-19-C39">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="EUX-sx-OtY">
@@ -1154,7 +1154,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i8 第一登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-pk-PcV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="N8o-pk-PcV">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="bezel" placeholder="輸入信箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WLh-QX-r86" customClass="HoshiTextField" customModule="TextFieldEffects">
@@ -1304,7 +1304,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i8 第一登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="T5s-ya-JND">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="T5s-ya-JND">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入全名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aj4-tG-Or3" customClass="HoshiTextField" customModule="TextFieldEffects">
@@ -4421,7 +4421,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="i8 第一登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="ReK-Ja-Ne5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="ReK-Ja-Ne5">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入信箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eeG-TY-TPV" customClass="HoshiTextField" customModule="TextFieldEffects">
@@ -4549,7 +4549,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="i8 第一登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="wbF-dO-V6E">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="wbF-dO-V6E">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -7011,7 +7011,6 @@
         <image name="Tab_首頁" width="20" height="20"/>
         <image name="TestIcon" width="160" height="160"/>
         <image name="heartEmpty" width="21" height="21"/>
-        <image name="i8 第一登入頁" width="375" height="667"/>
         <image name="logo" width="240" height="320"/>
         <image name="往上" width="20" height="20"/>
         <image name="往下" width="20" height="20"/>
@@ -7025,6 +7024,7 @@
         <image name="播放器_往後15秒" width="25" height="25"/>
         <image name="未登入人像" width="110" height="110"/>
         <image name="畫圈圈" width="200" height="200"/>
+        <image name="登入頁" width="375" height="667"/>
         <image name="相機" width="16" height="16"/>
         <image name="課程 人數" width="24" height="24"/>
         <image name="課程_星星" width="24" height="24"/>
