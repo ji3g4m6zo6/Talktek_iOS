@@ -69,6 +69,7 @@ class CoursePageViewController: UIViewController {
   
   // MARK: - Firebase
   var uid: String?
+  var userIsAnonymous: Bool?
   var myMoney: String?
   var databaseRef: DatabaseReference!
   var thisSong = 0
@@ -83,6 +84,7 @@ class CoursePageViewController: UIViewController {
     
     // uid from userdefaults, database init
     uid = UserDefaults.standard.string(forKey: "uid")
+    userIsAnonymous = Auth.auth().currentUser?.isAnonymous ?? false
     databaseRef = Database.database().reference()
     
     // Tableview
@@ -131,17 +133,20 @@ class CoursePageViewController: UIViewController {
   
   // MARK: - Buy Button Tapped
   @IBAction func buy_Button_Tapped(_ sender: UIButton) {
-    guard let uid = self.uid else { return }
-    if uid != "guest"{
-      SVProgressHUD.show(withStatus: "支付中...")
-      buy()
+    guard let _ = self.uid else { return }
+    if let userIsAnonymous = userIsAnonymous {
+      if userIsAnonymous {
+        isAnonymousToLogInPage()
+      } else {
+        SVProgressHUD.show(withStatus: "支付中...")
+        buy()
+      }
     } else {
-      SVProgressHUD.showError(withStatus: "尚未登入")
-      DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
-        SVProgressHUD.dismiss()
-      })
+      isAnonymousToLogInPage()
     }
+    
   }
+  
   
   // MARK: - Segue
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -764,6 +769,12 @@ extension CoursePageViewController {
     formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
     
     return formatter.string(from: date)
+  }
+  
+  func isAnonymousToLogInPage(){
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let controller = storyboard.instantiateViewController(withIdentifier: "MainLogInViewController")
+    self.present(controller, animated: true, completion: nil)
   }
   
   

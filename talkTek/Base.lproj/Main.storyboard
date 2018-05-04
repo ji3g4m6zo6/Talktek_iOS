@@ -1941,7 +1941,7 @@
             </objects>
             <point key="canvasLocation" x="1286" y="549"/>
         </scene>
-        <!--設置-->
+        <!--設定-->
         <scene sceneID="Nqj-Sg-GKK">
             <objects>
                 <viewController id="z8p-TC-9MY" customClass="SettingViewController" customModule="talkTek" customModuleProvider="target" sceneMemberID="viewController">
@@ -2186,7 +2186,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="o9C-Dq-daZ"/>
                     </view>
-                    <navigationItem key="navigationItem" title="設置" id="eY5-1p-yYK"/>
+                    <navigationItem key="navigationItem" title="設定" id="eY5-1p-yYK"/>
                     <connections>
                         <outlet property="LogIn_LogOut" destination="NXl-B9-kRA" id="Tp2-Ch-19p"/>
                         <outlet property="cameraIcon_Button" destination="gNn-lr-Uwb" id="OX2-dv-bgZ"/>
@@ -4669,7 +4669,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="EoI-yY-kd3">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="B1x-Io-Rfr" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="MainTabViewController" automaticallyAdjustsScrollViewInsets="NO" id="B1x-Io-Rfr" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DX8-l1-tvP" customClass="MainTabBar" customModule="talkTek" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

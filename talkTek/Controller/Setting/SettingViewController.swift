@@ -128,6 +128,9 @@ class SettingViewController: UIViewController {
   func logOut(){
     FBSDKLoginManager().logOut()
     do{
+      
+      UserDefaults.standard.set(nil, forKey: "uid")
+      
       try Auth.auth().signOut()
       self.databaseRef = Database.database().reference()
       self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")

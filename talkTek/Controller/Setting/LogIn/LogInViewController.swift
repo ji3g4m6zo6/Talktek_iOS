@@ -76,10 +76,14 @@ class LogInViewController: UIViewController {
         print(error?.localizedDescription as Any)
         return
       }else{
+        
+        UserDefaults.standard.set(user?.uid, forKey: "uid")
+        
         SVProgressHUD.showSuccess(withStatus: "登入成功")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
           SVProgressHUD.dismiss()
         })
+        
         self.performSegue(withIdentifier: "identifierHome", sender: self)
 
         //self.dismiss(animated: true, completion: nil)

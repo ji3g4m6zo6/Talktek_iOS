@@ -14,8 +14,13 @@ import FirebaseDatabase
 import FirebaseAuthUI
 import FirebaseFacebookAuthUI
 import SnapKit
+import SVProgressHUD
 
 class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButtonDelegate {
+  
+  var uid: String?
+  var userIsAnonymous: Bool?
+  
   func authUI(_ authUI: FUIAuth, didSignInWith user: FirebaseAuth.User?, error: Error?) {
     if error != nil {
       //Problem signing in
@@ -45,12 +50,29 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // facebook UI
     facebook_View.addSubview(facebook_Button)
     facebook_Button.snp.makeConstraints { (make) in
       make.top.left.right.bottom.equalTo(facebook_View)
     }
     
-    checkLoggedIn()
+    
+    uid = UserDefaults.standard.string(forKey: "uid")
+    
+    
+    userIsAnonymous = Auth.auth().currentUser?.isAnonymous
+    if let userIsAnonymous = userIsAnonymous {//if there's current user
+      if userIsAnonymous {
+        return
+      } else {
+        checkLoggedIn()
+      }
+    } else {//there's no current user
+      return
+    }
+    
+    //checkLoggedIn()
+
     // Initialize sign-in
    /* GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
     GIDSignIn.sharedInstance().delegate = self
@@ -94,7 +116,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
     authUI?.providers = [facebookProvider]
     
     self.performSegue(withIdentifier: "identifierTab", sender: self)
-
+    
   }
   
   /*
@@ -157,6 +179,12 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
     {
       let credential = FacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
       
+      if let userIsAnonymous = userIsAnonymous {
+        if userIsAnonymous {
+          self.anonymousToPermanent(credential: credential)
+          return
+        }
+      }
       
       Auth.auth().signIn(with: credential) { (user, error) in
         print("Facebook user has log into firebase")
@@ -176,14 +204,27 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
             
           }
         })
-        //self.dismiss(animated: true, completion: nil )
         self.performSegue(withIdentifier: "identifierTab", sender: self)
 
       }
     }
 
   }
-  
+  func anonymousToPermanent(credential: AuthCredential){
+    let user = Auth.auth().currentUser
+    user?.link(with: credential, completion: { (user, error) in
+      if error != nil {
+        SVProgressHUD.showError(withStatus: "登入失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+        return
+      }
+      self.performSegue(withIdentifier: "identifierTab", sender: self)
+
+      
+    })
+  }
   func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
     print("user has log out")
   }
@@ -196,23 +237,18 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
   }
   
   @IBAction func Later_Button_Tapped(_ sender: UIButton) {
-    self.dismiss(animated: true, completion: nil)
-//    Auth.auth().signInAnonymously() { (user, error) in
-//      if error != nil {
-//
-//        print(error?.localizedDescription as Any)
-//        return
-//      }else{
-//
-////        let userDefaults = UserDefaults.standard
-////        let isAnonymous = user!.isAnonymous  // true
-////        let uid = user!.uid
-//
-//        //self.performSegue(withIdentifier: "identifierHome", sender: self)
-//
-//
-//      }
-//    }
+    
+    Auth.auth().signInAnonymously { (user, error) in
+      if error != nil {
+        print(error!)
+        return
+      }
+      
+      UserDefaults.standard.set(user?.uid, forKey: "uid")
+      self.performSegue(withIdentifier: "identifierTab", sender: nil)
+      
+    }
+
   }
   
 }

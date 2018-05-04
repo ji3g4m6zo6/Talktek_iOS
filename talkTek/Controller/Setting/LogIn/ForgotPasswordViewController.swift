@@ -62,6 +62,7 @@ class ForgotPasswordViewController: UIViewController {
 
     }
   }
+  
   func alert(){
     
     let alertController = UIAlertController(title: "成功", message: "請至信箱查收密碼重設信件。", preferredStyle: UIAlertControllerStyle.alert)

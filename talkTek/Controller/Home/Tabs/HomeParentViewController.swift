@@ -29,6 +29,8 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
 //      make.bottom.equalTo(self.view).inset(15)
 //    }
     
+    print(UserDefaults.standard.string(forKey: "uid") ?? "wtfffff???")
+    
     settings.style.buttonBarBackgroundColor = .white
     settings.style.buttonBarItemBackgroundColor = .white
     settings.style.selectedBarBackgroundColor = UIColor.tealish()

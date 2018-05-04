@@ -23,9 +23,13 @@ class SignUpViewController: UIViewController {
   
 
   var databaseRef: DatabaseReference!
-  
+  var userIsAnonymous: Bool?
+
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    backToViewcontroller = UserDefaults.standard.string(forKey: "previousVC") ?? "tab"
+    userIsAnonymous = Auth.auth().currentUser?.isAnonymous
     databaseRef = Database.database().reference()
   }
   
@@ -43,6 +47,13 @@ class SignUpViewController: UIViewController {
         })
       } else { // 欄位皆填寫
         if isValid(email){ // 驗證信箱格式
+          if let userIsAnonymous = userIsAnonymous {
+            if userIsAnonymous {
+              let credential = EmailAuthProvider.credential(withEmail: email, password: password)
+              anonymousToPermanent(credential: credential)
+              return
+            }
+          }
           // 信箱格式正確
           registerByEmail(name: name, email: email, password: password)
         } else {
@@ -68,6 +79,10 @@ class SignUpViewController: UIViewController {
     Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
       
       if error != nil{
+        SVProgressHUD.showError(withStatus: "註冊失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
         print(error?.localizedDescription as Any)
         return
       }
@@ -107,21 +122,43 @@ class SignUpViewController: UIViewController {
     self.present(alertController, animated: true, completion: nil)
   }
   
+  func anonymousToPermanent(credential: AuthCredential){
+    let user = Auth.auth().currentUser
+    user?.link(with: credential, completion: { (user, error) in
+      if error != nil {
+        SVProgressHUD.showError(withStatus: "登入失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+          SVProgressHUD.dismiss()
+        })
+        return
+      }
+      
+      if self.backToViewcontroller == "CoursePage" {
+        
+      } else {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "MainTabViewController")
+        self.present(controller, animated: true, completion: nil)
+      }
+
+      
+    })
+  }
+  var backToViewcontroller = ""
   func isValid(_ email: String) -> Bool {
     let emailRegEx = "(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"+"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"+"x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[a-z0-9](?:[a-"+"z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\\[(?:(?:25[0-5"+"]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-"+"9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21"+"-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])"
     
     let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
     return emailTest.evaluate(with: email)
   }
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "identifierLogIn" {
+      let destination = segue.destination as! LogInViewController
+      destination.emailFromSignUp = email_TextField.text
+      destination.passwordFromSignUp = password_TextField.text
+    }
+  }
   
 }
 
