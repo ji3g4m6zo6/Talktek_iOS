@@ -220,6 +220,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
         })
         return
       }
+      
       self.performSegue(withIdentifier: "identifierTab", sender: self)
 
       
@@ -237,7 +238,12 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
   }
   
   @IBAction func Later_Button_Tapped(_ sender: UIButton) {
-    
+    if let userIsAnonymous = userIsAnonymous {
+      if userIsAnonymous {
+        checkLoggedIn()
+        return
+      }
+    }
     Auth.auth().signInAnonymously { (user, error) in
       if error != nil {
         print(error!)
