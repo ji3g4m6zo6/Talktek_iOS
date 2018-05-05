@@ -193,12 +193,13 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
         let userDefaults = UserDefaults.standard
         userDefaults.set(user?.uid, forKey: "uid")
         
+        self.getFacebookUserInfo()
+        
         self.databaseRef.child("Users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
           let snapshot = snapshot.value as? NSDictionary
           if(snapshot == nil)
           {
            
-            userDefaults.set(user?.displayName, forKey: "name")
             self.databaseRef.child("Users").child(user!.uid).setValue(["name" : user?.displayName, "account": user?.email, "profileImageUrl": "", "birthday": "", "gender": ""])
             
             
@@ -209,6 +210,21 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
       }
     }
 
+  }
+  
+  var dict : [String : AnyObject]?
+
+  func getFacebookUserInfo() {
+
+    if((FBSDKAccessToken.current()) != nil){
+      FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+        if (error == nil){
+          self.dict = result as? [String : AnyObject]
+          print(result!)
+          print(self.dict)
+        }
+      })
+    }
   }
   func anonymousToPermanent(credential: AuthCredential){
     let user = Auth.auth().currentUser

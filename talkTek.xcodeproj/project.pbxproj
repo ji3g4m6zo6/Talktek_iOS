@@ -172,7 +172,7 @@
 		0478E5EE1FC0225700DD0169 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISegmentedControlExtension.swift; sourceTree = "<group>"; };
 		0478E61C1FC1726F00DD0169 /* PayCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayCollectionViewCell.swift; sourceTree = "<group>"; };
-		0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = talkTek/View/UIImageViewExtension.swift; sourceTree = SOURCE_ROOT; };
+		0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIImageViewExtension.swift; path = talkTek/UIImageViewExtension.swift; sourceTree = SOURCE_ROOT; };
 		047B1D211FE6AA7300853740 /* AudioListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListViewController.swift; sourceTree = "<group>"; };
 		047B1D231FE6AB1000853740 /* AudioListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioListTableViewCell.swift; sourceTree = "<group>"; };
 		048D0D331FD1AE4E002A2E93 /* talkTek.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = talkTek.entitlements; sourceTree = "<group>"; };
@@ -438,7 +438,6 @@
 				041E3CAC1FDBBB590035E3A4 /* NumberExtension.swift */,
 				041E3CAA1FDBBA970035E3A4 /* UIColorExtension.swift */,
 				0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */,
-				0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */,
 				04294FCD1FE1573900CB4FCA /* UIViewExtension.swift */,
 				AEB8D5B9209306BC00C82729 /* PaddingExtension.swift */,
 				044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */,
@@ -504,6 +503,7 @@
 			children = (
 				AEB8D5B4208F41B600C82729 /* MiniPlayer.swift */,
 				AEB8D5B3208F41B600C82729 /* MiniPlayerView.xib */,
+				0478E61E1FC1745600DD0169 /* UIImageViewExtension.swift */,
 				AEB8D5B7208F6D8600C82729 /* PassView.swift */,
 				048D0D331FD1AE4E002A2E93 /* talkTek.entitlements */,
 				0478E5EC1FC0217300DD0169 /* Supporting File */,

@@ -32,7 +32,7 @@ class PlayerViewController: UIViewController {
   var player: AVPlayer!
   var playerItem: AVPlayerItem!
   
-  var link:CADisplayLink!
+  var link: CADisplayLink!
 
   
   @IBOutlet weak var overview_ImageView: UIImageView!
