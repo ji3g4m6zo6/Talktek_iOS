@@ -68,6 +68,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
         checkLoggedIn()
       }
     } else {//there's no current user
+      checkLoggedIn()
       return
     }
     
@@ -217,7 +218,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
   func getFacebookUserInfo() {
 
     if((FBSDKAccessToken.current()) != nil){
-      FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(large), email"]).start(completionHandler: { (connection, result, error) -> Void in
+      FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(normal), email"]).start(completionHandler: { (connection, result, error) -> Void in
         if (error == nil){
           self.dict = result as? [String : AnyObject]
           print(result!)

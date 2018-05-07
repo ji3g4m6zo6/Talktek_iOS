@@ -131,21 +131,25 @@ class PlayerViewController: UIViewController {
     
   }
   @IBAction func speedup_Button_Tapped(_ sender: UIButton) {
-    /*
+    
     if self.player.status == .readyToPlay{
-      let duration = Float(CMTimeGetSeconds(self.player.currentItem!.duration)) + 15.0
-      let seekTime = CMTimeMake(Int64(duration), 1)
+      let current = Float(CMTimeGetSeconds(self.player.currentItem!.currentTime()))
+      let speedUp = current + 15.0
+      let seekTime = CMTimeMake(Int64(speedUp), 1)
       self.player.seek(to: seekTime)
-    }*/
+    }
+    
   }
   
   @IBAction func speeddown_Button_Tapped(_ sender: UIButton) {
-    /*
+    
     if self.player.status == .readyToPlay{
-      let duration = Float(CMTimeGetSeconds(self.player.currentItem!.duration)) - 15.0
-      let seekTime = CMTimeMake(Int64(duration), 1)
+      let current = Float(CMTimeGetSeconds(self.player.currentItem!.currentTime()))
+      let speedDown = current - 15.0
+      let seekTime = CMTimeMake(Int64(speedDown), 1)
       self.player.seek(to: seekTime)
-    }*/
+    }
+    
   }
 
   @IBAction func slider_Tapped(_ sender: UISlider) {
@@ -181,6 +185,9 @@ class PlayerViewController: UIViewController {
     
     
     self.slider_UISlider.value = Float(currentTime/totalTime)
+    if self.slider_UISlider.value == 1.0 {
+      next_Button_Tapped(next_Button)
+    }
 //    // 滑动不在滑动的时候
 //    if !self.playerView.sliding{
 //      // 播放进度
@@ -206,8 +213,8 @@ class PlayerViewController: UIViewController {
     playerToTopConstraint.constant = view.frame.height * 0.7
     sliderToTopConstraint.constant = view.frame.height * 0.83
     
-    slow_Button.isHidden = true
-    speed_Button.isHidden = true
+//    slow_Button.isHidden = true
+//    speed_Button.isHidden = true
     slow_Button.tintColor = UIColor.white
     previous_Button.tintColor = UIColor.white
     playpause_Button.tintColor = UIColor.white
