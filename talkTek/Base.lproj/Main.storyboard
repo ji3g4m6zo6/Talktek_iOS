@@ -2853,6 +2853,7 @@
                         <outlet property="noCourseBought_ImageView" destination="xeR-dP-UuD" id="udH-65-61M"/>
                         <outlet property="noCourseBought_Label" destination="gbT-Cr-Z0D" id="MbX-nm-jCt"/>
                         <outlet property="tableView" destination="I74-ho-gVu" id="hZd-Z0-DBY"/>
+                        <segue destination="caW-R6-lY1" kind="show" identifier="identifierDetail" id="PQa-oV-FIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CTh-Kt-bj4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -7040,8 +7041,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="irW-5M-Rbk"/>
-        <segue reference="2IN-i8-vHq"/>
-        <segue reference="5GV-c3-5D2"/>
-        <segue reference="7KF-dj-I3T"/>
+        <segue reference="PQa-oV-FIb"/>
+        <segue reference="pzr-vQ-brV"/>
+        <segue reference="PT2-lo-bUe"/>
     </inferredMetricsTieBreakers>
 </document>
