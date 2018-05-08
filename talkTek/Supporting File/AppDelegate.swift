@@ -13,7 +13,8 @@ import FBSDKCoreKit
 import GoogleSignIn
 import IQKeyboardManagerSwift
 import SwiftyStoreKit
-
+import Crashlytics
+import Fabric
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     FirebaseApp.configure()
 
+    Fabric.with([Crashlytics.self])
+    Fabric.sharedSDK().debug = true
+    
     completeIAPTransactions()
 
     FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

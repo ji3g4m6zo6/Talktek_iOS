@@ -12,6 +12,9 @@ target 'talkTek' do
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'Fabric', '~> 1.7.6'
+  pod 'Crashlytics', '~> 3.10.1'
+  
 
 # Firebase/Facebook UI
   pod 'FirebaseUI/Facebook'

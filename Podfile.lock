@@ -7,8 +7,11 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - Cosmos (12.0.1)
+  - Crashlytics (3.10.1):
+    - Fabric (~> 1.7.5)
   - DatePickerCell (1.0.7)
   - ESPullToRefresh (2.7)
+  - Fabric (1.7.6)
   - FBSDKCoreKit (4.27.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.27.0):
@@ -95,8 +98,10 @@ DEPENDENCIES:
   - ARNTransitionAnimator
   - Bolts
   - Cosmos (~> 12.0)
+  - Crashlytics (~> 3.10.1)
   - DatePickerCell (~> 1.0)
   - ESPullToRefresh
+  - Fabric (~> 1.7.6)
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -120,8 +125,10 @@ SPEC CHECKSUMS:
   ARNTransitionAnimator: 26f24acc0e2fd5134596ece6f9479c36cfcfce68
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   Cosmos: 4a9f57998a08788a1062c7b8eefbc62d2b590f39
+  Crashlytics: aee1a064cbbf99b32efa3f056a5f458d846bc8ff
   DatePickerCell: f324217007d784b085647631c2067edadce58f55
   ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
+  Fabric: f8d42c893bb187326a7968b62abe55c36a987a46
   FBSDKCoreKit: ebc6c5f5b3f0e72396041050e2266781a38ac587
   FBSDKLoginKit: 887be4b7452e1c5a3cc4485ce152529965a0c41e
   FBSDKShareKit: 18a2cd118aef11dd657fe7e8b64bae5c719088b2
@@ -149,6 +156,6 @@ SPEC CHECKSUMS:
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 0ac4602429e55ec5b3c37cf578533a26166d7cc0
+PODFILE CHECKSUM: 70c81daaee27e431d69bb58652aae7a33d3ca435
 
 COCOAPODS: 1.4.0
