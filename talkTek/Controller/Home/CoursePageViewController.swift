@@ -136,13 +136,15 @@ class CoursePageViewController: UIViewController {
     guard let _ = self.uid else { return }
     if let userIsAnonymous = userIsAnonymous {
       if userIsAnonymous {
-        isAnonymousToLogInPage()
+        ShowAnonymousShouldLogInAlert()
+        //isAnonymousToLogInPage()
       } else {
         SVProgressHUD.show(withStatus: "支付中...")
         buy()
       }
     } else {
-      isAnonymousToLogInPage()
+      ShowAnonymousShouldLogInAlert()
+      //isAnonymousToLogInPage()
     }
     
   }
@@ -462,6 +464,18 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
   
   // heart Button
   @objc func heartButtonTapped(_ sender: UIButton){
+    
+    guard let _ = self.uid else { return }
+    if let userIsAnonymous = userIsAnonymous {
+      if userIsAnonymous {
+        ShowAnonymousShouldLogInAlert()
+        return
+      }
+    } else {
+      ShowAnonymousShouldLogInAlert()
+      return
+    }
+    
     if detailToGet.heart { // if true(已收藏) -> 移除收藏
       
       // firebase set value of array
@@ -771,11 +785,6 @@ extension CoursePageViewController {
     return formatter.string(from: date)
   }
   
-  func isAnonymousToLogInPage(){
-    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    let controller = storyboard.instantiateViewController(withIdentifier: "MainLogInViewController")
-    self.present(controller, animated: true, completion: nil)
-  }
   
   
 }

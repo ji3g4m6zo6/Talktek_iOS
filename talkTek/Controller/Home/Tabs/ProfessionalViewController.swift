@@ -22,6 +22,7 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
   
   // MARK: - Firebase Outlets
   var uid: String?
+  var userIsAnonymous: Bool?
   var databaseRef: DatabaseReference!
   var homeCourses_Array = [HomeCourses]()
   var homeCouresToPass = HomeCourses()
@@ -43,6 +44,7 @@ class ProfessionalViewController: UIViewController, IndicatorInfoProvider {
 
     // uid from userdefaults, database init
     uid = UserDefaults.standard.string(forKey: "uid")
+    userIsAnonymous = Auth.auth().currentUser?.isAnonymous ?? false
     databaseRef = Database.database().reference()
     
     // MARK: - ESPullToRefresh
@@ -124,6 +126,18 @@ extension ProfessionalViewController: UICollectionViewDelegate, UICollectionView
   }
   
   @objc func heartButtonTapped(_ sender: UIButton){
+    
+    guard let _ = self.uid else { return }
+    if let userIsAnonymous = userIsAnonymous {
+      if userIsAnonymous {
+        ShowAnonymousShouldLogInAlert()
+        return
+      }
+    } else {
+      ShowAnonymousShouldLogInAlert()
+      return
+    }
+    
     if homeCourses_Array[sender.tag].heart { // if true(已收藏) -> 移除收藏
       
       // firebase set value of array

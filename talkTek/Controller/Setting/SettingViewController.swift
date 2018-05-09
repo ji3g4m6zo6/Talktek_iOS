@@ -27,15 +27,20 @@ class SettingViewController: UIViewController {
   var list = ["點數中心","成為講師", "意見反饋", "訂閱電子報", "關於"]
   
   var username = ""
-  var userID = ""
   var imageUrlForDeletion: String?
   // MARK: Database
+  var uid: String?
+  var userIsAnonymous: Bool?
   var databaseRef: DatabaseReference!
   var user = User()
 
   // MARK: viewDidLoad, didReceiveMemoryWarning, viewWillAppear
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    // check if user is anonymous
+    userIsAnonymous = Auth.auth().currentUser?.isAnonymous ?? false
+
     
     // TableView delegate, datasource
     tableView.delegate = self
@@ -54,10 +59,9 @@ class SettingViewController: UIViewController {
     // Image action and handgesture
     imageViewHandGesture()
     
-    // UserID and Username
-    let userDefaults = UserDefaults.standard
-    self.userID = userDefaults.string(forKey: "uid") ?? ""
-    self.username = userDefaults.string(forKey: "username") ?? ""
+    // Uid and Username
+    self.uid = UserDefaults.standard.string(forKey: "uid")
+    self.username = UserDefaults.standard.string(forKey: "username") ?? ""
     
     // See if there's username
     if username != "" {
@@ -92,8 +96,18 @@ class SettingViewController: UIViewController {
     edit_View.addGestureRecognizer(tap)
   }
   @objc func edit(recognizer: UITapGestureRecognizer) {
-    performSegue(withIdentifier: "identifierEdit", sender: self)
+    guard let _ = self.uid else { return }
+    if let userIsAnonymous = userIsAnonymous {
+      if userIsAnonymous {
+        ShowAnonymousShouldLogInAlert()
+        return
+      }
+    } else {
+      ShowAnonymousShouldLogInAlert()
+      return
+    }
     
+    performSegue(withIdentifier: "identifierEdit", sender: self)
     
   }
   
@@ -126,6 +140,7 @@ class SettingViewController: UIViewController {
     cameraIcon_Button.isHighlighted = true
   }
   func logOut(){
+    guard let uid = uid else { return }
     FBSDKLoginManager().logOut()
     do{
       
@@ -133,7 +148,7 @@ class SettingViewController: UIViewController {
       
       try Auth.auth().signOut()
       self.databaseRef = Database.database().reference()
-      self.databaseRef.child("Users").child(self.userID).child("Online-Status").setValue("Off")
+      self.databaseRef.child("Users").child(uid).child("Online-Status").setValue("Off")
       performSegue(withIdentifier: "identifierLogIn", sender: self)
       
     } catch let logOutError {
@@ -195,6 +210,16 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource
   }
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     if indexPath.row == 0{
+      guard let _ = self.uid else { return }
+      if let userIsAnonymous = userIsAnonymous {
+        if userIsAnonymous {
+          ShowAnonymousShouldLogInAlert()
+          return
+        }
+      } else {
+        ShowAnonymousShouldLogInAlert()
+        return
+      }
       performSegue(withIdentifier: "points", sender: self)
     } else if indexPath.row == 1{
       performSegue(withIdentifier: "lecturer", sender: self)
@@ -299,7 +324,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
     
     
     if let user = Auth.auth().currentUser {
-      userID = user.uid
+      uid = user.uid
       
       
       // 當判斷有 selectedImage 時，我們會在 if 判斷式裡將圖片上傳
@@ -327,7 +352,7 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
               print("Photo Url: \(uploadImageUrl)")
               
               // 存放在database
-              let databaseRef = Database.database().reference(withPath: "Users/\(self.userID)/profileImageUrl")
+              let databaseRef = Database.database().reference(withPath: "Users/\(self.uid)/profileImageUrl")
               
               databaseRef.setValue(uploadImageUrl, withCompletionBlock: { (error, dataRef) in
                 
@@ -374,33 +399,34 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
 // APIs
 extension SettingViewController {
   func fetchData(){
+    guard let uid = uid else { return }
     databaseRef = Database.database().reference()
-    databaseRef.child("Users/\(self.userID)").observe(.value) { (snapshot) in
+    databaseRef.child("Users/\(uid)").observe(.value) { (snapshot) in
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")
         
         let user = User()
         guard let name = dictionary["name"] else {
-          self.databaseRef.child("Users/\(self.userID)").child("name").setValue("")
+          self.databaseRef.child("Users/\(uid)").child("name").setValue("")
           return
         }
         guard let account = dictionary["account"] else {
-          self.databaseRef.child("Users/\(self.userID)").child("account").setValue("")
+          self.databaseRef.child("Users/\(uid)").child("account").setValue("")
           return
         }
         
         guard let birthday = dictionary["birthday"] else {
-          self.databaseRef.child("Users/\(self.userID)").child("birthday").setValue("")
+          self.databaseRef.child("Users/\(uid)").child("birthday").setValue("")
           return
         }
         
         guard let gender = dictionary["gender"] else {
-          self.databaseRef.child("Users/\(self.userID)").child("gender").setValue("")
+          self.databaseRef.child("Users/\(uid)").child("gender").setValue("")
           return
         }
         
         guard let profileImageUrl = dictionary["profileImageUrl"] else {
-          self.databaseRef.child("Users/\(self.userID)").child("profileImageUrl").setValue("")
+          self.databaseRef.child("Users/\(uid)").child("profileImageUrl").setValue("")
           return
         }
         

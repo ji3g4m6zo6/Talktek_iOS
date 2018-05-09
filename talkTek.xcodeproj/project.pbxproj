@@ -101,6 +101,7 @@
 		AEB8D5B8208F6D8600C82729 /* PassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D5B7208F6D8600C82729 /* PassView.swift */; };
 		AEB8D5BA209306BC00C82729 /* PaddingExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D5B9209306BC00C82729 /* PaddingExtension.swift */; };
 		AEBD5BF920810ADE00A83FA6 /* PurchaseMainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEBD5BF820810ADE00A83FA6 /* PurchaseMainTableViewCell.swift */; };
+		AEC7B70D20A3529A006BD6EB /* UIAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC7B70C20A3529A006BD6EB /* UIAlert.swift */; };
 		B050BB17519EA10061B5D798 /* Pods_talkTekTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77462AE389C145A21E1A0479 /* Pods_talkTekTests.framework */; };
 		BC65C99C17C2697082B2A556 /* Pods_talkTekUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */; };
 /* End PBXBuildFile section */
@@ -232,6 +233,7 @@
 		AEB8D5B7208F6D8600C82729 /* PassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassView.swift; sourceTree = "<group>"; };
 		AEB8D5B9209306BC00C82729 /* PaddingExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingExtension.swift; sourceTree = "<group>"; };
 		AEBD5BF820810ADE00A83FA6 /* PurchaseMainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseMainTableViewCell.swift; sourceTree = "<group>"; };
+		AEC7B70C20A3529A006BD6EB /* UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlert.swift; sourceTree = "<group>"; };
 		E89B2066A49260620FFE3C18 /* Pods-talkTek.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTek.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTek/Pods-talkTek.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -440,6 +442,7 @@
 				0478E6171FC03D5400DD0169 /* UISegmentedControlExtension.swift */,
 				04294FCD1FE1573900CB4FCA /* UIViewExtension.swift */,
 				AEB8D5B9209306BC00C82729 /* PaddingExtension.swift */,
+				AEC7B70C20A3529A006BD6EB /* UIAlert.swift */,
 				044EB21D1FD05DC300CE1EBB /* Appdelegate + GoogleSignIn.m */,
 				044EB21C1FD05DC300CE1EBB /* talkTek-Bridging-Header.h */,
 			);
@@ -992,6 +995,7 @@
 				AE87198120762DF900D99852 /* TeacherPageOverviewTableViewCell.swift in Sources */,
 				AEB8D5B8208F6D8600C82729 /* PassView.swift in Sources */,
 				0425ADB41FC40F44008165F1 /* FreeCourseViewController.swift in Sources */,
+				AEC7B70D20A3529A006BD6EB /* UIAlert.swift in Sources */,
 				041E3CAD1FDBBB590035E3A4 /* NumberExtension.swift in Sources */,
 				047B1D221FE6AA7300853740 /* AudioListViewController.swift in Sources */,
 				04475E991FE7F22C00F28478 /* LifeViewController.swift in Sources */,
