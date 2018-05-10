@@ -27,7 +27,10 @@ class ForgotPasswordViewController: UIViewController {
   }
   
   @IBAction func backButtonTapped(_ sender: UIButton) {
-    _ = navigationController?.popViewController(animated: true)
+    self.dismiss(animated: true, completion: nil)
+//    if let navigationController = self.navigationController {
+//      _ = navigationController.popViewController(animated: true)
+//    }
   }
   @IBAction func pass_Button_Tapped(_ sender: UIButton) {
     if let email = email_TextField.text {

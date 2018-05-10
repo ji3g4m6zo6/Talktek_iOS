@@ -28,9 +28,10 @@ class LogInViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     if let emailFromSignUp = emailFromSignUp, let passwordFromSignUp = passwordFromSignUp {
+      SVProgressHUD.show(withStatus: "登入中...")
       email_Textfield.text = emailFromSignUp
       password_Textfield.text = passwordFromSignUp
-      LogIn_Button_Tapped(logInButton)
+      signInWithEmail(email: emailFromSignUp, password: passwordFromSignUp)
     } else { return }
     // Do any additional setup after loading the view.
   }
@@ -50,7 +51,7 @@ class LogInViewController: UIViewController {
           SVProgressHUD.dismiss()
         })
       } else {
-        SVProgressHUD.setStatus("登入中...")
+        SVProgressHUD.show(withStatus: "登入中...")
         signInWithEmail(email: email, password: password)
       }
     }
@@ -58,13 +59,15 @@ class LogInViewController: UIViewController {
   }
   
   @IBAction func Back_Button_Tapped(_ sender: UIButton) {
-    _ = navigationController?.popViewController(animated: true)
+      _ = navigationController?.popViewController(animated: true)
+    
   }
   
   @IBAction func forgetButtonTapped(_ sender: UIButton) {
     performSegue(withIdentifier: "identifierForget", sender: nil)
   }
   func signInWithEmail(email: String, password: String){
+    
     
     Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
       

@@ -46,7 +46,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ljr-qM-s0v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2762" y="-1016"/>
+            <point key="canvasLocation" x="-2306" y="-1016"/>
         </scene>
         <!--查看更多-->
         <scene sceneID="Csz-OV-kOe">
@@ -1299,7 +1299,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vO5-VJ-n3f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="VS0-xj-Oa0" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3751" y="-108"/>
+            <point key="canvasLocation" x="-3751" y="-503"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="6yH-vH-f1n">
@@ -1462,7 +1462,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xNY-pW-wlB" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="A6z-tK-vUg" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3081" y="-108"/>
+            <point key="canvasLocation" x="-3751" y="217"/>
         </scene>
         <!--課程-->
         <scene sceneID="LHt-84-ftp">
@@ -4547,7 +4547,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TLU-r2-n8M" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="hRE-zR-GIL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-2426" y="-108"/>
+            <point key="canvasLocation" x="-3103" y="-503"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="CWZ-nX-xY7">
@@ -7042,7 +7042,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="irW-5M-Rbk"/>
         <segue reference="PQa-oV-FIb"/>
-        <segue reference="vOA-a3-KS8"/>
+        <segue reference="5GV-c3-5D2"/>
         <segue reference="7KF-dj-I3T"/>
     </inferredMetricsTieBreakers>
 </document>

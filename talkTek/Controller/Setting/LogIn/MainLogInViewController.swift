@@ -93,20 +93,11 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
       if user != nil{
         // user is logged in
         
-        self.facebook_Button.readPermissions = ["public_profile", "email"]
-        print("permission \(self.facebook_Button.readPermissions)")
-        
-        print("Freakin user id is \(user?.uid ?? "") ")
-        self.self.databaseRef = Database.database().reference()
-//        self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
         self.performSegue(withIdentifier: "identifierTab", sender: self)
 
       } else {
         // No user is signed in
-        //self.logIn()
         
-        self.facebook_Button.readPermissions = ["public_profile", "email"]
-        print("permission \(self.facebook_Button.readPermissions)")
         self.facebook_Button.delegate = self
         self.facebook_Button.isHidden = false
       }
