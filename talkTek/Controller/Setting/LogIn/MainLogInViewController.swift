@@ -15,6 +15,8 @@ import FirebaseAuthUI
 import FirebaseFacebookAuthUI
 import SnapKit
 import SVProgressHUD
+import SwiftyJSON
+
 
 class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButtonDelegate {
   
@@ -213,17 +215,29 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
 
   }
   
-  var dict : [String : AnyObject]?
 
   func getFacebookUserInfo() {
-
+    //var dict : [String : AnyObject]?
     if((FBSDKAccessToken.current()) != nil){
       FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(normal), email"]).start(completionHandler: { (connection, result, error) -> Void in
+        
         if (error == nil){
-          self.dict = result as? [String : AnyObject]
-          print(result!)
-          print(self.dict)
+          if let data = result as? [String: Any]{
+            let json = JSON(data)
+            print("json is \(json)")
+            let pictureUrl = json["picture"]["data"]["url"].string
+            let name = json["name"].string
+            let email = json["email"].string
+            print("picture url is \(pictureUrl), name is \(name), email is \(email)")
+          }
+          
+          
+          
+//          dict = result as? [String : AnyObject]
+//          print(result!)
+//          print(dict)
         }
+        
       })
     }
   }
