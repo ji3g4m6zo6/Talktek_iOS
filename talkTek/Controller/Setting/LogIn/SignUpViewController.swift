@@ -89,7 +89,7 @@ class SignUpViewController: UIViewController {
       
       guard let uid = user?.uid else { return }
       
-      let values = ["name": name as AnyObject, "email": email as AnyObject, "profileImageUrl": "" as AnyObject, "birthday": "" as AnyObject, "gender": "" as AnyObject] as [String: AnyObject]
+      let values = ["name": name as AnyObject, "account": email as AnyObject, "profileImageUrl": "" as AnyObject, "birthday": "" as AnyObject, "gender": "" as AnyObject] as [String: AnyObject]
       
       
       self.databaseRef.child("Users").child(uid).setValue(values, withCompletionBlock: { (err, ref) in

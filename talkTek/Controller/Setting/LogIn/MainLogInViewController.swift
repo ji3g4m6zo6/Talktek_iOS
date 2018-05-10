@@ -61,6 +61,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
     
     uid = UserDefaults.standard.string(forKey: "uid")
     
+    databaseRef = Database.database().reference()
     
     userIsAnonymous = Auth.auth().currentUser?.isAnonymous
     if let userIsAnonymous = userIsAnonymous {//if there's current user
@@ -97,7 +98,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
         
         print("Freakin user id is \(user?.uid ?? "") ")
         self.self.databaseRef = Database.database().reference()
-        self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
+//        self.self.databaseRef.child("Users").child((user?.uid)!).child("Online-Status").setValue("On")
         self.performSegue(withIdentifier: "identifierTab", sender: self)
 
       } else {
@@ -196,16 +197,14 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
         let userDefaults = UserDefaults.standard
         userDefaults.set(user?.uid, forKey: "uid")
         
-        self.getFacebookUserInfo()
+        guard let user = user else { return }
         
-        self.databaseRef.child("Users").child(user!.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        self.databaseRef.child("Users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
           let snapshot = snapshot.value as? NSDictionary
           if(snapshot == nil)
           {
+            self.getFacebookUserInfo(uid: user.uid)
            
-            self.databaseRef.child("Users").child(user!.uid).setValue(["name" : user?.displayName, "account": user?.email, "profileImageUrl": "", "birthday": "", "gender": ""])
-            
-            
           }
         })
         self.performSegue(withIdentifier: "identifierTab", sender: self)
@@ -216,8 +215,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
   }
   
 
-  func getFacebookUserInfo() {
-    //var dict : [String : AnyObject]?
+  func getFacebookUserInfo(uid: String) {
     if((FBSDKAccessToken.current()) != nil){
       FBSDKGraphRequest(graphPath: "me", parameters: ["fields": "id, name, picture.type(normal), email"]).start(completionHandler: { (connection, result, error) -> Void in
         
@@ -228,14 +226,12 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
             let pictureUrl = json["picture"]["data"]["url"].string
             let name = json["name"].string
             let email = json["email"].string
-            print("picture url is \(pictureUrl), name is \(name), email is \(email)")
+
+            self.databaseRef.child("Users/\(uid)")
+              .setValue(["name" : name, "account": email, "profileImageUrl": pictureUrl, "birthday": "", "gender": ""])
+            
           }
           
-          
-          
-//          dict = result as? [String : AnyObject]
-//          print(result!)
-//          print(dict)
         }
         
       })

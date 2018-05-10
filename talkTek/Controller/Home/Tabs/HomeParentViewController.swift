@@ -21,7 +21,7 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    listenToState()
+//    listenToState()
     
 //    passView.snp.makeConstraints { (make) in
 //      make.width.equalTo(self.view)
