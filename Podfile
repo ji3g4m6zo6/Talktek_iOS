@@ -67,6 +67,9 @@ pod 'SVProgressHUD'
 # Transition
 pod "ARNTransitionAnimator"
 
+# Snapkit
+pod 'SwiftyJSON', '~> 4.0'
+
 
   target 'talkTekTests' do
     inherit! :search_paths

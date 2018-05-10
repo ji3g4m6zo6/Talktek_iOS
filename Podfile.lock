@@ -90,6 +90,7 @@ PODS:
   - PopupDialog (0.6.2)
   - SnapKit (4.0.0)
   - SVProgressHUD (2.2.5)
+  - SwiftyJSON (4.1.0)
   - SwiftyStoreKit (0.11.0)
   - TextFieldEffects (1.4.0)
   - XLPagerTabStrip (8.0.0)
@@ -117,6 +118,7 @@ DEPENDENCIES:
   - PopupDialog (~> 0.6)
   - SnapKit (~> 4.0.0)
   - SVProgressHUD
+  - SwiftyJSON (~> 4.0)
   - SwiftyStoreKit
   - TextFieldEffects
   - XLPagerTabStrip (~> 8.0)
@@ -152,10 +154,11 @@ SPEC CHECKSUMS:
   PopupDialog: d4336d7274a6aa3af4cb26d8b6691510eba90cc3
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   SwiftyStoreKit: c5cb38110cb01b55b9c5f25d7f69d0083650b2a4
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
   XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
 
-PODFILE CHECKSUM: 70c81daaee27e431d69bb58652aae7a33d3ca435
+PODFILE CHECKSUM: 733056fa0fe946ad8834e1d25d3487a3f36bf282
 
 COCOAPODS: 1.4.0
