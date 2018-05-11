@@ -1725,7 +1725,7 @@
                             <constraint firstItem="l3x-9G-1Zi" firstAttribute="top" secondItem="xgj-AG-ujl" secondAttribute="bottom" constant="20" id="2Zv-kr-6ZT"/>
                             <constraint firstItem="ryu-0O-MAY" firstAttribute="trailing" secondItem="z2V-rx-7cf" secondAttribute="trailing" id="2zn-ri-544"/>
                             <constraint firstItem="l3x-9G-1Zi" firstAttribute="centerX" secondItem="Bpd-0D-oVC" secondAttribute="centerX" id="ETk-ny-Lyl"/>
-                            <constraint firstItem="ryu-0O-MAY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FTl-P1-E0r" secondAttribute="bottom" constant="177" id="Eqd-tD-wT8"/>
+                            <constraint firstItem="ryu-0O-MAY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="FTl-P1-E0r" secondAttribute="bottom" constant="100" id="Eqd-tD-wT8"/>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="top" secondItem="ryu-0O-MAY" secondAttribute="top" constant="5" id="KG6-cf-e9V"/>
                             <constraint firstItem="FTl-P1-E0r" firstAttribute="top" secondItem="l3x-9G-1Zi" secondAttribute="bottom" constant="15" id="SEw-YH-Y6k"/>
                             <constraint firstItem="z2V-rx-7cf" firstAttribute="bottom" secondItem="ryu-0O-MAY" secondAttribute="bottom" id="WBv-T4-ngX"/>
@@ -1963,7 +1963,7 @@
                             <constraint firstItem="1ca-n4-HgC" firstAttribute="top" secondItem="08R-VP-8mh" secondAttribute="top" constant="5" id="JGi-UD-7mK"/>
                             <constraint firstItem="1ca-n4-HgC" firstAttribute="leading" secondItem="08R-VP-8mh" secondAttribute="leading" id="Ke1-zA-WDw"/>
                             <constraint firstItem="A6f-fB-SxI" firstAttribute="centerX" secondItem="cv0-cq-Z07" secondAttribute="centerX" id="Kqw-2K-Utr"/>
-                            <constraint firstItem="08R-VP-8mh" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A6f-fB-SxI" secondAttribute="bottom" constant="177" id="P7K-fs-XFs"/>
+                            <constraint firstItem="08R-VP-8mh" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="A6f-fB-SxI" secondAttribute="bottom" constant="100" id="P7K-fs-XFs"/>
                             <constraint firstItem="cv0-cq-Z07" firstAttribute="top" secondItem="08R-VP-8mh" secondAttribute="top" constant="93" id="PHI-rm-QN0"/>
                             <constraint firstItem="A6f-fB-SxI" firstAttribute="top" secondItem="Ppj-Yp-KIJ" secondAttribute="bottom" constant="15" id="Ppt-M9-C2D"/>
                             <constraint firstItem="08R-VP-8mh" firstAttribute="bottom" secondItem="1ca-n4-HgC" secondAttribute="bottom" id="g2w-wK-kz0"/>
