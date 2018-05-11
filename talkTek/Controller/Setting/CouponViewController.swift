@@ -15,13 +15,17 @@ import SVProgressHUD
 
 class CouponViewController: UIViewController {
   
+  var isUsingCoupon = false
+  
   @IBOutlet weak var coupon_TextField: UITextField!
   override func viewDidLoad() {
     super.viewDidLoad()
     coupon_TextField.layer.borderWidth = 1.0
     coupon_TextField.layer.borderColor = UIColor.borderGray().cgColor
     
-    
+    if isUsingCoupon {
+      self.title = "優惠碼"
+    }
     let userDefaults = UserDefaults.standard
     uid = userDefaults.string(forKey: "uid") ?? ""
     
@@ -36,9 +40,9 @@ class CouponViewController: UIViewController {
   }
   var array_CourseID = [String]()
   @IBAction func Send_Button_Tapped(_ sender: UIButton) {
-    if coupon_TextField.text != ""{
-      email()
-      //self.sendCoupon(coupon: coupon_TextField.text!)
+    guard let coupon = coupon_TextField.text else { return }
+    if coupon != ""{
+      isUsingCoupon ? sendCoupon(coupon: coupon) : email()
     } else {
       self.alertNotEnoughInfo()
     }
