@@ -24,10 +24,25 @@ class SettingViewController: UIViewController {
   
  
   @IBOutlet weak var tableView: UITableView!
-  var list = ["點數中心","成為講師", "意見反饋", "訂閱電子報", "關於"]
+  var list = ["點數中心", "成為講師", "意見反饋", "訂閱電子報", "關於"]
+  
+  var isUsingCoupon = false
+  {
+    didSet {
+      if isUsingCoupon {
+        list[3] = "優惠碼"
+      } else {
+        list[3] = "訂閱電子報"
+      }
+      tableView.reloadData()
+    }
+  }
+
+  
   
   var username = ""
   var imageUrlForDeletion: String?
+  
   // MARK: Database
   var uid: String?
   var userIsAnonymous: Bool?
@@ -40,12 +55,17 @@ class SettingViewController: UIViewController {
     
     // check if user is anonymous
     userIsAnonymous = Auth.auth().currentUser?.isAnonymous ?? false
+    
+    // databaseRef
+    databaseRef = Database.database().reference()
 
     
     // TableView delegate, datasource
     tableView.delegate = self
     tableView.dataSource = self
     
+    // check if using coupon
+    ifUsingCoupon()
     
     // Circle Image
     cameraIcon_Button.tintColor = UIColor.audioPlayGray()
@@ -87,6 +107,18 @@ class SettingViewController: UIViewController {
     }
   }
   
+  
+  func ifUsingCoupon(){
+    databaseRef.child("Coupon").observe(.value) { snapshot in
+      if let value = snapshot.value as? Bool {
+        if value == true {
+          self.isUsingCoupon = true
+        } else {
+          self.isUsingCoupon = false
+        }
+      }
+    }
+  }
   
   func handgesture(){
     let tap =
@@ -185,6 +217,7 @@ class SettingViewController: UIViewController {
       destination.hidesBottomBarWhenPushed = true
     } else if segue.identifier == "coupon"{
       let destination = segue.destination as! CouponViewController
+      destination.isUsingCoupon = isUsingCoupon
       destination.hidesBottomBarWhenPushed = true
     } else if segue.identifier == "about"{
       let destination = segue.destination as! AboutViewController

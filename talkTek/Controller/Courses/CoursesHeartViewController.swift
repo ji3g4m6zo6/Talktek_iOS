@@ -26,6 +26,11 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
   var uid: String?
   var titleOfHeartCourses = [String]()
   var homeCouresToPass = HomeCourses()
+  
+  // MARK: - hide
+  @IBOutlet weak var noCourseBought_ImageView: UIImageView!
+  @IBOutlet weak var noCourseBought_Label: UILabel!
+  @IBOutlet weak var noCourseBought_Button: UIButton!
 
   @IBOutlet weak var tableView: UITableView!
   

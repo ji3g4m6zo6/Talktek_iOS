@@ -15,9 +15,17 @@ import SVProgressHUD
 
 class CouponViewController: UIViewController {
   
+  var uid: String?
+  var databaseRef: DatabaseReference!
+
   var isUsingCoupon = false
   
+  
+  // MARK: - CashFlow
+  var cashFlow = CashFlow()
+
   @IBOutlet weak var coupon_TextField: UITextField!
+  @IBOutlet weak var confirmButton: UIButton!
   override func viewDidLoad() {
     super.viewDidLoad()
     coupon_TextField.layer.borderWidth = 1.0
@@ -25,15 +33,17 @@ class CouponViewController: UIViewController {
     
     if isUsingCoupon {
       self.title = "優惠碼"
+      coupon_TextField.placeholder = "輸入優惠碼"
+      confirmButton.setTitle("兌換", for: .normal)
     }
-    let userDefaults = UserDefaults.standard
-    uid = userDefaults.string(forKey: "uid") ?? ""
     
+    uid = UserDefaults.standard.string(forKey: "uid")
+    databaseRef = Database.database().reference()
+
     fetchData()
     
     // Do any additional setup after loading the view.
   }
-  var uid = ""
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
@@ -49,21 +59,8 @@ class CouponViewController: UIViewController {
     
   }
   
-  func convertToDictionary(text: String) -> [String: Any]? {
-    if let data = text.data(using: .utf8) {
-      do {
-        return try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
-      } catch {
-        print(error.localizedDescription)
-      }
-    }
-    return nil
-  }
+  
   func fetchData(){
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-    
-    
     databaseRef.child("AllCourses").observe(.value, with: { (snapshot) in
       for child in snapshot.children{
         let snap = child as! DataSnapshot
@@ -73,44 +70,9 @@ class CouponViewController: UIViewController {
   }
   
   func sendCoupon(coupon: String){
-    var databaseRef: DatabaseReference!
-    databaseRef = Database.database().reference()
-    
-    if array_CourseID.contains(coupon_TextField.text!){
-      databaseRef.child("AllCourses").child(coupon_TextField.text!).observe(.value, with: { (snapshot) in
-        if let dictionary = snapshot.value as? [String: Any]{
-          let homeCourses = HomeCourses()
-          
-          homeCourses.authorDescription = dictionary["authorDescription"] as? String
-          homeCourses.authorId = dictionary["authorId"] as? String
-          homeCourses.authorImage = dictionary["authorImage"] as? String
-          homeCourses.authorName = dictionary["authorName"] as? String
-          homeCourses.courseDescription = dictionary["courseDescription"] as? String
-          homeCourses.courseId = dictionary["courseId"] as? String
-          homeCourses.courseTitle = dictionary["courseTitle"] as? String
-          homeCourses.overViewImage = dictionary["overViewImage"] as? String
-          homeCourses.priceOnSales = dictionary["priceOnSales"] as? Int
-          homeCourses.priceOrigin = dictionary["priceOrigin"] as? Int
-          homeCourses.scorePeople = dictionary["scorePeople"] as? Int
-          homeCourses.scoreTotal = dictionary["scoreTotal"] as? Double
-          homeCourses.studentNumber = dictionary["studentNumber"] as? Int
-          homeCourses.tags = dictionary["tags"] as! [String]
-          
-          let jsonEncoder = JSONEncoder()
-          let jsonData = try? jsonEncoder.encode(homeCourses)
-          let json = String(data: jsonData!, encoding: String.Encoding.utf8)
-          
-          let result = self.convertToDictionary(text: json!)
-          databaseRef.child("BoughtCourses").child(self.uid).child(self.coupon_TextField.text!).setValue(result, withCompletionBlock: { (error, ref) in
-            if error != nil {
-              // Alert network error or sth
-            } else {
-              self.alertSuccess()
-            }
-          })
-          
-        }
-      })
+    guard let _ = uid else { return }
+    if array_CourseID.contains(coupon){
+      ifUserHasCourse(coupon: coupon)
     } else {
       alertError()
     }
@@ -118,10 +80,9 @@ class CouponViewController: UIViewController {
   }
   
   func alertError(){
-    //let alertController = UIAlertController(title: "選課錯誤", message: "請確認優惠碼無誤", preferredStyle: UIAlertControllerStyle.alert)
-    let alertController = UIAlertController(title: "訂閱失敗", message: "請確認信箱無誤", preferredStyle: UIAlertControllerStyle.alert)
+    let alertController = UIAlertController(title: "選課錯誤", message: "請確認優惠碼無誤", preferredStyle: UIAlertControllerStyle.alert)
 
-    alertController.addAction(UIAlertAction(title: "確認", style: UIAlertActionStyle.default,handler: nil))
+    alertController.addAction(UIAlertAction(title: "確認", style: .default, handler: nil))
     
     self.present(alertController, animated: true, completion: nil)
   }
@@ -138,6 +99,15 @@ class CouponViewController: UIViewController {
     self.present(alert, animated: true)
   }
   
+  func alertHasBought(){
+    let alert = UIAlertController(title: "選課失敗", message: "您已購買過此課程", preferredStyle: .alert)
+    
+    let confirm = UIAlertAction(title: "確認", style: .cancel, handler: nil)
+    alert.addAction(confirm)
+    
+    
+    self.present(alert, animated: true)
+  }
   func alertNotEnoughInfo(){
     let alertController = UIAlertController(title: "所有欄位均須填寫", message: "", preferredStyle: UIAlertControllerStyle.alert)
     
@@ -169,6 +139,119 @@ class CouponViewController: UIViewController {
     let emailTest = NSPredicate(format:"SELF MATCHES[c] %@", emailRegEx)
     return emailTest.evaluate(with: email)
   }
+  
+  
+  var thisCourseHasBought = false
+  {
+    didSet {
+      if thisCourseHasBought {
+        alertHasBought()
+      }
+    }
+  }
+  
+  
+  // check if user has this course
+  func ifUserHasCourse(coupon: String){
+    guard let uid = self.uid else { return }
+    databaseRef.child("BoughtCourses").observeSingleEvent(of: .value) { (snapshot) in
+      if snapshot.hasChild(uid){
+        self.databaseRef.child("BoughtCourses").child(uid).observeSingleEvent(of: .value) { (snapshot) in
+          
+          if let array = snapshot.value as? [String]{
+            self.titleOfBoughtCourses = array
+            for value in array {
+              if value == coupon {
+                self.thisCourseHasBought = true
+                return
+              }
+            }
+            
+            self.thisCourseHasBought = false
+            self.buy(coupon: coupon)
+          }
+          
+
+        }
+      } else {
+        self.thisCourseHasBought = false
+        self.buy(coupon: coupon)
+
+      }
+    }
+  }
+  var titleOfBoughtCourses = [String]()
+
+  func buy(coupon: String){
+    guard let uid = self.uid else { return }
+    databaseRef.child("AllCourses/\(coupon)/studentNumber").runTransactionBlock({ (currentData: MutableData) -> TransactionResult in
+      
+      if var studentNumber = currentData.value as? Int{
+        
+        
+            // update studentNumber
+            studentNumber += 1
+            currentData.value = studentNumber
+        
+            // Add to BoughtCourses of each person
+            self.titleOfBoughtCourses.append(coupon)
+            self.databaseRef.child("BoughtCourses").child(uid).setValue(self.titleOfBoughtCourses)
+            
+            
+            self.addRewardPoints(addRewardPoints: 0)
+            self.addPointsToHistory(coupon: coupon)
+            
+            // Alert Success
+//            SVProgressHUD.showSuccess(withStatus: "購買成功")
+//            DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+//              SVProgressHUD.dismiss()
+//            })
+            self.alertSuccess()
+        
+        return TransactionResult.success(withValue: currentData)
+        
+      }
+      
+      
+      
+      return TransactionResult.success(withValue: currentData)
+    }) { (error, committed, snapshot) in
+      if let error = error {
+        print(error.localizedDescription)
+        SVProgressHUD.showError(withStatus: "購買失敗")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+          SVProgressHUD.dismiss()
+        })
+      }
+    }
+    
+    
+  }
+  
+  // update point
+  func addRewardPoints(addRewardPoints: Int){
+    guard let uid = uid else { return }
+    let rewardPoints = cashFlow.RewardPoints
+    databaseRef.child("CashFlow/\(uid)/Total").child("RewardPoints").setValue(rewardPoints - addRewardPoints)
+  }
+  
+  // add point to history
+  func addPointsToHistory(coupon: String){
+    guard let uid = uid else { return }
+    let currentTime = getCurrentTime()
+    let parameter = ["Time": currentTime, "CashType": "購買課程\(coupon)", "Value": 0, "Unit": "點數"] as [String : Any]
+    databaseRef.child("CashFlow/\(uid)/History").childByAutoId().setValue(parameter)
+  }
+  
+  // get current time for history usage
+  func getCurrentTime() -> String{
+    let date = Date()
+    let formatter = DateFormatter()
+    formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+    
+    return formatter.string(from: date)
+  }
+  
   /*
    // MARK: - Navigation
    
