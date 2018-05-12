@@ -98,7 +98,6 @@ class CoursePageViewController: UIViewController {
     //getMoney()
     ifUserHasCourse()
     
-    Analytics.logEvent("facebook_login", parameters: nil)
 
 
     // fetchAudioFiles
@@ -159,6 +158,7 @@ class CoursePageViewController: UIViewController {
       let destination = segue.destination as! PlayerViewController
       destination.audioData = detailToPass
       destination.thisSong = thisSong
+      destination.courseId = detailToGet.courseId
     }
   }
   

@@ -15,7 +15,7 @@ import ARNTransitionAnimator
 
 class PlayerViewController: UIViewController {
   
-
+  var courseId: String?
   var audioData = [AudioItem?]()
   var thisSong = 0
 
@@ -52,6 +52,11 @@ class PlayerViewController: UIViewController {
   @IBAction func playpause_Button_Tapped(_ sender: UIButton) {
     if selected == -1 {
       player.pause()
+      if let courseId = courseId, let audioData = audioData[thisSong]{
+        if let radioX = audioData.SectionPriority, let radioY = audioData.RowPriority {
+          Analytics.logEvent("\(courseId)_radio\(radioX)_\(radioY)_pause", parameters: nil)
+        }
+      }
       playpause_Button.setImage(UIImage(named: "播放(大)"), for: .normal)
       selected += 1
     } else {
@@ -87,6 +92,11 @@ class PlayerViewController: UIViewController {
         next_Button_Tapped(next_Button)
       }
     }
+    if let courseId = courseId, let audioData = audioData[thisSong]{
+      if let radioX = audioData.SectionPriority, let radioY = audioData.RowPriority {
+        Analytics.logEvent("\(courseId)_radio\(radioX)_\(radioY)_next", parameters: nil)
+      }
+    }
   }
 
   @IBAction func previous_Button_Tapped(_ sender: UIButton) {
@@ -103,6 +113,11 @@ class PlayerViewController: UIViewController {
         letsPlay(songAudio: audioOfThisSongExisted)
       } else {
         previous_Button_Tapped(previous_Button)
+      }
+    }
+    if let courseId = courseId, let audioData = audioData[thisSong]{
+      if let radioX = audioData.SectionPriority, let radioY = audioData.RowPriority {
+        Analytics.logEvent("\(courseId)_radio\(radioX)_\(radioY)_previous", parameters: nil)
       }
     }
   }
@@ -277,6 +292,24 @@ class PlayerViewController: UIViewController {
           print("Session is Active")
         } catch {
           print(error)
+        }
+        
+        if let courseId = courseId, let audioData = audioData[thisSong]{
+          if let radioX = audioData.SectionPriority, let radioY = audioData.RowPriority {
+            let current = Float(CMTimeGetSeconds(playerItem.currentTime()))
+
+            if current == 5 {
+              Analytics.logEvent("\(courseId)_radio\(radioX)_\(radioY)_load5sec", parameters: nil)
+            }
+            if current == 30 {
+              Analytics.logEvent("\(courseId)_radio\(radioX)_\(radioY)_load30sec", parameters: nil)
+            }
+            if self.slider_UISlider.value == 0.75 {
+              Analytics.logEvent("\(courseId)_radio\(radioX)_\(radioY)_loadper75", parameters: nil)
+            }
+            
+            
+          }
         }
         
       }else{
