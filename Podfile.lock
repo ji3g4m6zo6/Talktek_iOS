@@ -93,7 +93,7 @@ PODS:
   - SwiftyJSON (4.1.0)
   - SwiftyStoreKit (0.11.0)
   - TextFieldEffects (1.4.0)
-  - XLPagerTabStrip (8.0.0)
+  - XLPagerTabStrip (8.0.1)
 
 DEPENDENCIES:
   - ARNTransitionAnimator
@@ -157,7 +157,7 @@ SPEC CHECKSUMS:
   SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   SwiftyStoreKit: c5cb38110cb01b55b9c5f25d7f69d0083650b2a4
   TextFieldEffects: 4ee41b5216e674d55fb6ac25107bf1af7629176f
-  XLPagerTabStrip: d1ab378af0923320ec0b5eab11d7b2f803d31261
+  XLPagerTabStrip: c908b17cbf42fcd2598ee1adfc49bae25444d88a
 
 PODFILE CHECKSUM: 733056fa0fe946ad8834e1d25d3487a3f36bf282
 
