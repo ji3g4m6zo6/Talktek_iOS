@@ -47,7 +47,7 @@ class BecomeLecturerViewController: UIViewController, UITextViewDelegate {
   func textViewDidEndEditing(_ textView: UITextView) {
     if description_TextView.text.isEmpty {
       description_TextView.text = "輸入課程內容"
-      description_TextView.textColor = UIColor.greyPlaceholderColor() 
+      description_TextView.textColor = UIColor.greyPlaceholderColor()
     }
   }
 
@@ -74,6 +74,7 @@ class BecomeLecturerViewController: UIViewController, UITextViewDelegate {
           print(error?.localizedDescription ?? "Failed to update value")
         } else {
           print("Success update newValue to database")
+          Analytics.logEvent("lectureapply_submit_done", parameters: nil)
           self.alertSuccess()
         }
       })

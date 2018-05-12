@@ -68,6 +68,7 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
           print(error?.localizedDescription ?? "Failed to update value")
         } else {
           print("Success update newValue to database")
+          Analytics.logEvent("feedback_submit_done", parameters: nil)
           self.alertSuccess()
         }
       })

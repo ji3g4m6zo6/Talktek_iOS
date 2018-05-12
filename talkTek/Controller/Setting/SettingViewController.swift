@@ -138,7 +138,7 @@ class SettingViewController: UIViewController {
       ShowAnonymousShouldLogInAlert()
       return
     }
-    
+    Analytics.logEvent("setting_editprofile_click", parameters: nil)
     performSegue(withIdentifier: "identifierEdit", sender: self)
     
   }
@@ -168,6 +168,7 @@ class SettingViewController: UIViewController {
   }
   
   @IBAction func cameraOrImage(_ sender: UIButton) {
+    Analytics.logEvent("setting_uploadphoto_click", parameters: nil)
     camera()
     cameraIcon_Button.isHighlighted = true
   }
@@ -181,6 +182,7 @@ class SettingViewController: UIViewController {
       try Auth.auth().signOut()
       self.databaseRef = Database.database().reference()
       self.databaseRef.child("Users").child(uid).child("Online-Status").setValue("Off")
+      Analytics.logEvent("setting_logout_done", parameters: nil)
       performSegue(withIdentifier: "identifierLogIn", sender: self)
       
     } catch let logOutError {
@@ -253,17 +255,22 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource
         ShowAnonymousShouldLogInAlert()
         return
       }
+      Analytics.logEvent("setting_pointcenter_click", parameters: nil)
       performSegue(withIdentifier: "points", sender: self)
     } else if indexPath.row == 1{
+      Analytics.logEvent("setting_lecturerapply_click", parameters: nil)
       performSegue(withIdentifier: "lecturer", sender: self)
     } else if indexPath.row == 2{
+      Analytics.logEvent("setting_feedback_click", parameters: nil)
       performSegue(withIdentifier: "suggestion", sender: self)
     } //else if indexPath.row == 3{
       //performSegue(withIdentifier: "personal", sender: self)
     //}
        else if indexPath.row == 3{
+      Analytics.logEvent("setting_coupon_click", parameters: nil)
       performSegue(withIdentifier: "coupon", sender: self)
     } else if indexPath.row == 4{
+      Analytics.logEvent("setting_about_click", parameters: nil)
       performSegue(withIdentifier: "about", sender: self)
     } else{
       print("WTF happened!!!")

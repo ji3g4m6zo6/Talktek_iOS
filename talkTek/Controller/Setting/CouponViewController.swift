@@ -51,6 +51,7 @@ class CouponViewController: UIViewController {
   var array_CourseID = [String]()
   @IBAction func Send_Button_Tapped(_ sender: UIButton) {
     guard let coupon = coupon_TextField.text else { return }
+    coupon_TextField.endEditing(true)
     if coupon != ""{
       isUsingCoupon ? sendCoupon(coupon: coupon) : email()
     } else {
