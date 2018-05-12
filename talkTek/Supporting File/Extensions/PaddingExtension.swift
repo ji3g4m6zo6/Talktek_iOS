@@ -13,6 +13,7 @@ class UITextFieldPadding : UITextField {
     super.init(coder: aDecoder)
   }
   
+  
   override func textRect(forBounds bounds: CGRect) -> CGRect {
     return UIEdgeInsetsInsetRect(bounds,
                                  UIEdgeInsetsMake(0, 10, 0, 10))

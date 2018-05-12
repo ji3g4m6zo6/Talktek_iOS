@@ -41,7 +41,7 @@ class SuggestionViewController: UIViewController, UITextViewDelegate {
   }
   func textViewDidEndEditing(_ textView: UITextView) {
     if description_TextView.text.isEmpty {
-      description_TextView.text = "輸入課程內容"
+      description_TextView.text = "輸入內容"
       description_TextView.textColor = UIColor.greyPlaceholderColor()
     }
   }

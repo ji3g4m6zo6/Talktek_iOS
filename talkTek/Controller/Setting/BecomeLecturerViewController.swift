@@ -39,7 +39,7 @@ class BecomeLecturerViewController: UIViewController, UITextViewDelegate {
     description_TextView.delegate = self
   }
   func textViewDidBeginEditing(_ textView: UITextView) {
-    if description_TextView.textColor == UIColor.lightGray {
+    if description_TextView.textColor == UIColor.greyPlaceholderColor()  {
       description_TextView.text = nil
       description_TextView.textColor = UIColor.black
     }
@@ -47,7 +47,7 @@ class BecomeLecturerViewController: UIViewController, UITextViewDelegate {
   func textViewDidEndEditing(_ textView: UITextView) {
     if description_TextView.text.isEmpty {
       description_TextView.text = "輸入課程內容"
-      description_TextView.textColor = UIColor.lightGray
+      description_TextView.textColor = UIColor.greyPlaceholderColor() 
     }
   }
 
