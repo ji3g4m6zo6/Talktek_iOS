@@ -15,7 +15,6 @@ class CoursesViewController: ButtonBarPagerTabStripViewController {
   let tealish = UIColor.tealish()
 
   override func viewDidLoad() {
-    super.viewDidLoad()
     
     settings.style.buttonBarBackgroundColor = .white
     settings.style.buttonBarItemBackgroundColor = .white
@@ -32,6 +31,8 @@ class CoursesViewController: ButtonBarPagerTabStripViewController {
       oldCell?.label.textColor = UIColor.lightGray
       newCell?.label.textColor = self?.tealish
     }
+    super.viewDidLoad()
+
     
   }
   
