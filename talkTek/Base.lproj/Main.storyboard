@@ -1312,8 +1312,29 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="登入頁" translatesAutoresizingMaskIntoConstraints="NO" id="T5s-ya-JND">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="確認密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="H4c-et-OL5" customClass="HoshiTextField" customModule="TextFieldEffects">
+                                <rect key="frame" x="64" y="457" width="247" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="247" id="TyY-8I-ekR"/>
+                                    <constraint firstAttribute="height" constant="50" id="zNb-Wk-aC8"/>
+                                </constraints>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontScale">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderInactiveColor">
+                                        <color key="value" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入全名" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aj4-tG-Or3" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="64" y="307" width="247" height="50"/>
+                                <rect key="frame" x="64" y="277" width="247" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="247" id="7V4-0Q-Xtq"/>
                                     <constraint firstAttribute="height" constant="50" id="XsR-D0-v6C"/>
@@ -1335,7 +1356,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入信箱" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z3d-Ax-uz2" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="64" y="367" width="247" height="50"/>
+                                <rect key="frame" x="64" y="337" width="247" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="WN7-p7-w2Q"/>
                                     <constraint firstAttribute="width" constant="247" id="ed5-ou-drK"/>
@@ -1356,7 +1377,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="輸入密碼" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gGh-l6-kQp" customClass="HoshiTextField" customModule="TextFieldEffects">
-                                <rect key="frame" x="64" y="427" width="247" height="50"/>
+                                <rect key="frame" x="64" y="397" width="247" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="247" id="AgQ-Jz-Ykp"/>
                                     <constraint firstAttribute="height" constant="50" id="r1H-y8-YQx"/>
@@ -1377,10 +1398,9 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Ty-SY-kro" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
-                                <rect key="frame" x="109" y="500" width="157" height="50"/>
+                                <rect key="frame" x="25" y="547" width="157.5" height="50"/>
                                 <color key="backgroundColor" red="0.1215686275" green="0.74901960779999999" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="157" id="I1i-vu-4YU"/>
                                     <constraint firstAttribute="height" constant="50" id="WvT-dm-P1I"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -1396,12 +1416,18 @@
                                     <action selector="SignUp_Button_Tapped:" destination="Buo-Er-AcS" eventType="touchUpInside" id="unw-q2-hF5"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7bt-aa-HBS">
+                                <rect key="frame" x="122" y="80" width="130" height="130"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="130" id="1Ms-Qj-b38"/>
+                                    <constraint firstAttribute="height" constant="130" id="hf8-Iq-ZVb"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Gk-v0-9md" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
-                                <rect key="frame" x="109" y="565" width="157" height="50"/>
+                                <rect key="frame" x="192.5" y="547" width="157.5" height="50"/>
                                 <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="0.10000000000000001" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="VLD-U7-RIp"/>
-                                    <constraint firstAttribute="width" constant="157" id="Zrf-BS-E5g"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="返回">
@@ -1423,37 +1449,35 @@
                                     <segue destination="A6z-tK-vUg" kind="unwind" unwindAction="backFromCourseDetail:" id="zwB-UN-Fi0"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="7bt-aa-HBS">
-                                <rect key="frame" x="122" y="80" width="130" height="130"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="130" id="1Ms-Qj-b38"/>
-                                    <constraint firstAttribute="height" constant="130" id="hf8-Iq-ZVb"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="9Ty-SY-kro" firstAttribute="leading" secondItem="oUu-Fc-UmU" secondAttribute="leading" constant="25" id="0qp-NC-vQX"/>
+                            <constraint firstItem="7Gk-v0-9md" firstAttribute="centerY" secondItem="9Ty-SY-kro" secondAttribute="centerY" id="2ob-ZX-GNh"/>
                             <constraint firstItem="gGh-l6-kQp" firstAttribute="centerX" secondItem="N2d-XV-uzG" secondAttribute="centerX" id="3gJ-i6-cuV"/>
-                            <constraint firstItem="9Ty-SY-kro" firstAttribute="top" secondItem="gGh-l6-kQp" secondAttribute="bottom" constant="23" id="9f9-bY-Gij"/>
+                            <constraint firstItem="7Gk-v0-9md" firstAttribute="leading" secondItem="9Ty-SY-kro" secondAttribute="trailing" constant="10" id="7bj-oA-ZQL"/>
                             <constraint firstItem="7bt-aa-HBS" firstAttribute="top" secondItem="N2d-XV-uzG" secondAttribute="top" constant="80" id="BWs-Z1-a0x"/>
+                            <constraint firstItem="9Ty-SY-kro" firstAttribute="width" secondItem="7Gk-v0-9md" secondAttribute="width" id="Dxd-JW-Yk9"/>
+                            <constraint firstItem="9Ty-SY-kro" firstAttribute="top" secondItem="H4c-et-OL5" secondAttribute="bottom" constant="40" id="HY0-Xx-WJ9"/>
                             <constraint firstItem="T5s-ya-JND" firstAttribute="top" secondItem="N2d-XV-uzG" secondAttribute="top" id="OCL-Hh-jgq"/>
                             <constraint firstItem="T5s-ya-JND" firstAttribute="leading" secondItem="oUu-Fc-UmU" secondAttribute="leading" id="SJq-K1-pAi"/>
                             <constraint firstItem="T5s-ya-JND" firstAttribute="bottom" secondItem="oUu-Fc-UmU" secondAttribute="bottom" id="VKv-V0-Dhx"/>
                             <constraint firstItem="Aj4-tG-Or3" firstAttribute="centerX" secondItem="N2d-XV-uzG" secondAttribute="centerX" id="c4O-wr-CPO"/>
-                            <constraint firstItem="7Gk-v0-9md" firstAttribute="centerX" secondItem="N2d-XV-uzG" secondAttribute="centerX" id="eXo-dT-gVt"/>
                             <constraint firstItem="7bt-aa-HBS" firstAttribute="centerX" secondItem="N2d-XV-uzG" secondAttribute="centerX" id="fyp-vS-XAQ"/>
                             <constraint firstItem="gGh-l6-kQp" firstAttribute="top" secondItem="Z3d-Ax-uz2" secondAttribute="bottom" constant="10" id="g2k-Zl-IKE"/>
                             <constraint firstItem="T5s-ya-JND" firstAttribute="trailing" secondItem="oUu-Fc-UmU" secondAttribute="trailing" id="gjv-ew-sh5"/>
-                            <constraint firstItem="7Gk-v0-9md" firstAttribute="top" secondItem="9Ty-SY-kro" secondAttribute="bottom" constant="15" id="jWW-sP-yuk"/>
+                            <constraint firstItem="H4c-et-OL5" firstAttribute="top" secondItem="gGh-l6-kQp" secondAttribute="bottom" constant="10" id="gst-fr-tyh"/>
+                            <constraint firstItem="oUu-Fc-UmU" firstAttribute="trailing" secondItem="7Gk-v0-9md" secondAttribute="trailing" constant="25" id="k9g-XR-mYi"/>
+                            <constraint firstItem="H4c-et-OL5" firstAttribute="centerX" secondItem="Aj4-tG-Or3" secondAttribute="centerX" id="lEQ-jx-Hlr"/>
                             <constraint firstItem="Z3d-Ax-uz2" firstAttribute="top" secondItem="Aj4-tG-Or3" secondAttribute="bottom" constant="10" id="lUe-Jw-JZe"/>
-                            <constraint firstItem="9Ty-SY-kro" firstAttribute="centerX" secondItem="N2d-XV-uzG" secondAttribute="centerX" id="o7Z-Wl-b3Z"/>
                             <constraint firstItem="Z3d-Ax-uz2" firstAttribute="centerX" secondItem="N2d-XV-uzG" secondAttribute="centerX" id="oit-4U-5B9"/>
-                            <constraint firstItem="Aj4-tG-Or3" firstAttribute="top" secondItem="oUu-Fc-UmU" secondAttribute="top" constant="287" id="qZX-zk-Ri3"/>
+                            <constraint firstItem="Aj4-tG-Or3" firstAttribute="top" secondItem="oUu-Fc-UmU" secondAttribute="top" constant="257" id="qZX-zk-Ri3"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="oUu-Fc-UmU"/>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="7Gk-v0-9md" id="6Xo-mu-2r7"/>
+                        <outlet property="confirm_TextField" destination="H4c-et-OL5" id="tZd-11-ZB7"/>
                         <outlet property="email_TextField" destination="Z3d-Ax-uz2" id="hks-3o-TBc"/>
                         <outlet property="name_TextField" destination="Aj4-tG-Or3" id="fcO-IP-Chw"/>
                         <outlet property="password_TextField" destination="gGh-l6-kQp" id="MAL-Et-0uU"/>
@@ -3564,13 +3588,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fJh-Rk-YLv">
-                                <rect key="frame" x="319" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="319" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137254901964" green="0.67843137254901964" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fjK-uY-bC6">
-                                <rect key="frame" x="25" y="530" width="31" height="14.5"/>
+                                <rect key="frame" x="25" y="529.5" width="31" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.67843137249999996" green="0.67843137249999996" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -3586,7 +3610,7 @@
                                 </connections>
                             </button>
                             <progressView hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Es1-Id-VSF">
-                                <rect key="frame" x="25" y="519" width="325" height="1"/>
+                                <rect key="frame" x="25" y="518.5" width="325" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sYI-XP-IVe"/>
                                 </constraints>
@@ -7097,7 +7121,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="irW-5M-Rbk"/>
-        <segue reference="sI2-ES-ClC"/>
+        <segue reference="rnJ-4A-HtR"/>
         <segue reference="ATM-aJ-JqT"/>
         <segue reference="7KF-dj-I3T"/>
     </inferredMetricsTieBreakers>

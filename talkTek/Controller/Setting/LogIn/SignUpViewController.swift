@@ -20,8 +20,8 @@ class SignUpViewController: UIViewController {
   @IBOutlet weak var name_TextField: UITextField!
   @IBOutlet weak var email_TextField: UITextField!
   @IBOutlet weak var password_TextField: UITextField!
+  @IBOutlet weak var confirm_TextField: UITextField!
   
-
   var databaseRef: DatabaseReference!
   var userIsAnonymous: Bool?
 
@@ -39,13 +39,30 @@ class SignUpViewController: UIViewController {
   }
   
   @IBAction func SignUp_Button_Tapped(_ sender: UIButton) {
-    if let email = email_TextField.text, let password = password_TextField.text, let name = name_TextField.text{
-      if email == "" || password == "" || name == "" { // 欄位為空
+    if let email = email_TextField.text, let password = password_TextField.text, let confirm = confirm_TextField.text, let name = name_TextField.text{
+      if email == "" || password == "" || confirm == "" || name == "" { // 欄位為空
         SVProgressHUD.showError(withStatus: "欄位皆須填寫")
         DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
           SVProgressHUD.dismiss()
         })
       } else { // 欄位皆填寫
+        if password != confirm {
+          SVProgressHUD.showError(withStatus: "請重新確認密碼")
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            SVProgressHUD.dismiss()
+          })
+          return
+        }
+        
+        if password.count < 6 {
+          SVProgressHUD.showError(withStatus: "密碼長度至少為6個字元(含)以上")
+          DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: {
+            SVProgressHUD.dismiss()
+          })
+          return
+        }
+        
+        
         if isValid(email){ // 驗證信箱格式
           if let userIsAnonymous = userIsAnonymous {
             if userIsAnonymous {
