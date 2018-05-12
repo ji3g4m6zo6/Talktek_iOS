@@ -22,6 +22,11 @@ class UITextFieldPadding : UITextField {
     return UIEdgeInsetsInsetRect(bounds,
                                  UIEdgeInsetsMake(0, 10, 0, 10))
   }
+  
+  override func editingRect(forBounds bounds: CGRect) -> CGRect {
+    return UIEdgeInsetsInsetRect(bounds,
+                                 UIEdgeInsetsMake(0, 10, 0, 10))
+  }
 }
 
 class UITextViewPadding : UITextView {
