@@ -21,7 +21,7 @@ class HotViewController: UIViewController, IndicatorInfoProvider {
     return IndicatorInfo(title: "熱門")
   }
   
-  
+
   // MARK: - Firebase Outlets
   var uid: String?
   var userIsAnonymous: Bool?

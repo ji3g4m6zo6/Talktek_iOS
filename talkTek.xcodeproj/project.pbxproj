@@ -96,6 +96,7 @@
 		AE27BDEF208CEFE700C1975C /* SongBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE27BDEE208CEFE700C1975C /* SongBuilder.swift */; };
 		AE87197F20761E0900D99852 /* TeacherPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87197E20761E0900D99852 /* TeacherPageViewController.swift */; };
 		AE87198120762DF900D99852 /* TeacherPageOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE87198020762DF900D99852 /* TeacherPageOverviewTableViewCell.swift */; };
+		AEB50B7120A827E10034F0A4 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB50B7020A827E10034F0A4 /* MainTabBarViewController.swift */; };
 		AEB8D5B5208F41B600C82729 /* MiniPlayerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEB8D5B3208F41B600C82729 /* MiniPlayerView.xib */; };
 		AEB8D5B6208F41B600C82729 /* MiniPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D5B4208F41B600C82729 /* MiniPlayer.swift */; };
 		AEB8D5B8208F6D8600C82729 /* PassView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB8D5B7208F6D8600C82729 /* PassView.swift */; };
@@ -228,6 +229,7 @@
 		AE27BDEE208CEFE700C1975C /* SongBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongBuilder.swift; sourceTree = "<group>"; };
 		AE87197E20761E0900D99852 /* TeacherPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPageViewController.swift; sourceTree = "<group>"; };
 		AE87198020762DF900D99852 /* TeacherPageOverviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherPageOverviewTableViewCell.swift; sourceTree = "<group>"; };
+		AEB50B7020A827E10034F0A4 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 		AEB8D5B3208F41B600C82729 /* MiniPlayerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MiniPlayerView.xib; sourceTree = "<group>"; };
 		AEB8D5B4208F41B600C82729 /* MiniPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiniPlayer.swift; sourceTree = "<group>"; };
 		AEB8D5B7208F6D8600C82729 /* PassView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassView.swift; sourceTree = "<group>"; };
@@ -427,6 +429,7 @@
 			isa = PBXGroup;
 			children = (
 				046F3FA2200A0872009C46F5 /* MainTabBar.swift */,
+				AEB50B7020A827E10034F0A4 /* MainTabBarViewController.swift */,
 				04402E8F1FCDB03200EC95EE /* Home */,
 				04402E8E1FCDB02500EC95EE /* Courses */,
 				04402E7B1FCDA2BF00EC95EE /* Setting */,
@@ -1024,6 +1027,7 @@
 				AE15950F206BE3580045D15A /* CoursePageListTableViewCell.swift in Sources */,
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,
 				04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */,
+				AEB50B7120A827E10034F0A4 /* MainTabBarViewController.swift in Sources */,
 				04402E7A1FCDA2AC00EC95EE /* SettingEditViewController.swift in Sources */,
 				04475E951FE7EA7200F28478 /* TeacherViewController.swift in Sources */,
 				04337D9E1FC41888001DBF88 /* PayCategoryCell.swift in Sources */,

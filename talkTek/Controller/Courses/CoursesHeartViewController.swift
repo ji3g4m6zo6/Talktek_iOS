@@ -131,6 +131,7 @@ class CoursesHeartViewController: UIViewController, IndicatorInfoProvider {
       let destinationViewController = segue.destination as! CoursePageViewController
       destinationViewController.detailToGet = self.homeCouresToPass
       destinationViewController.titleOfHeartCourses = titleOfHeartCourses
+      destinationViewController.homeCourseType = "course"
       destinationViewController.hidesBottomBarWhenPushed = true
     }
   }
