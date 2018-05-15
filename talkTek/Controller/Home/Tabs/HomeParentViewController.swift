@@ -17,7 +17,6 @@ import SnapKit
 
 class HomeParentViewController: ButtonBarPagerTabStripViewController {
 
-  var previousIndex: Int? = 0
   
   
   let tealish = UIColor.tealish()
@@ -37,9 +36,6 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
       guard changeCurrentIndex == true else { return }
       oldCell?.label.textColor = UIColor.lightGray
       newCell?.label.textColor = self?.tealish
-      print("current is \(self?.currentIndex), previous is \(self?.previousIndex)")
-      self?.previousIndex = self?.currentIndex
-
     }
     
     

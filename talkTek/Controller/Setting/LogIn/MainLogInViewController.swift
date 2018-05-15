@@ -58,7 +58,10 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
       make.top.left.right.bottom.equalTo(facebook_View)
     }
     
+    // facebook delegate
+    facebook_Button.delegate = self
     
+    // uid
     uid = UserDefaults.standard.string(forKey: "uid")
     
     databaseRef = Database.database().reference()
@@ -153,6 +156,8 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
   
   // Facebook
   func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+    SVProgressHUD.show(withStatus: "載入中...")
+    
     print("user has log in fb")
     
     self.facebook_Button.isHidden = true
@@ -181,26 +186,7 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
         }
       }
       
-      Auth.auth().signIn(with: credential) { (user, error) in
-        print("Facebook user has log into firebase")
-        self.databaseRef = Database.database().reference()
-        
-        let userDefaults = UserDefaults.standard
-        userDefaults.set(user?.uid, forKey: "uid")
-        
-        guard let user = user else { return }
-        
-        self.databaseRef.child("Users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
-          let snapshot = snapshot.value as? NSDictionary
-          if(snapshot == nil)
-          {
-            self.getFacebookUserInfo(uid: user.uid)
-           
-          }
-        })
-        self.performSegue(withIdentifier: "identifierTab", sender: self)
-
-      }
+      self.signInWithFacebook(credential: credential)
     }
 
   }
@@ -232,17 +218,54 @@ class MainLogInViewController: UIViewController, FUIAuthDelegate, FBSDKLoginButt
     let user = Auth.auth().currentUser
     user?.link(with: credential, completion: { (user, error) in
       if error != nil {
+        print(error?.localizedDescription)
+        self.signInWithFacebook(credential: credential)
+        return
+      }
+      
+      SVProgressHUD.showSuccess(withStatus: "登入成功")
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        SVProgressHUD.dismiss()
+      })
+      
+      self.performSegue(withIdentifier: "identifierTab", sender: self)
+      
+      
+    })
+  }
+  
+  func signInWithFacebook(credential: AuthCredential){
+    Auth.auth().signIn(with: credential) { (user, error) in
+      print("Facebook user has log into firebase")
+      
+      if error != nil {
         SVProgressHUD.showError(withStatus: "登入失敗")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
           SVProgressHUD.dismiss()
         })
-        return
       }
       
-      self.performSegue(withIdentifier: "identifierTab", sender: self)
-
+      UserDefaults.standard.set(user?.uid, forKey: "uid")
       
-    })
+      guard let user = user else { return }
+      
+      self.databaseRef.child("Users").child(user.uid).observeSingleEvent(of: .value, with: { (snapshot) in
+        let snapshot = snapshot.value as? NSDictionary
+        if(snapshot == nil)
+        {
+          self.getFacebookUserInfo(uid: user.uid)
+          
+        }
+      })
+      
+      SVProgressHUD.showSuccess(withStatus: "登入成功")
+      DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+        SVProgressHUD.dismiss()
+      })
+      
+      self.performSegue(withIdentifier: "identifierTab", sender: self)
+      
+    }
   }
   func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
     print("user has log out")

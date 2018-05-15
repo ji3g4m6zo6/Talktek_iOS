@@ -20,6 +20,7 @@ class SettingViewController: UIViewController {
   @IBOutlet weak var cameraIcon_Button: UIButton!
   @IBOutlet weak var name_Label: UILabel!
   @IBOutlet weak var edit_View: UIView!
+  @IBOutlet weak var LogIn_LogOut_View: UIView!
   @IBOutlet weak var LogIn_LogOut: UIButton!
   
  
@@ -46,6 +47,12 @@ class SettingViewController: UIViewController {
   // MARK: Database
   var uid: String?
   var userIsAnonymous: Bool?
+  {
+    didSet {
+      LogIn_LogOut_View.isHidden = userIsAnonymous ?? false
+      LogIn_LogOut.isHidden = userIsAnonymous ?? false
+    }
+  }
   var databaseRef: DatabaseReference!
   var user = User()
 
@@ -79,16 +86,9 @@ class SettingViewController: UIViewController {
     // Image action and handgesture
     imageViewHandGesture()
     
-    // Uid and Username
-    self.uid = UserDefaults.standard.string(forKey: "uid")
-    self.username = UserDefaults.standard.string(forKey: "username") ?? ""
+    // Uid
+    uid = UserDefaults.standard.string(forKey: "uid")
     
-    // See if there's username
-    if username != "" {
-      name_Label.text = self.username
-    } else {
-      name_Label.text = username
-    }
     
     // fetch Data
     fetchData()
@@ -180,7 +180,6 @@ class SettingViewController: UIViewController {
       UserDefaults.standard.set(nil, forKey: "uid")
       
       try Auth.auth().signOut()
-      self.databaseRef = Database.database().reference()
       self.databaseRef.child("Users").child(uid).child("Online-Status").setValue("Off")
       Analytics.logEvent("setting_logout_done", parameters: nil)
       performSegue(withIdentifier: "identifierLogIn", sender: self)
@@ -440,7 +439,6 @@ extension SettingViewController: UIImagePickerControllerDelegate, UINavigationCo
 extension SettingViewController {
   func fetchData(){
     guard let uid = uid else { return }
-    databaseRef = Database.database().reference()
     databaseRef.child("Users/\(uid)").observe(.value) { (snapshot) in
       if let dictionary = snapshot.value as? [String: AnyObject]{
         print("dictionary is \(dictionary)")

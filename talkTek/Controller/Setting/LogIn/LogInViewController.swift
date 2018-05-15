@@ -20,7 +20,6 @@ class LogInViewController: UIViewController {
   @IBOutlet weak var password_Textfield: UITextField!
   
   
-  
   @IBOutlet weak var logInButton: UIButton!
   var emailFromSignUp: String?
   var passwordFromSignUp: String?
@@ -72,10 +71,13 @@ class LogInViewController: UIViewController {
     Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
       
       if error != nil {
+        
+        
         SVProgressHUD.showError(withStatus: "登入失敗")
         DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
           SVProgressHUD.dismiss()
         })
+        print(error)
         print(error?.localizedDescription as Any)
         return
       }else{

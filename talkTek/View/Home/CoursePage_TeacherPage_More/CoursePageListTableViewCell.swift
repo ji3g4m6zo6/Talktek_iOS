@@ -16,6 +16,8 @@ class CoursePageListTableViewCell: UITableViewCell {
   
   @IBOutlet weak var timeLabel: UILabel!
   
+  @IBOutlet weak var uitryoutButton: UIButton!
+  
   @IBOutlet weak var tryoutButton: UIButton!
   
   override func layoutSubviews() {

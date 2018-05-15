@@ -280,12 +280,15 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
           
           if thisCourseHasBought == true {
             cell.tryoutButton.isHidden = true
+            cell.uitryoutButton.isHidden = true
           } else {
             if let tryOutEnable = particularItem.TryOutEnable{
               if tryOutEnable == -1 {
                 cell.tryoutButton.isHidden = true
+                cell.uitryoutButton.isHidden = true
               } else {
                 cell.tryoutButton.isHidden = false
+                cell.uitryoutButton.isHidden = false
               }
             }
           }

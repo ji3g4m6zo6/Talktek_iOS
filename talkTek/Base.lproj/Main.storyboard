@@ -2256,6 +2256,7 @@
                     <navigationItem key="navigationItem" title="設定" id="eY5-1p-yYK"/>
                     <connections>
                         <outlet property="LogIn_LogOut" destination="NXl-B9-kRA" id="Tp2-Ch-19p"/>
+                        <outlet property="LogIn_LogOut_View" destination="Yyh-L7-Y2W" id="zfM-E9-1Xd"/>
                         <outlet property="cameraIcon_Button" destination="gNn-lr-Uwb" id="OX2-dv-bgZ"/>
                         <outlet property="edit_View" destination="YqP-5l-VTg" id="kzD-dG-s1M"/>
                         <outlet property="name_Label" destination="ZBk-LO-CUm" id="gkc-pf-P0v"/>
@@ -6076,8 +6077,8 @@
                                                             </constraints>
                                                             <state key="normal" image="播放"/>
                                                         </button>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.為什麼你會「喜歡上」一個人？愛為什麼你" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frv-8v-m9p">
-                                                            <rect key="frame" x="45" y="25" width="295" height="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1.為什麼你會" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frv-8v-m9p">
+                                                            <rect key="frame" x="45" y="25" width="240" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -6090,13 +6091,13 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17:09" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaY-lH-ZCD">
-                                                            <rect key="frame" x="45" y="44.5" width="295" height="14.5"/>
+                                                            <rect key="frame" x="45" y="44.5" width="31.5" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wTR-E2-eIj" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
-                                                            <rect key="frame" x="110" y="43.5" width="45" height="17"/>
+                                                            <rect key="frame" x="295" y="33.5" width="45" height="17"/>
                                                             <color key="backgroundColor" red="0.12156862745098039" green="0.74901960784313726" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="45" id="Yey-Rd-10w"/>
@@ -6112,22 +6113,32 @@
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cfA-jY-btt" customClass="DesignableButton" customModule="talkTek" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="355" height="68"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                            <state key="normal">
+                                                                <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="QMa-W2-ZpW" firstAttribute="leading" secondItem="o0x-mP-Zy6" secondAttribute="leading" constant="15" id="3Sz-j5-a2F"/>
-                                                        <constraint firstAttribute="trailing" secondItem="frv-8v-m9p" secondAttribute="trailing" constant="15" id="8Oh-8h-rCi"/>
+                                                        <constraint firstItem="wTR-E2-eIj" firstAttribute="trailing" secondItem="frv-8v-m9p" secondAttribute="trailing" constant="55" id="86E-1g-wwx"/>
                                                         <constraint firstAttribute="trailing" secondItem="lbk-Ij-M20" secondAttribute="trailing" constant="15" id="8fs-xu-JlN"/>
-                                                        <constraint firstItem="wTR-E2-eIj" firstAttribute="leading" secondItem="QMa-W2-ZpW" secondAttribute="trailing" constant="75" id="EBA-bd-AZG"/>
+                                                        <constraint firstItem="wTR-E2-eIj" firstAttribute="centerY" secondItem="QMa-W2-ZpW" secondAttribute="centerY" id="DeV-XX-RcD"/>
                                                         <constraint firstAttribute="bottom" secondItem="lbk-Ij-M20" secondAttribute="bottom" constant="15" id="EfN-7f-jfz"/>
                                                         <constraint firstItem="QMa-W2-ZpW" firstAttribute="centerY" secondItem="o0x-mP-Zy6" secondAttribute="centerY" id="NYu-30-C4U"/>
                                                         <constraint firstItem="jaY-lH-ZCD" firstAttribute="leading" secondItem="frv-8v-m9p" secondAttribute="leading" id="aDU-5X-d5b"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cfA-jY-btt" secondAttribute="trailing" id="dIE-GZ-9VE"/>
                                                         <constraint firstAttribute="bottom" secondItem="jaY-lH-ZCD" secondAttribute="bottom" constant="25" id="ehb-cm-vic"/>
-                                                        <constraint firstItem="jaY-lH-ZCD" firstAttribute="trailing" secondItem="frv-8v-m9p" secondAttribute="trailing" id="hLG-q4-rp3"/>
                                                         <constraint firstItem="lbk-Ij-M20" firstAttribute="leading" secondItem="o0x-mP-Zy6" secondAttribute="leading" constant="15" id="hQN-si-j9Y"/>
-                                                        <constraint firstItem="wTR-E2-eIj" firstAttribute="centerY" secondItem="jaY-lH-ZCD" secondAttribute="centerY" id="oZL-Ri-CV0"/>
+                                                        <constraint firstItem="cfA-jY-btt" firstAttribute="leading" secondItem="o0x-mP-Zy6" secondAttribute="leading" id="nU3-IH-08T"/>
                                                         <constraint firstItem="frv-8v-m9p" firstAttribute="top" secondItem="o0x-mP-Zy6" secondAttribute="top" constant="25" id="shm-Gk-fBd"/>
+                                                        <constraint firstItem="lbk-Ij-M20" firstAttribute="top" secondItem="cfA-jY-btt" secondAttribute="bottom" id="ta7-vI-qi6"/>
                                                         <constraint firstItem="jaY-lH-ZCD" firstAttribute="top" secondItem="frv-8v-m9p" secondAttribute="bottom" constant="2" id="xLk-es-OC4"/>
+                                                        <constraint firstItem="cfA-jY-btt" firstAttribute="top" secondItem="o0x-mP-Zy6" secondAttribute="top" id="zW6-Vg-Jvp"/>
+                                                        <constraint firstAttribute="trailing" secondItem="wTR-E2-eIj" secondAttribute="trailing" constant="15" id="zfM-ON-ZFp"/>
                                                         <constraint firstItem="frv-8v-m9p" firstAttribute="leading" secondItem="QMa-W2-ZpW" secondAttribute="trailing" constant="10" id="zzW-eT-i8p"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
@@ -6157,7 +6168,8 @@
                                             <outlet property="playerButton" destination="QMa-W2-ZpW" id="gEM-L7-Hv0"/>
                                             <outlet property="timeLabel" destination="jaY-lH-ZCD" id="SUH-y0-Y7o"/>
                                             <outlet property="titleLabel" destination="frv-8v-m9p" id="CJu-rt-oRC"/>
-                                            <outlet property="tryoutButton" destination="wTR-E2-eIj" id="lQx-9t-rnE"/>
+                                            <outlet property="tryoutButton" destination="cfA-jY-btt" id="APX-g5-2Ko"/>
+                                            <outlet property="uitryoutButton" destination="wTR-E2-eIj" id="aBZ-Yx-P7C"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="expand" rowHeight="39" id="tnv-6G-gVU" customClass="CoursePageExpandTableViewCell" customModule="talkTek" customModuleProvider="target">
@@ -6248,7 +6260,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6P-TG-dKg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="670" y="-2278"/>
+            <point key="canvasLocation" x="669.60000000000002" y="-2278.5607196401802"/>
         </scene>
         <!--Teacher Page View Controller-->
         <scene sceneID="VPK-pm-zFX">
@@ -7120,6 +7132,7 @@
         <image name="錢幣" width="15" height="15"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="pid-ta-Xp6"/>
         <segue reference="irW-5M-Rbk"/>
         <segue reference="rnJ-4A-HtR"/>
         <segue reference="ATM-aJ-JqT"/>
