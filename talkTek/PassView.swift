@@ -36,10 +36,13 @@ class PassView: UIView {
   private func commonInit(){
     
     //Bundle.main.loadNibNamed("PassView", owner: self, options: nil)
-    contentView = loadNib()
+//    contentView = loadNib()
+//    addSubview(contentView)
+//    contentView.frame = self.bounds
+//    contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+    UINib(nibName: "MiniPlayerView", bundle: nil).instantiate(withOwner: self, options: nil)
     addSubview(contentView)
     contentView.frame = self.bounds
-    contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
   }
   /*
    // Only override draw() if you perform custom drawing.
