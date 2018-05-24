@@ -14,11 +14,14 @@ import FirebaseDatabase
 import XLPagerTabStrip
 import PopupDialog
 import SnapKit
+import ARNTransitionAnimator
 
 class HomeParentViewController: ButtonBarPagerTabStripViewController {
 
   
-  
+    private var animator : ARNTransitionAnimator?
+    fileprivate var playerViewController : PlayerViewController!
+    var miniPlayerView: UIView!
   let tealish = UIColor.tealish()
   override func viewDidLoad() {
     
@@ -50,10 +53,54 @@ class HomeParentViewController: ButtonBarPagerTabStripViewController {
 //    }
     
     print(UserDefaults.standard.string(forKey: "uid") ?? "wtfffff???")
-    
-    
+    prepareMiniPlayer()
     
   }
+    
+    func prepareMiniPlayer() {
+        let window = UIApplication.shared.keyWindow!
+        miniPlayerView = PassView(frame: CGRect(x: 0, y: window.frame.height - 100, width: window.frame.width, height: 50))
+        let gesture = UITapGestureRecognizer(target: self, action:  #selector(self.miniPlayerTapAction))
+        miniPlayerView.addGestureRecognizer(gesture)
+        miniPlayerView.tag = 5566
+        self.miniPlayerView.isHidden = true
+        window.addSubview(miniPlayerView)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.playerViewController = storyboard.instantiateViewController(withIdentifier: "PlayerViewController") as? PlayerViewController
+        self.playerViewController.modalPresentationStyle = .overCurrentContext
+        self.setupAnimator()
+        NotificationCenter.default.addObserver(forName:Notification.Name(rawValue:"PlayMusicNotification"),
+                                               object:nil, queue:nil) {
+                                                [weak self] notification in
+                                                self?.miniPlayerTapAction(sender: nil)
+        }
+    }
+    
+    func setupAnimator() {
+        let animation = MusicPlayerTransitionAnimation(modalVC: playerViewController, rootNavigationViewController: self.navigationController!)
+        animation.completion = { [weak self] isPresenting in
+            if isPresenting {
+                guard let _self = self else { return }
+                let modalGestureHandler = TransitionGestureHandler(targetView: _self.playerViewController.view, direction: .bottom)
+                modalGestureHandler.panCompletionThreshold = 15.0
+                _self.animator?.registerInteractiveTransitioning(.dismiss, gestureHandler: modalGestureHandler)
+            } else {
+                self?.setupAnimator()
+            }
+        }
+        
+        let gestureHandler = TransitionGestureHandler(targetView: miniPlayerView, direction: .top)
+        gestureHandler.panCompletionThreshold = 15.0
+        self.animator = ARNTransitionAnimator(duration: 0.5, animation: animation)
+        self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
+        self.playerViewController.transitioningDelegate = self.animator
+    }
+    
+    @objc func miniPlayerTapAction(sender : UITapGestureRecognizer?) {
+        self.present(self.playerViewController, animated: true, completion: nil)
+        self.miniPlayerView.isHidden = false
+    }
+    
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.

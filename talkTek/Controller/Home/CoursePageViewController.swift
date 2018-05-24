@@ -462,7 +462,8 @@ extension CoursePageViewController: UITableViewDataSource, UITableViewDelegate {
       }
     }
     
-    performSegue(withIdentifier: "identifierPlayer", sender: self)
+//    performSegue(withIdentifier: "identifierPlayer", sender: self)
+    NotificationCenter.default.post(name: NSNotification.Name(rawValue: "PlayMusicNotification"), object: self)
   }
   
   // heart Button

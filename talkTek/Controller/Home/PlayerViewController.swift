@@ -237,8 +237,9 @@ class PlayerViewController: UIViewController {
     speed_Button.tintColor = UIColor.white
     playerToBottom_Button.tintColor = UIColor.white
     
-    guard let audioDataOfThisSong = audioData[thisSong] else {
-      return
+    guard  audioData.count > 0,
+        let audioDataOfThisSong = audioData[thisSong] else {
+            return
     }
     
 
@@ -324,11 +325,12 @@ class PlayerViewController: UIViewController {
     // Dispose of any resources that can be recreated.
   }
   override func viewWillDisappear(_ animated: Bool) {
-    player.pause()
-    
-    playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
-    playerItem.removeObserver(self, forKeyPath: "status")
-    
+    self.dismiss(animated: true, completion: nil)
+    if player != nil {
+        player.pause()
+        playerItem.removeObserver(self, forKeyPath: "loadedTimeRanges")
+        playerItem.removeObserver(self, forKeyPath: "status")
+    }
   }
  
   
