@@ -82,6 +82,7 @@
 		04DD58AA1FEAC296009944D2 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DD58A91FEAC296009944D2 /* HistoryTableViewCell.swift */; };
 		04E1004B1FD311270007D4E3 /* Setting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004A1FD311270007D4E3 /* Setting.swift */; };
 		04E1004D1FD3EF0A0007D4E3 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E1004C1FD3EF0A0007D4E3 /* Home.swift */; };
+		089B568E20B688B900070D5F /* MusicPlayerTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089B568D20B688B900070D5F /* MusicPlayerTransitionAnimation.swift */; };
 		61C5FFDBF2014F857E80DE4B /* Pods_talkTek.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0777E54F7301F178A78F49CD /* Pods_talkTek.framework */; };
 		AE159500206BDF930045D15A /* CoursePageOverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1594FF206BDF930045D15A /* CoursePageOverviewTableViewCell.swift */; };
 		AE159503206BDFD00045D15A /* CoursePageHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE159502206BDFD00045D15A /* CoursePageHeaderTableViewCell.swift */; };
@@ -209,6 +210,7 @@
 		04E1004A1FD311270007D4E3 /* Setting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Setting.swift; sourceTree = "<group>"; };
 		04E1004C1FD3EF0A0007D4E3 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		0777E54F7301F178A78F49CD /* Pods_talkTek.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTek.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		089B568D20B688B900070D5F /* MusicPlayerTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTransitionAnimation.swift; sourceTree = "<group>"; };
 		1A949C55F5F6CDD655153DDD /* Pods_talkTekUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_talkTekUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		256E2B690F6191AA47E176C5 /* Pods-talkTekTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A93F75103A64BCA51FBD5D1 /* Pods-talkTekUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-talkTekUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-talkTekUITests/Pods-talkTekUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 			isa = PBXGroup;
 			children = (
 				041E3CAE1FDBD7120035E3A4 /* Pay and Free */,
+				089B568C20B688AB00070D5F /* Animation */,
 				041E3CAF1FDBDBD40035E3A4 /* HomeParentViewController.swift */,
 				041E3CB11FDBE8DF0035E3A4 /* HotViewController.swift */,
 				04475E961FE7F21900F28478 /* ProfessionalViewController.swift */,
@@ -553,6 +556,14 @@
 			path = LogIn;
 			sourceTree = "<group>";
 		};
+		089B568C20B688AB00070D5F /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				089B568D20B688B900070D5F /* MusicPlayerTransitionAnimation.swift */,
+			);
+			path = Animation;
+			sourceTree = "<group>";
+		};
 		4636A252B7A8A6FADCA14B60 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,8 +637,6 @@
 				04BE92191FB1583900A35523 /* Sources */,
 				04BE921A1FB1583900A35523 /* Frameworks */,
 				04BE921B1FB1583900A35523 /* Resources */,
-				4F421EC70ABCD047C115FF04 /* [CP] Embed Pods Frameworks */,
-				FAD84436C58416FE4EBF3B1D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -647,8 +656,6 @@
 				04BE92241FB1583900A35523 /* Sources */,
 				04BE92251FB1583900A35523 /* Frameworks */,
 				04BE92261FB1583900A35523 /* Resources */,
-				F8971EAFB8EF395C50040535 /* [CP] Embed Pods Frameworks */,
-				02DAA92F4BA14DE4F91945AE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -755,21 +762,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		02DAA92F4BA14DE4F91945AE /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekUITests/Pods-talkTekUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		16DC4837A6A99C2BF6D49763 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -850,21 +842,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4F421EC70ABCD047C115FF04 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		832FAC0F07807DA7B7F901A1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -936,36 +913,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F8971EAFB8EF395C50040535 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekUITests/Pods-talkTekUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		FAD84436C58416FE4EBF3B1D /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-talkTekTests/Pods-talkTekTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1027,6 +974,7 @@
 				042B48A31FEE47A200A4C684 /* TeacherCoursesItemsTableViewCell.swift in Sources */,
 				04ACB8F61FECCC3900105056 /* AudioHeaderTableViewCell.swift in Sources */,
 				04DD58A41FEA723B009944D2 /* ProfessionCollectionViewCell.swift in Sources */,
+				089B568E20B688B900070D5F /* MusicPlayerTransitionAnimation.swift in Sources */,
 				AE15950F206BE3580045D15A /* CoursePageListTableViewCell.swift in Sources */,
 				04445AEF1FC713E7004D2825 /* AudioFilesTableViewCell.swift in Sources */,
 				04402E7D1FCDA2D400EC95EE /* CouponViewController.swift in Sources */,
